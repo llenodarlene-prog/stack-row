@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "content_id": "B10",
+  "slug": "/ai/atlassian-ai-knowledge-permissions/",
+  "status": "scaffolded",
+  "required_seo_tool": "Ubersuggest",
+  "keyword_queries": [],
+  "ranking_competitors": [],
+  "sources": [],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "A3",
+    "A2",
+    "B6",
+    "B9"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  }
+}

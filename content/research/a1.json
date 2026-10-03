@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "content_id": "A1",
+  "slug": "/cybersecurity/cybersecurity-statistics/",
+  "status": "scaffolded",
+  "required_seo_tool": "Ubersuggest",
+  "keyword_queries": [],
+  "ranking_competitors": [],
+  "sources": [],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "A10"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  }
+}

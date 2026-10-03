@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "content_id": "B3",
+  "slug": "/cybersecurity/palo-alto-networks-platformization/",
+  "status": "scaffolded",
+  "required_seo_tool": "Ubersuggest",
+  "keyword_queries": [],
+  "ranking_competitors": [],
+  "sources": [],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "A1",
+    "A6",
+    "A7",
+    "B1"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  }
+}
