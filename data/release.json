@@ -10,7 +10,8 @@
     "/saas/",
     "/ai/",
     "/business-technology/",
-    "/cloud-infrastructure/"
+    "/cloud-infrastructure/",
+    "/developer-data/"
   ],
   "approvals": {
     "contact_details": false,

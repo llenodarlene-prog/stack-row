@@ -1,10 +1,11 @@
 {
   "name": "Stack Row",
   "tagline": "Tech That Moves Businesses Forward.",
+  "description": "Research and practical analysis for people choosing, building, and running business technology.",
   "url": "https://stackrow.org",
   "locale": "en-US",
   "launch_status": "building",
-  "contact_email": null,
+  "contact_email": "stackrow@gmail.com",
   "fonts": {
     "display": "Sora",
     "body": "Inter",

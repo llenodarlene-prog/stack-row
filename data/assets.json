@@ -34,5 +34,159 @@
     "role": "internal reference",
     "deploy": false,
     "alt": "Stack Row brand identity board"
+  },
+  {
+    "path": "/assets/brand/stack-row-logo-header.png",
+    "width": 566,
+    "height": 173,
+    "role": "header logo, transparent",
+    "alt": "Stack Row"
+  },
+  {
+    "path": "/assets/brand/stack-row-icon-192.png",
+    "width": 192,
+    "height": 192,
+    "role": "favicon",
+    "alt": "Stack Row app icon"
+  },
+  {
+    "path": "/assets/images/data-center-corridor-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Bright data center corridor lined with server racks behind glass doors"
+  },
+  {
+    "path": "/assets/images/data-center-corridor-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Bright data center corridor lined with server racks behind glass doors"
+  },
+  {
+    "path": "/assets/images/engineers-robotic-gripper-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two engineers examining a robotic gripper at a workbench"
+  },
+  {
+    "path": "/assets/images/engineers-robotic-gripper-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two engineers examining a robotic gripper at a workbench"
+  },
+  {
+    "path": "/assets/images/hardware-security-key-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Hardware security key plugged into the side of a silver laptop"
+  },
+  {
+    "path": "/assets/images/hardware-security-key-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Hardware security key plugged into the side of a silver laptop"
+  },
+  {
+    "path": "/assets/images/airport-lounge-work-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Person working on a laptop in an airport lounge beside a window onto the apron"
+  },
+  {
+    "path": "/assets/images/airport-lounge-work-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Person working on a laptop in an airport lounge beside a window onto the apron"
+  },
+  {
+    "path": "/assets/images/smart-logistics-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Technician checking a conveyor line in a sunlit logistics facility"
+  },
+  {
+    "path": "/assets/images/smart-logistics-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Technician checking a conveyor line in a sunlit logistics facility"
+  },
+  {
+    "path": "/assets/images/cloud-campus-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Glass office campus reflected in a shallow pool under a clear sky"
+  },
+  {
+    "path": "/assets/images/cloud-campus-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Glass office campus reflected in a shallow pool under a clear sky"
+  },
+  {
+    "path": "/assets/images/ai-processor-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Close view of a silver processor seated on a blue circuit board"
+  },
+  {
+    "path": "/assets/images/ai-processor-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Close view of a silver processor seated on a blue circuit board"
+  },
+  {
+    "path": "/assets/images/courtyard-strategy-meeting-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Three colleagues in conversation around a low table in an office courtyard"
+  },
+  {
+    "path": "/assets/images/courtyard-strategy-meeting-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Three colleagues in conversation around a low table in an office courtyard"
+  },
+  {
+    "path": "/assets/images/precision-manufacturing-cell-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "White robotic arm working over a machined part in a bright manufacturing cell"
+  },
+  {
+    "path": "/assets/images/precision-manufacturing-cell-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "White robotic arm working over a machined part in a bright manufacturing cell"
+  },
+  {
+    "path": "/assets/images/coastal-workspace-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Laptop on a white desk in a workspace overlooking the sea"
+  },
+  {
+    "path": "/assets/images/coastal-workspace-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Laptop on a white desk in a workspace overlooking the sea"
   }
 ]
