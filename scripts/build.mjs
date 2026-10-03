@@ -77,7 +77,7 @@ for (const item of visible) {
   const draft = item.draft === true;
   const robots = indexable && !draft ? 'index,follow' : 'noindex,nofollow,noarchive';
   let body = markdownToHtml(item.body);
-  if (item.type === 'home') body += `<section><h2>Latest research</h2>${cards(posts.slice(0, 6))}</section>`;
+  if (item.template === 'home') body += `<section><h2>Latest research</h2>${cards(posts.slice(0, 6))}</section>`;
   if (item.type === 'hub') body += `<section><h2>${buildEnv === 'production' ? 'Published research' : 'Research pipeline'}</h2>${cards(posts.filter(post => post.slug.startsWith(item.slug)))}</section>`;
   const fullTitle = item.seo_title || `${item.title} | ${site.name}`;
   const schema = JSON.stringify(schemaFor(item, url)).replaceAll('<', '\\u003c');
