@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "content_id": "A3",
+  "slug": "/ai/ai-statistics-investment-production-use/",
+  "status": "scaffolded",
+  "required_seo_tool": "Ubersuggest",
+  "keyword_queries": [],
+  "ranking_competitors": [],
+  "sources": [],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "B6",
+    "B7",
+    "B9",
+    "B10",
+    "A4"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "content_id": "B7",
+  "slug": "/ai/servicenow-ai-workflows/",
+  "status": "scaffolded",
+  "required_seo_tool": "Ubersuggest",
+  "keyword_queries": [],
+  "ranking_competitors": [],
+  "sources": [],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "A3",
+    "A2",
+    "A4",
+    "B6"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  }
+}

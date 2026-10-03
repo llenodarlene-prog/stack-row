@@ -1,0 +1,18 @@
+{
+  "primary": [
+    {"label": "Home", "url": "/"},
+    {"label": "Cybersecurity", "url": "/cybersecurity/"},
+    {"label": "SaaS", "url": "/saas/"},
+    {"label": "Enterprise AI", "url": "/ai/"},
+    {"label": "Business Technology", "url": "/business-technology/"},
+    {"label": "Cloud Infrastructure", "url": "/cloud-infrastructure/"},
+    {"label": "About", "url": "/about/"},
+    {"label": "Contact", "url": "/contact/"}
+  ],
+  "footer": [
+    {"label": "About", "url": "/about/"},
+    {"label": "Contact", "url": "/contact/"},
+    {"label": "Privacy", "url": "/privacy/"},
+    {"label": "Sitemap", "url": "/sitemap.xml"}
+  ]
+}

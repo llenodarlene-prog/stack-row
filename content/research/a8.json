@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "content_id": "A8",
+  "slug": "/cybersecurity/phishing-statistics-attack-stage/",
+  "status": "scaffolded",
+  "required_seo_tool": "Ubersuggest",
+  "keyword_queries": [],
+  "ranking_competitors": [],
+  "sources": [],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "A1",
+    "A9",
+    "B4",
+    "B3"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  }
+}

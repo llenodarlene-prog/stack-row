@@ -1,0 +1,38 @@
+[
+  {
+    "path": "/assets/brand/stack-row-horizontal.png",
+    "width": 1672,
+    "height": 941,
+    "role": "horizontal logo",
+    "alt": "Stack Row"
+  },
+  {
+    "path": "/assets/brand/stack-row-vertical.png",
+    "width": 1122,
+    "height": 1402,
+    "role": "vertical logo",
+    "alt": "Stack Row"
+  },
+  {
+    "path": "/assets/brand/stack-row-mark.png",
+    "width": 1254,
+    "height": 1254,
+    "role": "brand mark",
+    "alt": "Stack Row folded S mark"
+  },
+  {
+    "path": "/assets/brand/stack-row-icon.png",
+    "width": 1254,
+    "height": 1254,
+    "role": "app icon",
+    "alt": "Stack Row app icon"
+  },
+  {
+    "path": "/assets/brand/stack-row-brand-board.png",
+    "width": 1448,
+    "height": 1086,
+    "role": "internal reference",
+    "deploy": false,
+    "alt": "Stack Row brand identity board"
+  }
+]
