@@ -64,7 +64,7 @@ Our editors review every submission. We may ask for changes, and we may decline 
 We do not promise search rankings, traffic, or sales. A partnership is a commitment to publish agreed content, not a performance guarantee.
 :::
 
-## What to Send
+## What to Send {image:airport-lounge-work}
 
 A short, specific inquiry helps us reply with the right information. Please include the details below.
 

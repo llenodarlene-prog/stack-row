@@ -15,7 +15,7 @@ Stack Row is a technology publication for people who choose, build, and run busi
 
 Our purpose is straightforward: make technology research useful to the person who has to act on it.
 
-## Built Around the Work
+## Built Around the Work {image:courtyard-strategy-meeting}
 
 Choosing a platform is only part of a technology decision. Someone also has to connect it to existing systems, manage access, understand the bill, and keep the service working.
 
@@ -23,7 +23,7 @@ That operating reality shapes our coverage. We look at the requirements behind a
 
 Our readers include technology leaders, security teams, software buyers, founders, developers, and business operators. You do not need to share a job title to share a question: will this help us do the work better?
 
-## What You Will Find Here
+## What You Will Find Here {image:airport-lounge-work}
 
 Our articles examine statistics, market findings, and technical concepts. Our blogs apply research and product documentation to questions about costs, access, workflows, and implementation.
 
@@ -47,7 +47,7 @@ Reported findings belong to their sources. Our comparisons, questions, and decis
 Official documentation can establish a published feature or commercial term. It does not prove performance in every customer environment. We do not present document-based research as hands-on testing.
 :::
 
-## A Publication With Practical Limits
+## A Publication With Practical Limits {backdrop:cloud-campus}
 
 Technology changes, and published documentation can change with it. An article provides context for a decision; it cannot establish your contract terms, system configuration, or organization’s requirements.
 

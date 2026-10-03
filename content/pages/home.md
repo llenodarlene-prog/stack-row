@@ -18,7 +18,7 @@ Business technology insights for the people choosing, building, and running the 
 [Explore the Topics](#topics) [How We Work](/about/)
 :::
 
-## Technology Decisions Start With Better Context
+## Technology Decisions Start With Better Context {image:coastal-workspace}
 
 A market statistic can explain a trend. A product announcement can describe a capability. Neither tells you whether a system fits your business.
 
@@ -57,7 +57,7 @@ Explore the tools, APIs, integrations, and data platforms that keep systems work
 
 ## Start With the Evidence
 
-These articles explain what the numbers measure and where their usefulness ends.
+Know what each number measures, and where its usefulness ends, before you rely on it.
 
 ::: cards
 ### [Cybersecurity Statistics by Sector and Company Size](/cybersecurity/cybersecurity-statistics/)
@@ -71,6 +71,9 @@ Understand why supplier revenue and business adoption answer different questions
 :::
 
 ::: chart /cybersecurity/cybersecurity-statistics/
+:::
+
+::: chart /cloud-infrastructure/cloud-computing-statistics/
 :::
 
 ## Put the Research to Work
@@ -88,10 +91,10 @@ Trace charges to their billing units, included allowances, and the services crea
 Connect the required work to the product tier, seat type, and implementation it needs.
 :::
 
-## Research You Can Examine
+## Research You Can Examine {backdrop:cloud-campus}
 
-::: callout
 Our editorial standard is to link to original evidence, explain important limits, and keep reported findings separate from our interpretation. A useful number should tell you what was counted, when, and for whom.
 
-Read more about [Stack Row’s editorial approach](/about/).
+::: actions
+[Read Our Editorial Approach](/about/)
 :::

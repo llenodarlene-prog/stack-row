@@ -15,7 +15,11 @@ complete: true
 
 Infrastructure decisions affect how a service runs, who can access it, and what it costs to keep available. Stack Row’s cloud coverage connects deployment choices and technical dependencies with those operating responsibilities.
 
-## Understand the System Behind the Label
+::: actions
+[Browse the Coverage](#coverage) [Suggest a Topic](/contact/)
+:::
+
+## Understand the System Behind the Label {backdrop:data-center-corridor}
 
 Public, private, and hybrid cloud describe deployment models. A service still needs a clear account of its dependencies, ownership, and requirements.
 
@@ -36,11 +40,11 @@ Connect usage, billing units, and included allowances before deciding where to c
 ::: chart /cloud-infrastructure/cloud-computing-statistics/
 :::
 
-## Connect Cost and Control
+## Connect Cost and Control {backdrop:precision-manufacturing-cell}
 
 Infrastructure questions rarely stop at the architecture diagram. [Cloud security findings](/cybersecurity/cloud-security-statistics/) can identify conditions worth investigating, while [Snowflake AI and compute costs](/ai/snowflake-ai-compute-costs/) show why different pricing units need to remain separate in a workload estimate.
 
-## More Cloud & Infrastructure Coverage
+## More Cloud & Infrastructure Coverage {#coverage}
 
 Explore the articles and blogs below for analysis of cloud services, infrastructure operations, and the dependencies behind reliable business systems.
 

@@ -15,7 +15,11 @@ complete: true
 
 An AI system becomes a business decision when it can access information, perform an action, or change a workflow. Stack Row examines enterprise AI through those practical questions, alongside the research behind investment and adoption.
 
-## Define the Task Before Judging the Result
+::: actions
+[Browse the Coverage](#coverage) [Suggest a Topic](/contact/)
+:::
+
+## Define the Task Before Judging the Result {backdrop:engineers-robotic-gripper}
 
 A useful evaluation starts with a specific job. What information does the system need? Under whose identity does it act? Which results require review? What does an accepted outcome cost?
 
@@ -36,11 +40,11 @@ Review execution identity, returned information, and permitted actions before wi
 Distinguish credit classes and supporting compute costs when estimating an AI workload.
 :::
 
-## Keep Information Boundaries Visible
+## Keep Information Boundaries Visible {backdrop:data-center-corridor}
 
 Finding an answer and being entitled to see it are separate questions. Our analysis of [Atlassian AI and knowledge permissions](/ai/atlassian-ai-knowledge-permissions/) explores the source access and execution contexts behind an AI-assisted response.
 
-## More AI Coverage
+## More AI Coverage {#coverage}
 
 Explore the articles and blogs below for research and analysis on enterprise AI, agents, automation, and the systems around them.
 
