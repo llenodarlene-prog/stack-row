@@ -19,9 +19,9 @@ test('launch plan contains exactly ten articles and ten blogs', async () => {
   assert.equal(new Set(plan.map(item => item.slug)).size, 20);
 });
 
-test('local build includes all drafts and marks them noindex', async () => {
+test('non-production build includes all drafts and marks them noindex', async () => {
   const manifest = JSON.parse(await readFile('dist/build-manifest.json', 'utf8'));
-  assert.equal(manifest.environment, 'local');
+  assert.equal(manifest.environment, process.env.BUILD_ENV || 'local');
   assert.equal(manifest.indexable, false);
   assert.equal(manifest.pages.filter(page => page.draft).length, 20);
   const draft = await readFile('dist/cybersecurity/cybersecurity-statistics/index.html', 'utf8');
