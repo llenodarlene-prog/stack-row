@@ -15,7 +15,11 @@ complete: true
 
 A software purchase changes how people work, how information moves, and who is responsible when something fails. Stack Row examines business technology through those consequences, from the first requirement to implementation and renewal.
 
-## Start With the Problem the Software Must Solve
+::: actions
+[Browse the Coverage](#coverage) [Suggest a Topic](/contact/)
+:::
+
+## Start With the Problem the Software Must Solve {backdrop:smart-logistics}
 
 A feature list becomes useful when it connects to a task. The buying decision also needs a clear view of integrations, access, data quality, training, and commercial terms.
 
@@ -33,11 +37,11 @@ Interpret buyer-survey findings without confusing stated intentions, reported be
 Assess business requirements alongside product tiers, specialized seats, and the work needed to make the system useful.
 :::
 
-## Keep the Commercial Comparison Consistent
+## Keep the Commercial Comparison Consistent {backdrop:cloud-campus}
 
 Broader [SaaS adoption and revenue findings](/saas/saas-statistics-revenue-adoption/) can provide market context. The actual proposal still needs comparable scope, a realistic transition plan, and an accountable owner for the outcome.
 
-## More Business Technology Coverage
+## More Business Technology Coverage {#coverage}
 
 Explore the articles and blogs below for research and practical analysis on choosing, implementing, and operating business software.
 

@@ -15,13 +15,17 @@ complete: true
 
 An API, integration, or data platform can become a dependency for an entire business process. Stack Row’s Developer & Data category focuses on the technical choices behind those connections and the work needed to maintain them.
 
-## Follow the Data and the Responsibility
+::: actions
+[See Related Reading](#related) [Suggest a Topic](/contact/)
+:::
+
+## Follow the Data and the Responsibility {backdrop:ai-processor}
 
 Useful technical evaluation goes beyond whether a tool can complete a demonstration. It asks how information enters the system, what transforms it, who can access it, and how failures become visible.
 
 This category brings together APIs, developer tooling, data platforms, and low-code and no-code systems. Its focus is practical: integration behavior, permissions, operating costs, maintainability, and the trade-offs of changing an existing system.
 
-## Related Reading From Across Stack Row
+## Related Reading From Across Stack Row {#related}
 
 While this category’s dedicated coverage develops, these completed pieces address closely connected data and platform questions.
 
@@ -36,7 +40,7 @@ Examine the identity, information, and actions behind a workflow that retrieves 
 Trace monitoring charges to the usage and service responsible for them.
 :::
 
-## A Technical Question Worth Examining?
+## A Technical Question Worth Examining? {backdrop:data-center-corridor}
 
 Tell us about a developer or data problem that deserves a closer look. Include the use case and any public documentation or research that helps explain it.
 

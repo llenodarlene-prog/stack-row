@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { cp, mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { icon } from './icons.mjs';
@@ -24,8 +25,17 @@ async function files(dir) {
 }
 
 await mkdir(dist, { recursive: true });
-await cp('src/styles', path.join(dist, 'styles'), { recursive: true });
-await cp('src/scripts', path.join(dist, 'scripts'), { recursive: true });
+// The stylesheet and script are published under content-hashed names, so a
+// long cache lifetime can never pair new markup with an old file.
+async function fingerprint(source, folder, name, extension) {
+  const content = await readFile(source);
+  const hash = createHash('sha256').update(content).digest('hex').slice(0, 10);
+  await mkdir(path.join(dist, folder), { recursive: true });
+  await writeFile(path.join(dist, folder, `${name}.${hash}.${extension}`), content);
+  return `/${folder}/${name}.${hash}.${extension}`;
+}
+const stylesheet = await fingerprint('src/styles/main.css', 'styles', 'main', 'css');
+const script = await fingerprint('src/scripts/main.js', 'scripts', 'main', 'js');
 for (const asset of assets.filter(item => item.deploy !== false)) {
   const source = asset.path.replace(/^\//, '');
   const target = path.join(dist, source);
@@ -160,19 +170,40 @@ function chart(route) {
   const sourceColumn = table.head.findIndex(cell => /source/i.test(cell));
   const sources = sourceColumn > -1 ? [...new Set(table.data.map(row => row[sourceColumn]))] : [];
   const legend = series.map((column, index) => `<li class="key-${index + 1}">${escapeHtml(table.head[column])}</li>`).join('');
+  const caption = `<figcaption><p class="eyebrow">Featured Data</p><h3>${escapeHtml(table.heading || post.title)}</h3><ul class="chart-legend">${legend}</ul></figcaption>`;
+  const footer = `<p class="chart-source">${sources.length === 1 ? `Source: ${escapeHtml(sources[0])}, as reported in the article. ` : ''}<a href="${post.slug}">Read the Article ${icon('arrow-right')}</a></p>`;
+  // A single percentage series reads best as progress rings.
+  if (series.length === 1 && table.data.every(row => String(row[series[0]]).trim().endsWith('%'))) {
+    const detail = table.head.findIndex((_, column) => column > 0 && !table.numeric[column] && column !== sourceColumn);
+    const rings = table.data.map(row => `<li class="ring"><svg viewBox="0 0 120 120" style="--v:${toNumber(row[series[0]]).toFixed(1)}" aria-hidden="true"><circle class="ring-track" cx="60" cy="60" r="52" pathLength="100"/><circle class="ring-value" cx="60" cy="60" r="52" pathLength="100"/></svg><b>${escapeHtml(row[series[0]])}</b><strong>${escapeHtml(row[0])}</strong>${detail > -1 ? `<span>${escapeHtml(table.head[detail])}: ${escapeHtml(row[detail])}</span>` : ''}</li>`).join('');
+    return `<figure class="chart glass">${caption}<ul class="rings">${rings}</ul>${footer}</figure>`;
+  }
   const rows = table.data.map(row => `<div class="chart-row"><dt>${escapeHtml(row[0])}</dt><dd>${series.map((column, index) => `<span class="bar bar-${index + 1}" style="--v:${(toNumber(row[column]) / max(column) * 100).toFixed(1)}%"><b>${escapeHtml(row[column])}</b><span class="visually-hidden"> ${escapeHtml(table.head[column])}</span></span>`).join('')}</dd></div>`).join('');
-  return `<figure class="chart glass"><figcaption><p class="eyebrow">Featured Data</p><h3>${escapeHtml(table.heading || post.title)}</h3><ul class="chart-legend">${legend}</ul></figcaption><dl class="chart-rows">${rows}</dl><p class="chart-source">${sources.length === 1 ? `Source: ${escapeHtml(sources[0])}, as reported in the article. ` : ''}<a href="${post.slug}">Read the Article ${icon('arrow-right')}</a></p></figure>`;
+  return `<figure class="chart glass">${caption}<dl class="chart-rows">${rows}</dl>${footer}</figure>`;
+}
+
+// Compact link tiles for the articles and blogs a text section mentions.
+function linkTiles(markdown) {
+  const seen = new Set();
+  const targets = [...markdown.matchAll(/\[[^\]]+\]\((\/[^)\s#]*)\)/g)].map(match => bySlug.get(match[1])).filter(target => target && isPost(target) && !seen.has(target.slug) && seen.add(target.slug));
+  if (!targets.length) return '';
+  return `<ul class="link-tiles">${targets.map(target => `<li><a href="${target.slug}"><span class="pill-row">${pills(target)}</span><strong>${escapeHtml(target.title)}</strong>${icon('arrow-right')}</a></li>`).join('')}</ul>`;
 }
 
 // Renders one "## " section. A section whose card list or coverage grid ends
 // up empty is dropped whole, so no heading is left introducing nothing.
-function section(markdown, item) {
-  const [headingLine, ...rest] = markdown.split('\n');
+function section(markdown, item, state) {
+  const [rawHeading, ...rest] = markdown.split('\n');
+  // "## Heading {image:name}" sets the image beside the copy;
+  // "## Heading {backdrop:name}" puts the copy on a glass panel over the image.
+  const attribute = rawHeading.match(/\s+\{(image|backdrop):([a-z0-9-]+)\}\s*$/);
+  const headingLine = attribute ? rawHeading.slice(0, attribute.index) : rawHeading;
   const parts = [];
   let buffer = [];
   let block = null;
   let empty = false;
   let blocks = 0;
+  let charts = 0;
   // A table needs the full width, so it counts as a block of its own.
   const flush = () => {
     if (buffer.join('').trim()) {
@@ -190,8 +221,9 @@ function section(markdown, item) {
         const cards = parseCards(block.lines);
         if (cards.length) parts.push(cardGrid(cards)); else empty = true;
       } else if (block.kind === 'chart') {
+        // A chart whose article is not in this build is skipped on its own.
         const figure = chart(block.route);
-        if (figure) parts.push(figure); else empty = true;
+        if (figure) { parts.push(figure); charts++; } else blocks--;
       } else {
         const index = coverage(item);
         if (index) parts.push(index); else empty = true;
@@ -203,15 +235,24 @@ function section(markdown, item) {
     (block ? block.lines : buffer).push(line);
   }
   flush();
-  if (empty) return '';
+  if (empty || !parts.length) return '';
   const heading = render(headingLine);
+  const textOnly = !blocks || (blocks === 1 && parts[parts.length - 1].startsWith('<ul class="chip-row">'));
+  const tiles = textOnly ? linkTiles(markdown) : '';
+  if (attribute?.[1] === 'backdrop') {
+    return `<section class="band band-backdrop" style="--backdrop:url('/assets/images/${attribute[2]}-1600.jpg')"><div class="shell"><div class="backdrop-panel">${heading}${parts.join('\n')}${tiles}</div></div></section>`;
+  }
+  if (attribute?.[1] === 'image') {
+    const flip = state.media++ % 2 === 1;
+    return `<section class="band band-media${flip ? ' band-media-flip' : ''}"><div class="shell media"><figure class="media-figure">${image(attribute[2], { sizes: '(min-width: 900px) 560px, 100vw' })}</figure><div class="media-body">${heading}${parts.join('\n')}${tiles}</div></div></section>`;
+  }
   if (markdown.includes('::: callout')) return `<section class="band band-callout"><div class="shell">${heading}${parts.join('\n')}</div></section>`;
   // Text-only sections use a two-column layout: heading left, copy right.
-  if (!blocks || (blocks === 1 && parts[parts.length - 1].startsWith('<ul class="chip-row">'))) {
-    return `<section class="band band-split"><div class="shell split"><div class="split-head">${heading}</div><div class="split-body">${parts.join('\n')}</div></div></section>`;
+  if (textOnly) {
+    return `<section class="band band-split"><div class="shell split"><div class="split-head">${heading}</div><div class="split-body">${parts.join('\n')}${tiles}</div></div></section>`;
   }
   const [intro, ...others] = parts[0].startsWith('<p') ? parts : ['', ...parts];
-  return `<section class="band"><div class="shell"><div class="band-head">${heading}${intro}</div>${others.join('\n')}</div></section>`;
+  return `<section class="band${charts ? ' band-data' : ''}"><div class="shell"><div class="band-head">${heading}${intro}</div>${others.join('\n')}</div></section>`;
 }
 
 function split(body) {
@@ -287,8 +328,8 @@ function enhance(html) {
   return { body, outline };
 }
 
-function frame(key, label, sizes) {
-  return `<figure class="frame"><div class="frame-bar" aria-hidden="true"><span></span><span></span><span></span><b>${escapeHtml(label)}</b></div>${image(key, { sizes, eager: true })}</figure>`;
+function frame(key, sizes) {
+  return `<figure class="frame"><div class="frame-bar" aria-hidden="true"><span></span><span></span><span></span></div>${image(key, { sizes, eager: true })}</figure>`;
 }
 
 function main(item) {
@@ -311,16 +352,15 @@ function main(item) {
   }
   const { intro, sections } = split(item.body);
   const home = item.template === 'home';
-  const label = home ? 'stackrow.org' : `stackrow.org${item.slug}`;
-  let media = item.image ? frame(item.image, label, '(min-width: 900px) 560px, 100vw') : '';
+  let media = item.image ? frame(item.image, '(min-width: 900px) 560px, 100vw') : '';
   if (home) {
     const topics = navigation.topics.map(topic => bySlug.get(topic.url)).filter(hub => hub?.icon).map(hub => `<li><a href="${hub.slug}">${icon(hub.icon)}<span>${escapeHtml(hub.label || hub.title)}</span></a></li>`).join('');
     media = `<div class="hero-stack">${media}<nav class="coverage-panel glass" aria-label="Coverage"><p>Coverage</p><ul>${topics}</ul></nav></div>`;
   }
-  const badge = item.type === 'hub' && item.icon ? `<span class="icon-badge icon-badge-large">${icon(item.icon)}</span>` : '';
-  const eyebrow = item.type === 'hub' ? `<p class="eyebrow">${badge}Topic</p>` : '';
-  const hero = `<header class="hero${home ? ' hero-home' : ''}${media ? '' : ' hero-plain'}"><div class="shell hero-grid"><div class="hero-copy">${banner}${eyebrow}${render(intro)}</div>${media ? `<div class="hero-media">${media}</div>` : ''}</div></header>`;
-  return `${hero}${sections.map(markdown => section(markdown, item)).join('')}`;
+  const hero = `<header class="hero${home ? ' hero-home' : ''}${media ? '' : ' hero-plain'}"><div class="shell hero-grid"><div class="hero-copy">${banner}${render(intro)}</div>${media ? `<div class="hero-media">${media}</div>` : ''}</div></header>`;
+  const ticker = home ? `<div class="ticker" aria-hidden="true"><ul>${[0, 1].map(() => navigation.topics.map(topic => bySlug.get(topic.url)).filter(hub => hub?.icon).map(hub => `<li>${icon(hub.icon)}${escapeHtml(hub.label || hub.title)}</li>`).join('')).join('')}</ul></div>` : '';
+  const state = { media: 0 };
+  return `${hero}${ticker}${sections.map(markdown => section(markdown, item, state)).join('')}`;
 }
 
 const pageRecords = [];
@@ -336,6 +376,9 @@ for (const item of visible) {
     return links ? `<nav aria-label="${escapeHtml(column.label)}"><h2>${escapeHtml(column.label)}</h2><ul>${links}</ul></nav>` : '';
   }).join('');
   const email = site.contact_email ? `<p><a class="footer-email" href="mailto:${escapeHtml(site.contact_email)}">${icon('mail')}${escapeHtml(site.contact_email)}</a></p>` : '';
+  // An in-page button is dropped when the section it points at is not on the page.
+  const rendered = main(item);
+  const content = rendered.replace(/<a href="#([^"]+)">[^<]*<\/a>\s*/g, (link, id) => rendered.includes(` id="${id}"`) ? link : '');
   const html = `<!doctype html>
 <html lang="${site.locale}">
 <head>
@@ -358,13 +401,13 @@ for (const item of visible) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Sora:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles/main.css">
-  <script src="/scripts/main.js" defer></script>
+  <link rel="stylesheet" href="${stylesheet}">
+  <script src="${script}" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
   <header class="site-header"><div class="shell site-header-inner"><a class="brand" href="${navigation.home.url}" aria-label="${escapeHtml(site.name)} home"><img src="/assets/brand/stack-row-logo-header.png" alt="${escapeHtml(site.name)}" width="566" height="173"></a><nav class="nav-topics" aria-label="Topics"><ul>${navItems(navigation.topics, item)}</ul></nav><nav class="nav-utility" aria-label="Site"><ul>${navItems(navigation.utility, item)}</ul></nav></div></header>
-  <main id="content">${main(item)}</main>
+  <main id="content">${content}</main>
   <footer class="site-footer"><div class="shell footer-grid"><div class="footer-brand"><strong>${escapeHtml(site.name)}</strong><p class="footer-tagline">${escapeHtml(site.tagline)}</p><p>${escapeHtml(site.description)}</p>${email}</div>${footerColumns}<p class="copyright">© ${new Date().getUTCFullYear()} ${escapeHtml(site.name)}. All rights reserved.</p></div></footer>
 </body>
 </html>`;

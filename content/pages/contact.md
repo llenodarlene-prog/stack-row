@@ -33,7 +33,7 @@ Send a short outline, the evidence you plan to use, and relevant writing samples
 Explain the purpose of your inquiry and name the organization you represent. For reuse requests, include the content URL, the material you want to use, and where it would appear. Suggested subject: `Business Inquiry: [Organization or Request]`
 :::
 
-## Send Only What We Need
+## Send Only What We Need {image:hardware-security-key}
 
 Please do not email passwords, access keys, confidential customer records, or other sensitive information. A public source and a clear description are usually enough to begin an editorial conversation.
 
