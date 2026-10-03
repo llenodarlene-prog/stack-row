@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { readContent } from './lib.mjs';
 
 const readJson = async file => JSON.parse(await readFile(file, 'utf8'));
@@ -12,11 +12,11 @@ if (site.launch_status !== 'ready') errors.push('data/site.json launch_status mu
 if (!site.contact_email) errors.push('a verified public contact email is required');
 for (const [approval, value] of Object.entries(release.approvals)) if (value !== true) errors.push(`approval is incomplete: ${approval}`);
 
-const pageFiles = ['home','about','contact','privacy','cybersecurity','saas','ai','business-technology','cloud-infrastructure'];
-const pages = await Promise.all(pageFiles.map(file => readContent(`content/pages/${file}.md`)));
+const pageFiles = (await readdir('content/pages')).filter(file => file.endsWith('.md'));
+const pages = await Promise.all(pageFiles.map(file => readContent(`content/pages/${file}`)));
 for (const route of release.core_routes) {
   const page = pages.find(candidate => candidate.metadata.slug === route);
-  if (!page || page.metadata.complete !== true) errors.push(`core route is incomplete: ${route}`);
+  if (!page || page.metadata.complete !== true || page.metadata.draft === true) errors.push(`core route is incomplete: ${route}`);
 }
 
 let publishedBlogs = 0;

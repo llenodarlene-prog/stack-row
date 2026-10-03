@@ -37,29 +37,53 @@ function inline(value) {
   return escapeHtml(value)
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/`([^`]+)`/g, '<code>$1</code>')
-    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|\/[^\s)]*)\)/g, '<a href="$2">$1</a>');
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|\/[^\s)]*|#[\w-]+|mailto:[^\s)]+)\)/g, '<a href="$2">$1</a>');
 }
 
+const cells = line => line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(cell => cell.trim());
+
+// Supports h1 to h3 (with an optional {#id}), paragraphs, lists, pipe tables,
+// and ::: name containers. Raw HTML is always escaped.
 export function markdownToHtml(markdown) {
   const lines = markdown.replace(/\r/g, '').split('\n');
   const output = [];
   let paragraph = [];
   let list = null;
+  let table = [];
+  let containers = 0;
   const flushParagraph = () => {
-    if (paragraph.length) output.push(`<p>${inline(paragraph.join(' '))}</p>`);
+    if (!paragraph.length) return;
+    const text = paragraph.join(' ');
+    // A fully bracketed paragraph is an editor instruction, never public copy.
+    const note = /^\[[^\]]*\]$/.test(text);
+    output.push(`<p${note ? ' class="editor-note"' : ''}>${inline(text)}</p>`);
     paragraph = [];
   };
   const closeList = () => {
     if (list) output.push(`</${list}>`);
     list = null;
   };
+  const flushTable = () => {
+    if (!table.length) return;
+    const [head, ...rest] = table;
+    const body = rest.filter(row => !row.every(cell => /^:?-+:?$/.test(cell)));
+    output.push(`<div class="table-wrap"><table><thead><tr>${head.map(cell => `<th scope="col">${inline(cell)}</th>`).join('')}</tr></thead><tbody>${body.map(row => `<tr>${row.map(cell => `<td>${inline(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`);
+    table = [];
+  };
+  const flush = () => { flushParagraph(); closeList(); flushTable(); };
   for (const line of lines) {
-    if (!line.trim()) { flushParagraph(); closeList(); continue; }
-    const heading = line.match(/^(#{1,3})\s+(.+)$/);
+    if (!line.trim()) { flush(); continue; }
+    const open = line.match(/^:::\s*([a-z][a-z-]*)$/);
+    if (open) { flush(); output.push(`<div class="${open[1]}">`); containers++; continue; }
+    if (line.trim() === ':::' && containers) { flush(); output.push('</div>'); containers--; continue; }
+    if (line.trim().startsWith('|')) { flushParagraph(); closeList(); table.push(cells(line)); continue; }
+    flushTable();
+    const heading = line.match(/^(#{1,3})\s+(.+?)(?:\s+\{#([a-z][\w-]*)\})?$/);
     if (heading) {
       flushParagraph(); closeList();
       const level = heading[1].length;
-      output.push(`<h${level}>${inline(heading[2])}</h${level}>`);
+      const id = heading[3] && level > 1 ? ` id="${heading[3]}"` : '';
+      output.push(`<h${level}${id}>${inline(heading[2])}</h${level}>`);
       continue;
     }
     const unordered = line.match(/^[-*]\s+(.+)$/);
@@ -71,9 +95,11 @@ export function markdownToHtml(markdown) {
       output.push(`<li>${inline((unordered || ordered)[1])}</li>`);
       continue;
     }
+    closeList();
     paragraph.push(line.trim());
   }
-  flushParagraph(); closeList();
+  flush();
+  while (containers-- > 0) output.push('</div>');
   return output.join('\n');
 }
 
