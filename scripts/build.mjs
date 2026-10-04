@@ -136,50 +136,95 @@ function coverage(item) {
 const isNumeric = value => /^[$€£]?\d[\d,]*(?:\.\d+)?%?$/.test(String(value).trim());
 const toNumber = value => Number(String(value).replace(/[^\d.]/g, ''));
 
-// Finds the first table in a post with at least one fully numeric column.
-function firstDataTable(body) {
+// Reads every markdown table in a post, with the "## " heading it sits under
+// and the line it starts on.
+function tables(body) {
   const lines = body.replace(/\r/g, '').split('\n');
+  const found = [];
   let heading = '';
   let rows = [];
+  let start = 0;
   for (let index = 0; index <= lines.length; index++) {
     const line = lines[index] ?? '';
     if (/^##\s/.test(line)) heading = line.replace(/^##\s+/, '');
-    if (line.trim().startsWith('|')) { rows.push(line.trim().replace(/^\||\|$/g, '').split('|').map(cell => cell.trim())); continue; }
-    if (!rows.length) continue;
-    const [head, , ...data] = rows;
-    const numeric = head.map((_, column) => data.length >= 3 && data.every(row => isNumeric(row[column] || '')));
-    if (numeric.some(Boolean)) return { heading, head, data, numeric };
+    if (line.trim().startsWith('|')) {
+      if (!rows.length) start = index;
+      rows.push(line.trim().replace(/^\||\|$/g, '').split('|').map(cell => cell.trim()));
+      continue;
+    }
+    if (rows.length > 2) found.push({ heading, head: rows[0], data: rows.slice(2), start });
     rows = [];
+  }
+  return found;
+}
+
+// The data a post's chart is drawn from: the first table with a numeric column,
+// after setting aside rows the post excludes (front matter chart_exclude) and
+// rows measured in a different unit. chart_column names the column to plot.
+function chartData(post) {
+  const excluded = String(post.chart_exclude || '').split(',').map(entry => entry.trim().toLowerCase()).filter(Boolean);
+  const unit = value => String(value).replace(/[\d.,\s]/g, '');
+  for (const table of tables(post.body)) {
+    const kept = table.data.filter(row => !excluded.includes(row[0].toLowerCase()));
+    const wanted = post.chart_column ? [table.head.indexOf(post.chart_column)].filter(column => column > 0) : table.head.map((_, column) => column).slice(1);
+    for (const column of wanted) {
+      const numeric = kept.filter(row => isNumeric(row[column] || ''));
+      const rows = numeric.filter(row => unit(row[column]) === unit(numeric[0][column]));
+      if (rows.length < 2) continue;
+      const others = post.chart_column ? [] : table.head.map((_, index) => index).filter(index => index > column && rows.every(row => isNumeric(row[index] || '')));
+      return { ...table, rows, series: [column, ...others].slice(0, 2) };
+    }
   }
   return null;
 }
 
-// A bar chart drawn from a post's own data table. It only exists while that
-// post is part of the build, so unpublished figures never reach production.
+// A chart drawn from a post's own data table. On other pages it only exists
+// while that post is part of the build, so unpublished figures never reach
+// production. Inside the post itself it sits above the table it summarizes.
+function chartFigure(post, inPost) {
+  const table = chartData(post);
+  if (!table) return null;
+  const { series, rows: data } = table;
+  // Series share one scale only when they share a unit; otherwise each column scales to its own maximum.
+  const unit = column => String(data[0][column]).replace(/[\d.,\s]/g, '');
+  const shared = series.every(column => unit(column) === unit(series[0]));
+  const columnMax = column => Math.max(...data.map(row => toNumber(row[column])));
+  const max = column => shared ? Math.max(...series.map(columnMax)) : columnMax(column);
+  const sourceColumn = table.head.findIndex(cell => /source/i.test(cell));
+  const sources = sourceColumn > -1 ? [...new Set(data.map(row => row[sourceColumn]))] : [];
+  const legend = series.map((column, index) => `<li class="key-${index + 1}">${escapeHtml(table.head[column])}</li>`).join('');
+  const title = escapeHtml(table.heading || post.title);
+  const caption = `<figcaption><p class="eyebrow">${inPost ? 'Chart' : 'Featured Data'}</p>${inPost ? `<p class="chart-title">${title}</p>` : `<h3>${title}</h3>`}<ul class="chart-legend">${legend}</ul></figcaption>`;
+  const source = sources.length === 1 ? `Source: ${escapeHtml(sources[0])}${inPost ? '.' : ', as reported in the article.'} ` : '';
+  const footer = inPost
+    ? (source ? `<p class="chart-source">${source}</p>` : '')
+    : `<p class="chart-source">${source}<a href="${post.slug}">Read the Article ${icon('arrow-right')}</a></p>`;
+  let plot;
+  // A single percentage series reads best as progress rings.
+  if (series.length === 1 && data.every(row => String(row[series[0]]).trim().endsWith('%'))) {
+    const detail = table.head.findIndex((_, column) => column > 0 && column !== series[0] && column !== sourceColumn);
+    plot = `<ul class="rings">${data.map(row => `<li class="ring"><svg viewBox="0 0 120 120" style="--v:${toNumber(row[series[0]]).toFixed(1)}" aria-hidden="true"><circle class="ring-track" cx="60" cy="60" r="52" pathLength="100"/><circle class="ring-value" cx="60" cy="60" r="52" pathLength="100"/></svg><b>${escapeHtml(row[series[0]])}</b><strong>${escapeHtml(row[0])}</strong>${detail > -1 ? `<span>${escapeHtml(table.head[detail])}: ${escapeHtml(row[detail])}</span>` : ''}</li>`).join('')}</ul>`;
+  } else {
+    plot = `<dl class="chart-rows">${data.map(row => `<div class="chart-row"><dt>${escapeHtml(row[0])}</dt><dd>${series.map((column, index) => `<span class="bar bar-${index + 1}" style="--v:${(toNumber(row[column]) / max(column) * 100).toFixed(1)}%"><b>${escapeHtml(row[column])}</b><span class="visually-hidden"> ${escapeHtml(table.head[column])}</span></span>`).join('')}</dd></div>`).join('')}</dl>`;
+  }
+  return { html: `<figure class="chart glass">${caption}${plot}${footer}</figure>`, start: table.start };
+}
+
 function chart(route) {
   const post = bySlug.get(route);
   if (!post) return '';
-  const table = firstDataTable(post.body);
-  if (!table) throw new Error(`${post.source}: no numeric table to chart`);
-  const series = table.head.map((_, column) => column).filter(column => table.numeric[column]).slice(0, 2);
-  // Series share one scale only when they share a unit; otherwise each column scales to its own maximum.
-  const unit = column => String(table.data[0][column]).replace(/[\d.,\s]/g, '');
-  const shared = series.every(column => unit(column) === unit(series[0]));
-  const columnMax = column => Math.max(...table.data.map(row => toNumber(row[column])));
-  const max = column => shared ? Math.max(...series.map(columnMax)) : columnMax(column);
-  const sourceColumn = table.head.findIndex(cell => /source/i.test(cell));
-  const sources = sourceColumn > -1 ? [...new Set(table.data.map(row => row[sourceColumn]))] : [];
-  const legend = series.map((column, index) => `<li class="key-${index + 1}">${escapeHtml(table.head[column])}</li>`).join('');
-  const caption = `<figcaption><p class="eyebrow">Featured Data</p><h3>${escapeHtml(table.heading || post.title)}</h3><ul class="chart-legend">${legend}</ul></figcaption>`;
-  const footer = `<p class="chart-source">${sources.length === 1 ? `Source: ${escapeHtml(sources[0])}, as reported in the article. ` : ''}<a href="${post.slug}">Read the Article ${icon('arrow-right')}</a></p>`;
-  // A single percentage series reads best as progress rings.
-  if (series.length === 1 && table.data.every(row => String(row[series[0]]).trim().endsWith('%'))) {
-    const detail = table.head.findIndex((_, column) => column > 0 && !table.numeric[column] && column !== sourceColumn);
-    const rings = table.data.map(row => `<li class="ring"><svg viewBox="0 0 120 120" style="--v:${toNumber(row[series[0]]).toFixed(1)}" aria-hidden="true"><circle class="ring-track" cx="60" cy="60" r="52" pathLength="100"/><circle class="ring-value" cx="60" cy="60" r="52" pathLength="100"/></svg><b>${escapeHtml(row[series[0]])}</b><strong>${escapeHtml(row[0])}</strong>${detail > -1 ? `<span>${escapeHtml(table.head[detail])}: ${escapeHtml(row[detail])}</span>` : ''}</li>`).join('');
-    return `<figure class="chart glass">${caption}<ul class="rings">${rings}</ul>${footer}</figure>`;
-  }
-  const rows = table.data.map(row => `<div class="chart-row"><dt>${escapeHtml(row[0])}</dt><dd>${series.map((column, index) => `<span class="bar bar-${index + 1}" style="--v:${(toNumber(row[column]) / max(column) * 100).toFixed(1)}%"><b>${escapeHtml(row[column])}</b><span class="visually-hidden"> ${escapeHtml(table.head[column])}</span></span>`).join('')}</dd></div>`).join('');
-  return `<figure class="chart glass">${caption}<dl class="chart-rows">${rows}</dl>${footer}</figure>`;
+  const figure = chartFigure(post, false);
+  if (!figure) throw new Error(`${post.source}: no numeric table to chart`);
+  return figure.html;
+}
+
+// A post with no numeric table gets a flow diagram of the steps in its first
+// table instead, so nothing is charted that the post does not contain.
+function flowFigure(post) {
+  const [table] = tables(post.body);
+  if (!table) return null;
+  const steps = table.data.map(row => `<li><span>${escapeHtml(row[0])}</span></li>`).join('');
+  return { html: `<figure class="chart flow glass"><figcaption><p class="eyebrow">Diagram</p><p class="chart-title">${escapeHtml(table.heading || post.title)}</p></figcaption><ol class="flow-steps">${steps}</ol></figure>`, start: table.start };
 }
 
 // Compact link tiles for the articles and blogs a text section mentions.
@@ -372,7 +417,14 @@ function main(item) {
   if (isPost(item) || item.layout === 'prose') {
     const hub = hubFor(item);
     const [first, ...rest] = item.body.replace(/\r/g, '').split('\n');
-    const { body, outline } = enhance(render(rest.join('\n')));
+    // Each article and blog carries one image and one chart or diagram.
+    const visual = isPost(item) ? chartFigure(item, true) || flowFigure(item) : null;
+    const rendered = visual
+      ? `${render(rest.slice(0, visual.start - 1).join('\n'))}\n${visual.html}\n${render(rest.slice(visual.start - 1).join('\n'))}`
+      : render(rest.join('\n'));
+    const { body, outline } = enhance(rendered);
+    const picture = isPost(item) ? item.image || hub?.image : '';
+    const figure = picture ? `<figure class="post-figure"><div class="shell">${image(picture, { sizes: '(min-width: 1240px) 1200px, 100vw', eager: true })}</div></figure>` : '';
     const crumbs = `<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a>${hub ? `<span aria-hidden="true">/</span><a href="${hub.slug}">${escapeHtml(hub.label || hub.title)}</a>` : ''}</nav>`;
     const meta = isPost(item) ? `<p class="post-meta">${pills(item)}<span>${minutes(item)} min read</span></p>` : '';
     const toc = isPost(item) && outline.length > 2
@@ -382,7 +434,7 @@ function main(item) {
     const more = related.length
       ? `<section class="band related"><div class="shell"><div class="band-head"><h2>Related Reading</h2></div><div class="card-grid card-grid-post">${related.map(post => card({ title: post.title, href: post.slug, text: post.description })).join('')}</div></div></section>`
       : '';
-    return `<article class="post">${isPost(item) ? '<div class="progress" aria-hidden="true"><span></span></div>' : ''}<header class="post-header"><div class="shell post-header-inner">${banner}${crumbs}${meta}${render(first)}</div></header><div class="shell post-layout${toc ? '' : ' post-layout-single'}">${toc}<div class="prose">${body}</div></div></article>${more}`;
+    return `<article class="post">${isPost(item) ? '<div class="progress" aria-hidden="true"><span></span></div>' : ''}<header class="post-header"><div class="shell post-header-inner">${banner}${crumbs}${meta}${render(first)}</div></header>${figure}<div class="shell post-layout${toc ? '' : ' post-layout-single'}">${toc}<div class="prose">${body}</div></div></article>${more}`;
   }
   const { intro, sections } = split(item.body);
   const home = item.template === 'home';
