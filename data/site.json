@@ -4,7 +4,7 @@
   "description": "Research and practical analysis for people choosing, building, and running business technology.",
   "url": "https://stackrow.org",
   "locale": "en-US",
-  "launch_status": "building",
+  "launch_status": "ready",
   "contact_email": "stackrow@gmail.com",
   "fonts": {
     "display": "Sora",

@@ -2,27 +2,94 @@
   "schema": 1,
   "content_id": "B2",
   "slug": "/cybersecurity/cloudflare-security/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
+  "research_date_utc": "2026-10-03",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "keyword": "cloudflare security",
+      "location": "United States",
+      "language": "English",
+      "search_volume": 320,
+      "seo_difficulty": 60,
+      "paid_difficulty": 43,
+      "cpc_usd": 32.65,
+      "search_intent": "Commercial",
+      "retrieved_utc": "2026-10-03",
+      "serp_data_updated": "2026-09-10",
+      "note": "Monthly volume ranged from 210 to 390 between August 2025 and August 2026."
+    }
+  ],
+  "ranking_competitors": [
+    { "position": 2, "url": "https://www.cloudflare.com/cybersecurity/", "title": "Everywhere Security | Unified Cybersecurity Platform", "domain_authority": 97, "type": "Vendor platform page" },
+    { "position": 4, "url": "https://www.cloudflare.com/", "title": "Cloudflare: Build for the agent era", "domain_authority": 97, "type": "Vendor home page" },
+    { "position": 5, "url": "https://www.cloudflare.com/solutions/security/", "title": "Web Security Platform - WAF, DDoS Protection, Bot ...", "domain_authority": 97, "type": "Vendor solution page" },
+    { "position": 6, "url": "https://en.wikipedia.org/wiki/Cloudflare", "title": "Cloudflare", "domain_authority": 98, "type": "Encyclopedia entry" },
+    { "position": 7, "url": "https://www.cloudflare.com/learning/security/how-to-secure-a-website/", "title": "How to secure a website", "domain_authority": 97, "type": "Vendor learning article" }
+  ],
+  "competitor_notes": "Positions 1 and 3 are an AI overview and a People Also Ask block. Eight of the top ten organic results are the vendor's own pages. None of the five mapped results is an independent assessment guide that separates application requests from workforce access, which is the angle this blog takes.",
+  "sources": [
+    {
+      "url": "https://developers.cloudflare.com/waf/",
+      "publisher": "Cloudflare",
+      "type": "Official product documentation",
+      "checked_utc": "2026-10-03",
+      "page_last_updated": "2026-08-19",
+      "supports": "The WAF documentation concerns protection of web application and API requests through managed and custom rules.",
+      "limitations": "Vendor documentation. It describes product scope, not the configuration or entitlement of any particular account."
+    },
+    {
+      "url": "https://developers.cloudflare.com/cloudflare-one/",
+      "publisher": "Cloudflare",
+      "type": "Official product documentation",
+      "checked_utc": "2026-10-03",
+      "page_last_updated": "2026-09-16",
+      "supports": "Cloudflare One documentation covers workforce access to applications, device and network scenarios within its SASE platform.",
+      "limitations": "Vendor documentation. It does not establish what a specific tenant has deployed."
+    },
+    {
+      "url": "https://www.cloudflare.com/plans/application-services/",
+      "publisher": "Cloudflare",
+      "type": "Official plans and pricing page",
+      "checked_utc": "2026-10-03",
+      "page_last_updated": null,
+      "supports": "Cloudflare publishes application services plans named Free, Pro, Business and Enterprise.",
+      "limitations": "The page does not show a full per-plan security feature matrix; it links to a separate comparison. Packaging can change, and the page is not evidence of an account's purchased scope."
+    }
+  ],
   "statistics": [],
-  "claims": [],
+  "statistics_note": "The blog contains no statistics, prices, dates or rankings. Its control map is labeled in the text as an illustrative assessment scenario.",
+  "claims": [
+    { "claim": "Cloudflare's WAF documentation concerns protection of web-application requests within its supported scope.", "source": "https://developers.cloudflare.com/waf/", "result": "Supported" },
+    { "claim": "Cloudflare One documentation describes workforce access controls across supported access and network scenarios.", "source": "https://developers.cloudflare.com/cloudflare-one/", "result": "Supported" },
+    { "claim": "Cloudflare's plan coverage is a starting point for commercial review and is not proof of an account's capabilities.", "source": "https://www.cloudflare.com/plans/application-services/", "result": "Supported after correction" }
+  ],
+  "corrections": [
+    {
+      "date_utc": "2026-10-03",
+      "change": "The plan coverage link pointed to https://www.cloudflare.com/plans/, which now presents developer platform pricing and no security plan coverage. It was changed to https://www.cloudflare.com/plans/application-services/."
+    },
+    {
+      "date_utc": "2026-10-03",
+      "change": "The meta description was a template sentence with the brand name in lowercase. It was rewritten to describe the blog."
+    }
+  ],
   "internal_link_targets": [
     "A5",
     "A6",
     "A1",
     "B3"
   ],
+  "internal_link_note": "The blog links to A5, A6 and B3. All three are unpublished drafts, so a production build renders those links as plain text until the targets are published.",
   "fact_check": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-04"
   },
   "qa": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-04"
   }
 }

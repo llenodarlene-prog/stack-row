@@ -5,69 +5,74 @@ description: Read how Stack Row handles personal information, including email in
 slug: /privacy/
 type: page
 layout: prose
-draft: true
-complete: false
+complete: true
 ---
 
 # Privacy Policy
 
-Effective Date: [Insert the date this completed policy takes effect.]
+Effective Date: October 3, 2026
 
 This Privacy Policy explains how Stack Row handles personal information in connection with stackrow.org and communications sent to stackrow@gmail.com.
 
 ## Who Is Responsible for Your Information
 
-The person or organization responsible for the processing described in this policy is [insert full legal name, business address, and country of establishment], operating as Stack Row.
+Stack Row is an independent technology publication. The publisher of Stack Row is responsible for the processing described in this policy.
 
 For privacy questions or requests, email [stackrow@gmail.com](mailto:stackrow@gmail.com). Use “Privacy Request” in the subject line.
 
-[Add the contact details of a privacy representative or data protection officer only if one is appointed or required.]
-
 ## Information You Send Us
 
-When you email us, we receive your email address, any name displayed with your message, its contents, and any attachments or other information you choose to provide. This can include editorial questions, correction requests, contributor proposals, and business inquiries.
+When you email us, we receive your email address, any name displayed with your message, its contents, and any attachments or other information you choose to provide. This can include editorial questions, correction requests, contributor proposals, partnership inquiries, and business inquiries.
 
 Please limit your message to information relevant to the inquiry. Do not send passwords, access keys, confidential customer records, or sensitive personal information that we do not need.
 
 ## How We Use Correspondence
 
-We use relevant correspondence to consider and respond to inquiries, assess correction requests and research leads, discuss proposals, and maintain a record of the matter being handled.
+We use relevant correspondence to consider and respond to inquiries, assess correction requests and research leads, discuss proposals and partnerships, and maintain a record of the matter being handled.
 
-[Confirm these purposes against actual practice. Add any other use, including marketing or publication of identifiable correspondence, with its applicable legal basis and notice.]
+We do not add people who email us to a mailing list. Stack Row does not currently send a newsletter.
 
 ## Information Collected Through the Website
 
-[Insert the verified website-data description. Identify the actual hosting, content delivery, security, and measurement services. For each relevant activity, describe the personal information collected, its purpose, who receives it, and how long it is retained. Check server logs, IP addresses, browser or device information, page requests, referral information, and error logs rather than assuming they are present or absent.]
+Stack Row is a static website. It does not provide user accounts, comments, contact forms, newsletter signups, or payment features, and it does not ask visitors to submit personal information through its pages.
 
-[If the website includes forms, comments, accounts, newsletter subscriptions, embedded media, advertising, or payment services, add the corresponding data practices. Remove this instruction after confirming the final feature set.]
+The website is hosted by Hostinger. Like any web host, the hosting provider processes technical request data needed to deliver and protect the website. This can include an IP address, the date and time of a request, the page or file requested, browser and device information, the referring page, and the response status.
+
+The website loads its typefaces from Google Fonts. When a page loads, your browser requests those font files from Google, and Google receives technical request information such as your IP address and browser details.
+
+The website does not include analytics, advertising, or affiliate tracking scripts.
 
 ## Cookies and Similar Technologies
 
-[Insert the results of a cookie and similar-technology audit of the deployed website. Explain the technologies actually used, their providers, purposes, lifetimes, and the choices available. Include local storage, pixels, and third-party embeds where applicable. Do not claim the site is cookie-free or uses only necessary cookies without checking.]
+The website does not set cookies and does not use browser local storage, tracking pixels, or embedded third-party media.
 
-[Where consent is required, describe the working consent controls, how to change a choice, and how to withdraw consent. Match the wording to the implemented controls. Continued browsing must not be presented as blanket consent.]
+If that changes, this policy will be updated before the new technology is introduced, and any consent controls the law requires will be put in place first.
 
 ## Service Providers and Other Disclosures
 
 Our contact address uses Gmail. Email sent to stackrow@gmail.com is processed through Google’s email service. Information about Google’s own practices is available in the [Google Privacy Policy](https://policies.google.com/privacy).
 
-[Add the actual website and operational service providers or sufficiently specific recipient categories, the information shared with them, and why. Confirm who can access the mailbox and any copies stored in other systems.]
+Hostinger hosts the website and Google supplies its fonts, as described above. Each provider handles the technical data it receives under its own terms and privacy policy.
 
 Information may also need to be disclosed where required by applicable law or necessary to establish, exercise, or defend legal rights. Any such disclosure must have an appropriate basis and be limited to the circumstances concerned.
 
-[Confirm and expressly describe any sale, sharing for targeted advertising, affiliate tracking, or other commercial disclosure under the laws that apply. Do not insert “we never sell or share data” without verification.]
-
 ## Legal Grounds for Processing
 
-[Where applicable law requires specified grounds for processing, identify the ground for each actual purpose. For example, assess whether responding to an ordinary inquiry rests on legitimate interests, whether a commercial inquiry involves steps toward a contract, and whether nonessential tracking requires consent. State the relevant legitimate interests and applicable objection rights where used. Do not claim every activity relies on consent simply because someone visits the website or sends an email.]
+Where the law requires a stated ground for processing, we handle correspondence because it is necessary to respond to the person who contacted us and to run the publication. A partnership or business inquiry may also involve steps taken at your request before an agreement.
+
+The technical data processed by our hosting provider is needed to deliver the website securely.
 
 ## How Long Information Is Kept
 
-[Insert the actual retention periods or specific retention criteria for ordinary inquiries, correction records, contributor proposals, business correspondence, website logs, analytics, and backups, as applicable. Explain any longer retention required for a dispute or legal obligation. The published wording must match a deletion or review process that the operator can carry out.]
+We keep correspondence for as long as it is needed to handle the matter it concerns, including any follow-up, correction, or agreement. Messages that are no longer needed are deleted.
+
+Correspondence may be kept longer where it is needed to meet a legal obligation or to resolve a dispute.
+
+Technical request data is held by the hosting provider under its own retention practices.
 
 ## International Processing
 
-[Identify any processing outside the visitor’s country that requires disclosure, the relevant destinations or locations, and applicable transfer safeguards. Verify the hosting and email arrangements. Do not promise that information remains in one country or that a particular transfer mechanism applies without evidence.]
+Our service providers operate internationally. Information you send us, and the technical data created when you visit the website, may be processed in countries other than the one where you live.
 
 ## Your Privacy Requests
 
@@ -75,19 +80,15 @@ Depending on where you live and which laws apply, you may have rights concerning
 
 To make a request, email stackrow@gmail.com and explain what you would like us to do. We may need limited information to verify your identity and locate the relevant records. Please do not send an identity document unless specifically requested through an appropriate process.
 
-We will assess and respond to requests under applicable law. Some rights are subject to legal conditions or exceptions.
-
-[Add applicable jurisdiction-specific rights, appeal routes, response requirements, and the relevant supervisory authority or regulator’s complaint details. Provide a clear, separate objection notice where required.]
+We will assess and respond to requests under applicable law. Some rights are subject to legal conditions or exceptions. You may also have the right to complain to the data protection or consumer authority where you live.
 
 ## Keeping Information Secure
-
-[Describe only the administrative and technical safeguards actually in use, such as restricted mailbox access and verified account-security measures. Do not promise specific encryption, certifications, or absolute security without confirmation.]
 
 No method of transmitting or storing information can provide an absolute guarantee of security. Please use care when deciding what to include in an email.
 
 ## Children’s Information
 
-Stack Row’s editorial subject matter is business technology. [Confirm the intended audience and actual treatment of children’s information, including any applicable age threshold and response process. Add a jurisdiction-appropriate statement without inventing an age rule.]
+Stack Row’s editorial subject matter is business technology. The website is written for a professional audience and is not directed at children.
 
 ## External Websites
 

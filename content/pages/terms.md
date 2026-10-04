@@ -5,15 +5,14 @@ description: Read the terms for using Stack Row, including permitted content use
 slug: /terms/
 type: page
 layout: prose
-draft: true
-complete: false
+complete: true
 ---
 
 # Terms and Conditions
 
-Effective Date: [Insert the date these terms take effect.]
+Effective Date: October 3, 2026
 
-These Terms and Conditions explain the rules for using stackrow.org, the website of Stack Row. The website is operated by [insert the full legal name and business address of the responsible person or entity], referred to in these terms as “we,” “us,” or “our.”
+These Terms and Conditions explain the rules for using stackrow.org, the website of Stack Row. The website is operated by the publisher of Stack Row, referred to in these terms as “we,” “us,” or “our.”
 
 Please read these terms before using the website. If you do not agree with them, please stop using it. These terms apply only to the extent permitted by applicable law.
 
@@ -67,7 +66,7 @@ To the extent permitted by applicable law, we are not responsible for losses res
 
 ## Applicable Law and Disputes
 
-[Insert a jurisdiction-specific clause after confirming the operator’s location, intended audience, and applicable mandatory consumer rights. Do not insert a country, exclusive court, arbitration requirement, or class-action waiver without review.]
+These terms do not limit any rights you have under the mandatory laws of the place where you live. If you have a concern about the website or these terms, please contact us first so we can try to resolve it.
 
 ## Changes to These Terms
 

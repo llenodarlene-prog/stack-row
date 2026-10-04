@@ -2,13 +2,199 @@
   "schema": 1,
   "content_id": "A7",
   "slug": "/cybersecurity/ransomware-statistics/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
-  "statistics": [],
-  "claims": [],
+  "research_date_utc": "2026-10-03",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-03",
+      "keyword": "ransomware statistics",
+      "search_volume": 170,
+      "seo_difficulty": 47,
+      "paid_difficulty": 21,
+      "cpc_usd": 34.83,
+      "search_intent": "Informational",
+      "serp_data_updated": "2026-09-15"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 2,
+      "url": "https://www.halcyon.ai/ransomware-statistics",
+      "title": "Ransomware Statistics",
+      "domain_authority": 44
+    },
+    {
+      "position": 3,
+      "url": "https://www.varonis.com/blog/ransomware-statistics",
+      "title": "Ransomware Statistics, Data, Trends, and Facts",
+      "domain_authority": 64
+    },
+    {
+      "position": 4,
+      "url": "https://www.sophos.com/en-us/content/state-of-ransomware",
+      "title": "The State of Ransomware 2026",
+      "domain_authority": 86
+    },
+    {
+      "position": 5,
+      "url": "https://www.cisa.gov/stopransomware/fact-sheets-information",
+      "title": "Fact Sheets & Information",
+      "domain_authority": 82
+    },
+    {
+      "position": 6,
+      "url": "https://www.huntress.com/ransomware-guide/ransomware-attack-statistics",
+      "title": "Ransomware Statistics (2026): Attack Trends & Business ...",
+      "domain_authority": 58
+    }
+  ],
+  "competitor_notes": "Positions not listed are an AI overview or a People Also Ask block. Position 4 is the landing page for the Sophos report this article cites.",
+  "sources": [
+    {
+      "url": "https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf",
+      "publisher": "Federal Bureau of Investigation",
+      "type": "Government annual report",
+      "edition": "2025 IC3 Annual Report",
+      "limitations": "Complaint-based. Ransomware losses exclude lost business, time, wages, files, equipment and third-party remediation.",
+      "checked_utc": "2026-10-03",
+      "method": "Document downloaded and its text searched for each cited figure"
+    },
+    {
+      "url": "https://assets.sophos.com/X24WTUEQ/at/jbww7pmb8n3gp99wr6hfq4/sophos-state-ransomware-report-2026.pdf",
+      "publisher": "Sophos",
+      "type": "Vendor-commissioned survey report",
+      "edition": "The State of Ransomware 2026",
+      "limitations": "Survey of 2,158 IT and cybersecurity leaders in 17 countries at organizations with 100 to 5,000 employees. Findings concern organizations hit by ransomware.",
+      "checked_utc": "2026-10-03",
+      "method": "Document downloaded and its text searched for each cited figure"
+    },
+    {
+      "url": "https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf",
+      "publisher": "Verizon",
+      "type": "Primary research report (executive summary)",
+      "edition": "2026 Data Breach Investigations Report",
+      "limitations": "Counts are incidents contributed to the DBIR dataset, not a census. No denominator of organizations per sector is given.",
+      "checked_utc": "2026-10-03",
+      "method": "Document downloaded and its text searched for each cited figure"
+    }
+  ],
+  "statistics": [
+    {
+      "value": "3,611",
+      "description": "Ransomware complaints in 2025",
+      "source": "https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf",
+      "location_in_source": "2025 Crime Types, by complaint count",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Federal Bureau of Investigation",
+      "edition": "2025 IC3 Annual Report",
+      "scope": "Complaint-based. Ransomware losses exclude lost business, time, wages, files, equipment and third-party remediation."
+    },
+    {
+      "value": "$32,320,105",
+      "description": "Reported ransomware losses in 2025",
+      "source": "https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf",
+      "location_in_source": "2025 Crime Types, by complaint loss",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Federal Bureau of Investigation",
+      "edition": "2025 IC3 Annual Report",
+      "scope": "Complaint-based. Ransomware losses exclude lost business, time, wages, files, equipment and third-party remediation."
+    },
+    {
+      "value": "$1,700,200",
+      "description": "Mean recovery cost excluding ransom",
+      "source": "https://assets.sophos.com/X24WTUEQ/at/jbww7pmb8n3gp99wr6hfq4/sophos-state-ransomware-report-2026.pdf",
+      "location_in_source": "Recovery costs section",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Sophos",
+      "edition": "The State of Ransomware 2026",
+      "scope": "Survey of 2,158 IT and cybersecurity leaders in 17 countries at organizations with 100 to 5,000 employees. Findings concern organizations hit by ransomware."
+    },
+    {
+      "value": "$375,000",
+      "description": "Median recovery cost excluding ransom",
+      "source": "https://assets.sophos.com/X24WTUEQ/at/jbww7pmb8n3gp99wr6hfq4/sophos-state-ransomware-report-2026.pdf",
+      "location_in_source": "Recovery costs section",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Sophos",
+      "edition": "The State of Ransomware 2026",
+      "scope": "Survey of 2,158 IT and cybersecurity leaders in 17 countries at organizations with 100 to 5,000 employees. Findings concern organizations hit by ransomware."
+    },
+    {
+      "value": "56%",
+      "description": "Attacks that resulted in data encryption",
+      "source": "https://assets.sophos.com/X24WTUEQ/at/jbww7pmb8n3gp99wr6hfq4/sophos-state-ransomware-report-2026.pdf",
+      "location_in_source": "Key findings",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Sophos",
+      "edition": "The State of Ransomware 2026",
+      "scope": "Survey of 2,158 IT and cybersecurity leaders in 17 countries at organizations with 100 to 5,000 employees. Findings concern organizations hit by ransomware."
+    },
+    {
+      "value": "2,158 / 17",
+      "description": "Survey respondents and countries",
+      "source": "https://assets.sophos.com/X24WTUEQ/at/jbww7pmb8n3gp99wr6hfq4/sophos-state-ransomware-report-2026.pdf",
+      "location_in_source": "Cover and methodology",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Sophos",
+      "edition": "The State of Ransomware 2026",
+      "scope": "Survey of 2,158 IT and cybersecurity leaders in 17 countries at organizations with 100 to 5,000 employees. Findings concern organizations hit by ransomware."
+    }
+  ],
+  "claims": [
+    {
+      "statement": "Ransomware complaints in 2025: 3,611 (Federal Bureau of Investigation, 2025 IC3 Annual Report).",
+      "source_url": "https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Reported ransomware losses in 2025: $32,320,105 (Federal Bureau of Investigation, 2025 IC3 Annual Report).",
+      "source_url": "https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Mean recovery cost excluding ransom: $1,700,200 (Sophos, The State of Ransomware 2026).",
+      "source_url": "https://assets.sophos.com/X24WTUEQ/at/jbww7pmb8n3gp99wr6hfq4/sophos-state-ransomware-report-2026.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Median recovery cost excluding ransom: $375,000 (Sophos, The State of Ransomware 2026).",
+      "source_url": "https://assets.sophos.com/X24WTUEQ/at/jbww7pmb8n3gp99wr6hfq4/sophos-state-ransomware-report-2026.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Attacks that resulted in data encryption: 56% (Sophos, The State of Ransomware 2026).",
+      "source_url": "https://assets.sophos.com/X24WTUEQ/at/jbww7pmb8n3gp99wr6hfq4/sophos-state-ransomware-report-2026.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Survey respondents and countries: 2,158 / 17 (Sophos, The State of Ransomware 2026).",
+      "source_url": "https://assets.sophos.com/X24WTUEQ/at/jbww7pmb8n3gp99wr6hfq4/sophos-state-ransomware-report-2026.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    }
+  ],
+  "claims_note": "Each claim is a figure quoted in the article and checked against the linked source document. The remaining text is interpretation and editorial guidance, labeled as such in the article.",
+  "corrections": [
+    {
+      "date_utc": "2026-10-03",
+      "change": "Removed the banned word \"actually\" from one sentence."
+    }
+  ],
   "internal_link_targets": [
     "A1",
     "A9",
@@ -17,13 +203,13 @@
     "B3"
   ],
   "fact_check": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-04"
   },
   "qa": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-04"
   }
 }

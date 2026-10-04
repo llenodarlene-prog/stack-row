@@ -2,13 +2,194 @@
   "schema": 1,
   "content_id": "A9",
   "slug": "/cybersecurity/data-breach-statistics/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
-  "statistics": [],
-  "claims": [],
+  "research_date_utc": "2026-10-03",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-03",
+      "keyword": "data breach statistics",
+      "search_volume": 110,
+      "seo_difficulty": 67,
+      "paid_difficulty": 35,
+      "cpc_usd": 21.44,
+      "search_intent": "Informational",
+      "serp_data_updated": "2026-09-22"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 2,
+      "url": "https://www.hipaajournal.com/healthcare-data-breach-statistics/",
+      "title": "Healthcare Data Breach Statistics - Updated for 2026",
+      "domain_authority": 63
+    },
+    {
+      "position": 3,
+      "url": "https://www.ibm.com/reports/data-breach",
+      "title": "Cost of a Data Breach Report 2026",
+      "domain_authority": 93
+    },
+    {
+      "position": 4,
+      "url": "https://privacyrights.org/data-breaches",
+      "title": "Data Breach Chronology",
+      "domain_authority": 64
+    },
+    {
+      "position": 5,
+      "url": "https://www.procurri.com/knowledge-hub/data-breaches-from-past-to-future-how-data-breaches-evolved-their-costs-and-how-to-mitigate-risks/",
+      "title": "How Data Breaches Statistics Evolved, Their Costs ...",
+      "domain_authority": 34
+    },
+    {
+      "position": 7,
+      "url": "https://www.statista.com/topics/11610/data-breaches-worldwide/",
+      "title": "Data breaches worldwide - statistics & facts",
+      "domain_authority": 93
+    }
+  ],
+  "competitor_notes": "Positions not listed are an AI overview or a People Also Ask block. The ICO incident trends page cited in this article ranks at position 8.",
+  "sources": [
+    {
+      "url": "https://www.idtheftcenter.org/wp-content/uploads/2026/01/2025-ITRC-Annual-Data-Breach-Report.pdf",
+      "publisher": "Identity Theft Resource Center",
+      "type": "Annual report",
+      "edition": "2025 Data Breach Report",
+      "limitations": "US compromises under ITRC categories. Victim notices are not unique individuals. Fixed annual snapshot published January 2026.",
+      "checked_utc": "2026-10-03",
+      "method": "Document downloaded and its text searched for each cited figure"
+    },
+    {
+      "url": "https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf",
+      "publisher": "Verizon",
+      "type": "Primary research report (executive summary)",
+      "edition": "2026 Data Breach Investigations Report",
+      "limitations": "Counts are incidents contributed to the DBIR dataset, not a census. No denominator of organizations per sector is given.",
+      "checked_utc": "2026-10-03",
+      "method": "Document downloaded and its text searched for each cited figure"
+    },
+    {
+      "url": "https://ico.org.uk/action-weve-taken/complaints-and-concerns-data-sets/data-security-incident-trends/",
+      "publisher": "Information Commissioner's Office",
+      "type": "Regulator data page",
+      "edition": "Data security incident trends",
+      "limitations": "UK personal data breach reports received by the ICO. Data starts at Q2 2019 because incidents were recorded differently before then.",
+      "checked_utc": "2026-10-03",
+      "method": "Page read directly"
+    }
+  ],
+  "statistics": [
+    {
+      "value": "3,322",
+      "description": "Total compromises in 2025",
+      "source": "https://www.idtheftcenter.org/wp-content/uploads/2026/01/2025-ITRC-Annual-Data-Breach-Report.pdf",
+      "location_in_source": "Summary page and Figure 1",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Identity Theft Resource Center",
+      "edition": "2025 Data Breach Report",
+      "scope": "US compromises under ITRC categories. Victim notices are not unique individuals. Fixed annual snapshot published January 2026."
+    },
+    {
+      "value": "278,827,933",
+      "description": "Victim notices in 2025",
+      "source": "https://www.idtheftcenter.org/wp-content/uploads/2026/01/2025-ITRC-Annual-Data-Breach-Report.pdf",
+      "location_in_source": "Summary page and Figure 1",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Identity Theft Resource Center",
+      "edition": "2025 Data Breach Report",
+      "scope": "US compromises under ITRC categories. Victim notices are not unique individuals. Fixed annual snapshot published January 2026."
+    },
+    {
+      "value": "2,928",
+      "description": "Data breaches",
+      "source": "https://www.idtheftcenter.org/wp-content/uploads/2026/01/2025-ITRC-Annual-Data-Breach-Report.pdf",
+      "location_in_source": "Summary page",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Identity Theft Resource Center",
+      "edition": "2025 Data Breach Report",
+      "scope": "US compromises under ITRC categories. Victim notices are not unique individuals. Fixed annual snapshot published January 2026."
+    },
+    {
+      "value": "24",
+      "description": "Data exposures",
+      "source": "https://www.idtheftcenter.org/wp-content/uploads/2026/01/2025-ITRC-Annual-Data-Breach-Report.pdf",
+      "location_in_source": "Summary page",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Identity Theft Resource Center",
+      "edition": "2025 Data Breach Report",
+      "scope": "US compromises under ITRC categories. Victim notices are not unique individuals. Fixed annual snapshot published January 2026."
+    },
+    {
+      "value": "366",
+      "description": "Unknown compromises",
+      "source": "https://www.idtheftcenter.org/wp-content/uploads/2026/01/2025-ITRC-Annual-Data-Breach-Report.pdf",
+      "location_in_source": "Summary page",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Identity Theft Resource Center",
+      "edition": "2025 Data Breach Report",
+      "scope": "US compromises under ITRC categories. Victim notices are not unique individuals. Fixed annual snapshot published January 2026."
+    },
+    {
+      "value": "4",
+      "description": "Previously compromised data events",
+      "source": "https://www.idtheftcenter.org/wp-content/uploads/2026/01/2025-ITRC-Annual-Data-Breach-Report.pdf",
+      "location_in_source": "Summary page",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Identity Theft Resource Center",
+      "edition": "2025 Data Breach Report",
+      "scope": "US compromises under ITRC categories. Victim notices are not unique individuals. Fixed annual snapshot published January 2026."
+    }
+  ],
+  "claims": [
+    {
+      "statement": "Total compromises in 2025: 3,322 (Identity Theft Resource Center, 2025 Data Breach Report).",
+      "source_url": "https://www.idtheftcenter.org/wp-content/uploads/2026/01/2025-ITRC-Annual-Data-Breach-Report.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Victim notices in 2025: 278,827,933 (Identity Theft Resource Center, 2025 Data Breach Report).",
+      "source_url": "https://www.idtheftcenter.org/wp-content/uploads/2026/01/2025-ITRC-Annual-Data-Breach-Report.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Data breaches: 2,928 (Identity Theft Resource Center, 2025 Data Breach Report).",
+      "source_url": "https://www.idtheftcenter.org/wp-content/uploads/2026/01/2025-ITRC-Annual-Data-Breach-Report.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Data exposures: 24 (Identity Theft Resource Center, 2025 Data Breach Report).",
+      "source_url": "https://www.idtheftcenter.org/wp-content/uploads/2026/01/2025-ITRC-Annual-Data-Breach-Report.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Unknown compromises: 366 (Identity Theft Resource Center, 2025 Data Breach Report).",
+      "source_url": "https://www.idtheftcenter.org/wp-content/uploads/2026/01/2025-ITRC-Annual-Data-Breach-Report.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Previously compromised data events: 4 (Identity Theft Resource Center, 2025 Data Breach Report).",
+      "source_url": "https://www.idtheftcenter.org/wp-content/uploads/2026/01/2025-ITRC-Annual-Data-Breach-Report.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    }
+  ],
+  "claims_note": "Each claim is a figure quoted in the article and checked against the linked source document. The remaining text is interpretation and editorial guidance, labeled as such in the article.",
+  "corrections": [],
   "internal_link_targets": [
     "A1",
     "A6",
@@ -17,13 +198,13 @@
     "A10"
   ],
   "fact_check": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-04"
   },
   "qa": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-04"
   }
 }

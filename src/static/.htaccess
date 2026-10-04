@@ -8,3 +8,11 @@ DirectoryIndex index.html
 </IfModule>
 
 ErrorDocument 404 /404/
+
+# Pages are always revalidated so a deploy is visible at once. The stylesheet
+# and script use content-hashed names and can be cached normally.
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
