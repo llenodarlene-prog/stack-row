@@ -1,0 +1,22 @@
+{
+  "name": "Stack Row",
+  "tagline": "Tech That Moves Businesses Forward.",
+  "description": "Research and practical analysis for people choosing, building, and running business technology.",
+  "url": "https://stackrow.org",
+  "locale": "en-US",
+  "launch_status": "ready",
+  "contact_email": "stackrow@gmail.com",
+  "fonts": {
+    "display": "Sora",
+    "body": "Inter",
+    "technical": "IBM Plex Mono"
+  },
+  "colors": {
+    "navy": "#0B2A56",
+    "blue": "#2563EB",
+    "cyan": "#22D3EE",
+    "soft_white": "#F8FAFC",
+    "slate": "#374151",
+    "white": "#FFFFFF"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "home": {
+    "label": "Home",
+    "url": "/"
+  },
+  "topics": [
+    {
+      "label": "Cybersecurity",
+      "url": "/cybersecurity/"
+    },
+    {
+      "label": "SaaS",
+      "url": "/saas/"
+    },
+    {
+      "label": "AI",
+      "url": "/ai/"
+    },
+    {
+      "label": "Cloud & Infrastructure",
+      "url": "/cloud-infrastructure/"
+    },
+    {
+      "label": "Business Technology",
+      "url": "/business-technology/"
+    },
+    {
+      "label": "Developer & Data",
+      "url": "/developer-data/"
+    }
+  ],
+  "utility": [
+    {
+      "label": "About Us",
+      "url": "/about/"
+    },
+    {
+      "label": "Contact Us",
+      "url": "/contact/",
+      "button": true
+    }
+  ],
+  "footer": [
+    {
+      "label": "Explore",
+      "links": [
+        {
+          "label": "Cybersecurity",
+          "url": "/cybersecurity/"
+        },
+        {
+          "label": "SaaS",
+          "url": "/saas/"
+        },
+        {
+          "label": "AI",
+          "url": "/ai/"
+        },
+        {
+          "label": "Cloud & Infrastructure",
+          "url": "/cloud-infrastructure/"
+        },
+        {
+          "label": "Business Technology",
+          "url": "/business-technology/"
+        },
+        {
+          "label": "Developer & Data",
+          "url": "/developer-data/"
+        }
+      ]
+    },
+    {
+      "label": "About Stack Row",
+      "links": [
+        {
+          "label": "About Us",
+          "url": "/about/"
+        },
+        {
+          "label": "Contact Us",
+          "url": "/contact/"
+        },
+        {
+          "label": "Partner With Us",
+          "url": "/partner-with-us/"
+        }
+      ]
+    },
+    {
+      "label": "Legal",
+      "links": [
+        {
+          "label": "Terms and Conditions",
+          "url": "/terms/"
+        },
+        {
+          "label": "Privacy Policy",
+          "url": "/privacy/"
+        }
+      ]
+    }
+  ]
+}

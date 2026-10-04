@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "content_id": "A4",
+  "slug": "/business-technology/b2b-tech-statistics/",
+  "status": "scaffolded",
+  "required_seo_tool": "Ubersuggest",
+  "keyword_queries": [],
+  "ranking_competitors": [],
+  "sources": [],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "A2",
+    "A3",
+    "A5",
+    "B5"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  }
+}

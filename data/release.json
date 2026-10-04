@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "minimum_published_blogs": 1,
+  "core_routes": [
+    "/",
+    "/about/",
+    "/contact/",
+    "/privacy/",
+    "/cybersecurity/",
+    "/saas/",
+    "/ai/",
+    "/business-technology/",
+    "/cloud-infrastructure/",
+    "/developer-data/"
+  ],
+  "approvals": {
+    "contact_details": true,
+    "privacy_review": true,
+    "staging_review": true,
+    "production": true
+  }
+}

@@ -1,0 +1,231 @@
+{
+  "schema": 1,
+  "content_id": "A5",
+  "slug": "/cloud-infrastructure/cloud-computing-statistics/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-03",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-03",
+      "keyword": "cloud computing statistics",
+      "search_volume": 70,
+      "seo_difficulty": 56,
+      "paid_difficulty": 1,
+      "cpc_usd": 0,
+      "search_intent": "Informational",
+      "serp_data_updated": "2026-09-22"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 2,
+      "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Cloud_computing_-_statistics_on_the_use_by_enterprises",
+      "title": "Cloud computing - statistics on the use by enterprises - Eurostat",
+      "domain_authority": 97
+    },
+    {
+      "position": 3,
+      "url": "https://spacelift.io/blog/cloud-computing-statistics",
+      "title": "55 Cloud Computing Statistics for 2026",
+      "domain_authority": 44
+    },
+    {
+      "position": 4,
+      "url": "https://www.statista.com/topics/1695/cloud-computing/",
+      "title": "Cloud computing - statistics & facts",
+      "domain_authority": 93
+    },
+    {
+      "position": 5,
+      "url": "https://www.cloudzero.com/blog/cloud-computing-statistics/",
+      "title": "100+ Cloud Computing Statistics: A 2026 Market Snapshot",
+      "domain_authority": 47
+    },
+    {
+      "position": 6,
+      "url": "https://edgedelta.com/company/knowledge-center/how-many-companies-use-cloud-computing",
+      "title": "How Many Companies Use Cloud Computing? [Key Stats]",
+      "domain_authority": 37
+    }
+  ],
+  "competitor_notes": "Positions not listed are an AI overview or a People Also Ask block. The top organic result is the Eurostat page this article cites as a primary source.",
+  "sources": [
+    {
+      "url": "https://csrc.nist.gov/publications/detail/sp/800-145/final",
+      "publisher": "NIST",
+      "type": "Government standard",
+      "edition": "SP 800-145, The NIST Definition of Cloud Computing (September 2011)",
+      "limitations": "Definitions only. It contains no adoption data.",
+      "checked_utc": "2026-10-03",
+      "method": "Page read directly"
+    },
+    {
+      "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Cloud_computing_-_statistics_on_the_use_by_enterprises",
+      "publisher": "Eurostat",
+      "type": "Official statistics",
+      "edition": "Data extracted January 2026",
+      "limitations": "EU enterprises with 10 or more people employed. Reference year 2025.",
+      "checked_utc": "2026-10-03",
+      "method": "Page read directly"
+    },
+    {
+      "url": "https://info.flexera.com/CM-REPORT-State-of-the-Cloud",
+      "publisher": "Flexera",
+      "type": "Vendor survey report",
+      "edition": "2026 State of the Cloud Report",
+      "limitations": "Survey of 753 technical professionals and executive leaders worldwide, fielded in winter 2025. Not a random sample of all organizations.",
+      "checked_utc": "2026-10-03",
+      "method": "Page read directly"
+    }
+  ],
+  "statistics": [
+    {
+      "value": "52.74%",
+      "description": "EU enterprises that bought cloud computing services in 2025",
+      "source": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Cloud_computing_-_statistics_on_the_use_by_enterprises",
+      "location_in_source": "Page summary",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Eurostat",
+      "edition": "Data extracted January 2026",
+      "scope": "EU enterprises with 10 or more people employed. Reference year 2025."
+    },
+    {
+      "value": "49.3%",
+      "description": "Small enterprises, 10 to 49 people employed",
+      "source": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Cloud_computing_-_statistics_on_the_use_by_enterprises",
+      "location_in_source": "Enterprise size breakdown",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Eurostat",
+      "edition": "Data extracted January 2026",
+      "scope": "EU enterprises with 10 or more people employed. Reference year 2025."
+    },
+    {
+      "value": "66.78%",
+      "description": "Medium enterprises, 50 to 249 people employed",
+      "source": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Cloud_computing_-_statistics_on_the_use_by_enterprises",
+      "location_in_source": "Enterprise size breakdown",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Eurostat",
+      "edition": "Data extracted January 2026",
+      "scope": "EU enterprises with 10 or more people employed. Reference year 2025."
+    },
+    {
+      "value": "84.67%",
+      "description": "Large enterprises, 250 or more people employed",
+      "source": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Cloud_computing_-_statistics_on_the_use_by_enterprises",
+      "location_in_source": "Enterprise size breakdown",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Eurostat",
+      "edition": "Data extracted January 2026",
+      "scope": "EU enterprises with 10 or more people employed. Reference year 2025."
+    },
+    {
+      "value": "73%",
+      "description": "Organizations using hybrid cloud",
+      "source": "https://info.flexera.com/CM-REPORT-State-of-the-Cloud",
+      "location_in_source": "Report landing page",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Flexera",
+      "edition": "2026 State of the Cloud Report",
+      "scope": "Survey of 753 technical professionals and executive leaders worldwide, fielded in winter 2025. Not a random sample of all organizations."
+    },
+    {
+      "value": "753",
+      "description": "Survey respondents",
+      "source": "https://info.flexera.com/CM-REPORT-State-of-the-Cloud",
+      "location_in_source": "Report landing page",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Flexera",
+      "edition": "2026 State of the Cloud Report",
+      "scope": "Survey of 753 technical professionals and executive leaders worldwide, fielded in winter 2025. Not a random sample of all organizations."
+    },
+    {
+      "value": "69% / 78%",
+      "description": "Hybrid cloud use at 5,000 or fewer employees and above 5,000",
+      "source": "https://info.flexera.com/CM-REPORT-State-of-the-Cloud",
+      "location_in_source": "Report landing page",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Flexera",
+      "edition": "2026 State of the Cloud Report",
+      "scope": "Survey of 753 technical professionals and executive leaders worldwide, fielded in winter 2025. Not a random sample of all organizations."
+    }
+  ],
+  "claims": [
+    {
+      "statement": "EU enterprises that bought cloud computing services in 2025: 52.74% (Eurostat, Data extracted January 2026).",
+      "source_url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Cloud_computing_-_statistics_on_the_use_by_enterprises",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Small enterprises, 10 to 49 people employed: 49.3% (Eurostat, Data extracted January 2026).",
+      "source_url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Cloud_computing_-_statistics_on_the_use_by_enterprises",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Medium enterprises, 50 to 249 people employed: 66.78% (Eurostat, Data extracted January 2026).",
+      "source_url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Cloud_computing_-_statistics_on_the_use_by_enterprises",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Large enterprises, 250 or more people employed: 84.67% (Eurostat, Data extracted January 2026).",
+      "source_url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Cloud_computing_-_statistics_on_the_use_by_enterprises",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Organizations using hybrid cloud: 73% (Flexera, 2026 State of the Cloud Report).",
+      "source_url": "https://info.flexera.com/CM-REPORT-State-of-the-Cloud",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Survey respondents: 753 (Flexera, 2026 State of the Cloud Report).",
+      "source_url": "https://info.flexera.com/CM-REPORT-State-of-the-Cloud",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Hybrid cloud use at 5,000 or fewer employees and above 5,000: 69% / 78% (Flexera, 2026 State of the Cloud Report).",
+      "source_url": "https://info.flexera.com/CM-REPORT-State-of-the-Cloud",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    }
+  ],
+  "claims_note": "Each claim is a figure quoted in the article and checked against the linked source document. The remaining text is interpretation and editorial guidance, labeled as such in the article.",
+  "corrections": [
+    {
+      "date_utc": "2026-10-04",
+      "change": "Replaced the template meta description with one that names the sources the article uses. The article body is unchanged."
+    }
+  ],
+  "internal_link_targets": [
+    "A6",
+    "B2",
+    "B8",
+    "A4"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-04"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-04"
+  }
+}

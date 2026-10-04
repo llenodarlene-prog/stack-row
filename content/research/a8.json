@@ -1,0 +1,218 @@
+{
+  "schema": 1,
+  "content_id": "A8",
+  "slug": "/cybersecurity/phishing-statistics-attack-stage/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-03",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-03",
+      "keyword": "phishing statistics",
+      "search_volume": 260,
+      "seo_difficulty": 66,
+      "paid_difficulty": 38,
+      "cpc_usd": 23.39,
+      "search_intent": "Informational",
+      "serp_data_updated": "2026-09-07"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 2,
+      "url": "https://hoxhunt.com/guide/phishing-trends-report",
+      "title": "Phishing Trends Report (Updated for 2026)",
+      "domain_authority": 44
+    },
+    {
+      "position": 3,
+      "url": "https://www.statista.com/topics/8385/phishing/",
+      "title": "Phishing - Statistics & Facts",
+      "domain_authority": 93
+    },
+    {
+      "position": 5,
+      "url": "https://ico.org.uk/about-the-ico/research-reports-impact-and-evaluation/research-and-reports/learning-from-the-mistakes-of-others-a-retrospective-review/phishing/",
+      "title": "Phishing",
+      "domain_authority": 90
+    },
+    {
+      "position": 6,
+      "url": "https://www.huntress.com/phishing-guide/phishing-attack-statistics",
+      "title": "Statistics on Phishing Attacks that Target Businesses",
+      "domain_authority": 58
+    },
+    {
+      "position": 7,
+      "url": "https://onlinedegrees.sandiego.edu/cyber-security-statistics/",
+      "title": "47 Cybersecurity Statistics and Facts [2026]",
+      "domain_authority": 68
+    }
+  ],
+  "competitor_notes": "Positions not listed are an AI overview or a People Also Ask block. The APWG trends reports page, the source of this article's site counts, ranks at position 8.",
+  "sources": [
+    {
+      "url": "https://docs.apwg.org/reports/apwg_trends_report_q2_2026.pdf",
+      "publisher": "APWG",
+      "type": "Industry trends report",
+      "edition": "Phishing Activity Trends Report, 2nd Quarter 2026",
+      "limitations": "Counts unique phishing sites reported to APWG. The three monthly figures sum to 1,069,682 while the report states a quarterly total of 1,069,681.",
+      "checked_utc": "2026-10-03",
+      "method": "Document downloaded and its text searched for each cited figure"
+    },
+    {
+      "url": "https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf",
+      "publisher": "Federal Bureau of Investigation",
+      "type": "Government annual report",
+      "edition": "2025 IC3 Annual Report",
+      "limitations": "Complaint-based. Ransomware losses exclude lost business, time, wages, files, equipment and third-party remediation.",
+      "checked_utc": "2026-10-03",
+      "method": "Document downloaded and its text searched for each cited figure"
+    },
+    {
+      "url": "https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf",
+      "publisher": "Verizon",
+      "type": "Primary research report (executive summary)",
+      "edition": "2026 Data Breach Investigations Report",
+      "limitations": "Counts are incidents contributed to the DBIR dataset, not a census. No denominator of organizations per sector is given.",
+      "checked_utc": "2026-10-03",
+      "method": "Document downloaded and its text searched for each cited figure"
+    }
+  ],
+  "statistics": [
+    {
+      "value": "325,934",
+      "description": "Unique phishing sites, April 2026",
+      "source": "https://docs.apwg.org/reports/apwg_trends_report_q2_2026.pdf",
+      "location_in_source": "Statistical highlights table",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "APWG",
+      "edition": "Phishing Activity Trends Report, 2nd Quarter 2026",
+      "scope": "Counts unique phishing sites reported to APWG. The three monthly figures sum to 1,069,682 while the report states a quarterly total of 1,069,681."
+    },
+    {
+      "value": "317,940",
+      "description": "Unique phishing sites, May 2026",
+      "source": "https://docs.apwg.org/reports/apwg_trends_report_q2_2026.pdf",
+      "location_in_source": "Statistical highlights table",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "APWG",
+      "edition": "Phishing Activity Trends Report, 2nd Quarter 2026",
+      "scope": "Counts unique phishing sites reported to APWG. The three monthly figures sum to 1,069,682 while the report states a quarterly total of 1,069,681."
+    },
+    {
+      "value": "425,808",
+      "description": "Unique phishing sites, June 2026",
+      "source": "https://docs.apwg.org/reports/apwg_trends_report_q2_2026.pdf",
+      "location_in_source": "Statistical highlights table and summary",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "APWG",
+      "edition": "Phishing Activity Trends Report, 2nd Quarter 2026",
+      "scope": "Counts unique phishing sites reported to APWG. The three monthly figures sum to 1,069,682 while the report states a quarterly total of 1,069,681."
+    },
+    {
+      "value": "941",
+      "description": "Unique brands targeted in the quarter",
+      "source": "https://docs.apwg.org/reports/apwg_trends_report_q2_2026.pdf",
+      "location_in_source": "Brands section",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "APWG",
+      "edition": "Phishing Activity Trends Report, 2nd Quarter 2026",
+      "scope": "Counts unique phishing sites reported to APWG. The three monthly figures sum to 1,069,682 while the report states a quarterly total of 1,069,681."
+    },
+    {
+      "value": "191,561",
+      "description": "Phishing/spoofing complaints in 2025",
+      "source": "https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf",
+      "location_in_source": "2025 Crime Types, by complaint count",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Federal Bureau of Investigation",
+      "edition": "2025 IC3 Annual Report",
+      "scope": "Complaint-based. Ransomware losses exclude lost business, time, wages, files, equipment and third-party remediation."
+    },
+    {
+      "value": "1,069,682 vs 1,069,681",
+      "description": "Sum of monthly figures against the stated quarterly total",
+      "source": "https://docs.apwg.org/reports/apwg_trends_report_q2_2026.pdf",
+      "location_in_source": "Summary text",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "APWG",
+      "edition": "Phishing Activity Trends Report, 2nd Quarter 2026",
+      "scope": "Counts unique phishing sites reported to APWG. The three monthly figures sum to 1,069,682 while the report states a quarterly total of 1,069,681."
+    }
+  ],
+  "claims": [
+    {
+      "statement": "Unique phishing sites, April 2026: 325,934 (APWG, Phishing Activity Trends Report, 2nd Quarter 2026).",
+      "source_url": "https://docs.apwg.org/reports/apwg_trends_report_q2_2026.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Unique phishing sites, May 2026: 317,940 (APWG, Phishing Activity Trends Report, 2nd Quarter 2026).",
+      "source_url": "https://docs.apwg.org/reports/apwg_trends_report_q2_2026.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Unique phishing sites, June 2026: 425,808 (APWG, Phishing Activity Trends Report, 2nd Quarter 2026).",
+      "source_url": "https://docs.apwg.org/reports/apwg_trends_report_q2_2026.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Unique brands targeted in the quarter: 941 (APWG, Phishing Activity Trends Report, 2nd Quarter 2026).",
+      "source_url": "https://docs.apwg.org/reports/apwg_trends_report_q2_2026.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Phishing/spoofing complaints in 2025: 191,561 (Federal Bureau of Investigation, 2025 IC3 Annual Report).",
+      "source_url": "https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Sum of monthly figures against the stated quarterly total: 1,069,682 vs 1,069,681 (APWG, Phishing Activity Trends Report, 2nd Quarter 2026).",
+      "source_url": "https://docs.apwg.org/reports/apwg_trends_report_q2_2026.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    }
+  ],
+  "claims_note": "Each claim is a figure quoted in the article and checked against the linked source document. The remaining text is interpretation and editorial guidance, labeled as such in the article.",
+  "corrections": [
+    {
+      "date_utc": "2026-10-03",
+      "change": "Removed the banned word \"actually\" from one sentence."
+    },
+    {
+      "date_utc": "2026-10-04",
+      "change": "Replaced the template meta description with one that names the sources the article uses. The article body is unchanged."
+    }
+  ],
+  "internal_link_targets": [
+    "A1",
+    "A9",
+    "B4",
+    "B3"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-04"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-04"
+  }
+}
