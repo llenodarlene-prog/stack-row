@@ -17,13 +17,13 @@
     "B3"
   ],
   "fact_check": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-04"
   },
   "qa": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-04"
   }
 }

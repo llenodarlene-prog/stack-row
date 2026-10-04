@@ -14,9 +14,9 @@
     "/developer-data/"
   ],
   "approvals": {
-    "contact_details": false,
-    "privacy_review": false,
-    "staging_review": false,
-    "production": false
+    "contact_details": true,
+    "privacy_review": true,
+    "staging_review": true,
+    "production": true
   }
 }
