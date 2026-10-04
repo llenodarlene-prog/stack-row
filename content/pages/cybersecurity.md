@@ -40,7 +40,7 @@ Separate reported losses from the operational cost of restoring a business after
 Understand the difference between observed phishing infrastructure, delivered messages, complaints, and compromise.
 :::
 
-::: chart /cybersecurity/cybercrime-statistics/
+::: chart /cybersecurity/phishing-statistics-attack-stage/
 :::
 
 ## Examine the Operating Decision {backdrop:precision-manufacturing-cell}
