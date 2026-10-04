@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { execFile } from 'node:child_process';
-import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { mkdtemp, readdir, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
@@ -39,10 +39,20 @@ test('non-production build includes all drafts and marks them noindex', async ()
   const manifest = JSON.parse(await readFile('dist/build-manifest.json', 'utf8'));
   assert.equal(manifest.environment, process.env.BUILD_ENV || 'local');
   assert.equal(manifest.indexable, false);
-  assert.equal(manifest.pages.filter(page => page.draft && ['article', 'blog'].includes(page.type)).length, 20);
-  const draft = await readFile('dist/cybersecurity/cybersecurity-statistics/index.html', 'utf8');
-  assert.match(draft, /noindex,nofollow,noarchive/);
-  assert.match(draft, /Editorial draft/);
+  // Every post still marked draft in content/posts must be built and flagged.
+  const drafts = [];
+  for (const name of (await readdir('content/posts')).filter(file => file.endsWith('.md'))) {
+    const source = await readFile(path.join('content/posts', name), 'utf8');
+    if (/^draft:\s*true\s*$/m.test(source)) drafts.push(source.match(/^slug:\s*(\S+)\s*$/m)[1]);
+  }
+  const built = manifest.pages.filter(page => page.draft && ['article', 'blog'].includes(page.type)).map(page => page.slug);
+  assert.deepEqual([...built].sort(), [...drafts].sort());
+  assert.equal(manifest.pages.filter(page => ['article', 'blog'].includes(page.type)).length, 20);
+  for (const slug of drafts) {
+    const draft = await readFile(path.join('dist', slug, 'index.html'), 'utf8');
+    assert.match(draft, /noindex,nofollow,noarchive/);
+    assert.match(draft, /Editorial draft/);
+  }
 });
 
 test('homepage renders the hero, topic cards and site schema', async () => {

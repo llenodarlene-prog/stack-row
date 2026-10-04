@@ -5,8 +5,7 @@ description: Read how Stack Row handles personal information, including email in
 slug: /privacy/
 type: page
 layout: prose
-draft: true
-complete: false
+complete: true
 ---
 
 # Privacy Policy

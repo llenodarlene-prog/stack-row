@@ -5,8 +5,7 @@ description: Read the terms for using Stack Row, including permitted content use
 slug: /terms/
 type: page
 layout: prose
-draft: true
-complete: false
+complete: true
 ---
 
 # Terms and Conditions

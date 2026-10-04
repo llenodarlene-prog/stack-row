@@ -83,13 +83,13 @@
   ],
   "internal_link_note": "The blog links to A5, A6 and B3. All three are unpublished drafts, so a production build renders those links as plain text until the targets are published.",
   "fact_check": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-04"
   },
   "qa": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-04"
   }
 }
