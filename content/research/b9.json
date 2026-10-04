@@ -2,13 +2,170 @@
   "schema": 1,
   "content_id": "B9",
   "slug": "/ai/snowflake-ai-compute-costs/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
-  "statistics": [],
-  "claims": [],
+  "research_date_utc": "2026-10-04",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-04",
+      "keyword": "snowflake ai compute costs",
+      "search_volume": 0,
+      "seo_difficulty": 4,
+      "paid_difficulty": 1,
+      "cpc_usd": 0,
+      "search_intent": null,
+      "role": "Content plan keyword",
+      "serp_data_updated": "2026-09-22"
+    },
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-04",
+      "keyword": "snowflake ai",
+      "search_volume": 2900,
+      "seo_difficulty": 48,
+      "paid_difficulty": 28,
+      "cpc_usd": 15.25,
+      "search_intent": "Informational",
+      "role": "Keyword used in the final draft",
+      "serp_data_updated": "2026-09-22"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 2,
+      "url": "https://www.snowflake.com/en/product/ai/",
+      "title": "Snowflake for AI | Enterprise AI Services",
+      "domain_authority": 64
+    },
+    {
+      "position": 4,
+      "url": "https://ai.snowflake.com/",
+      "title": "Snowflake CoWork",
+      "domain_authority": 64
+    },
+    {
+      "position": 5,
+      "url": "https://docs.snowflake.com/en/guides-overview-ai-features",
+      "title": "Snowflake AI and ML",
+      "domain_authority": 64
+    },
+    {
+      "position": 7,
+      "url": "https://en.wikipedia.org/wiki/Snowflake_Inc.",
+      "title": "Snowflake Inc.",
+      "domain_authority": 98
+    },
+    {
+      "position": 8,
+      "url": "https://www.snowflake.com/en/product/features/cortex/",
+      "title": "Snowflake Cortex AI | AI Data Cloud",
+      "domain_authority": 64
+    }
+  ],
+  "competitor_notes": "Positions not listed are an AI overview, a People Also Ask block or a similar feature. Competitors were mapped for \"snowflake ai\" because the content plan keyword returns no search volume. The results are product and overview pages; none covers credit classes and cost estimation.",
+  "sources": [
+    {
+      "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing",
+      "publisher": "Snowflake",
+      "type": "Official pricing documentation",
+      "checked_utc": "2026-10-04",
+      "page_last_updated": null,
+      "method": "Page read directly",
+      "supports": "Separates AI Credits from Platform Credits, lists the features on each, gives AI Credit list prices of $2.00 for global routing and $2.20 for regional routing, and includes the 100 credit example.",
+      "limitations": "List prices before automatic discounts based on annual contract value. Account arrangements can differ."
+    },
+    {
+      "url": "https://docs.snowflake.com/user-guide/snowflake-cortex/aisql-privileges-and-access",
+      "publisher": "Snowflake",
+      "type": "Official product documentation",
+      "checked_utc": "2026-10-04",
+      "page_last_updated": null,
+      "method": "Page read directly",
+      "supports": "Describes the account-level privilege and database roles required to use Cortex AI Functions and how access can be restricted.",
+      "limitations": "Describes the access model. It does not show any account's grants."
+    },
+    {
+      "url": "https://docs.snowflake.com/user-guide/snowflake-cortex/ai-func-cost-management",
+      "publisher": "Snowflake",
+      "type": "Official product documentation",
+      "checked_utc": "2026-10-04",
+      "page_last_updated": null,
+      "method": "Page read directly",
+      "supports": "Describes usage views, account-level alerts, per-user spending limits and runaway query detection, and notes that alerts are notifications and that usage data has latency.",
+      "limitations": "A cancelled query is still charged for resources used up to cancellation."
+    }
+  ],
+  "statistics": [
+    {
+      "value": "$2.00 per AI Credit",
+      "description": "List price with global routing",
+      "source": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing",
+      "result": "Matches source",
+      "checked_utc": "2026-10-04"
+    },
+    {
+      "value": "$2.20 per AI Credit",
+      "description": "List price with regional routing",
+      "source": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing",
+      "result": "Matches source",
+      "checked_utc": "2026-10-04"
+    },
+    {
+      "value": "100 x $3.00 = $300",
+      "description": "Platform Credit side of the documented example",
+      "source": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing",
+      "result": "Matches source",
+      "checked_utc": "2026-10-04"
+    },
+    {
+      "value": "100 x $2.00 = $200",
+      "description": "AI Credit side of the documented example",
+      "source": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing",
+      "result": "Matches source",
+      "checked_utc": "2026-10-04"
+    }
+  ],
+  "claims": [
+    {
+      "statement": "Snowflake documentation separates AI Credits from Platform Credits. AI Functions, Cortex Code, Agents, Search, Batch Search and document parsing use AI Credit pricing; fine-tuning and the Analyst API remain on Platform Credits.",
+      "source_url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing",
+      "verified": true,
+      "checked_utc": "2026-10-04"
+    },
+    {
+      "statement": "Listed AI Credit rates are $2.00 for global routing and $2.20 for regional routing, before automatic discounts based on annual contract value.",
+      "source_url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing",
+      "verified": true,
+      "checked_utc": "2026-10-04"
+    },
+    {
+      "statement": "The pricing documentation includes an example with Platform Credits at $3 and AI Credits at $2, 100 of each, totaling $500.",
+      "source_url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing",
+      "verified": true,
+      "checked_utc": "2026-10-04"
+    },
+    {
+      "statement": "An alert is a notification and should not be assumed to stop every workload or charge.",
+      "source_url": "https://docs.snowflake.com/user-guide/snowflake-cortex/ai-func-cost-management",
+      "verified": true,
+      "checked_utc": "2026-10-04"
+    }
+  ],
+  "corrections": [
+    {
+      "date_utc": "2026-10-04",
+      "change": "Removed the banned word \"actually\" from one heading, now \"Understand What Cost Controls Enforce\"."
+    },
+    {
+      "date_utc": "2026-10-04",
+      "change": "Replaced the template meta description with one that describes the blog."
+    }
+  ],
   "internal_link_targets": [
     "A3",
     "A5",

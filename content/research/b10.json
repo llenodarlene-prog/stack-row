@@ -2,13 +2,143 @@
   "schema": 1,
   "content_id": "B10",
   "slug": "/ai/atlassian-ai-knowledge-permissions/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
-  "statistics": [],
-  "claims": [],
+  "research_date_utc": "2026-10-04",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-04",
+      "keyword": "atlassian ai knowledge permissions",
+      "search_volume": 0,
+      "seo_difficulty": 4,
+      "paid_difficulty": 1,
+      "cpc_usd": 0,
+      "search_intent": null,
+      "role": "Content plan keyword",
+      "serp_data_updated": "2026-08-06"
+    },
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-04",
+      "keyword": "atlassian ai",
+      "search_volume": 480,
+      "seo_difficulty": 54,
+      "paid_difficulty": 23,
+      "cpc_usd": 20.16,
+      "search_intent": "Informational",
+      "role": "Keyword used in the final draft",
+      "serp_data_updated": "2026-08-06"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 2,
+      "url": "https://www.atlassian.com/software/rovo",
+      "title": "Rovo: Unlock organizational knowledge with GenAI | Atlassian",
+      "domain_authority": 88
+    },
+    {
+      "position": 3,
+      "url": "https://support.atlassian.com/organization-administration/docs/understand-atlassian-intelligence-features-in-products/",
+      "title": "Explore AI features",
+      "domain_authority": 88
+    },
+    {
+      "position": 4,
+      "url": "https://www.atlassian.com/trust/ai",
+      "title": "AI Trust",
+      "domain_authority": 88
+    },
+    {
+      "position": 6,
+      "url": "https://www.atlassian.com/blog/announcements/unleashing-power-of-ai",
+      "title": "Introducing Atlassian Intelligence",
+      "domain_authority": 88
+    },
+    {
+      "position": 8,
+      "url": "https://www.atlassian.com/software/jira/ai",
+      "title": "Rovo in Jira: AI features",
+      "domain_authority": 88
+    }
+  ],
+  "competitor_notes": "Positions not listed are an AI overview, a People Also Ask block or a similar feature. Competitors were mapped for \"atlassian ai\" because the content plan keyword returns no search volume. Position 4 is the AI Trust page this blog cites.",
+  "sources": [
+    {
+      "url": "https://www.atlassian.com/trust/ai",
+      "publisher": "Atlassian",
+      "type": "Official trust documentation",
+      "checked_utc": "2026-10-04",
+      "page_last_updated": null,
+      "method": "Page read directly",
+      "supports": "States that Rovo honors existing permissions, that an agent called by an automation rule uses the permissions of the connecting user, and that connectors respect existing user permissions.",
+      "limitations": "Vendor statement of design. An organization still has to test its own sources and connectors."
+    },
+    {
+      "url": "https://www.atlassian.com/trust/ai/data-contribution/faqs",
+      "publisher": "Atlassian",
+      "type": "Official FAQ",
+      "checked_utc": "2026-10-04",
+      "page_last_updated": null,
+      "method": "Page read directly",
+      "supports": "Describes data contribution settings in Atlassian Administration and changes effective August 17, 2026, including which apps and data are in scope.",
+      "limitations": "Covers data contribution, a separate subject from what an individual user can retrieve."
+    },
+    {
+      "url": "https://www.atlassian.com/trust/ai/transparency",
+      "publisher": "Atlassian",
+      "type": "Official transparency documentation",
+      "checked_utc": "2026-10-04",
+      "page_last_updated": null,
+      "method": "Page read directly",
+      "supports": "Describes how Rovo and other AI features use large language models and handle customer data.",
+      "limitations": "Describes product behavior. It does not record any organization's settings."
+    }
+  ],
+  "statistics": [
+    {
+      "value": "August 17, 2026",
+      "description": "Effective date of the data contribution changes",
+      "source": "https://www.atlassian.com/trust/ai/data-contribution/faqs",
+      "result": "Matches source",
+      "checked_utc": "2026-10-04"
+    }
+  ],
+  "claims": [
+    {
+      "statement": "Atlassian describes permission-aware behavior for interactive Rovo use; automation can use the connecting user's context; connector behavior needs separate review.",
+      "source_url": "https://www.atlassian.com/trust/ai",
+      "verified": true,
+      "checked_utc": "2026-10-04"
+    },
+    {
+      "statement": "The data contribution FAQ describes changes effective August 17, 2026 and organization-level settings.",
+      "source_url": "https://www.atlassian.com/trust/ai/data-contribution/faqs",
+      "verified": true,
+      "checked_utc": "2026-10-04"
+    },
+    {
+      "statement": "The AI transparency material gives context about model and data handling.",
+      "source_url": "https://www.atlassian.com/trust/ai/transparency",
+      "verified": true,
+      "checked_utc": "2026-10-04"
+    }
+  ],
+  "corrections": [
+    {
+      "date_utc": "2026-10-04",
+      "change": "Removed the banned word \"actually\" from one table cell."
+    },
+    {
+      "date_utc": "2026-10-04",
+      "change": "Replaced the template meta description with one that describes the blog."
+    }
+  ],
   "internal_link_targets": [
     "A3",
     "A2",
