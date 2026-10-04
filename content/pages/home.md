@@ -84,6 +84,9 @@ Move from market context to practical questions about a platform, workflow, or b
 ### [Evaluating CrowdStrike Platform Consolidation Costs](/cybersecurity/crowdstrike-platform-costs/)
 Account for migration, retained tools, and contract timing when comparing security platform costs.
 
+### [Cloudflare Security Across Networks and Applications](/cybersecurity/cloudflare-security/)
+Trace public application requests and workforce access separately before approving coverage.
+
 ### [Understanding a Datadog Observability Bill](/cloud-infrastructure/datadog-observability-costs/)
 Trace charges to their billing units, included allowances, and the services creating the usage.
 

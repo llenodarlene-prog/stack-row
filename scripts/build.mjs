@@ -98,7 +98,7 @@ function card(entry) {
   const glyph = entry.icon || (kind === 'topic' ? target.icon : '');
   const badge = glyph ? `<span class="icon-badge">${icon(glyph)}</span>` : '';
   if (kind === 'chip') return `<li class="chip">${badge}<span>${escapeHtml(title)}</span></li>`;
-  const media = kind === 'topic' && target.image ? `<div class="card-media">${image(target.image, { sizes: '(min-width: 900px) 380px, 100vw', decorative: true })}</div>` : '';
+  const media = kind === 'topic' && target.image ? `<div class="card-media">${image(target.image, { sizes: '(min-width: 900px) 380px, 100vw' })}</div>` : '';
   const label = kind === 'post' ? `<p class="pill-row">${pills(target)}</p>` : '';
   const heading = href ? `<a href="${href}">${escapeHtml(title)}</a>` : escapeHtml(title);
   const more = href ? `<span class="card-more" aria-hidden="true">${kind === 'topic' ? 'Explore' : 'Read'} ${icon('arrow-right')}</span>` : '';
@@ -270,19 +270,52 @@ const isCurrent = (url, current) => url === current.slug || (url !== '/' && curr
 const navItems = (items, current) => items.filter(item => isAvailable(item.url)).map(item =>
   `<li><a href="${item.url}"${item.button ? ' class="button button-small"' : ''}${isCurrent(item.url, current) ? ' aria-current="page"' : ''}>${escapeHtml(item.label)}</a></li>`).join('');
 
+// The image used for social cards and structured data: the page's own image,
+// or for an article or blog the image of the topic it belongs to.
+const socialImage = item => {
+  const key = item.image || (isPost(item) ? hubFor(item)?.image : '');
+  return key ? `/assets/images/${key}-1600.jpg` : '/assets/brand/stack-row-icon.png';
+};
+
+function breadcrumbs(item) {
+  const hub = isPost(item) ? hubFor(item) : null;
+  const trail = [{ name: 'Home', slug: '/' }, ...(hub ? [{ name: hub.label || hub.title, slug: hub.slug }] : []), { name: item.title, slug: item.slug }];
+  return { '@type': 'BreadcrumbList', itemListElement: trail.map((entry, index) => ({ '@type': 'ListItem', position: index + 1, name: entry.name, item: canonical(siteUrl, entry.slug) })) };
+}
+
+// Questions and answers from a post's "Frequently Asked Questions" section.
+function faqEntries(body) {
+  const lines = body.replace(/\r/g, '').split('\n');
+  const start = lines.findIndex(line => /^##\s+Frequently Asked Questions/.test(line));
+  if (start < 0) return [];
+  const entries = [];
+  for (const line of lines.slice(start + 1)) {
+    if (/^##\s/.test(line)) break;
+    const question = line.match(/^###\s+(.+)$/);
+    if (question) entries.push({ question: question[1], answer: '' });
+    else if (line.trim() && entries.length) entries.at(-1).answer = `${entries.at(-1).answer} ${line.trim()}`.trim();
+  }
+  const plain = text => text.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/\*\*/g, '');
+  return entries.filter(entry => entry.answer).map(entry => ({ '@type': 'Question', name: plain(entry.question), acceptedAnswer: { '@type': 'Answer', text: plain(entry.answer) } }));
+}
+
 function schemaFor(item, url) {
   if (isPost(item)) {
-    return {
-      '@context': 'https://schema.org',
+    const publisher = { '@type': 'Organization', name: site.name, url: `${siteUrl}/`, logo: `${siteUrl}/assets/brand/stack-row-icon.png` };
+    const article = {
       '@type': item.type === 'blog' ? 'BlogPosting' : 'Article',
       headline: item.title,
       description: item.description,
       url,
+      mainEntityOfPage: url,
+      image: `${siteUrl}${socialImage(item)}`,
       datePublished: item.published || undefined,
       dateModified: item.modified || item.published || undefined,
-      author: item.author ? { '@type': 'Person', name: item.author } : undefined,
-      publisher: { '@type': 'Organization', name: site.name, url: siteUrl }
+      author: item.author ? { '@type': 'Person', name: item.author } : publisher,
+      publisher
     };
+    const faq = faqEntries(item.body);
+    return { '@context': 'https://schema.org', '@graph': [article, breadcrumbs(item), ...(faq.length ? [{ '@type': 'FAQPage', mainEntity: faq }] : [])] };
   }
   if (item.slug === '/') {
     return {
@@ -293,7 +326,8 @@ function schemaFor(item, url) {
       ]
     };
   }
-  return { '@context': 'https://schema.org', '@type': item.type === 'hub' ? 'CollectionPage' : 'WebPage', name: item.title, description: item.description, url };
+  const page = { '@type': item.type === 'hub' ? 'CollectionPage' : 'WebPage', name: item.title, description: item.description, url };
+  return { '@context': 'https://schema.org', '@graph': item.noindex ? [page] : [page, breadcrumbs(item)] };
 }
 
 // Adds heading anchors, a highlighted key-points panel and collapsible FAQ
@@ -368,9 +402,10 @@ for (const item of visible) {
   const url = canonical(siteUrl, item.slug);
   const draft = item.draft === true;
   const robots = indexable && !draft && item.noindex !== true ? 'index,follow' : 'noindex,nofollow,noarchive';
-  const fullTitle = item.seo_title || `${item.title} | ${site.name}`;
+  const titled = item.seo_title || `${item.title} | ${site.name}`;
+  const fullTitle = titled.length > 60 && titled.endsWith(` | ${site.name}`) ? titled.slice(0, -` | ${site.name}`.length) : titled;
   const schema = JSON.stringify(schemaFor(item, url)).replaceAll('<', '\\u003c');
-  const social = item.image ? `/assets/images/${item.image}-1600.jpg` : '/assets/brand/stack-row-icon.png';
+  const social = socialImage(item);
   const footerColumns = navigation.footer.map(column => {
     const links = navItems(column.links, item);
     return links ? `<nav aria-label="${escapeHtml(column.label)}"><h2>${escapeHtml(column.label)}</h2><ul>${links}</ul></nav>` : '';
@@ -394,7 +429,8 @@ for (const item of visible) {
   <meta property="og:description" content="${escapeHtml(item.description)}">
   <meta property="og:url" content="${url}">
   <meta property="og:image" content="${siteUrl}${social}">
-  <meta name="twitter:card" content="${item.image ? 'summary_large_image' : 'summary'}">
+  <meta name="twitter:card" content="${social.includes('/images/') ? 'summary_large_image' : 'summary'}">
+  <meta property="og:image:alt" content="${escapeHtml(assetByPath.get(social)?.alt || site.name)}">
   <meta name="theme-color" content="${site.colors.navy}">
   <link rel="icon" href="/assets/brand/stack-row-icon-192.png" type="image/png">
   <script type="application/ld+json">${schema}</script>

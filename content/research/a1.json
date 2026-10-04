@@ -2,13 +2,267 @@
   "schema": 1,
   "content_id": "A1",
   "slug": "/cybersecurity/cybersecurity-statistics/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
-  "statistics": [],
-  "claims": [],
+  "research_date_utc": "2026-10-03",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-03",
+      "keyword": "cybersecurity statistics",
+      "search_volume": 320,
+      "seo_difficulty": 70,
+      "paid_difficulty": 21,
+      "cpc_usd": 30.97,
+      "search_intent": "Informational",
+      "serp_data_updated": "2026-09-09"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 2,
+      "url": "https://www.vikingcloud.com/blog/cybersecurity-statistics",
+      "title": "245 Cybersecurity Stats and Facts for 2026",
+      "domain_authority": 55
+    },
+    {
+      "position": 3,
+      "url": "https://www.gao.gov/cybersecurity",
+      "title": "Cybersecurity | U.S. GAO",
+      "domain_authority": 86
+    },
+    {
+      "position": 4,
+      "url": "https://www.preveil.com/blog/cybersecurity-statistics/",
+      "title": "Cybersecurity Facts and Stats as of 2026",
+      "domain_authority": 41
+    },
+    {
+      "position": 5,
+      "url": "https://www.fortinet.com/resources/cyberglossary/cybersecurity-statistics",
+      "title": "Cybersecurity Statistics 2025: Rising Threats And Industry ...",
+      "domain_authority": 82
+    },
+    {
+      "position": 6,
+      "url": "https://onlinedegrees.sandiego.edu/cyber-security-statistics/",
+      "title": "47 Cybersecurity Statistics and Facts [2026]",
+      "domain_authority": 68
+    }
+  ],
+  "competitor_notes": "Positions not listed are an AI overview or a People Also Ask block. The ranking pages are mostly long lists of figures. This article instead keeps each figure attached to its population and unit.",
+  "sources": [
+    {
+      "url": "https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf",
+      "publisher": "Verizon",
+      "type": "Primary research report (executive summary)",
+      "edition": "2026 Data Breach Investigations Report",
+      "limitations": "Counts are incidents contributed to the DBIR dataset, not a census. No denominator of organizations per sector is given.",
+      "checked_utc": "2026-10-03",
+      "method": "Document downloaded and its text searched for each cited figure"
+    },
+    {
+      "url": "https://www.verizon.com/business/resources/reports/2026-breach-impact-study-dbir.pdf",
+      "publisher": "Verizon",
+      "type": "Primary research report",
+      "edition": "2026 Breach Impact Study",
+      "limitations": "US insured cyber claims for incidents from January 1, 2019 through October 31, 2025. Non-zero claims only. Ground-up loss includes the deductible and reserves.",
+      "checked_utc": "2026-10-03",
+      "method": "Document downloaded and its text searched for each cited figure"
+    },
+    {
+      "url": "https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf",
+      "publisher": "Federal Bureau of Investigation",
+      "type": "Government annual report",
+      "edition": "2025 IC3 Annual Report",
+      "limitations": "Complaint-based. Ransomware losses exclude lost business, time, wages, files, equipment and third-party remediation.",
+      "checked_utc": "2026-10-03",
+      "method": "Document downloaded and its text searched for each cited figure"
+    }
+  ],
+  "statistics": [
+    {
+      "value": "1,302 / 1,252",
+      "description": "Educational Services incidents and confirmed data disclosures",
+      "source": "https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf",
+      "location_in_source": "Industry highlights",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Verizon",
+      "edition": "2026 Data Breach Investigations Report",
+      "scope": "Counts are incidents contributed to the DBIR dataset, not a census. No denominator of organizations per sector is given."
+    },
+    {
+      "value": "3,809 / 1,300",
+      "description": "Financial and Insurance incidents and confirmed data disclosures",
+      "source": "https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf",
+      "location_in_source": "Industry highlights",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Verizon",
+      "edition": "2026 Data Breach Investigations Report",
+      "scope": "Counts are incidents contributed to the DBIR dataset, not a census. No denominator of organizations per sector is given."
+    },
+    {
+      "value": "1,492 / 1,438",
+      "description": "Healthcare incidents and confirmed data disclosures",
+      "source": "https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf",
+      "location_in_source": "Industry highlights",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Verizon",
+      "edition": "2026 Data Breach Investigations Report",
+      "scope": "Counts are incidents contributed to the DBIR dataset, not a census. No denominator of organizations per sector is given."
+    },
+    {
+      "value": "3,627 / 2,713",
+      "description": "Manufacturing incidents and confirmed data disclosures",
+      "source": "https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf",
+      "location_in_source": "Industry highlights",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Verizon",
+      "edition": "2026 Data Breach Investigations Report",
+      "scope": "Counts are incidents contributed to the DBIR dataset, not a census. No denominator of organizations per sector is given."
+    },
+    {
+      "value": "3,634 / 2,410",
+      "description": "Public Administration incidents and confirmed data disclosures",
+      "source": "https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf",
+      "location_in_source": "Industry highlights",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Verizon",
+      "edition": "2026 Data Breach Investigations Report",
+      "scope": "Counts are incidents contributed to the DBIR dataset, not a census. No denominator of organizations per sector is given."
+    },
+    {
+      "value": "997 / 806",
+      "description": "Retail incidents and confirmed data disclosures",
+      "source": "https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf",
+      "location_in_source": "Industry highlights",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Verizon",
+      "edition": "2026 Data Breach Investigations Report",
+      "scope": "Counts are incidents contributed to the DBIR dataset, not a census. No denominator of organizations per sector is given."
+    },
+    {
+      "value": "$38,000",
+      "description": "Approximate median loss, companies below $25 million revenue",
+      "source": "https://www.verizon.com/business/resources/reports/2026-breach-impact-study-dbir.pdf",
+      "location_in_source": "Figure 11 and accompanying text",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Verizon",
+      "edition": "2026 Breach Impact Study",
+      "scope": "US insured cyber claims for incidents from January 1, 2019 through October 31, 2025. Non-zero claims only. Ground-up loss includes the deductible and reserves."
+    },
+    {
+      "value": "$96,000",
+      "description": "Approximate median loss, $25 million to $250 million revenue",
+      "source": "https://www.verizon.com/business/resources/reports/2026-breach-impact-study-dbir.pdf",
+      "location_in_source": "Figure 11 and accompanying text",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Verizon",
+      "edition": "2026 Breach Impact Study",
+      "scope": "US insured cyber claims for incidents from January 1, 2019 through October 31, 2025. Non-zero claims only. Ground-up loss includes the deductible and reserves."
+    },
+    {
+      "value": "$283,000",
+      "description": "Approximate median loss, above $250 million revenue",
+      "source": "https://www.verizon.com/business/resources/reports/2026-breach-impact-study-dbir.pdf",
+      "location_in_source": "Figure 11 and accompanying text",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Verizon",
+      "edition": "2026 Breach Impact Study",
+      "scope": "US insured cyber claims for incidents from January 1, 2019 through October 31, 2025. Non-zero claims only. Ground-up loss includes the deductible and reserves."
+    },
+    {
+      "value": "24,873",
+      "description": "Loss observations in the revenue comparison",
+      "source": "https://www.verizon.com/business/resources/reports/2026-breach-impact-study-dbir.pdf",
+      "location_in_source": "Figure 11 caption",
+      "result": "Matches source",
+      "checked_utc": "2026-10-03",
+      "publisher": "Verizon",
+      "edition": "2026 Breach Impact Study",
+      "scope": "US insured cyber claims for incidents from January 1, 2019 through October 31, 2025. Non-zero claims only. Ground-up loss includes the deductible and reserves."
+    }
+  ],
+  "claims": [
+    {
+      "statement": "Educational Services incidents and confirmed data disclosures: 1,302 / 1,252 (Verizon, 2026 Data Breach Investigations Report).",
+      "source_url": "https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Financial and Insurance incidents and confirmed data disclosures: 3,809 / 1,300 (Verizon, 2026 Data Breach Investigations Report).",
+      "source_url": "https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Healthcare incidents and confirmed data disclosures: 1,492 / 1,438 (Verizon, 2026 Data Breach Investigations Report).",
+      "source_url": "https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Manufacturing incidents and confirmed data disclosures: 3,627 / 2,713 (Verizon, 2026 Data Breach Investigations Report).",
+      "source_url": "https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Public Administration incidents and confirmed data disclosures: 3,634 / 2,410 (Verizon, 2026 Data Breach Investigations Report).",
+      "source_url": "https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Retail incidents and confirmed data disclosures: 997 / 806 (Verizon, 2026 Data Breach Investigations Report).",
+      "source_url": "https://www.verizon.com/business/resources/executivebriefs/2026-dbir-executive-summary.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Approximate median loss, companies below $25 million revenue: $38,000 (Verizon, 2026 Breach Impact Study).",
+      "source_url": "https://www.verizon.com/business/resources/reports/2026-breach-impact-study-dbir.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Approximate median loss, $25 million to $250 million revenue: $96,000 (Verizon, 2026 Breach Impact Study).",
+      "source_url": "https://www.verizon.com/business/resources/reports/2026-breach-impact-study-dbir.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Approximate median loss, above $250 million revenue: $283,000 (Verizon, 2026 Breach Impact Study).",
+      "source_url": "https://www.verizon.com/business/resources/reports/2026-breach-impact-study-dbir.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    },
+    {
+      "statement": "Loss observations in the revenue comparison: 24,873 (Verizon, 2026 Breach Impact Study).",
+      "source_url": "https://www.verizon.com/business/resources/reports/2026-breach-impact-study-dbir.pdf",
+      "verified": true,
+      "checked_utc": "2026-10-03"
+    }
+  ],
+  "claims_note": "Each claim is a figure quoted in the article and checked against the linked source document. The remaining text is interpretation and editorial guidance, labeled as such in the article.",
+  "corrections": [
+    {
+      "date_utc": "2026-10-03",
+      "change": "Removed the banned word \"actually\" from one heading and one sentence. The heading is now \"What the Sector Counts Measure\"."
+    }
+  ],
   "internal_link_targets": [
     "A6",
     "A7",
