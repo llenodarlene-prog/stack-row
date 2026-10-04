@@ -2,13 +2,167 @@
   "schema": 1,
   "content_id": "B8",
   "slug": "/cloud-infrastructure/datadog-observability-costs/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
-  "statistics": [],
-  "claims": [],
+  "research_date_utc": "2026-10-04",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-04",
+      "keyword": "datadog observability costs",
+      "search_volume": 0,
+      "seo_difficulty": 12,
+      "paid_difficulty": 1,
+      "cpc_usd": 0,
+      "search_intent": null,
+      "role": "Content plan keyword",
+      "serp_data_updated": "2026-09-08"
+    },
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-04",
+      "keyword": "datadog observability",
+      "search_volume": 720,
+      "seo_difficulty": 42,
+      "paid_difficulty": 14,
+      "cpc_usd": 20.65,
+      "search_intent": "Informational",
+      "role": "Keyword used in the final draft",
+      "serp_data_updated": "2026-09-08"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 1,
+      "url": "https://www.datadoghq.com/knowledge-center/observability/",
+      "title": "What Is Observability? Pillars, Tools, and Use Cases",
+      "domain_authority": 64
+    },
+    {
+      "position": 3,
+      "url": "https://www.datadoghq.com/monitoring/cloud-observability/",
+      "title": "Cloud Observability Platform",
+      "domain_authority": 64
+    },
+    {
+      "position": 4,
+      "url": "https://www.datadoghq.com/products/ai/agent-observability/",
+      "title": "Agent Observability | LLM Observability",
+      "domain_authority": 64
+    },
+    {
+      "position": 6,
+      "url": "https://www.youtube.com/watch?v=QuwB_u2gOWg",
+      "title": "Data Observability: Build confidence in the data life cycle",
+      "domain_authority": 100
+    },
+    {
+      "position": 7,
+      "url": "https://docs.datadoghq.com/data_observability/",
+      "title": "Data Observability Overview",
+      "domain_authority": 64
+    }
+  ],
+  "competitor_notes": "Positions not listed are an AI overview, a People Also Ask block or a similar feature. Competitors were mapped for \"datadog observability\" because the content plan keyword returns no search volume. The results are vendor product pages; none explains how to read a bill.",
+  "sources": [
+    {
+      "url": "https://www.datadoghq.com/pricing/",
+      "publisher": "Datadog",
+      "type": "Official pricing page",
+      "checked_utc": "2026-10-04",
+      "page_last_updated": null,
+      "method": "Page read directly",
+      "supports": "Shows that products use different billing units, for example per host for infrastructure and APM and per GB for logs.",
+      "limitations": "Public list pricing. A customer agreement can differ."
+    },
+    {
+      "url": "https://docs.datadoghq.com/account_management/billing/apm_tracing_profiler/",
+      "publisher": "Datadog",
+      "type": "Official billing documentation",
+      "checked_utc": "2026-10-04",
+      "page_last_updated": null,
+      "method": "Page read directly",
+      "supports": "Gives the APM rates, per-host allowances, and the sample scenario with five hosts, 30 million indexed spans and 900 GB ingested, totaling $212.50 per month.",
+      "limitations": "Sample scenario at annual billing rates with default 15-day indexed span retention. It is not an invoice."
+    },
+    {
+      "url": "https://docs.datadoghq.com/cloud_cost_management/datadog_costs/",
+      "publisher": "Datadog",
+      "type": "Official product documentation",
+      "checked_utc": "2026-10-04",
+      "page_last_updated": null,
+      "method": "Page read directly",
+      "supports": "Describes visibility into daily Datadog costs across dashboards, monitors, reports and budgets.",
+      "limitations": "Describes a feature. It does not allocate any organization's costs."
+    }
+  ],
+  "statistics": [
+    {
+      "value": "$31 per APM host per month",
+      "description": "APM host rate in the sample scenario, annual billing",
+      "source": "https://docs.datadoghq.com/account_management/billing/apm_tracing_profiler/",
+      "result": "Matches source",
+      "checked_utc": "2026-10-04"
+    },
+    {
+      "value": "$1.70 per million indexed spans per month",
+      "description": "Indexed span rate at default 15-day retention",
+      "source": "https://docs.datadoghq.com/account_management/billing/apm_tracing_profiler/",
+      "result": "Matches source",
+      "checked_utc": "2026-10-04"
+    },
+    {
+      "value": "$0.10 per GB per month",
+      "description": "Ingested span rate",
+      "source": "https://docs.datadoghq.com/account_management/billing/apm_tracing_profiler/",
+      "result": "Matches source",
+      "checked_utc": "2026-10-04"
+    },
+    {
+      "value": "1 million indexed spans and 150 GB ingested per APM host",
+      "description": "Included monthly allowance per host",
+      "source": "https://docs.datadoghq.com/account_management/billing/apm_tracing_profiler/",
+      "result": "Matches source",
+      "checked_utc": "2026-10-04"
+    },
+    {
+      "value": "$212.50 per month",
+      "description": "Total for five hosts, 30 million indexed spans and 900 GB ingested",
+      "source": "https://docs.datadoghq.com/account_management/billing/apm_tracing_profiler/",
+      "result": "Matches source",
+      "checked_utc": "2026-10-04"
+    }
+  ],
+  "claims": [
+    {
+      "statement": "Datadog products are priced in different units across the portfolio.",
+      "source_url": "https://www.datadoghq.com/pricing/",
+      "verified": true,
+      "checked_utc": "2026-10-04"
+    },
+    {
+      "statement": "The APM billing example combines five APM hosts, 30 million indexed spans and 900 GB of ingested spans for a total of $212.50 per month: 5 x $31, plus 25 million x $1.70 per million, plus 150 GB x $0.10.",
+      "source_url": "https://docs.datadoghq.com/account_management/billing/apm_tracing_profiler/",
+      "verified": true,
+      "checked_utc": "2026-10-04"
+    },
+    {
+      "statement": "Datadog documentation provides context for connecting usage and cost to the organization's structure.",
+      "source_url": "https://docs.datadoghq.com/cloud_cost_management/datadog_costs/",
+      "verified": true,
+      "checked_utc": "2026-10-04"
+    }
+  ],
+  "corrections": [
+    {
+      "date_utc": "2026-10-04",
+      "change": "Replaced the template meta description with one that describes the blog."
+    }
+  ],
   "internal_link_targets": [
     "A5",
     "A6",

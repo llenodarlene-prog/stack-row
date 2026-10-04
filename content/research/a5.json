@@ -206,7 +206,12 @@
     }
   ],
   "claims_note": "Each claim is a figure quoted in the article and checked against the linked source document. The remaining text is interpretation and editorial guidance, labeled as such in the article.",
-  "corrections": [],
+  "corrections": [
+    {
+      "date_utc": "2026-10-04",
+      "change": "Replaced the template meta description with one that names the sources the article uses. The article body is unchanged."
+    }
+  ],
   "internal_link_targets": [
     "A6",
     "B2",

@@ -2,13 +2,122 @@
   "schema": 1,
   "content_id": "B7",
   "slug": "/ai/servicenow-ai-workflows/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
+  "research_date_utc": "2026-10-04",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-04",
+      "keyword": "servicenow ai",
+      "search_volume": 1600,
+      "seo_difficulty": 32,
+      "paid_difficulty": 47,
+      "cpc_usd": 26.17,
+      "search_intent": "Navigational",
+      "role": "Content plan keyword",
+      "serp_data_updated": "2026-08-06"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 2,
+      "url": "https://www.servicenow.com/platform.html",
+      "title": "ServiceNow AI Platform",
+      "domain_authority": 80
+    },
+    {
+      "position": 3,
+      "url": "https://www.youtube.com/watch?v=lrQylmrcbXs",
+      "title": "Introducing AI Experience by ServiceNow",
+      "domain_authority": 100
+    },
+    {
+      "position": 4,
+      "url": "https://www.servicenow.com/docs/r/application-development/now-assist-for-app-engine/ai-capabilities-with-now-assist-for-app-engine.html",
+      "title": "AI capabilities",
+      "domain_authority": 80
+    },
+    {
+      "position": 5,
+      "url": "https://aelumconsulting.com/blogs/servicenow-ai-tools/",
+      "title": "3 ServiceNow AI Tools and Its Use Cases for Your ...",
+      "domain_authority": 18
+    },
+    {
+      "position": 6,
+      "url": "https://www.servicenow.com/ai.html",
+      "title": "ServiceNow AI - Put AI to Work for People",
+      "domain_authority": 80
+    }
+  ],
+  "competitor_notes": "Positions not listed are an AI overview, a People Also Ask block or a similar feature. The query is navigational and most results are the vendor's own pages. None of the mapped results is a pilot-planning guide, which is the angle of this blog.",
+  "sources": [
+    {
+      "url": "https://www.servicenow.com/docs/r/intelligent-experiences/platform-now-assist-landing.html",
+      "publisher": "ServiceNow",
+      "type": "Official product documentation",
+      "checked_utc": "2026-10-04",
+      "page_last_updated": "2026-09-10",
+      "method": "Page read directly",
+      "supports": "Documents generative AI capabilities on the platform, notes that available skills depend on the license tier, and identifies the release it covers.",
+      "limitations": "The page is now titled for the AI Admin Hub and covers the Brazil release. It describes product scope, not what a given instance has licensed."
+    },
+    {
+      "url": "https://www.servicenow.com/docs/r/intelligent-experiences/sn-ai-impl-data-readiness.html",
+      "publisher": "ServiceNow",
+      "type": "Official implementation guidance",
+      "checked_utc": "2026-10-04",
+      "page_last_updated": null,
+      "method": "Page read directly",
+      "supports": "Covers complete task records with resolution summaries, structured knowledge articles, service catalog review, and evaluation tools.",
+      "limitations": "Vendor guidance. It does not measure the readiness of any particular instance."
+    },
+    {
+      "url": "https://www.servicenow.com/docs/r/intelligent-experiences/sn-ai-impl-governance.html",
+      "publisher": "ServiceNow",
+      "type": "Official implementation guidance",
+      "checked_utc": "2026-10-04",
+      "page_last_updated": null,
+      "method": "Page read directly",
+      "supports": "Covers AI policy considerations, governance stakeholders and roles, and human oversight requirements.",
+      "limitations": "Vendor guidance. An organization still has to define its own owners and rules."
+    }
+  ],
   "statistics": [],
-  "claims": [],
+  "statistics_note": "The blog contains no statistics, prices or dates. Its pilot table is an editorial planning template.",
+  "claims": [
+    {
+      "statement": "ServiceNow documentation provides product and release context, and available capabilities depend on the license.",
+      "source_url": "https://www.servicenow.com/docs/r/intelligent-experiences/platform-now-assist-landing.html",
+      "verified": true,
+      "checked_utc": "2026-10-04"
+    },
+    {
+      "statement": "ServiceNow data readiness guidance emphasizes complete task records, structured knowledge, catalog review, and evaluation.",
+      "source_url": "https://www.servicenow.com/docs/r/intelligent-experiences/sn-ai-impl-data-readiness.html",
+      "verified": true,
+      "checked_utc": "2026-10-04"
+    },
+    {
+      "statement": "ServiceNow governance guidance distinguishes governance responsibilities and human oversight from feature availability.",
+      "source_url": "https://www.servicenow.com/docs/r/intelligent-experiences/sn-ai-impl-governance.html",
+      "verified": true,
+      "checked_utc": "2026-10-04"
+    }
+  ],
+  "corrections": [
+    {
+      "date_utc": "2026-10-04",
+      "change": "Removed the banned word \"actually\" from one sentence."
+    },
+    {
+      "date_utc": "2026-10-04",
+      "change": "Replaced the template meta description with one that describes the blog."
+    }
+  ],
   "internal_link_targets": [
     "A3",
     "A2",

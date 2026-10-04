@@ -261,6 +261,10 @@
     {
       "date_utc": "2026-10-03",
       "change": "Removed the banned word \"actually\" from one heading and one sentence. The heading is now \"What the Sector Counts Measure\"."
+    },
+    {
+      "date_utc": "2026-10-04",
+      "change": "Replaced the template meta description with one that names the sources the article uses. The article body is unchanged."
     }
   ],
   "internal_link_targets": [
