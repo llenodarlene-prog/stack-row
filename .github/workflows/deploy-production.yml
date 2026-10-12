@@ -3,9 +3,7 @@ name: Deploy production
 on:
   push:
     branches: [main]
-  # Daily rebuild so posts with a future `published` date go live on that day (UTC).
-  schedule:
-    - cron: '7 0 * * *'
+  workflow_call:
   workflow_dispatch:
 
 permissions:
@@ -25,12 +23,8 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
-      - run: npm ci
-      - run: npm run verify
-      - run: npm run release:check
-      - run: npm run clean && npm run build
+      - run: npm ci && npm run release:check && BUILD_ENV=production npm run verify
         env:
-          BUILD_ENV: production
           SITE_URL: ${{ vars.SITE_URL }}
       - name: Deploy document root
         run: bash scripts/deploy-document-root.sh
@@ -44,4 +38,7 @@ jobs:
           DEPLOY_PRESERVE_DIR: staging
       - run: node scripts/smoke-test.mjs
         env:
-          SITE_URL: ${{ vars.SITE_URL }}
+          SMOKE_URL: ${{ vars.SITE_URL }}
+          SMOKE_CANONICAL_URL: ${{ vars.SITE_URL }}
+          SMOKE_BRAND: ${{ vars.SITE_NAME }}
+          SMOKE_EXPECT_ROBOTS: index
