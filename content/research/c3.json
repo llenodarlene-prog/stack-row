@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "content_id": "C3",
+  "slug": "/cloud-infrastructure/private-cloud/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-12",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-12",
+      "keyword": "private cloud",
+      "search_volume": 1300,
+      "seo_difficulty": 53,
+      "paid_difficulty": 17,
+      "cpc_usd": 24.03,
+      "search_intent": "Commercial",
+      "serp_data_updated": "2026-09-07"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 2,
+      "url": "https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-a-private-cloud",
+      "title": "What is a Private Cloud - Definition",
+      "domain_authority": 98
+    },
+    {
+      "position": 5,
+      "url": "https://aws.amazon.com/what-is/private-cloud/",
+      "title": "What is a Private Cloud?",
+      "domain_authority": 95
+    },
+    {
+      "position": 6,
+      "url": "https://www.ibm.com/think/topics/private-cloud",
+      "title": "What Is Private Cloud? | IBM",
+      "domain_authority": 93
+    },
+    {
+      "position": 7,
+      "url": "https://cloud.google.com/discover/what-is-a-private-cloud",
+      "title": "What is private cloud",
+      "domain_authority": 92
+    },
+    {
+      "position": 8,
+      "url": "https://www.hpe.com/us/en/what-is/private-cloud.html",
+      "title": "What is Private Cloud? | Glossary",
+      "domain_authority": 88
+    }
+  ],
+  "competitor_notes": "Positions not listed are an AI overview, People Also Ask, or image block in the Ubersuggest SERP snapshot.",
+  "sources": [
+    {
+      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://www.ibm.com/think/topics/private-cloud",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://info.flexera.com/CM-REPORT-State-of-the-Cloud",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://docs.openstack.org/arch-design/arch-requirements/arch-requirements-enterprise.html",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "claims_note": "Worked cost examples in the article are labeled hypothetical with invented inputs. Cited figures carry their source link in the text.",
+  "internal_link_targets": [
+    "A5",
+    "B10",
+    "A7"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "content_id": "C4",
+  "slug": "/cloud-infrastructure/cloud-computing-service-providers/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-12",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-12",
+      "keyword": "cloud computing service providers",
+      "search_volume": 4400,
+      "seo_difficulty": 81,
+      "paid_difficulty": 17,
+      "cpc_usd": 22.13,
+      "search_intent": "Commercial",
+      "serp_data_updated": "2026-10-12"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 2,
+      "url": "https://www.graphon.com/blog/best-cloud-service-providers",
+      "title": "10 Best Cloud Service Providers in North America for 2026",
+      "domain_authority": 41
+    },
+    {
+      "position": 4,
+      "url": "https://www.economize.cloud/blog/cloud-service-providers/",
+      "title": "Top 13 Cloud Service Providers You Should Know",
+      "domain_authority": 29
+    },
+    {
+      "position": 5,
+      "url": "https://allcode.com/cloud-providers/",
+      "title": "Top Cloud Service Providers - Best Options",
+      "domain_authority": 34
+    },
+    {
+      "position": 6,
+      "url": "https://www.nexcess.com/blog/private-cloud-providers/",
+      "title": "10 best private cloud providers for 2026",
+      "domain_authority": 39
+    },
+    {
+      "position": 7,
+      "url": "https://www.quora.com/Which-company-provides-cloud-computing-services-in-the-USA",
+      "title": "Which company provides cloud computing services in the ...",
+      "domain_authority": 93
+    }
+  ],
+  "competitor_notes": "Positions not listed are an AI overview, People Also Ask, or image block in the Ubersuggest SERP snapshot.",
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/overview",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://docs.cloud.google.com/compute/docs/overview",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://docs.digitalocean.com/products/droplets/",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://docs.oracle.com/en-us/iaas/Content/Compute/Concepts/computeoverview.htm",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://www.flexera.com/about-us/press-center/flexera-finds-cloud-value-is-rising-while-ai-waste-grows",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://aws.amazon.com/ec2/pricing/on-demand/",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "claims_note": "Worked cost examples in the article are labeled hypothetical with invented inputs. Cited figures carry their source link in the text.",
+  "internal_link_targets": [
+    "A5",
+    "B8",
+    "B10"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12"
+  },
+  "corrections": [
+    {
+      "date_utc": "2026-10-12",
+      "change": "Corrected the illustrative weighted scorecard. Candidate A scores 79, not 80, and 83, not 84, after reweighting. Shortened the meta description to 160 characters or fewer."
+    }
+  ]
+}

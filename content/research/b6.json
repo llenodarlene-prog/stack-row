@@ -2,11 +2,72 @@
   "schema": 1,
   "content_id": "B6",
   "slug": "/ai/salesforce-ai-data-access/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-12",
+      "keyword": "salesforce ai",
+      "search_volume": 3600,
+      "seo_difficulty": 59,
+      "paid_difficulty": 37,
+      "cpc_usd": 14.54,
+      "search_intent": "Commercial",
+      "serp_data_updated": "2026-09-22"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 2,
+      "url": "https://www.salesforce.com/artificial-intelligence/",
+      "title": "AIforce: Salesforce AI, Wherever You Already Work",
+      "domain_authority": 92
+    },
+    {
+      "position": 3,
+      "url": "https://www.reddit.com/r/salesforce/comments/1oof57f/what_do_you_currently_use_ai_to_do_in_your/",
+      "title": "What do you currently use AI to do in your Salesforce org?",
+      "domain_authority": 92
+    },
+    {
+      "position": 6,
+      "url": "https://www.salesforce.com/",
+      "title": "Salesforce: The #1 Agentic AI CRM",
+      "domain_authority": 92
+    },
+    {
+      "position": 7,
+      "url": "https://www.salesforce.com/ai-research/",
+      "title": "Salesforce AI Research",
+      "domain_authority": 92
+    },
+    {
+      "position": 10,
+      "url": "https://www.salesforceben.com/salesforce-einstein-ai-products-and-tools/",
+      "title": "A Guide to 50+ Salesforce Einstein AI Products and Tools",
+      "domain_authority": 49
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://help.salesforce.com/s/articleView?language=en_US&id=ai.service_agent_setup.htm&type=5",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://trailhead.salesforce.com/content/learn/modules/agent-customization-with-flows/learn-how-to-make-agent-ready-flows",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://www.salesforce.com/agentforce/pricing/",
+      "checked_utc": "2026-10-12",
+      "method": "Added in final review; URL and page subject confirmed with a domain-restricted web search. Anchors text the article already contained, so no new claim was introduced."
+    }
+  ],
   "statistics": [],
   "claims": [],
   "internal_link_targets": [
@@ -16,13 +77,36 @@
     "B9"
   ],
   "fact_check": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12",
+    "note": "Claim-level checks recorded in fact_check_findings; approved by the reviewer."
   },
   "qa": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
-  }
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12"
+  },
+  "research_date_utc": "2026-10-12",
+  "competitor_notes": "Positions not listed are AI overview, People Also Ask, image, or video blocks in the Ubersuggest SERP snapshot.",
+  "corrections": [
+    {
+      "date_utc": "2026-10-12",
+      "change": "Removed intro lines under the key-points and FAQ headings, replaced the template meta description, and added a third contextual primary-source link."
+    }
+  ],
+  "fact_check_findings": [
+    {
+      "claim": "Agentforce $500 per 100,000 Flex Credits and $2 per conversation",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "Service agents run as a dedicated agent user with minimal default access",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    }
+  ]
 }

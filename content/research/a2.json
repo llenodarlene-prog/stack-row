@@ -2,11 +2,72 @@
   "schema": 1,
   "content_id": "A2",
   "slug": "/saas/saas-statistics-revenue-adoption/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-12",
+      "keyword": "saas statistics",
+      "search_volume": 110,
+      "seo_difficulty": 51,
+      "paid_difficulty": 1,
+      "cpc_usd": 0,
+      "search_intent": "Informational",
+      "serp_data_updated": "2026-08-11"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 2,
+      "url": "https://zylo.com/blog/saas-statistics/",
+      "title": "70+ SaaS Statistics for 2026 (Spend, Usage & Waste)",
+      "domain_authority": 45
+    },
+    {
+      "position": 4,
+      "url": "https://www.bettercloud.com/monitor/saas-statistics/",
+      "title": "The big list of SaaS statistics that you should know",
+      "domain_authority": 58
+    },
+    {
+      "position": 5,
+      "url": "https://www.venasolutions.com/blog/saas-statistics",
+      "title": "85 SaaS Statistics, Trends and Benchmarks for 2026",
+      "domain_authority": 45
+    },
+    {
+      "position": 6,
+      "url": "https://www.statista.com/topics/3071/cloud-software-as-a-service-saas/",
+      "title": "Software as a Service - statistics & facts",
+      "domain_authority": 93
+    },
+    {
+      "position": 7,
+      "url": "https://seoprofy.com/blog/saas-marketing-statistics/",
+      "title": "76 SaaS Marketing Statistics for 2026",
+      "domain_authority": 37
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/37043.pdf",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Cloud_computing_-_statistics_on_the_use_by_enterprises",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://www.salesforce.com/news/press-releases/2026/02/25/fy26-q4-earnings/",
+      "checked_utc": "2026-10-12",
+      "method": "Added in final review; URL and page subject confirmed with a domain-restricted web search. Anchors text the article already contained, so no new claim was introduced."
+    }
+  ],
   "statistics": [],
   "claims": [],
   "internal_link_targets": [
@@ -15,13 +76,48 @@
     "B7"
   ],
   "fact_check": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12",
+    "note": "Claim-level checks recorded in fact_check_findings; approved by the reviewer."
   },
   "qa": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
-  }
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12"
+  },
+  "research_date_utc": "2026-10-12",
+  "competitor_notes": "Positions not listed are AI overview, People Also Ask, image, or video blocks in the Ubersuggest SERP snapshot.",
+  "corrections": [
+    {
+      "date_utc": "2026-10-12",
+      "change": "Removed intro lines under the key-points and FAQ headings, replaced the template meta description, and added a third contextual primary-source link."
+    }
+  ],
+  "fact_check_findings": [
+    {
+      "claim": "52.74% of in-scope EU enterprises used paid cloud services in 2025",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "96.44% of paid-cloud buyers purchased SaaS",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "About 157,000 of 1.53 million enterprises surveyed",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "Salesforce FY2026 revenue $41.5 billion, up 10%, including Informatica",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    }
+  ]
 }

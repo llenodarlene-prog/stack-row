@@ -2,11 +2,72 @@
   "schema": 1,
   "content_id": "B1",
   "slug": "/cybersecurity/crowdstrike-platform-costs/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-12",
+      "keyword": "crowdstrike platform",
+      "search_volume": 0,
+      "seo_difficulty": 12,
+      "paid_difficulty": 1,
+      "cpc_usd": 0,
+      "search_intent": null,
+      "serp_data_updated": "2026-09-22"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 1,
+      "url": "https://www.crowdstrike.com/en-us/platform/",
+      "title": "The CrowdStrike Falcon Platform | Unified Agentic Security",
+      "domain_authority": 72
+    },
+    {
+      "position": 4,
+      "url": "https://www.crowdstrike.com/en-us/",
+      "title": "CrowdStrike: We Stop Breaches with AI-native Cybersecurity",
+      "domain_authority": 72
+    },
+    {
+      "position": 5,
+      "url": "https://www.dell.com/support/kbdoc/en-us/000126839/what-is-crowdstrike",
+      "title": "What is the CrowdStrike Falcon Platform",
+      "domain_authority": 92
+    },
+    {
+      "position": 8,
+      "url": "https://www.crowdstrike.com/en-us/products/trials/try-falcon/",
+      "title": "CrowdStrike Falcon Free Trial | Endpoint Protection & EDR",
+      "domain_authority": 72
+    },
+    {
+      "position": 12,
+      "url": "https://www.crowdstrike.com/en-us/pricing/",
+      "title": "Endpoint, Cloud & Identity Security Products",
+      "domain_authority": 72
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.crowdstrike.com/en-us/pricing/",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://www.crowdstrike.com/en-us/services/falcon-complete-mdr/",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://www.crowdstrike.com/en-us/platform/",
+      "checked_utc": "2026-10-12",
+      "method": "Added in final review; URL and page subject confirmed with a domain-restricted web search. Anchors text the article already contained, so no new claim was introduced."
+    }
+  ],
   "statistics": [],
   "claims": [],
   "internal_link_targets": [
@@ -16,13 +77,46 @@
     "B3"
   ],
   "fact_check": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12",
+    "note": "Claim-level checks recorded in fact_check_findings; approved by the reviewer."
   },
   "qa": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
-  }
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12"
+  },
+  "research_date_utc": "2026-10-12",
+  "competitor_notes": "Positions not listed are AI overview, People Also Ask, image, or video blocks in the Ubersuggest SERP snapshot. The exact phrase \"crowdstrike platform costs\" returned no volume, so the SERP was taken for \"crowdstrike platform\".",
+  "corrections": [
+    {
+      "date_utc": "2026-10-12",
+      "change": "Removed intro lines under the key-points and FAQ headings, replaced the template meta description, and added a third contextual primary-source link."
+    },
+    {
+      "date_utc": "2026-10-12",
+      "change": "Reworded the opening sentence so the primary keyword appears in the introduction. Meaning unchanged."
+    }
+  ],
+  "fact_check_findings": [
+    {
+      "claim": "Falcon Go/Pro/Enterprise annual per-device prices $59.99/$99.99/$184.99",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "Monthly per-device prices $7.99/$14.99/$19.99",
+      "result": "Confirmed on CrowdStrike's pricing pages (main and Falcon Enterprise); Falcon Go price carries a footnote",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "Falcon Go limited to 100 devices; Falcon Complete quote only",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    }
+  ]
 }

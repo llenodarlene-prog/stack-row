@@ -3,6 +3,9 @@ name: Deploy production
 on:
   push:
     branches: [main]
+  # Daily rebuild so posts with a future `published` date go live on that day (UTC).
+  schedule:
+    - cron: '7 0 * * *'
   workflow_dispatch:
 
 permissions:

@@ -2,11 +2,72 @@
   "schema": 1,
   "content_id": "A10",
   "slug": "/cybersecurity/cybercrime-statistics/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-12",
+      "keyword": "cybercrime statistics",
+      "search_volume": 260,
+      "seo_difficulty": 71,
+      "paid_difficulty": 27,
+      "cpc_usd": 16.55,
+      "search_intent": "Informational",
+      "serp_data_updated": "2026-09-12"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 1,
+      "url": "https://www.fbi.gov/news/press-releases/fbi-releases-annual-internet-crime-report",
+      "title": "FBI Releases Annual Internet Crime Report",
+      "domain_authority": 91
+    },
+    {
+      "position": 2,
+      "url": "https://www.statista.com/topics/13546/cybercrime-worldwide/",
+      "title": "Cybercrime worldwide - statistics & facts",
+      "domain_authority": 93
+    },
+    {
+      "position": 3,
+      "url": "https://www.iii.org/fact-statistic/facts-statistics-identity-theft-and-cybercrime",
+      "title": "Facts + Statistics: Identity theft and cybercrime - Triple-I",
+      "domain_authority": 68
+    },
+    {
+      "position": 4,
+      "url": "https://www.bdemerson.com/article/complete-cybercrime-statistics",
+      "title": "Cybercrime Statistics 2026: Global Trends and Key Data",
+      "domain_authority": 29
+    },
+    {
+      "position": 5,
+      "url": "https://www.state.gov/cybercrime",
+      "title": "Cybercrime - United States Department of State",
+      "domain_authority": 92
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.fbi.gov/news/press-releases/cryptocurrency-and-ai-scams-bilk-americans-of-billions",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://ico.org.uk/action-weve-taken/complaints-and-concerns-data-sets/data-security-incident-trends/",
+      "checked_utc": "2026-10-12",
+      "method": "Added in final review; URL and page subject confirmed with a domain-restricted web search. Anchors text the article already contained, so no new claim was introduced."
+    }
+  ],
   "statistics": [],
   "claims": [],
   "internal_link_targets": [
@@ -16,13 +77,42 @@
     "A9"
   ],
   "fact_check": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12",
+    "note": "Claim-level checks recorded in fact_check_findings; approved by the reviewer."
   },
   "qa": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
-  }
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12"
+  },
+  "research_date_utc": "2026-10-12",
+  "competitor_notes": "Positions not listed are AI overview, People Also Ask, image, or video blocks in the Ubersuggest SERP snapshot.",
+  "corrections": [
+    {
+      "date_utc": "2026-10-12",
+      "change": "Removed intro lines under the key-points and FAQ headings, replaced the template meta description, and added a third contextual primary-source link."
+    }
+  ],
+  "fact_check_findings": [
+    {
+      "claim": "1,008,597 complaints, $20.877B losses",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "Phishing/spoofing 191,561; BEC 24,768 and about $3.05B; investment 72,984 and $8,648,617,756",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "Ransomware 3,611 complaints, about $32.32M, excluding downtime and remediation",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    }
+  ]
 }
