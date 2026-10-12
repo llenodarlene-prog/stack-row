@@ -314,5 +314,75 @@
     "height": 450,
     "role": "page image, small",
     "alt": "Analyst at three monitors showing endpoint maps and threat graphs in a security operations room"
+  },
+  {
+    "path": "/assets/images/evening-alert-review-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Person reviewing a security alert on a laptop at dusk with city lights beyond the office window"
+  },
+  {
+    "path": "/assets/images/evening-alert-review-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Person reviewing a security alert on a laptop at dusk with city lights beyond the office window"
+  },
+  {
+    "path": "/assets/images/proposal-comparison-table-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two colleagues comparing two printed software proposals side by side at a stone table with a laptop"
+  },
+  {
+    "path": "/assets/images/proposal-comparison-table-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two colleagues comparing two printed software proposals side by side at a stone table with a laptop"
+  },
+  {
+    "path": "/assets/images/ai-network-wall-display-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Three colleagues studying a wall display of connected data nodes in a bright high-rise office"
+  },
+  {
+    "path": "/assets/images/ai-network-wall-display-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Three colleagues studying a wall display of connected data nodes in a bright high-rise office"
+  },
+  {
+    "path": "/assets/images/dashboard-desk-overhead-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Overhead view of a laptop and tablet showing blurred revenue dashboards on a sunlit desk"
+  },
+  {
+    "path": "/assets/images/dashboard-desk-overhead-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Overhead view of a laptop and tablet showing blurred revenue dashboards on a sunlit desk"
+  },
+  {
+    "path": "/assets/images/security-key-desk-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Hardware security key and blank access badge beside a laptop on a sunlit desk"
+  },
+  {
+    "path": "/assets/images/security-key-desk-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Hardware security key and blank access badge beside a laptop on a sunlit desk"
   }
 ]
