@@ -137,6 +137,10 @@
     {
       "date_utc": "2026-10-04",
       "change": "Replaced the template meta description with one that describes the blog."
+    },
+    {
+      "date_utc": "2026-10-12",
+      "change": "Wrote the data-contribution effective date as August 17, 2026 to match the source and house date style."
     }
   ],
   "internal_link_targets": [
