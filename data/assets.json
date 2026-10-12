@@ -188,5 +188,61 @@
     "height": 450,
     "role": "page image, small",
     "alt": "Laptop on a white desk in a workspace overlooking the sea"
+  },
+  {
+    "path": "/assets/images/iaas-data-center-corridor-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Glass-walled data center hall with rows of server racks beside a bright atrium corridor"
+  },
+  {
+    "path": "/assets/images/iaas-data-center-corridor-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Glass-walled data center hall with rows of server racks beside a bright atrium corridor"
+  },
+  {
+    "path": "/assets/images/platform-architecture-review-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two colleagues reviewing a service architecture diagram on a monitor in a bright office"
+  },
+  {
+    "path": "/assets/images/platform-architecture-review-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two colleagues reviewing a service architecture diagram on a monitor in a bright office"
+  },
+  {
+    "path": "/assets/images/private-server-racks-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Row of dedicated server racks with organized blue network cabling in a white data hall"
+  },
+  {
+    "path": "/assets/images/private-server-racks-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Row of dedicated server racks with organized blue network cabling in a white data hall"
+  },
+  {
+    "path": "/assets/images/provider-evaluation-meeting-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Three colleagues comparing notes on a laptop and tablet at a meeting table"
+  },
+  {
+    "path": "/assets/images/provider-evaluation-meeting-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Three colleagues comparing notes on a laptop and tablet at a meeting table"
   }
 ]

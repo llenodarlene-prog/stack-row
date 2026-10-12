@@ -13,9 +13,13 @@ const [site, plan, assets, killList, manifest] = await Promise.all([
 const errors = [];
 const fail = message => errors.push(message);
 
-if (plan.length !== 20) fail(`content plan has ${plan.length} items, expected 20`);
-if (plan.filter(item => item.type === 'article').length !== 10) fail('content plan must contain 10 articles');
-if (plan.filter(item => item.type === 'blog').length !== 10) fail('content plan must contain 10 blogs');
+// The launch set stays fixed at 20. Later approved items carry a "set" name and
+// pass the same per-item publication gates below.
+const launch = plan.filter(item => !item.set);
+if (launch.length !== 20) fail(`launch plan has ${launch.length} items, expected 20`);
+if (launch.filter(item => item.type === 'article').length !== 10) fail('launch plan must contain 10 articles');
+if (launch.filter(item => item.type === 'blog').length !== 10) fail('launch plan must contain 10 blogs');
+for (const item of plan.filter(item => item.set)) if (!['article', 'blog'].includes(item.type)) fail(`${item.id}: invalid type`);
 for (const field of ['id', 'title', 'primary_keyword', 'slug', 'cluster', 'role']) {
   const missing = plan.filter(item => !item[field]);
   if (missing.length) fail(`${missing.length} plan items missing ${field}`);
@@ -44,7 +48,9 @@ for (const item of plan) {
   if (metadata.primary_keyword !== item.primary_keyword) fail(`${postFile}: primary keyword does not match plan`);
   if (research.content_id !== item.id || research.slug !== item.slug) fail(`${researchFile}: relationship does not match plan`);
   if (research.required_seo_tool !== 'Ubersuggest') fail(`${researchFile}: Ubersuggest must be the required SEO tool`);
+  if (metadata.published && !/^\d{4}-\d{2}-\d{2}$/.test(String(metadata.published))) fail(`${postFile}: published must be YYYY-MM-DD`);
   if (metadata.draft !== true) {
+    if (!metadata.published) fail(`${postFile}: published content requires a published date`);
     if (research.status !== 'verified') fail(`${postFile}: published content requires verified research`);
     if (research.fact_check?.status !== 'approved' || research.qa?.status !== 'approved') fail(`${postFile}: published content requires fact-check and QA approval`);
     const lower = body.toLowerCase();
@@ -109,4 +115,4 @@ if (errors.length) {
   console.error(errors.map(error => `- ${error}`).join('\n'));
   process.exit(1);
 }
-console.log(`Validated ${generated.length} generated HTML files, 20 content records, 20 research records, and ${assets.length} assets.`);
+console.log(`Validated ${generated.length} generated HTML files, ${plan.length} content records, ${plan.length} research records, and ${assets.length} assets.`);

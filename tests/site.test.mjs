@@ -28,7 +28,7 @@ test('markdown renders tables, containers, anchors and editor notes', () => {
 });
 
 test('launch plan contains exactly ten articles and ten blogs', async () => {
-  const plan = JSON.parse(await readFile('data/content-plan.json', 'utf8'));
+  const plan = JSON.parse(await readFile('data/content-plan.json', 'utf8')).filter(item => !item.set);
   assert.equal(plan.length, 20);
   assert.equal(plan.filter(item => item.type === 'article').length, 10);
   assert.equal(plan.filter(item => item.type === 'blog').length, 10);
@@ -47,7 +47,7 @@ test('non-production build includes all drafts and marks them noindex', async ()
   }
   const built = manifest.pages.filter(page => page.draft && ['article', 'blog'].includes(page.type)).map(page => page.slug);
   assert.deepEqual([...built].sort(), [...drafts].sort());
-  assert.equal(manifest.pages.filter(page => ['article', 'blog'].includes(page.type)).length, 20);
+  assert.equal(manifest.pages.filter(page => ['article', 'blog'].includes(page.type)).length, manifest.totalPlanItems);
   for (const slug of drafts) {
     const draft = await readFile(path.join('dist', slug, 'index.html'), 'utf8');
     assert.match(draft, /noindex,nofollow,noarchive/);
@@ -86,6 +86,28 @@ test('production build excludes drafts and never links to them', async () => {
       assert.ok(!built.has(page.slug), `draft ${page.slug} was built for production`);
       assert.ok(!sitemap.includes(page.url), `draft ${page.slug} is in the production sitemap`);
     }
+  } finally {
+    await rm(out, { recursive: true, force: true });
+  }
+});
+
+test('production build holds scheduled posts until their publish date', async () => {
+  const out = await mkdtemp(path.join(tmpdir(), 'stack-row-'));
+  try {
+    const scheduled = { slug: '/cloud-infrastructure/private-cloud/', published: '2026-10-13' };
+    await run(process.execPath, ['scripts/build.mjs'], { env: { ...process.env, BUILD_ENV: 'production', OUT_DIR: out, SITE_URL: '', BUILD_DATE: '2026-10-12' } });
+    let manifest = JSON.parse(await readFile(path.join(out, 'build-manifest.json'), 'utf8'));
+    assert.ok(!manifest.pages.some(page => page.slug === scheduled.slug), 'scheduled post was built early');
+    assert.ok(!(await readFile(path.join(out, 'sitemap.xml'), 'utf8')).includes(scheduled.slug));
+    assert.ok(!(await readFile(path.join(out, 'feed.xml'), 'utf8')).includes(scheduled.slug));
+    for (const page of manifest.pages) {
+      const html = await readFile(path.join(out, page.slug === '/' ? 'index.html' : path.join(page.slug, 'index.html')), 'utf8');
+      assert.ok(!html.includes(`href="${scheduled.slug}"`), `${page.slug} links to a scheduled post`);
+    }
+    await rm(out, { recursive: true, force: true });
+    await run(process.execPath, ['scripts/build.mjs'], { env: { ...process.env, BUILD_ENV: 'production', OUT_DIR: out, SITE_URL: '', BUILD_DATE: scheduled.published } });
+    manifest = JSON.parse(await readFile(path.join(out, 'build-manifest.json'), 'utf8'));
+    assert.ok(manifest.pages.some(page => page.slug === scheduled.slug), 'scheduled post missing on its publish date');
   } finally {
     await rm(out, { recursive: true, force: true });
   }
