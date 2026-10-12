@@ -244,5 +244,145 @@
     "height": 450,
     "role": "page image, small",
     "alt": "Three colleagues comparing notes on a laptop and tablet at a meeting table"
+  },
+  {
+    "path": "/assets/images/permissions-matrix-review-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two colleagues reviewing a user permissions matrix with checkmarks on a large monitor in a glass-walled office"
+  },
+  {
+    "path": "/assets/images/permissions-matrix-review-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two colleagues reviewing a user permissions matrix with checkmarks on a large monitor in a glass-walled office"
+  },
+  {
+    "path": "/assets/images/customer-journey-whiteboard-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Three colleagues mapping a customer journey with sticky notes on a whiteboard in a bright studio office"
+  },
+  {
+    "path": "/assets/images/customer-journey-whiteboard-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Three colleagues mapping a customer journey with sticky notes on a whiteboard in a bright studio office"
+  },
+  {
+    "path": "/assets/images/badge-access-lobby-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Employee tapping an access badge on a fingerprint reader at a glass door in a busy office lobby"
+  },
+  {
+    "path": "/assets/images/badge-access-lobby-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Employee tapping an access badge on a fingerprint reader at a glass door in a busy office lobby"
+  },
+  {
+    "path": "/assets/images/unified-network-rack-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Single server rack of network and security appliances with tidy blue cabling between rows of cabinets"
+  },
+  {
+    "path": "/assets/images/unified-network-rack-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Single server rack of network and security appliances with tidy blue cabling between rows of cabinets"
+  },
+  {
+    "path": "/assets/images/security-operations-desk-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Analyst at three monitors showing endpoint maps and threat graphs in a security operations room"
+  },
+  {
+    "path": "/assets/images/security-operations-desk-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Analyst at three monitors showing endpoint maps and threat graphs in a security operations room"
+  },
+  {
+    "path": "/assets/images/evening-alert-review-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Person reviewing a security alert on a laptop at dusk with city lights beyond the office window"
+  },
+  {
+    "path": "/assets/images/evening-alert-review-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Person reviewing a security alert on a laptop at dusk with city lights beyond the office window"
+  },
+  {
+    "path": "/assets/images/proposal-comparison-table-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two colleagues comparing two printed software proposals side by side at a stone table with a laptop"
+  },
+  {
+    "path": "/assets/images/proposal-comparison-table-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two colleagues comparing two printed software proposals side by side at a stone table with a laptop"
+  },
+  {
+    "path": "/assets/images/ai-network-wall-display-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Three colleagues studying a wall display of connected data nodes in a bright high-rise office"
+  },
+  {
+    "path": "/assets/images/ai-network-wall-display-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Three colleagues studying a wall display of connected data nodes in a bright high-rise office"
+  },
+  {
+    "path": "/assets/images/dashboard-desk-overhead-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Overhead view of a laptop and tablet showing blurred revenue dashboards on a sunlit desk"
+  },
+  {
+    "path": "/assets/images/dashboard-desk-overhead-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Overhead view of a laptop and tablet showing blurred revenue dashboards on a sunlit desk"
+  },
+  {
+    "path": "/assets/images/security-key-desk-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Hardware security key and blank access badge beside a laptop on a sunlit desk"
+  },
+  {
+    "path": "/assets/images/security-key-desk-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Hardware security key and blank access badge beside a laptop on a sunlit desk"
   }
 ]

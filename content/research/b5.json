@@ -2,11 +2,72 @@
   "schema": 1,
   "content_id": "B5",
   "slug": "/business-technology/hubspot-enterprise/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-12",
+      "keyword": "hubspot enterprise",
+      "search_volume": 140,
+      "seo_difficulty": 53,
+      "paid_difficulty": 46,
+      "cpc_usd": 18.58,
+      "search_intent": "Navigational",
+      "serp_data_updated": "2026-09-17"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 1,
+      "url": "https://www.hubspot.com/products/crm/enterprise",
+      "title": "HubSpot's AI-Powered Enterprise Customer Platform",
+      "domain_authority": 93
+    },
+    {
+      "position": 2,
+      "url": "https://www.hubspot.com/products/marketing/enterprise",
+      "title": "Enterprise Marketing Software | Powerful Features That Scale",
+      "domain_authority": 93
+    },
+    {
+      "position": 5,
+      "url": "https://www.avidlyagency.com/blog/everything-you-need-to-know-about-hubspots-enterprise-features",
+      "title": "Everything You Need to Know About HubSpot's Enterprise ...",
+      "domain_authority": 42
+    },
+    {
+      "position": 7,
+      "url": "https://www.hubspot.com/pricing/marketing",
+      "title": "Marketing Software Pricing",
+      "domain_authority": 93
+    },
+    {
+      "position": 9,
+      "url": "https://noboundsdigital.com/versus/hubspot-pro-vs-hubspot-enterprise",
+      "title": "HubSpot Pro vs HubSpot Enterprise (2026 Guide)",
+      "domain_authority": 28
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.hubspot.com/pricing/suite",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://knowledge.hubspot.com/records/understand-objects",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://legal.hubspot.com/hubspot-product-and-services-catalog",
+      "checked_utc": "2026-10-12",
+      "method": "Added in final review; URL and page subject confirmed with a domain-restricted web search. Anchors text the article already contained, so no new claim was introduced."
+    }
+  ],
   "statistics": [],
   "claims": [],
   "internal_link_targets": [
@@ -23,5 +84,27 @@
     "status": "pending",
     "reviewer": null,
     "date_utc": null
-  }
+  },
+  "research_date_utc": "2026-10-12",
+  "competitor_notes": "Positions not listed are AI overview, People Also Ask, image, or video blocks in the Ubersuggest SERP snapshot.",
+  "corrections": [
+    {
+      "date_utc": "2026-10-12",
+      "change": "Removed intro lines under the key-points and FAQ headings, replaced the template meta description, and added a third contextual primary-source link."
+    }
+  ],
+  "fact_check_findings": [
+    {
+      "claim": "Core and specialized seats differ; View-Only cannot make changes",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "Included HubSpot credits are not additive across products",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    }
+  ]
 }

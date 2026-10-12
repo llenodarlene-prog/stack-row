@@ -2,11 +2,72 @@
   "schema": 1,
   "content_id": "A6",
   "slug": "/cybersecurity/cloud-security-statistics/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-12",
+      "keyword": "cloud security statistics",
+      "search_volume": 30,
+      "seo_difficulty": 55,
+      "paid_difficulty": 1,
+      "cpc_usd": 0,
+      "search_intent": "Informational",
+      "serp_data_updated": "2026-09-02"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 2,
+      "url": "https://www.sentinelone.com/cybersecurity-101/cloud-security/cloud-security-statistics/",
+      "title": "50+ Cloud Security Statistics in 2026",
+      "domain_authority": 75
+    },
+    {
+      "position": 3,
+      "url": "https://sprinto.com/blog/statistics/cloud-security/",
+      "title": "60+ Cloud Security Statistics: Quick Facts for 2026",
+      "domain_authority": 40
+    },
+    {
+      "position": 4,
+      "url": "https://www.exabeam.com/explainers/cloud-security/61-cloud-security-statistics-you-must-know-in-2025/",
+      "title": "64 Cloud Security Statistics You Must Know in 2026",
+      "domain_authority": 54
+    },
+    {
+      "position": 5,
+      "url": "https://www.statista.com/topics/8157/cloud-security/",
+      "title": "Cloud security - statistics & facts",
+      "domain_authority": 93
+    },
+    {
+      "position": 6,
+      "url": "https://www.fortinet.com/resources/reports/cloud-security",
+      "title": "2026 Cloud Security Trends: Closing the Cloud Complexity ...",
+      "domain_authority": 82
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_RotateAccessKey.html",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://www.datadoghq.com/state-of-cloud-security/",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://www.verizon.com/business/resources/reports/dbir/",
+      "checked_utc": "2026-10-12",
+      "method": "Added in final review; URL and page subject confirmed with a domain-restricted web search. Anchors text the article already contained, so no new claim was introduced."
+    }
+  ],
   "statistics": [],
   "claims": [],
   "internal_link_targets": [
@@ -24,5 +85,33 @@
     "status": "pending",
     "reviewer": null,
     "date_utc": null
-  }
+  },
+  "research_date_utc": "2026-10-12",
+  "competitor_notes": "Positions not listed are AI overview, People Also Ask, image, or video blocks in the Ubersuggest SERP snapshot.",
+  "corrections": [
+    {
+      "date_utc": "2026-10-12",
+      "change": "Removed intro lines under the key-points and FAQ headings, replaced the template meta description, and added a third contextual primary-source link."
+    }
+  ],
+  "fact_check_findings": [
+    {
+      "claim": "Datadog 59% AWS IAM users with key older than one year",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "Datadog 55% Google Cloud service accounts, excluding Google-managed and disabled",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "September 2025 data collection",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    }
+  ]
 }

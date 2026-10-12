@@ -2,11 +2,72 @@
   "schema": 1,
   "content_id": "B4",
   "slug": "/cybersecurity/okta-identity-security/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-12",
+      "keyword": "okta identity security",
+      "search_volume": 40,
+      "seo_difficulty": 43,
+      "paid_difficulty": 12,
+      "cpc_usd": 6.67,
+      "search_intent": "Navigational",
+      "serp_data_updated": "2026-08-16"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 1,
+      "url": "https://www.okta.com/topic/security/",
+      "title": "Identity-Driven Security",
+      "domain_authority": 76
+    },
+    {
+      "position": 2,
+      "url": "https://www.okta.com/identity-101/what-is-identity-security/",
+      "title": "What is Identity Security? Protecting Digital Access",
+      "domain_authority": 76
+    },
+    {
+      "position": 4,
+      "url": "https://www.okta.com/products/identity-security-posture-management/",
+      "title": "Identity Security Posture Management",
+      "domain_authority": 76
+    },
+    {
+      "position": 5,
+      "url": "https://www.okta.com/blog/product-innovation/identity-security-fabric-enterprise-security/",
+      "title": "Identity Security Fabric: The Foundation of Modern Security",
+      "domain_authority": 76
+    },
+    {
+      "position": 8,
+      "url": "https://www.okta.com/products/identity-threat-protection/",
+      "title": "Identity Threat Protection with Okta AI",
+      "domain_authority": 76
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.okta.com/products/lifecycle-management/",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-deactivate-user-account.htm",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://help.okta.com/en-us/content/topics/provisioning/lcm/lcm-reactivate-user.htm",
+      "checked_utc": "2026-10-12",
+      "method": "Added in final review; URL and page subject confirmed with a domain-restricted web search. Anchors text the article already contained, so no new claim was introduced."
+    }
+  ],
   "statistics": [],
   "claims": [],
   "internal_link_targets": [
@@ -24,5 +85,33 @@
     "status": "pending",
     "reviewer": null,
     "date_utc": null
-  }
+  },
+  "research_date_utc": "2026-10-12",
+  "competitor_notes": "Positions not listed are AI overview, People Also Ask, image, or video blocks in the Ubersuggest SERP snapshot.",
+  "corrections": [
+    {
+      "date_utc": "2026-10-12",
+      "change": "Removed intro lines under the key-points and FAQ headings, replaced the template meta description, and added a third contextual primary-source link."
+    }
+  ],
+  "fact_check_findings": [
+    {
+      "claim": "Okta deactivation runs as a background task",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "Deprovisioning depends on app setup",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "Group membership retained on deactivation; app integrations reassigned on reactivation",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    }
+  ]
 }

@@ -102,5 +102,11 @@
     "status": "approved",
     "reviewer": "Darlene Aberin",
     "date_utc": "2026-10-12"
-  }
+  },
+  "corrections": [
+    {
+      "date_utc": "2026-10-12",
+      "change": "Gave the Eurostat paid-cloud share as 52.74% to match the other cloud posts."
+    }
+  ]
 }

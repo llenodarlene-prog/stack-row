@@ -2,11 +2,72 @@
   "schema": 1,
   "content_id": "A3",
   "slug": "/ai/ai-statistics-investment-production-use/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-12",
+      "keyword": "ai statistics",
+      "search_volume": 2400,
+      "seo_difficulty": 64,
+      "paid_difficulty": 9,
+      "cpc_usd": 8.17,
+      "search_intent": "Informational",
+      "serp_data_updated": "2026-09-06"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 2,
+      "url": "https://www.nu.edu/blog/ai-statistics-trends/",
+      "title": "137 AI Statistics and Trends for 2026 | National University",
+      "domain_authority": 63
+    },
+    {
+      "position": 3,
+      "url": "https://www.forbes.com/advisor/business/ai-statistics/",
+      "title": "22 Top AI Statistics & Trends – Forbes Advisor",
+      "domain_authority": 94
+    },
+    {
+      "position": 4,
+      "url": "https://www.statista.com/topics/3104/artificial-intelligence-ai-worldwide/",
+      "title": "Artificial intelligence (AI) worldwide - statistics & facts",
+      "domain_authority": 93
+    },
+    {
+      "position": 5,
+      "url": "https://hai.stanford.edu/ai-index",
+      "title": "AI Index | Stanford HAI",
+      "domain_authority": 93
+    },
+    {
+      "position": 7,
+      "url": "https://pipeline.zoominfo.com/sales/statistics-about-artificial-intelligence",
+      "title": "AI Statistics: Key Data and Trends for 2026",
+      "domain_authority": 80
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_4_economy.pdf",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+      "checked_utc": "2026-10-12",
+      "method": "Added in final review; URL and page subject confirmed with a domain-restricted web search. Anchors text the article already contained, so no new claim was introduced."
+    }
+  ],
   "statistics": [],
   "claims": [],
   "internal_link_targets": [
@@ -25,5 +86,39 @@
     "status": "pending",
     "reviewer": null,
     "date_utc": null
-  }
+  },
+  "research_date_utc": "2026-10-12",
+  "competitor_notes": "Positions not listed are AI overview, People Also Ask, image, or video blocks in the Ubersuggest SERP snapshot.",
+  "corrections": [
+    {
+      "date_utc": "2026-10-12",
+      "change": "Removed intro lines under the key-points and FAQ headings, replaced the template meta description, and added a third contextual primary-source link."
+    }
+  ],
+  "fact_check_findings": [
+    {
+      "claim": "$581.69B corporate and $344.66B private AI investment in 2025 (Stanford AI Index)",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "McKinsey 2026: 1,719 respondents, 97 countries, May-June, GDP-weighted",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "47% scaling enterprise chatbots",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "37% positive EBIT impact",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    }
+  ]
 }

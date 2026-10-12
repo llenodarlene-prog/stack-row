@@ -2,11 +2,72 @@
   "schema": 1,
   "content_id": "A4",
   "slug": "/business-technology/b2b-tech-statistics/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-12",
+      "keyword": "b2b technology statistics",
+      "search_volume": 0,
+      "seo_difficulty": 12,
+      "paid_difficulty": 1,
+      "cpc_usd": 0,
+      "search_intent": null,
+      "serp_data_updated": "2026-09-22"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 2,
+      "url": "https://www.statista.com/topics/2495/b2b-marketing/",
+      "title": "B2B advertising and marketing in the United States",
+      "domain_authority": 93
+    },
+    {
+      "position": 3,
+      "url": "https://corporatevisions.com/blog/b2b-buying-behavior-statistics-trends/",
+      "title": "B2B Buying Behavior in 2026: 57 Stats and Five Hard ...",
+      "domain_authority": 46
+    },
+    {
+      "position": 4,
+      "url": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/winning-b2b-customers-in-technology-and-telecommunications",
+      "title": "Winning B2B customers in technology and ...",
+      "domain_authority": 91
+    },
+    {
+      "position": 6,
+      "url": "https://www.landbase.com/blog/b2b-sales-statistics",
+      "title": "35 B2B Sales Statistics: Critical Data Every ...",
+      "domain_authority": 37
+    },
+    {
+      "position": 7,
+      "url": "https://www.sellerscommerce.com/blog/b2b-marketing-statistics/",
+      "title": "45 Crucial B2B Marketing Statistics For 2026",
+      "domain_authority": 45
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://research.g2.com/hubfs/2024-buyer-behavior-report.pdf",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://solutions.trustradius.com/vendor-blog/bridging-the-trust-gap-b2b-tech-buying-in-the-age-of-ai",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://support.google.com/websearch/answer/14901683?hl=en",
+      "checked_utc": "2026-10-12",
+      "method": "Added in final review; URL and page subject confirmed with a domain-restricted web search. Anchors text the article already contained, so no new claim was introduced."
+    }
+  ],
   "statistics": [],
   "claims": [],
   "internal_link_targets": [
@@ -24,5 +85,49 @@
     "status": "pending",
     "reviewer": null,
     "date_utc": null
-  }
+  },
+  "research_date_utc": "2026-10-12",
+  "competitor_notes": "Positions not listed are AI overview, People Also Ask, image, or video blocks in the Ubersuggest SERP snapshot. Ubersuggest reports no measurable US volume for the exact phrase.",
+  "corrections": [
+    {
+      "date_utc": "2026-10-12",
+      "change": "Removed intro lines under the key-points and FAQ headings, replaced the template meta description, and added a third contextual primary-source link."
+    },
+    {
+      "date_utc": "2026-10-12",
+      "change": "Removed G2 figures that could not be confirmed (42%, 6%, 83%, 81%, 42% implementer use) and the unconfirmed survey dates; reworded the 69% finding to match the source; added the confirmed 31% review-site finding."
+    }
+  ],
+  "fact_check_findings": [
+    {
+      "claim": "G2 52% expect spending increase; 1,940 respondents; published June 2024",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "G2 69% say service providers are a factor; 38% start in research",
+      "result": "Confirmed; wording corrected",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "G2 31% review sites most consulted, up from 23%",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "G2 42% stay same, 6% decrease, 83%/81% independent research, 42% used implementer, March 2024 fielding",
+      "result": "Not confirmable; removed from article",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "TrustRadius 72% encountered AI Overviews; 2,058 buyers and 490 vendors",
+      "result": "Confirmed; January 2025 date not confirmable, removed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    }
+  ]
 }
