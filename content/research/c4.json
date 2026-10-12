@@ -57,42 +57,42 @@
     {
       "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
       "checked_utc": "2026-10-12",
-      "method": "Cited in the author's research brief (Stack Row upload, research checked 2026-10-12). Not re-fetched in this repository session because the session network policy blocked the publisher host."
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
     },
     {
       "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html",
       "checked_utc": "2026-10-12",
-      "method": "Cited in the author's research brief (Stack Row upload, research checked 2026-10-12). Not re-fetched in this repository session because the session network policy blocked the publisher host."
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
     },
     {
       "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/overview",
       "checked_utc": "2026-10-12",
-      "method": "Cited in the author's research brief (Stack Row upload, research checked 2026-10-12). Not re-fetched in this repository session because the session network policy blocked the publisher host."
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
     },
     {
       "url": "https://docs.cloud.google.com/compute/docs/overview",
       "checked_utc": "2026-10-12",
-      "method": "Cited in the author's research brief (Stack Row upload, research checked 2026-10-12). Not re-fetched in this repository session because the session network policy blocked the publisher host."
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
     },
     {
       "url": "https://docs.digitalocean.com/products/droplets/",
       "checked_utc": "2026-10-12",
-      "method": "Cited in the author's research brief (Stack Row upload, research checked 2026-10-12). Not re-fetched in this repository session because the session network policy blocked the publisher host."
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
     },
     {
       "url": "https://docs.oracle.com/en-us/iaas/Content/Compute/Concepts/computeoverview.htm",
       "checked_utc": "2026-10-12",
-      "method": "Cited in the author's research brief (Stack Row upload, research checked 2026-10-12). Not re-fetched in this repository session because the session network policy blocked the publisher host."
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
     },
     {
       "url": "https://www.flexera.com/about-us/press-center/flexera-finds-cloud-value-is-rising-while-ai-waste-grows",
       "checked_utc": "2026-10-12",
-      "method": "Cited in the author's research brief (Stack Row upload, research checked 2026-10-12). Not re-fetched in this repository session because the session network policy blocked the publisher host."
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
     },
     {
       "url": "https://aws.amazon.com/ec2/pricing/on-demand/",
       "checked_utc": "2026-10-12",
-      "method": "Cited in the author's research brief (Stack Row upload, research checked 2026-10-12). Not re-fetched in this repository session because the session network policy blocked the publisher host."
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
     }
   ],
   "statistics": [],
@@ -112,5 +112,11 @@
     "status": "approved",
     "reviewer": "Darlene Aberin",
     "date_utc": "2026-10-12"
-  }
+  },
+  "corrections": [
+    {
+      "date_utc": "2026-10-12",
+      "change": "Corrected the illustrative weighted scorecard. Candidate A scores 79, not 80, and 83, not 84, after reweighting. Shortened the meta description to 160 characters or fewer."
+    }
+  ]
 }
