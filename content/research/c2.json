@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "content_id": "C2",
+  "slug": "/cloud-infrastructure/iaas-vs-paas/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-12",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-12",
+      "keyword": "iaas vs paas",
+      "search_volume": 880,
+      "seo_difficulty": 56,
+      "paid_difficulty": 16,
+      "cpc_usd": 2.53,
+      "search_intent": "Informational",
+      "serp_data_updated": "2026-10-12"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 4,
+      "url": "https://cloud.google.com/learn/paas-vs-iaas-vs-saas",
+      "title": "PaaS vs IaaS vs SaaS: What's the difference?",
+      "domain_authority": 92
+    },
+    {
+      "position": 5,
+      "url": "https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-are-iaas-paas-and-saas",
+      "title": "What are IaaS, PaaS, and SaaS?",
+      "domain_authority": 98
+    },
+    {
+      "position": 6,
+      "url": "https://www.ibm.com/think/topics/iaas-paas-saas",
+      "title": "Iaas, Paas, Saas: What's the difference?",
+      "domain_authority": 93
+    },
+    {
+      "position": 7,
+      "url": "https://synoptek.com/insights/it-blogs/infrastructure-performance/iaas-vs-paas-understanding-the-difference-and-making-the-right-choice/",
+      "title": "IaaS vs. PaaS: Understanding the Differences",
+      "domain_authority": 42
+    },
+    {
+      "position": 8,
+      "url": "https://aws.amazon.com/types-of-cloud-computing/",
+      "title": "SaaS vs PaaS vs IaaS – Types of Cloud Computing",
+      "domain_authority": 95
+    }
+  ],
+  "competitor_notes": "Positions not listed are an AI overview, People Also Ask, or image block in the Ubersuggest SERP snapshot.",
+  "sources": [
+    {
+      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/37043.pdf",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://docs.cloud.google.com/run/docs/configuring/billing-settings",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://cloud.google.com/run/pricing",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "claims_note": "Worked cost examples in the article are labeled hypothetical with invented inputs. Cited figures carry their source link in the text.",
+  "internal_link_targets": [
+    "B10",
+    "B9"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12"
+  }
+}

@@ -18,6 +18,10 @@ if (buildEnv === 'production' && process.env.SITE_URL && process.env.SITE_URL.re
 }
 const indexable = buildEnv === 'production' && site.launch_status === 'ready';
 const dist = path.resolve(process.env.OUT_DIR || 'dist');
+// Posts dated after the build day (UTC) are scheduled. Production leaves them
+// out exactly like drafts; the daily production deploy publishes them on time.
+const buildDate = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
+if (!/^\d{4}-\d{2}-\d{2}$/.test(buildDate)) throw new Error('BUILD_DATE must be YYYY-MM-DD');
 
 async function files(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -54,14 +58,15 @@ for (const file of contentFiles) {
   if (!/^\/(?:$|.*\/)$/.test(metadata.slug)) throw new Error(`${file}: invalid slug`);
   if (routes.has(metadata.slug)) throw new Error(`${file}: duplicate route ${metadata.slug}`);
   routes.set(metadata.slug, file);
-  all.push({ ...metadata, body, source: file });
+  if (metadata.published && !/^\d{4}-\d{2}-\d{2}$/.test(String(metadata.published))) throw new Error(`${file}: published must be YYYY-MM-DD`);
+  all.push({ ...metadata, body, source: file, scheduled: Boolean(metadata.published) && String(metadata.published) > buildDate });
 }
 const isPost = item => ['article', 'blog'].includes(item.type);
 const planById = new Map(plan.map((item, index) => [item.id, { ...item, index }]));
-const visible = all.filter(item => !(buildEnv === 'production' && item.draft === true));
+const visible = all.filter(item => !(buildEnv === 'production' && (item.draft === true || item.scheduled)));
 const bySlug = new Map(visible.map(item => [item.slug, item]));
 const posts = visible.filter(isPost).sort((a, b) => (planById.get(a.content_id)?.index ?? 99) - (planById.get(b.content_id)?.index ?? 99));
-const publishedPosts = posts.filter(item => item.draft !== true);
+const publishedPosts = posts.filter(item => item.draft !== true && !item.scheduled);
 const hubs = visible.filter(item => item.type === 'hub');
 const assetByPath = new Map(assets.map(asset => [asset.path, asset]));
 
@@ -453,7 +458,7 @@ const pageRecords = [];
 for (const item of visible) {
   const url = canonical(siteUrl, item.slug);
   const draft = item.draft === true;
-  const robots = indexable && !draft && item.noindex !== true ? 'index,follow' : 'noindex,nofollow,noarchive';
+  const robots = indexable && !draft && !item.scheduled && item.noindex !== true ? 'index,follow' : 'noindex,nofollow,noarchive';
   const titled = item.seo_title || `${item.title} | ${site.name}`;
   const fullTitle = titled.length > 60 && titled.endsWith(` | ${site.name}`) ? titled.slice(0, -` | ${site.name}`.length) : titled;
   const schema = JSON.stringify(schemaFor(item, url)).replaceAll('<', '\\u003c');
@@ -502,15 +507,15 @@ for (const item of visible) {
   const target = item.slug === '/' ? path.join(dist, 'index.html') : path.join(dist, cleanSlug(item.slug), 'index.html');
   await mkdir(path.dirname(target), { recursive: true });
   await writeFile(target, html);
-  pageRecords.push({ slug: item.slug, source: item.source, draft, type: item.type, url });
+  pageRecords.push({ slug: item.slug, source: item.source, draft, scheduled: item.scheduled === true, published: item.published || null, type: item.type, url });
 }
 
-const indexed = visible.filter(item => item.draft !== true && item.noindex !== true);
+const indexed = visible.filter(item => item.draft !== true && !item.scheduled && item.noindex !== true);
 const sitemap = indexed.map(item => `  <url><loc>${canonical(siteUrl, item.slug)}</loc>${item.modified || item.published ? `<lastmod>${escapeHtml(item.modified || item.published)}</lastmod>` : ''}</url>`).join('\n');
 await writeFile(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemap}\n</urlset>\n`);
 const feedEntries = publishedPosts.slice(0, 20).map(item => `<entry><title>${escapeHtml(item.title)}</title><id>${canonical(siteUrl, item.slug)}</id><link href="${canonical(siteUrl, item.slug)}"/><updated>${item.modified || item.published}T00:00:00Z</updated></entry>`).join('');
 await writeFile(path.join(dist, 'feed.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom"><title>${site.name}</title><id>${siteUrl}/</id><link href="${siteUrl}/feed.xml" rel="self"/>${feedEntries}</feed>\n`);
 await writeFile(path.join(dist, 'robots.txt'), indexable ? `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n` : 'User-agent: *\nDisallow: /\n');
 await cp('src/static/.htaccess', path.join(dist, '.htaccess'));
-await writeFile(path.join(dist, 'build-manifest.json'), JSON.stringify({ site: site.name, environment: buildEnv, indexable, pages: pageRecords, planItems: plan.length }, null, 2) + '\n');
+await writeFile(path.join(dist, 'build-manifest.json'), JSON.stringify({ site: site.name, environment: buildEnv, indexable, buildDate, pages: pageRecords, planItems: plan.filter(item => !item.set).length, totalPlanItems: plan.length }, null, 2) + '\n');
 console.log(`Built ${pageRecords.length} pages for ${site.name} (${buildEnv}; indexable=${indexable})`);

@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "content_id": "C1",
+  "slug": "/cloud-infrastructure/iaas-in-cloud-computing/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-12",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-12",
+      "keyword": "iaas in cloud computing",
+      "search_volume": 3600,
+      "seo_difficulty": 49,
+      "paid_difficulty": 1,
+      "cpc_usd": 1.86,
+      "search_intent": "Informational",
+      "serp_data_updated": "2026-09-05"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 2,
+      "url": "https://www.geeksforgeeks.org/cloud-computing/infrastructure-as-a-service-iaas/",
+      "title": "IaaS - Infrastructure as a Service",
+      "domain_authority": 79
+    },
+    {
+      "position": 4,
+      "url": "https://cloud.google.com/learn/what-is-iaas",
+      "title": "What is IaaS (Infrastructure as a Service)?",
+      "domain_authority": 92
+    },
+    {
+      "position": 5,
+      "url": "https://cic.gsa.gov/solutions/iaas",
+      "title": "Infrastructure as a Service (IaaS) - Cloud Information Center",
+      "domain_authority": 74
+    },
+    {
+      "position": 6,
+      "url": "https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-iaas",
+      "title": "What is Infrastructure as a Service (IaaS)?",
+      "domain_authority": 98
+    },
+    {
+      "position": 7,
+      "url": "https://www.coursera.org/articles/iaas",
+      "title": "What Is IaaS? Understanding Infrastructure as a Service",
+      "domain_authority": 92
+    }
+  ],
+  "competitor_notes": "Positions not listed are an AI overview, People Also Ask, or image block in the Ubersuggest SERP snapshot.",
+  "sources": [
+    {
+      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20260203-1",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/37043.pdf",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    },
+    {
+      "url": "https://aws.amazon.com/ec2/pricing/on-demand/",
+      "checked_utc": "2026-10-12",
+      "method": "Checked against the source by the author during fact-check (2026-10-12). Calculations and internal consistency re-checked in the repository review."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "claims_note": "Worked cost examples in the article are labeled hypothetical with invented inputs. Cited figures carry their source link in the text.",
+  "internal_link_targets": [
+    "A5",
+    "B2",
+    "B8"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12"
+  }
+}
