@@ -2,11 +2,72 @@
   "schema": 1,
   "content_id": "B3",
   "slug": "/cybersecurity/palo-alto-networks-platformization/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
-  "keyword_queries": [],
-  "ranking_competitors": [],
-  "sources": [],
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-12",
+      "keyword": "palo alto networks platformization",
+      "search_volume": 40,
+      "seo_difficulty": 25,
+      "paid_difficulty": 20,
+      "cpc_usd": 25.93,
+      "search_intent": "Navigational",
+      "serp_data_updated": "2026-08-16"
+    }
+  ],
+  "ranking_competitors": [
+    {
+      "position": 1,
+      "url": "https://www.paloaltonetworks.com/cyberpedia/what-is-cybersecurity-platformization",
+      "title": "What Is Cybersecurity Platformization?",
+      "domain_authority": 80
+    },
+    {
+      "position": 2,
+      "url": "https://www.paloaltonetworks.com/why-paloaltonetworks/platformization",
+      "title": "Platform Consolidation is the future",
+      "domain_authority": 80
+    },
+    {
+      "position": 3,
+      "url": "https://www.reddit.com/r/paloaltonetworks/comments/1g9kuof/what_is_platformization/",
+      "title": "What is Platformization? : r/paloaltonetworks",
+      "domain_authority": 92
+    },
+    {
+      "position": 4,
+      "url": "https://investors.paloaltonetworks.com/news-releases/news-release-details/ibm-and-palo-alto-networks-find-platformization-key-reduce/",
+      "title": "IBM and Palo Alto Networks Find Platformization is Key to ...",
+      "domain_authority": 80
+    },
+    {
+      "position": 7,
+      "url": "https://leverageshares.com/us/insights/palo-alto-networks-platformization-progress-and-ai-ambition/",
+      "title": "Palo Alto Networks: Platformization Progress and AI Ambition",
+      "domain_authority": 38
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://newsroom.ibm.com/2025-01-28-ibm-and-palo-alto-networks-find-platformization-is-key-to-reduce-cybersecurity-complexity",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://www.paloaltonetworks.com/resources/research/ibm-study-platforms-deliver-value",
+      "checked_utc": "2026-10-12",
+      "method": "Carried from the editorial draft."
+    },
+    {
+      "url": "https://www.paloaltonetworks.com/why-paloaltonetworks/platformization",
+      "checked_utc": "2026-10-12",
+      "method": "Added in final review; URL and page subject confirmed with a domain-restricted web search. Anchors text the article already contained, so no new claim was introduced."
+    }
+  ],
   "statistics": [],
   "claims": [],
   "internal_link_targets": [
@@ -24,5 +85,13 @@
     "status": "pending",
     "reviewer": null,
     "date_utc": null
-  }
+  },
+  "research_date_utc": "2026-10-12",
+  "competitor_notes": "Positions not listed are AI overview, People Also Ask, image, or video blocks in the Ubersuggest SERP snapshot.",
+  "corrections": [
+    {
+      "date_utc": "2026-10-12",
+      "change": "Removed intro lines under the key-points and FAQ headings, replaced the template meta description, and added a third contextual primary-source link."
+    }
+  ]
 }
