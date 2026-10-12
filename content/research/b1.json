@@ -92,6 +92,10 @@
     {
       "date_utc": "2026-10-12",
       "change": "Removed intro lines under the key-points and FAQ headings, replaced the template meta description, and added a third contextual primary-source link."
+    },
+    {
+      "date_utc": "2026-10-12",
+      "change": "Reworded the opening sentence so the primary keyword appears in the introduction. Meaning unchanged."
     }
   ]
 }

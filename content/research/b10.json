@@ -141,6 +141,10 @@
     {
       "date_utc": "2026-10-12",
       "change": "Wrote the data-contribution effective date as August 17, 2026 to match the source and house date style."
+    },
+    {
+      "date_utc": "2026-10-12",
+      "change": "Reworded the opening sentence so the primary keyword appears in the introduction. Meaning unchanged."
     }
   ],
   "internal_link_targets": [

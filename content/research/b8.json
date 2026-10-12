@@ -161,6 +161,10 @@
     {
       "date_utc": "2026-10-04",
       "change": "Replaced the template meta description with one that describes the blog."
+    },
+    {
+      "date_utc": "2026-10-12",
+      "change": "Reworded the opening sentence so the primary keyword appears in the introduction. Meaning unchanged."
     }
   ],
   "internal_link_targets": [
