@@ -92,6 +92,42 @@
     {
       "date_utc": "2026-10-12",
       "change": "Removed intro lines under the key-points and FAQ headings, replaced the template meta description, and added a third contextual primary-source link."
+    },
+    {
+      "date_utc": "2026-10-12",
+      "change": "Removed G2 figures that could not be confirmed (42%, 6%, 83%, 81%, 42% implementer use) and the unconfirmed survey dates; reworded the 69% finding to match the source; added the confirmed 31% review-site finding."
+    }
+  ],
+  "fact_check_findings": [
+    {
+      "claim": "G2 52% expect spending increase; 1,940 respondents; published June 2024",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "G2 69% say service providers are a factor; 38% start in research",
+      "result": "Confirmed; wording corrected",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "G2 31% review sites most consulted, up from 23%",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "G2 42% stay same, 6% decrease, 83%/81% independent research, 42% used implementer, March 2024 fielding",
+      "result": "Not confirmable; removed from article",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "TrustRadius 72% encountered AI Overviews; 2,058 buyers and 490 vendors",
+      "result": "Confirmed; January 2025 date not confirmable, removed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
     }
   ]
 }

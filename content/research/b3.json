@@ -93,5 +93,13 @@
       "date_utc": "2026-10-12",
       "change": "Removed intro lines under the key-points and FAQ headings, replaced the template meta description, and added a third contextual primary-source link."
     }
+  ],
+  "fact_check_findings": [
+    {
+      "claim": "IBM IBV and Palo Alto Networks study: 1,000 executives, 21 industries, 18 countries, July-September 2024",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    }
   ]
 }

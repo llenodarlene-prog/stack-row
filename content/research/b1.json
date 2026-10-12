@@ -97,5 +97,25 @@
       "date_utc": "2026-10-12",
       "change": "Reworded the opening sentence so the primary keyword appears in the introduction. Meaning unchanged."
     }
+  ],
+  "fact_check_findings": [
+    {
+      "claim": "Falcon Go/Pro/Enterprise annual per-device prices $59.99/$99.99/$184.99",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "Monthly per-device prices $7.99/$14.99/$19.99",
+      "result": "Matched in secondary coverage only; recheck pricing page before release",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "Falcon Go limited to 100 devices; Falcon Complete quote only",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    }
   ]
 }

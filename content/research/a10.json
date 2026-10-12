@@ -93,5 +93,25 @@
       "date_utc": "2026-10-12",
       "change": "Removed intro lines under the key-points and FAQ headings, replaced the template meta description, and added a third contextual primary-source link."
     }
+  ],
+  "fact_check_findings": [
+    {
+      "claim": "1,008,597 complaints, $20.877B losses",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "Phishing/spoofing 191,561; BEC 24,768 and about $3.05B; investment 72,984 and $8,648,617,756",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    },
+    {
+      "claim": "Ransomware 3,611 complaints, about $32.32M, excluding downtime and remediation",
+      "result": "Confirmed",
+      "checked_utc": "2026-10-12",
+      "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
+    }
   ]
 }
