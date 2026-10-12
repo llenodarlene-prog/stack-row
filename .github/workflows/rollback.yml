@@ -1,0 +1,87 @@
+name: Roll back deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Protected environment
+        required: true
+        type: choice
+        options: [staging, production]
+      commit_sha:
+        description: Exact known-good 40-character commit SHA
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  rollback:
+    environment: ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate rollback commit
+        env:
+          RELEASE_SHA: ${{ inputs.commit_sha }}
+        run: |
+          if [[ ! "$RELEASE_SHA" =~ ^[a-f0-9]{40}$ ]]; then
+            echo "commit_sha must be exactly 40 lowercase hexadecimal characters" >&2
+            exit 2
+          fi
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.commit_sha }}
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build and verify rollback target
+        env:
+          TARGET_ENV: ${{ inputs.environment }}
+          SITE_URL: ${{ vars.SITE_URL }}
+          STAGING_URL: ${{ vars.SITE_URL }}
+        run: |
+          if [[ "$TARGET_ENV" == "production" ]]; then
+            npm run release:check
+            BUILD_ENV=production npm run verify
+          else
+            BUILD_ENV=staging npm run verify
+            node scripts/check-staging-target.mjs
+          fi
+
+      - name: Deploy rollback target
+        env:
+          TARGET_ENV: ${{ inputs.environment }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_ROOT: ${{ secrets.DEPLOY_ROOT }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+          DEPLOY_PORT: ${{ vars.DEPLOY_PORT }}
+        run: |
+          if [[ "$TARGET_ENV" == "production" ]]; then
+            export DEPLOY_PRESERVE_DIR=staging
+          else
+            export DEPLOY_REQUIRE_SUFFIX=/staging
+          fi
+          bash scripts/deploy-document-root.sh
+
+      - name: Smoke test rollback
+        env:
+          TARGET_ENV: ${{ inputs.environment }}
+          SMOKE_URL: ${{ vars.SITE_URL }}
+          SMOKE_CANONICAL_URL: https://stackrow.org
+          SMOKE_BRAND: Stack Row
+        run: |
+          if [[ "$TARGET_ENV" == "production" ]]; then
+            export SMOKE_EXPECT_ROBOTS=index
+          else
+            export SMOKE_EXPECT_ROBOTS=noindex
+          fi
+          node scripts/smoke-test.mjs
