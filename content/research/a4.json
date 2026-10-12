@@ -77,14 +77,15 @@
     "B5"
   ],
   "fact_check": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12",
+    "note": "Claim-level checks recorded in fact_check_findings; approved by the reviewer."
   },
   "qa": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-12"
   },
   "research_date_utc": "2026-10-12",
   "competitor_notes": "Positions not listed are AI overview, People Also Ask, image, or video blocks in the Ubersuggest SERP snapshot. Ubersuggest reports no measurable US volume for the exact phrase.",
