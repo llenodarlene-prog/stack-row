@@ -107,7 +107,7 @@
     },
     {
       "claim": "Monthly per-device prices $7.99/$14.99/$19.99",
-      "result": "Matched in secondary coverage only; recheck pricing page before release",
+      "result": "Confirmed on CrowdStrike's pricing pages (main and Falcon Enterprise); Falcon Go price carries a footnote",
       "checked_utc": "2026-10-12",
       "method": "Domain-restricted and general web searches of the publisher's pages and coverage; direct page access was blocked in this session."
     },
