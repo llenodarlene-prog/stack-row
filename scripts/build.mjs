@@ -350,34 +350,45 @@ function faqEntries(body) {
 }
 
 function schemaFor(item, url) {
+  const orgId = `${siteUrl}/#organization`;
+  const websiteId = `${siteUrl}/#website`;
+  const pageId = `${url}#webpage`;
+  const organization = {
+    '@type': 'Organization', '@id': orgId, name: site.name, url: `${siteUrl}/`,
+    logo: { '@type': 'ImageObject', url: `${siteUrl}/assets/brand/stack-row-icon.png` },
+    slogan: site.tagline, email: site.contact_email || undefined
+  };
+  const website = {
+    '@type': 'WebSite', '@id': websiteId, name: site.name, url: `${siteUrl}/`,
+    publisher: { '@id': orgId }, inLanguage: site.locale
+  };
+  const webpage = {
+    '@type': item.type === 'hub' ? 'CollectionPage' : 'WebPage',
+    '@id': pageId, name: item.title, description: item.description, url,
+    isPartOf: { '@id': websiteId }, breadcrumb: { '@id': `${url}#breadcrumb` }
+  };
   if (isPost(item)) {
-    const publisher = { '@type': 'Organization', name: site.name, url: `${siteUrl}/`, logo: `${siteUrl}/assets/brand/stack-row-icon.png` };
+    const articleId = `${url}#article`;
+    webpage.mainEntity = { '@id': articleId };
     const article = {
       '@type': item.type === 'blog' ? 'BlogPosting' : 'Article',
-      headline: item.title,
-      description: item.description,
-      url,
-      mainEntityOfPage: url,
-      image: `${siteUrl}${socialImage(item)}`,
+      '@id': articleId, headline: item.title, description: item.description, url,
+      mainEntityOfPage: { '@id': pageId }, image: `${siteUrl}${socialImage(item)}`,
       datePublished: item.published || undefined,
       dateModified: item.modified || item.published || undefined,
-      author: item.author ? { '@type': 'Person', name: item.author } : publisher,
-      publisher
+      author: item.author ? { '@type': 'Person', name: item.author } : { '@id': orgId },
+      publisher: { '@id': orgId },
+      articleSection: hubFor(item)?.label || hubFor(item)?.title || undefined,
+      inLanguage: site.locale
     };
     const faq = faqEntries(item.body);
-    return { '@context': 'https://schema.org', '@graph': [article, breadcrumbs(item), ...(faq.length ? [{ '@type': 'FAQPage', mainEntity: faq }] : [])] };
-  }
-  if (item.slug === '/') {
     return {
       '@context': 'https://schema.org',
-      '@graph': [
-        { '@type': 'Organization', '@id': `${siteUrl}/#organization`, name: site.name, url: `${siteUrl}/`, logo: `${siteUrl}/assets/brand/stack-row-icon.png`, slogan: site.tagline, email: site.contact_email || undefined },
-        { '@type': 'WebSite', '@id': `${siteUrl}/#website`, name: site.name, url: `${siteUrl}/`, description: item.description, publisher: { '@id': `${siteUrl}/#organization` } }
-      ]
+      '@graph': [organization, website, webpage, article, { ...breadcrumbs(item), '@id': `${url}#breadcrumb` }, ...(faq.length ? [{ '@type': 'FAQPage', '@id': `${url}#faq`, mainEntity: faq }] : [])]
     };
   }
-  const page = { '@type': item.type === 'hub' ? 'CollectionPage' : 'WebPage', name: item.title, description: item.description, url };
-  return { '@context': 'https://schema.org', '@graph': item.noindex ? [page] : [page, breadcrumbs(item)] };
+  if (item.slug === '/') return { '@context': 'https://schema.org', '@graph': [organization, website, webpage] };
+  return { '@context': 'https://schema.org', '@graph': item.noindex ? [webpage] : [organization, website, webpage, { ...breadcrumbs(item), '@id': `${url}#breadcrumb` }] };
 }
 
 // Adds heading anchors, a highlighted key-points panel and collapsible FAQ
