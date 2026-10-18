@@ -7,6 +7,7 @@
 - Keep incidents, breaches, exposed records, complaints, attacks, and losses distinct.
 - Historical Ahrefs data may be retained for context, but Ubersuggest is the required live SEO research tool.
 - Use 2 to 3 contextual internal links and at least 3 useful contextual external links where evidence supports them.
+- Follow hub-and-spoke (silo) linking. Each top-level folder is a silo with one pillar article (role Hub or Bridge in `data/content-plan.json`). Every spoke links to its pillar in the body, the pillar links to every published spoke in the body (pillars may exceed 3 internal links for this), and every published post receives at least 2 contextual body links from other posts. Navigation, cards, and coverage tables do not count. `npm run check` enforces this.
 - Do not publish a draft without a verified research record, fact-check sign-off, and QA sign-off.
 - Apply the AI kill list. Do not use em dashes.
 

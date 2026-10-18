@@ -62,6 +62,25 @@ for (const item of plan) {
   }
 }
 
+// Hub-and-spoke silos. A silo is a top-level folder; its pillar is the plan
+// item with role Hub (or Bridge) in that folder. Body links are counted from
+// the markdown, so navigation, cards and coverage tables do not satisfy them.
+const bodies = new Map();
+for (const item of plan) {
+  const { metadata, body } = await readContent(`content/posts/${item.id.toLowerCase()}.md`).catch(() => ({ metadata: {}, body: '' }));
+  if (metadata.draft === false) bodies.set(item.slug, { item, links: new Set([...body.matchAll(/\]\((\/[^)#\s]*)/g)].map(match => match[1])) });
+}
+const folder = slug => slug.split('/')[1];
+const pillars = new Map(plan.filter(item => ['Hub', 'Bridge'].includes(item.role)).map(item => [folder(item.slug), item]));
+for (const [slug, { item, links }] of bodies) {
+  const pillar = pillars.get(folder(slug));
+  if (!pillar || !bodies.has(pillar.slug)) continue;
+  if (pillar.slug !== slug && !links.has(pillar.slug)) fail(`${item.id}: spoke does not link to its pillar ${pillar.id} in the body`);
+  if (pillar.slug !== slug && !bodies.get(pillar.slug).links.has(slug)) fail(`${pillar.id}: pillar does not link to its spoke ${item.id} in the body`);
+  const inbound = [...bodies.values()].filter(other => other.item.slug !== slug && other.links.has(slug)).length;
+  if (inbound < 2) fail(`${item.id}: only ${inbound} contextual body link(s) from other posts; at least 2 required`);
+}
+
 // A page marked complete is cleared for production, so it cannot be a draft or
 // still carry editor instructions.
 const placeholder = /\[(?:insert|add|confirm|identify|describe|where)\b|will be added before launch/i;

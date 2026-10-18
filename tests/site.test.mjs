@@ -113,6 +113,24 @@ test('production build holds scheduled posts until their publish date', async ()
   }
 });
 
+test('production build publishes llms.txt and silo structured data', async () => {
+  const out = await mkdtemp(path.join(tmpdir(), 'stack-row-'));
+  try {
+    await run(process.execPath, ['scripts/build.mjs'], { env: { ...process.env, BUILD_ENV: 'production', OUT_DIR: out, SITE_URL: '', BUILD_DATE: '2026-10-12' } });
+    const llms = await readFile(path.join(out, 'llms.txt'), 'utf8');
+    assert.match(llms, /^# Stack Row/);
+    assert.match(llms, /cloud-computing-statistics\//);
+    assert.ok(!llms.includes('/cloud-infrastructure/private-cloud/'), 'scheduled post leaked into llms.txt');
+    const post = await readFile(path.join(out, 'cloud-infrastructure', 'iaas-vs-paas', 'index.html'), 'utf8');
+    assert.match(post, /"isPartOf":\{"@id":"[^"]*\/cloud-infrastructure\/#webpage"\}/);
+    const hub = await readFile(path.join(out, 'cloud-infrastructure', 'index.html'), 'utf8');
+    assert.match(hub, /"hasPart":\[[^\]]*iaas-vs-paas\/#article/);
+    assert.ok(!hub.includes('private-cloud/#article'), 'scheduled post listed in hub hasPart');
+  } finally {
+    await rm(out, { recursive: true, force: true });
+  }
+});
+
 test('brand tokens match the approved brief', async () => {
   const site = JSON.parse(await readFile('data/site.json', 'utf8'));
   assert.deepEqual(site.colors, {
