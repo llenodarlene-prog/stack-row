@@ -367,6 +367,12 @@ function schemaFor(item, url) {
     '@id': pageId, name: item.title, description: item.description, url,
     isPartOf: { '@id': websiteId }, breadcrumb: { '@id': `${url}#breadcrumb` }
   };
+  // Hub-and-spoke graph: a topic hub lists its live articles, and each article
+  // points back to its hub, so the silo is explicit in structured data too.
+  if (item.type === 'hub') {
+    const parts = publishedPosts.filter(post => hubFor(post)?.slug === item.slug).map(post => ({ '@id': `${canonical(siteUrl, post.slug)}#article` }));
+    if (parts.length) webpage.hasPart = parts;
+  }
   if (isPost(item)) {
     const articleId = `${url}#article`;
     webpage.mainEntity = { '@id': articleId };
@@ -379,6 +385,8 @@ function schemaFor(item, url) {
       author: item.author ? { '@type': 'Person', name: item.author } : { '@id': orgId },
       publisher: { '@id': orgId },
       articleSection: hubFor(item)?.label || hubFor(item)?.title || undefined,
+      isPartOf: hubFor(item) ? { '@id': `${canonical(siteUrl, hubFor(item).slug)}#webpage` } : undefined,
+      keywords: item.primary_keyword || undefined,
       inLanguage: site.locale
     };
     const faq = faqEntries(item.body);
@@ -527,6 +535,15 @@ await writeFile(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="U
 const feedEntries = publishedPosts.slice(0, 20).map(item => `<entry><title>${escapeHtml(item.title)}</title><id>${canonical(siteUrl, item.slug)}</id><link href="${canonical(siteUrl, item.slug)}"/><updated>${item.modified || item.published}T00:00:00Z</updated></entry>`).join('');
 await writeFile(path.join(dist, 'feed.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom"><title>${site.name}</title><id>${siteUrl}/</id><link href="${siteUrl}/feed.xml" rel="self"/>${feedEntries}</feed>\n`);
 await writeFile(path.join(dist, 'robots.txt'), indexable ? `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n` : 'User-agent: *\nDisallow: /\n');
+// llms.txt gives AI crawlers a plain index of live content, grouped by silo.
+// It is built from the same indexed set as the sitemap, so drafts and
+// scheduled posts never appear before their publish date.
+const llmsSections = hubs.filter(hub => indexed.includes(hub)).map(hub => {
+  const entries = indexed.filter(item => isPost(item) && hubFor(item)?.slug === hub.slug)
+    .map(item => `- [${item.title}](${canonical(siteUrl, item.slug)}): ${item.description}`);
+  return entries.length ? `## ${hub.label || hub.title}\n\n${entries.join('\n')}\n` : '';
+}).filter(Boolean);
+await writeFile(path.join(dist, 'llms.txt'), `# ${site.name}\n\n> ${site.description}\n\n${llmsSections.join('\n')}`);
 await cp('src/static/.htaccess', path.join(dist, '.htaccess'));
 await writeFile(path.join(dist, 'build-manifest.json'), JSON.stringify({ site: site.name, environment: buildEnv, indexable, buildDate, pages: pageRecords, planItems: plan.filter(item => !item.set).length, totalPlanItems: plan.length }, null, 2) + '\n');
 console.log(`Built ${pageRecords.length} pages for ${site.name} (${buildEnv}; indexable=${indexable})`);
