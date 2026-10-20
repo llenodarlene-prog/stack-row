@@ -7,10 +7,12 @@
     "build": "node scripts/build.mjs",
     "check": "node scripts/check.mjs",
     "test": "node --test tests/*.test.mjs",
-    "verify": "npm run clean && npm run build && npm run check && npm test",
+    "verify": "npm run clean && npm run build && npm run check && npm run check:discoverability && npm test",
     "release:check": "node scripts/check-release.mjs",
+    "schedule": "node scripts/schedule.mjs",
     "scaffold:content": "node scripts/scaffold-content.mjs",
-    "dev": "node scripts/serve.mjs"
+    "dev": "node scripts/serve.mjs",
+    "check:discoverability": "node scripts/check-discoverability.mjs"
   },
   "engines": {
     "node": ">=22"

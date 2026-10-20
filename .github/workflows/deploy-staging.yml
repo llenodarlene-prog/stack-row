@@ -10,10 +10,11 @@ permissions:
 
 concurrency:
   group: stack-row-staging
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
+    if: github.ref == 'refs/heads/staging'
     environment: staging
     runs-on: ubuntu-latest
     steps:
@@ -22,10 +23,11 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
-      - run: npm ci
-      - run: npm run verify
+      - run: npm ci && BUILD_ENV=staging npm run verify
+      - name: Confirm the staging target
         env:
-          BUILD_ENV: staging
+          STAGING_URL: ${{ vars.SITE_URL }}
+        run: node scripts/check-staging-target.mjs
       - name: Deploy document root
         run: bash scripts/deploy-document-root.sh
         env:
@@ -35,6 +37,9 @@ jobs:
           DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
           SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
           DEPLOY_PORT: ${{ vars.DEPLOY_PORT }}
+          DEPLOY_REQUIRE_SUFFIX: /staging
       - run: node scripts/smoke-test.mjs
         env:
-          SITE_URL: ${{ vars.SITE_URL }}
+          SMOKE_URL: ${{ vars.SITE_URL }}
+          SMOKE_BRAND: ${{ vars.SITE_NAME }}
+          SMOKE_EXPECT_ROBOTS: noindex
