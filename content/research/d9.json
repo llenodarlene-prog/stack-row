@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "content_id": "D9",
+  "slug": "/ai/what-are-ai-agents/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-20",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-20",
+      "keyword": "what are ai agents",
+      "search_volume": 4400,
+      "seo_difficulty": 67,
+      "paid_difficulty": 42,
+      "cpc_usd": 11.88,
+      "search_intent": "Informational"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Competitor SERP snapshot not captured in this pass; author research notes dated 2026-10-18/19 cover the SERP audit.",
+  "sources": [
+    {
+      "url": "https://docs.cloud.google.com/agent-registry/authenticate-toolsets",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://www.ibm.com/think/topics/ai-agents",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "claims_note": "Worked examples and scenarios are labeled illustrative with invented inputs; arithmetic re-checked 2026-10-20. No market statistics are cited.",
+  "internal_link_targets": [
+    "B7",
+    "B10",
+    "A3"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "corrections": []
+}

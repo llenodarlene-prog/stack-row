@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "content_id": "D6",
+  "slug": "/business-technology/hubspot-vs-salesforce/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-20",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-20",
+      "keyword": "hubspot vs salesforce",
+      "search_volume": 1300,
+      "seo_difficulty": 49,
+      "paid_difficulty": 45,
+      "cpc_usd": 17.3,
+      "search_intent": "Commercial"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Competitor SERP snapshot not captured in this pass; author research notes dated 2026-10-18/19 cover the SERP audit.",
+  "sources": [
+    {
+      "url": "https://knowledge.hubspot.com/account-management/manage-seats",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://knowledge.hubspot.com/object-settings/create-custom-objects",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://knowledge.hubspot.com/reports/create-reports-with-the-custom-report-builder",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://knowledge.hubspot.com/user-management/manage-user-permissions",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://knowledge.hubspot.com/workflows/create-workflows",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://trailhead.salesforce.com/content/learn/modules/data_security/data_security_fields",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://trailhead.salesforce.com/content/learn/modules/data_security/data_security_objects",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://trailhead.salesforce.com/content/learn/modules/data_security/data_security_records",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://www.hubspot.com/pricing/sales?currencyCode=USD",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://www.salesforce.com/sales/pricing/",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "claims_note": "Worked examples and scenarios are labeled illustrative with invented inputs; arithmetic re-checked 2026-10-20. No market statistics are cited.",
+  "internal_link_targets": [
+    "A4",
+    "B5",
+    "B6"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "corrections": []
+}

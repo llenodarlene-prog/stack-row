@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "content_id": "D2",
+  "slug": "/saas/what-is-b2b-saas/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-20",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-20",
+      "keyword": "b2b saas",
+      "search_volume": 6600,
+      "seo_difficulty": 36,
+      "paid_difficulty": 13,
+      "cpc_usd": 21.17,
+      "search_intent": "Commercial"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Competitor SERP snapshot not captured in this pass; author research notes dated 2026-10-18/19 cover the SERP audit.",
+  "sources": [
+    {
+      "url": "https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-saas",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://csrc.nist.gov/pubs/sp/800/145/final",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://slack.com/features",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://www.atlassian.com/software/jira",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://www.hubspot.com/products/crm",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "claims_note": "Worked examples and scenarios are labeled illustrative with invented inputs; arithmetic re-checked 2026-10-20. No market statistics are cited.",
+  "internal_link_targets": [
+    "A2",
+    "B5",
+    "B4"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "corrections": []
+}
