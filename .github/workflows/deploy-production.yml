@@ -23,8 +23,11 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
-      - run: npm ci && npm run release:check && BUILD_ENV=production npm run verify
+      # Tests assume a non-production build, so verify first, then build for production.
+      - run: npm ci && npm run release:check && npm run verify
+      - run: npm run clean && npm run build && npm run check && npm run check:discoverability
         env:
+          BUILD_ENV: production
           SITE_URL: ${{ vars.SITE_URL }}
       - name: Deploy document root
         run: bash scripts/deploy-document-root.sh
