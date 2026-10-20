@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "content_id": "D8",
+  "slug": "/saas/churn-rate-analysis/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-20",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-20",
+      "keyword": "churn rate analysis",
+      "search_volume": 590,
+      "seo_difficulty": 20,
+      "paid_difficulty": 22,
+      "cpc_usd": 11.4,
+      "search_intent": null
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Competitor SERP snapshot not captured in this pass; author research notes dated 2026-10-18/19 cover the SERP audit.",
+  "sources": [
+    {
+      "url": "https://baremetrics.com/",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://docs.stripe.com/billing/revenue-recovery",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://docs.stripe.com/billing/subscriptions/analytics",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://help.chartmogul.com/article/163-net-mrr-retention",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://help.chartmogul.com/article/204-chart-gross-mrr-churn-rate",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://help.chartmogul.com/article/207-chart-net-mrr-churn-rate",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://help.chartmogul.com/article/242-churn-recognition",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://stripe.com/resources/more/cohort-analysis-for-businesses",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://stripe.com/resources/more/how-to-calculate-churn-rates",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "claims_note": "Worked examples and scenarios are labeled illustrative with invented inputs; arithmetic re-checked 2026-10-20. No market statistics are cited.",
+  "internal_link_targets": [
+    "A2",
+    "B5",
+    "A4"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "corrections": []
+}

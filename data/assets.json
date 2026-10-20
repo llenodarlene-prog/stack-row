@@ -384,5 +384,75 @@
     "height": 450,
     "role": "page image, small",
     "alt": "Hardware security key and blank access badge beside a laptop on a sunlit desk"
+  },
+  {
+    "path": "/assets/images/saas-kanban-laptop-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Professional working on a laptop showing a task board, with a tablet list view on a marble desk overlooking a city"
+  },
+  {
+    "path": "/assets/images/saas-kanban-laptop-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Professional working on a laptop showing a task board, with a tablet list view on a marble desk overlooking a city"
+  },
+  {
+    "path": "/assets/images/cohort-cards-desk-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Hands arranging color-tabbed cards into three columns on a marble desk beside a calculator and notebook"
+  },
+  {
+    "path": "/assets/images/cohort-cards-desk-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Hands arranging color-tabbed cards into three columns on a marble desk beside a calculator and notebook"
+  },
+  {
+    "path": "/assets/images/crm-review-meeting-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two colleagues reviewing a pipeline board on a laptop at a white meeting table"
+  },
+  {
+    "path": "/assets/images/crm-review-meeting-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two colleagues reviewing a pipeline board on a laptop at a white meeting table"
+  },
+  {
+    "path": "/assets/images/warehouse-analytics-tablet-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Manager holding a tablet with sales charts above a busy distribution warehouse floor"
+  },
+  {
+    "path": "/assets/images/warehouse-analytics-tablet-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Manager holding a tablet with sales charts above a busy distribution warehouse floor"
+  },
+  {
+    "path": "/assets/images/security-key-laptop-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Hardware security key plugged into a laptop showing a sign-in screen on a marble desk"
+  },
+  {
+    "path": "/assets/images/security-key-laptop-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Hardware security key plugged into a laptop showing a sign-in screen on a marble desk"
   }
 ]

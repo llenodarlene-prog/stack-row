@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "content_id": "D1",
+  "slug": "/business-technology/what-is-erp/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-20",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-20",
+      "keyword": "what is erp",
+      "search_volume": 40500,
+      "seo_difficulty": 59,
+      "paid_difficulty": 5,
+      "cpc_usd": 10.32,
+      "search_intent": "Informational"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Competitor SERP snapshot not captured in this pass; author research notes dated 2026-10-18/19 cover the SERP audit.",
+  "sources": [
+    {
+      "url": "https://www.microsoft.com/en-us/dynamics-365/products/business-central",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://www.oracle.com/erp/what-is-erp/",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://www.salesforce.com/crm/what-is-crm/",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    },
+    {
+      "url": "https://www.sap.com/resources/what-is-erp",
+      "checked_utc": "2026-10-19",
+      "method": "Cited by the author (research dated 2026-10-19). Prices, plan facts, and vendor documentation claims re-checked by Claude on 2026-10-20 against the vendor or agency source."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "claims_note": "Worked examples and scenarios are labeled illustrative with invented inputs; arithmetic re-checked 2026-10-20. No market statistics are cited.",
+  "internal_link_targets": [
+    "A4",
+    "B5",
+    "D2"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "corrections": []
+}
