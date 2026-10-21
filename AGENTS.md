@@ -13,6 +13,8 @@
 
 ## Final QA and fact-check layer
 
+Run every check in `docs/EDITORIAL-QA-SOP.md` (direct answers, title promise, evidence, added value, no invented information, link test, keyword counts, PASS/REVISE/HOLD). This file's rules are the Stack Row-specific instructions that override that SOP's defaults.
+
 Every blog the content owner hands over gets one more independent pass from the AI assistant before scheduling, even when the owner has already researched, fact-checked, and QA'd it. The owner's sign-off does not replace this layer.
 
 1. Fact-check: verify every statistic, price, date, quote, ranking, and named source against a current primary source. Correct, reword, or remove anything that cannot be verified, and never substitute an unverified figure.

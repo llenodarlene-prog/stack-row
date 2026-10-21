@@ -13,7 +13,7 @@ complete: true
 
 Stack Row is a technology publication for people who choose, build, and run business systems. We examine cybersecurity, SaaS, AI, cloud infrastructure, business software, and developer and data tools through the decisions they create.
 
-Our purpose is straightforward: make technology research useful to the person who has to act on it.
+Our purpose is straightforward: make technology research useful to the person who has to act on it. Our coverage is written by [Darlene Aberin](/about/darlene-aberin/).
 
 ## Built Around the Work {image:courtyard-strategy-meeting}
 
