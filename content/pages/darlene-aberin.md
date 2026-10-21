@@ -13,7 +13,7 @@ complete: true
 
 Darlene Aberin’s technology writing draws on experience using digital systems and researching the businesses behind them. Her work has involved managing websites, coordinating content operations, and working with marketing automation and publishing platforms. She has also worked through website launches and deployment problems, where technical details have immediate practical consequences.
 
-## Coverage at Stack Row {image:darlene-aberin}
+## Coverage at Stack Row
 
 At Stack Row, that background informs her coverage of [cybersecurity](/cybersecurity/), [SaaS](/saas/), [enterprise AI](/ai/), and business infrastructure. She is interested in what technology requires from the organization adopting it, including budgets, permissions, maintenance, and training.
 
