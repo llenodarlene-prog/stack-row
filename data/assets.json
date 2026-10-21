@@ -468,5 +468,33 @@
     "height": 450,
     "role": "page image, small",
     "alt": "Portrait of Darlene Aberin smiling with arms crossed, wearing a beige blazer"
+  },
+  {
+    "path": "/assets/images/erp-warehouse-tablet-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Warehouse worker checking order data on a tablet beside parts bins, with staff and shelving behind"
+  },
+  {
+    "path": "/assets/images/erp-warehouse-tablet-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Warehouse worker checking order data on a tablet beside parts bins, with staff and shelving behind"
+  },
+  {
+    "path": "/assets/images/phishing-email-laptop-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Businessman studying a warning in an email on his laptop in an airport lounge"
+  },
+  {
+    "path": "/assets/images/phishing-email-laptop-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Businessman studying a warning in an email on his laptop in an airport lounge"
   }
 ]
