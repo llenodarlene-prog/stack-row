@@ -454,5 +454,19 @@
     "height": 450,
     "role": "page image, small",
     "alt": "Hardware security key plugged into a laptop showing a sign-in screen on a marble desk"
+  },
+  {
+    "path": "/assets/images/darlene-aberin-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Portrait of Darlene Aberin smiling with arms crossed, wearing a beige blazer"
+  },
+  {
+    "path": "/assets/images/darlene-aberin-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Portrait of Darlene Aberin smiling with arms crossed, wearing a beige blazer"
   }
 ]
