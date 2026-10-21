@@ -57,14 +57,19 @@
     "D3"
   ],
   "fact_check": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-21"
   },
   "qa": {
-    "status": "pending",
-    "reviewer": null,
-    "date_utc": null
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-21"
   },
-  "corrections": []
+  "corrections": [
+    {
+      "date_utc": "2026-10-20",
+      "change": "Final AI QA layer: headings set to title case, FAQ intro removed where present, site links made relative, internal links trimmed to three, pillar and cross-links added. Prices and vendor claims re-checked; no factual corrections needed."
+    }
+  ]
 }

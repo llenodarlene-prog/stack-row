@@ -382,7 +382,7 @@ function schemaFor(item, url) {
       mainEntityOfPage: { '@id': pageId }, image: `${siteUrl}${socialImage(item)}`,
       datePublished: item.published || undefined,
       dateModified: item.modified || item.published || undefined,
-      author: item.author ? { '@type': 'Person', name: item.author } : { '@id': orgId },
+      author: item.author ? { '@type': 'Person', name: item.author, url: item.author_url ? canonical(siteUrl, item.author_url) : undefined } : { '@id': orgId },
       publisher: { '@id': orgId },
       articleSection: hubFor(item)?.label || hubFor(item)?.title || undefined,
       isPartOf: hubFor(item) ? { '@id': `${canonical(siteUrl, hubFor(item).slug)}#webpage` } : undefined,
@@ -450,7 +450,8 @@ function main(item) {
     const picture = isPost(item) ? item.image || hub?.image : '';
     const figure = picture ? `<figure class="post-figure"><div class="shell">${image(picture, { sizes: '(min-width: 1240px) 1200px, 100vw', eager: true })}</div></figure>` : '';
     const crumbs = `<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a>${hub ? `<span aria-hidden="true">/</span><a href="${hub.slug}">${escapeHtml(hub.label || hub.title)}</a>` : ''}</nav>`;
-    const meta = isPost(item) ? `<p class="post-meta">${pills(item)}<span>${minutes(item)} min read</span></p>` : '';
+    const byline = item.author ? `<span>By ${item.author_url ? `<a href="${item.author_url}">${escapeHtml(item.author)}</a>` : escapeHtml(item.author)}</span>` : '';
+    const meta = isPost(item) ? `<p class="post-meta">${pills(item)}${byline}<span>${minutes(item)} min read</span></p>` : '';
     const toc = isPost(item) && outline.length > 2
       ? `<aside class="post-aside"><nav class="toc" aria-label="On This Page"><p class="toc-title">On This Page</p><ol>${outline.map(entry => `<li><a href="#${entry.id}">${entry.text}</a></li>`).join('')}</ol></nav></aside>`
       : '';
