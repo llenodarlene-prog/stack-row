@@ -33,6 +33,18 @@
       "search_intent": "Informational",
       "role": "Keyword used in the final draft",
       "serp_data_updated": "2026-09-08"
+    },
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-20",
+      "keyword": "datadog pricing",
+      "search_volume": 3600,
+      "seo_difficulty": 38,
+      "paid_difficulty": 36,
+      "cpc_usd": 24.36,
+      "search_intent": "Commercial"
     }
   ],
   "ranking_competitors": [
@@ -98,6 +110,56 @@
       "method": "Page read directly",
       "supports": "Describes visibility into daily Datadog costs across dashboards, monitors, reports and budgets.",
       "limitations": "Describes a feature. It does not allocate any organization's costs."
+    },
+    {
+      "url": "https://docs.datadoghq.com/account_management/billing/custom_metrics/",
+      "checked_utc": "2026-10-20",
+      "method": "Cited by the author (research 2026-10-19). Rates and allowances re-checked by Claude on 2026-10-20 against the Datadog price list and billing docs."
+    },
+    {
+      "url": "https://docs.datadoghq.com/account_management/billing/log_management/",
+      "checked_utc": "2026-10-20",
+      "method": "Cited by the author (research 2026-10-19). Rates and allowances re-checked by Claude on 2026-10-20 against the Datadog price list and billing docs."
+    },
+    {
+      "url": "https://docs.datadoghq.com/account_management/billing/metric_name_pricing/",
+      "checked_utc": "2026-10-20",
+      "method": "Cited by the author (research 2026-10-19). Rates and allowances re-checked by Claude on 2026-10-20 against the Datadog price list and billing docs."
+    },
+    {
+      "url": "https://docs.datadoghq.com/account_management/billing/pricing/",
+      "checked_utc": "2026-10-20",
+      "method": "Cited by the author (research 2026-10-19). Rates and allowances re-checked by Claude on 2026-10-20 against the Datadog price list and billing docs."
+    },
+    {
+      "url": "https://docs.datadoghq.com/account_management/billing/usage_attribution/",
+      "checked_utc": "2026-10-20",
+      "method": "Cited by the author (research 2026-10-19). Rates and allowances re-checked by Claude on 2026-10-20 against the Datadog price list and billing docs."
+    },
+    {
+      "url": "https://docs.datadoghq.com/account_management/plan_and_usage/cost_details/",
+      "checked_utc": "2026-10-20",
+      "method": "Cited by the author (research 2026-10-19). Rates and allowances re-checked by Claude on 2026-10-20 against the Datadog price list and billing docs."
+    },
+    {
+      "url": "https://docs.datadoghq.com/account_management/plan_and_usage/usage_details/",
+      "checked_utc": "2026-10-20",
+      "method": "Cited by the author (research 2026-10-19). Rates and allowances re-checked by Claude on 2026-10-20 against the Datadog price list and billing docs."
+    },
+    {
+      "url": "https://docs.datadoghq.com/logs/log_configuration/indexes/",
+      "checked_utc": "2026-10-20",
+      "method": "Cited by the author (research 2026-10-19). Rates and allowances re-checked by Claude on 2026-10-20 against the Datadog price list and billing docs."
+    },
+    {
+      "url": "https://www.datadoghq.com/pricing/?product=application-performance-monitoring",
+      "checked_utc": "2026-10-20",
+      "method": "Cited by the author (research 2026-10-19). Rates and allowances re-checked by Claude on 2026-10-20 against the Datadog price list and billing docs."
+    },
+    {
+      "url": "https://www.datadoghq.com/pricing/list/",
+      "checked_utc": "2026-10-20",
+      "method": "Cited by the author (research 2026-10-19). Rates and allowances re-checked by Claude on 2026-10-20 against the Datadog price list and billing docs."
     }
   ],
   "statistics": [
@@ -165,21 +227,25 @@
     {
       "date_utc": "2026-10-12",
       "change": "Reworded the opening sentence so the primary keyword appears in the introduction. Meaning unchanged."
+    },
+    {
+      "date_utc": "2026-10-21",
+      "change": "Body replaced with the Datadog pricing refresh (worked cost examples); primary keyword changed to datadog pricing. Annual list rates re-checked: Infrastructure Pro $15, APM $31 attached / $36 standalone, log ingestion $0.10/GB, indexed logs $1.70 (15-day) and $2.50 (30-day) per million."
     }
   ],
   "internal_link_targets": [
     "A5",
-    "A6",
-    "A4"
+    "B9",
+    "A6"
   ],
   "fact_check": {
     "status": "approved",
     "reviewer": "Darlene Aberin",
-    "date_utc": "2026-10-04"
+    "date_utc": "2026-10-21"
   },
   "qa": {
     "status": "approved",
     "reviewer": "Darlene Aberin",
-    "date_utc": "2026-10-04"
+    "date_utc": "2026-10-21"
   }
 }
