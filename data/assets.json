@@ -496,5 +496,47 @@
     "height": 450,
     "role": "page image, small",
     "alt": "Businessman studying a warning in an email on his laptop in an airport lounge"
+  },
+  {
+    "path": "/assets/images/datadog-cost-tablet-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Tablet showing usage charts beside a calculator and printed cost table, with server racks behind glass"
+  },
+  {
+    "path": "/assets/images/datadog-cost-tablet-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Tablet showing usage charts beside a calculator and printed cost table, with server racks behind glass"
+  },
+  {
+    "path": "/assets/images/ai-agent-approval-screen-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Professional reviewing a proposed action on a large monitor in a bright office"
+  },
+  {
+    "path": "/assets/images/ai-agent-approval-screen-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Professional reviewing a proposed action on a large monitor in a bright office"
+  },
+  {
+    "path": "/assets/images/container-dev-laptop-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Laptop showing code beside a small server box on a marble desk in a lab"
+  },
+  {
+    "path": "/assets/images/container-dev-laptop-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Laptop showing code beside a small server box on a marble desk in a lab"
   }
 ]
