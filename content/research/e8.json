@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "content_id": "E8",
+  "slug": "/developer-data/api-gateways/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-26",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-26",
+      "keyword": "api gateways",
+      "search_volume": 8100,
+      "seo_difficulty": 28,
+      "paid_difficulty": 24,
+      "cpc_usd": 27.55,
+      "search_intent": null
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Author research 2026-10-25; Ubersuggest US data recorded 2026-10-26.",
+  "sources": [
+    {
+      "url": "https://cloud.google.com/api-gateway/pricing",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/security.html",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://docs.cloud.google.com/api-gateway/docs/about-api-gateway",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://docs.konghq.com/gateway/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/api-management/api-management-key-concepts",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/design/gateway",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://nginx.org/en/docs/http/load_balancing.html",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.postman.com/state-of-api/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "claims_note": "Prices and statistics re-checked 2026-10-26; corrections recorded below. Cost-table arithmetic re-checked.",
+  "internal_link_targets": [
+    "D5",
+    "C2",
+    "D9"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-26"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-26"
+  },
+  "corrections": [
+    {
+      "date_utc": "2026-10-26",
+      "change": "Google API Gateway tier clarified ($3 per million up to one billion calls)."
+    }
+  ]
+}
