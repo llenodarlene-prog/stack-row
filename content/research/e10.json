@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "content_id": "E10",
+  "slug": "/cybersecurity/windows-backup-software/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-26",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-26",
+      "keyword": "windows backup software",
+      "search_volume": 4400,
+      "seo_difficulty": 32,
+      "paid_difficulty": 17,
+      "cpc_usd": 10.4,
+      "search_intent": "Transactional"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Author research 2026-10-25; Ubersuggest US data recorded 2026-10-26.",
+  "sources": [
+    {
+      "url": "https://helpcenter.veeam.com/docs/agentforwindows/userguide/license_editions.html",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://kbx.macrium.com/macrium-reflect-x/macrium-reflect-x-licensing-policy",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/experience/backup-recovery/back-up-and-restore-with-windows-backup",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/windows/experience/backup-recovery/backup-and-restore-with-file-history",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.acronis.com/en/platform/backup/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.aomeitech.com/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.cisa.gov/audiences/small-and-medium-businesses/secure-your-business/back-up-business-data",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.cisa.gov/stopransomware/ransomware-guide",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.easeus.com/backup-software/tb-enterprise.html",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.macrium.com/products/business/standalone/workstation",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.urbackup.org/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.veeam.com/products/free/microsoft-windows.html",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "claims_note": "Prices and statistics re-checked 2026-10-26; corrections recorded below. Cost-table arithmetic re-checked.",
+  "internal_link_targets": [
+    "A1",
+    "A7",
+    "A9"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-26"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-26"
+  },
+  "corrections": [
+    {
+      "date_utc": "2026-10-26",
+      "change": "Macrium \u00a345 price removed (unverified); Reflect 8 support claim softened."
+    },
+    {
+      "date_utc": "2026-10-26",
+      "change": "AOMEI: $49.95 is a yearly subscription; lifetime license $79.95 added."
+    },
+    {
+      "date_utc": "2026-10-26",
+      "change": "Added link to the cybersecurity pillar."
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "content_id": "E1",
+  "slug": "/cybersecurity/best-password-manager/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-26",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-26",
+      "keyword": "best password manager",
+      "search_volume": 14800,
+      "seo_difficulty": 70,
+      "paid_difficulty": 56,
+      "cpc_usd": 6.82,
+      "search_intent": "Commercial"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Author research used Ahrefs (2026-10-25); Ubersuggest US data recorded 2026-10-26.",
+  "sources": [
+    {
+      "url": "https://1password.com/business-pricing",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material figures re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://1password.com/pricing/personal",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material figures re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://bitwarden.com/pricing/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material figures re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://bitwarden.com/products/personal/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material figures re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://fidoalliance.org/passkey-index-2026/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material figures re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://nordpass.com/plans/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material figures re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://pages.nist.gov/800-63-4/sp800-63b.html",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material figures re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://passwords.google.com/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material figures re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://proton.me/pass",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material figures re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://proton.me/pass/pricing",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material figures re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://support.google.com/accounts/answer/13548313",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material figures re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.dashlane.com/pricing",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material figures re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.keepersecurity.com/business.html",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material figures re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.keepersecurity.com/pricing/personal-and-family.html",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material figures re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.verizon.com/business/resources/reports/dbir/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material figures re-checked by Claude 2026-10-26."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "claims_note": "Prices and statistics re-checked 2026-10-26; illustrative cost table arithmetic re-checked.",
+  "internal_link_targets": [
+    "A1",
+    "A9",
+    "A8"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-26"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-10-26"
+  },
+  "corrections": [
+    {
+      "date_utc": "2026-10-26",
+      "change": "Verizon DBIR: 31% describes initial access vector share, reworded from \"started 31% of breaches\"."
+    },
+    {
+      "date_utc": "2026-10-26",
+      "change": "1Password Teams Starter Pack corrected to $24.95 monthly for up to ten members ($299.40 a year); ten-user table row updated."
+    },
+    {
+      "date_utc": "2026-10-26",
+      "change": "Removed brand-wrapper link phrasing; hub link replaced with the cybersecurity pillar."
+    }
+  ]
+}
