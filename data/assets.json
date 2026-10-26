@@ -538,5 +538,33 @@
     "height": 450,
     "role": "page image, small",
     "alt": "Laptop showing code beside a small server box on a marble desk in a lab"
+  },
+  {
+    "path": "/assets/images/password-manager-passkey-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Hand approving a passkey sign-in on a phone beside a laptop and hardware security key"
+  },
+  {
+    "path": "/assets/images/password-manager-passkey-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Hand approving a passkey sign-in on a phone beside a laptop and hardware security key"
+  },
+  {
+    "path": "/assets/images/mac-virtual-machines-desk-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Developer at a desk with a monitor showing several virtual desktop environments side by side"
+  },
+  {
+    "path": "/assets/images/mac-virtual-machines-desk-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Developer at a desk with a monitor showing several virtual desktop environments side by side"
   }
 ]
