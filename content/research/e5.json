@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "content_id": "E5",
+  "slug": "/business-technology/cloud-based-project-management-software/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-26",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-26",
+      "keyword": "cloud based project management software",
+      "search_volume": 6600,
+      "seo_difficulty": 18,
+      "paid_difficulty": 1,
+      "cpc_usd": 34.27,
+      "search_intent": null
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Author research 2026-10-25; Ubersuggest US data recorded 2026-10-26.",
+  "sources": [
+    {
+      "url": "https://asana.com/pricing",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://clickup.com/pricing",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://help.asana.com/s/article/asana-personal-plan-details",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://help.clickup.com/hc/en-us/articles/10129535087383-Intro-to-pricing",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://monday.com/pricing",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://support.teamwork.com/projects/subscription/legacy-plans",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://trello.com/pricing",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.pmi.org/about/press-media/2026/pulse-why-complex-projects-fail-best-practices-are-not-enough-system-thinking",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.smartsheet.com/pricing",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.teamwork.com/pricing/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.wrike.com/price/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "claims_note": "Prices and statistics re-checked 2026-10-26; corrections recorded below. Cost-table arithmetic re-checked.",
+  "internal_link_targets": [
+    "A4",
+    "D2",
+    "B10"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "corrections": [
+    {
+      "date_utc": "2026-10-26",
+      "change": "H1 now leads with the primary keyword."
+    },
+    {
+      "date_utc": "2026-10-26",
+      "change": "Added link to the business-technology pillar."
+    },
+    {
+      "date_utc": "2026-10-26",
+      "change": "Heading capitalized for monday.com (title-case rule)."
+    }
+  ]
+}

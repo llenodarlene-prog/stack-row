@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "content_id": "E9",
+  "slug": "/developer-data/database-visualization-tools/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-26",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-26",
+      "keyword": "database visualizer tool",
+      "search_volume": 8100,
+      "seo_difficulty": 35,
+      "paid_difficulty": 23,
+      "cpc_usd": 31.04,
+      "search_intent": "Informational"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Author research 2026-10-25; Ubersuggest US data recorded 2026-10-26.",
+  "sources": [
+    {
+      "url": "https://dbdiagram.io/pricing",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://dbeaver.com/buy/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://dbeaver.com/docs/dbeaver/ER-Diagrams/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://dbschema.com/database-design-tool.html",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.jetbrains.com/help/datagrip/creating-diagrams.html",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.jetbrains.com/help/datagrip/non-commercial-use.html",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.mysql.com/products/workbench/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.pgadmin.org/docs/pgadmin4/latest/erd_tool.html",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "claims_note": "Prices and statistics re-checked 2026-10-26; corrections recorded below. Cost-table arithmetic re-checked.",
+  "internal_link_targets": [
+    "D7",
+    "B9",
+    "A5"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "corrections": [
+    {
+      "date_utc": "2026-10-26",
+      "change": "Stack Overflow 2026 survey statistic removed (no 2026 results found)."
+    },
+    {
+      "date_utc": "2026-10-26",
+      "change": "MySQL Workbench: version 26 replaces 8.0, which Oracle says is no longer maintained (not formally end of life)."
+    },
+    {
+      "date_utc": "2026-10-26",
+      "change": "dbdiagram.io: $8 monthly billed annually ($96/yr); private-by-default claim removed."
+    },
+    {
+      "date_utc": "2026-10-26",
+      "change": "Headings rephrased for pgAdmin and dbdiagram.io (title-case rule)."
+    }
+  ]
+}

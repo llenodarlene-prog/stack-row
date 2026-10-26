@@ -566,5 +566,117 @@
     "height": 450,
     "role": "page image, small",
     "alt": "Developer at a desk with a monitor showing several virtual desktop environments side by side"
+  },
+  {
+    "path": "/assets/images/crm-team-laptop-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two colleagues reviewing a CRM pipeline board on a laptop and a contact map on a tablet"
+  },
+  {
+    "path": "/assets/images/crm-team-laptop-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two colleagues reviewing a CRM pipeline board on a laptop and a contact map on a tablet"
+  },
+  {
+    "path": "/assets/images/network-monitoring-racks-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "IT engineer checking network dashboards on a tablet beside server racks"
+  },
+  {
+    "path": "/assets/images/network-monitoring-racks-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "IT engineer checking network dashboards on a tablet beside server racks"
+  },
+  {
+    "path": "/assets/images/project-timeline-table-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Three colleagues planning project dependencies on a large touchscreen timeline"
+  },
+  {
+    "path": "/assets/images/project-timeline-table-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Three colleagues planning project dependencies on a large touchscreen timeline"
+  },
+  {
+    "path": "/assets/images/marketing-creative-review-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two marketers reviewing campaign visuals on a monitor and tablet"
+  },
+  {
+    "path": "/assets/images/marketing-creative-review-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two marketers reviewing campaign visuals on a monitor and tablet"
+  },
+  {
+    "path": "/assets/images/portfolio-planning-table-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Team pointing at portfolio timelines and capacity charts on a large display table"
+  },
+  {
+    "path": "/assets/images/portfolio-planning-table-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Team pointing at portfolio timelines and capacity charts on a large display table"
+  },
+  {
+    "path": "/assets/images/api-gateway-hub-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Engineer with a tablet beside a central gateway unit routing light trails between server racks"
+  },
+  {
+    "path": "/assets/images/api-gateway-hub-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Engineer with a tablet beside a central gateway unit routing light trails between server racks"
+  },
+  {
+    "path": "/assets/images/database-schema-monitor-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Developer studying a database schema diagram on a wide monitor"
+  },
+  {
+    "path": "/assets/images/database-schema-monitor-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Developer studying a database schema diagram on a wide monitor"
+  },
+  {
+    "path": "/assets/images/windows-backup-drive-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Person backing up files from a laptop to an external drive"
+  },
+  {
+    "path": "/assets/images/windows-backup-drive-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Person backing up files from a laptop to an external drive"
   }
 ]

@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "content_id": "E7",
+  "slug": "/saas/project-portfolio-management-software/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-26",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-26",
+      "keyword": "project portfolio management software",
+      "search_volume": 4400,
+      "seo_difficulty": 34,
+      "paid_difficulty": 10,
+      "cpc_usd": 42.91,
+      "search_intent": "Commercial"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Author research 2026-10-25; Ubersuggest US data recorded 2026-10-26.",
+  "sources": [
+    {
+      "url": "https://business.adobe.com/products/workfront/pricing.html",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://experienceleague.adobe.com/en/docs/workfront/using/manage-work/portfolio-management/manage-projects-in-portfolio-optimizer/portfolio-optimizer-overview",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://meisterplan.com/pricing/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://oneplan.ai/features/portfolio-planning/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/office/manage-multiple-plans-with-portfolios-in-microsoft-planner-853c9ac7-9958-4f56-a0be-7c3e6ec59e6d",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.celoxis.com/lp-project-portfolio-management-software",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/microsoft-365/planner/microsoft-planner-plans-and-pricing",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.planview.com/products-solutions/products/projectadvantage/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.pmi.org/about/press-media/2026/pmi-pulse-of-the-profession-report-reveals-business-acumen-as-critical-skill-to-navigate-complexity",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.smartsheet.com/marketplace/premium-apps/control-center",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "claims_note": "Prices and statistics re-checked 2026-10-26; corrections recorded below. Cost-table arithmetic re-checked.",
+  "internal_link_targets": [
+    "A2",
+    "D1",
+    "D2"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "corrections": [
+    {
+      "date_utc": "2026-10-26",
+      "change": "Workfront: three plans (Select, Prime, Ultimate), not four."
+    },
+    {
+      "date_utc": "2026-10-26",
+      "change": "Meisterplan $7,200 figure removed (unsourced); $600 monthly annual billing kept."
+    },
+    {
+      "date_utc": "2026-10-26",
+      "change": "Celoxis tier contents softened (strategic PPM tier unverified)."
+    },
+    {
+      "date_utc": "2026-10-26",
+      "change": "Added link to the SaaS pillar."
+    }
+  ]
+}
