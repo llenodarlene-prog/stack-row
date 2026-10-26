@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "content_id": "E3",
+  "slug": "/business-technology/crm-software-small-companies/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-10-26",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-10-26",
+      "keyword": "crm software for small companies",
+      "search_volume": 5400,
+      "seo_difficulty": 16,
+      "paid_difficulty": 47,
+      "cpc_usd": 52.63,
+      "search_intent": "Transactional"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Author research 2026-10-25; Ubersuggest US data recorded 2026-10-26.",
+  "sources": [
+    {
+      "url": "https://capsulecrm.com/signup/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://lessannoyingcrm.com/help/pricing",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.freshworks.com/crm/pricing/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.hubspot.com/products/crm",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.pipedrive.com/en/pricing",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.salesforce.com/en-us/wp-content/uploads/sites/4/documents/small-business/smb-trends-report-6th-edition.pdf",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.salesforce.com/small-business/pricing/",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    },
+    {
+      "url": "https://www.zoho.com/crm/zohocrm-pricing.html",
+      "checked_utc": "2026-10-25",
+      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "claims_note": "Prices and statistics re-checked 2026-10-26; corrections recorded below. Cost-table arithmetic re-checked.",
+  "internal_link_targets": [
+    "A4",
+    "D6",
+    "D2"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": null,
+    "date_utc": null
+  },
+  "corrections": [
+    {
+      "date_utc": "2026-10-26",
+      "change": "H1 now leads with the primary keyword."
+    },
+    {
+      "date_utc": "2026-10-26",
+      "change": "Capsule tier name made generic (vendor renamed tiers; $18 annual entry rate kept)."
+    },
+    {
+      "date_utc": "2026-10-26",
+      "change": "Added link to the business-technology pillar."
+    }
+  ]
+}
