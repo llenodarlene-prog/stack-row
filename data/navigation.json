@@ -71,6 +71,15 @@
       ]
     },
     {
+      "label": "Tools",
+      "links": [
+        {
+          "label": "ARR and MRR Calculator",
+          "url": "/tools/arr-mrr-calculator/"
+        }
+      ]
+    },
+    {
       "label": "About Stack Row",
       "links": [
         {
