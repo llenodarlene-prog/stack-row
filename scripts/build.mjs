@@ -40,6 +40,12 @@ async function fingerprint(source, folder, name, extension) {
 }
 const stylesheet = await fingerprint('src/styles/main.css', 'styles', 'main', 'css');
 const script = await fingerprint('src/scripts/main.js', 'scripts', 'main', 'js');
+// Interactive tools load their own stylesheet and scripts on their page only.
+const calculatorAssets = {
+  styles: await fingerprint('src/styles/calculator.css', 'styles', 'calculator', 'css'),
+  scripts: [await fingerprint('src/scripts/arr-mrr-formulas.js', 'scripts', 'arr-mrr-formulas', 'js'), await fingerprint('src/scripts/arr-mrr-calculator.js', 'scripts', 'arr-mrr-calculator', 'js')],
+  markup: await readFile('src/partials/arr-mrr-calculator.html', 'utf8')
+};
 for (const asset of assets.filter(item => item.deploy !== false)) {
   const source = asset.path.replace(/^\//, '');
   const target = path.join(dist, source);
@@ -396,6 +402,16 @@ function schemaFor(item, url) {
     };
   }
   if (item.slug === '/') return { '@context': 'https://schema.org', '@graph': [organization, website, webpage] };
+  if (item.template === 'calculator') {
+    const faq = faqEntries(item.body);
+    const app = {
+      '@type': 'WebApplication', '@id': `${url}#app`, name: item.title, description: item.description, url,
+      applicationCategory: 'BusinessApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript',
+      isAccessibleForFree: true, publisher: { '@id': orgId }, inLanguage: site.locale
+    };
+    webpage.mainEntity = { '@id': `${url}#app` };
+    return { '@context': 'https://schema.org', '@graph': [organization, website, webpage, app, { ...breadcrumbs(item), '@id': `${url}#breadcrumb` }, ...(faq.length ? [{ '@type': 'FAQPage', '@id': `${url}#faq`, mainEntity: faq }] : [])] };
+  }
   return { '@context': 'https://schema.org', '@graph': item.noindex ? [webpage] : [organization, website, webpage, { ...breadcrumbs(item), '@id': `${url}#breadcrumb` }] };
 }
 
@@ -438,6 +454,15 @@ function frame(key, sizes) {
 function main(item) {
   const draft = item.draft === true;
   const banner = draft ? `<p class="draft-banner">${isPost(item) ? 'Editorial draft. Not approved for publication.' : 'Review draft. Not approved for publication.'}</p>` : '';
+  if (item.template === 'calculator') {
+    const lines = item.body.replace(/\r/g, '').split('\n');
+    const split = lines.findIndex(line => /^##\s/.test(line));
+    const head = (split < 0 ? lines : lines.slice(0, split));
+    const [first, ...intro] = head;
+    const { body } = enhance(render((split < 0 ? [] : lines.slice(split)).join('\n')));
+    const crumbs = `<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">${escapeHtml(item.title)}</span></nav>`;
+    return `<div class="calc-page"><div class="shell">${banner}${crumbs}${render(first)}<div class="calc-intro">${render(intro.join('\n'))}</div>${calculatorAssets.markup}<div class="prose">${body}</div></div></div>`;
+  }
   if (isPost(item) || item.layout === 'prose') {
     const hub = hubFor(item);
     const [first, ...rest] = item.body.replace(/\r/g, '').split('\n');
@@ -515,7 +540,9 @@ for (const item of visible) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Sora:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${stylesheet}">
-  <script src="${script}" defer></script>
+  <script src="${script}" defer></script>${item.template === 'calculator' ? `
+  <link rel="stylesheet" href="${calculatorAssets.styles}">${calculatorAssets.scripts.map(src => `
+  <script src="${src}" defer></script>`).join('')}` : ''}
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
