@@ -296,7 +296,15 @@ td.num > span:last-child { position: relative; }
 
 @media (max-width: 600px) {
   body { font-size: 16px; }
-  .brand { width: 132px; }
+  .brand { width: 132px; min-width: 0; }
+}
+
+/* Narrow phones: the logo and both utility links cannot share one row, so
+   About Us (also linked in the footer) drops out and the logo can shrink. */
+@media (max-width: 420px) {
+  .nav-utility li:not(:has(.button)) { display: none; }
+  .brand { width: auto; max-width: 132px; }
+  .site-header nav a.button-small { padding: .5rem .8rem; }
   .chart-row { grid-template-columns: 1fr; }
   .card-grid-topic, .card-grid-feature, .chip-row { grid-template-columns: 1fr; }
   .coverage-panel { margin-inline: .75rem; }
