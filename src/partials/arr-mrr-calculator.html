@@ -1,0 +1,100 @@
+<section class="calc" id="calculator" aria-labelledby="calc-title">
+  <h2 id="calc-title" class="visually-hidden">Calculator</h2>
+  <noscript><p class="calc-note">This calculator needs JavaScript. The formulas below show how to calculate each metric by hand.</p></noscript>
+  <div class="calc-shell">
+    <div class="calc-inputs">
+      <div class="calc-tabs" role="tablist" aria-label="Calculator mode">
+        <button type="button" role="tab" id="tab-quick" aria-controls="panel-quick" aria-selected="true" data-mode="quick">Quick Conversion</button>
+        <button type="button" role="tab" id="tab-plans" aria-controls="panel-plans" aria-selected="false" tabindex="-1" data-mode="plans">Subscription Plans</button>
+        <button type="button" role="tab" id="tab-movement" aria-controls="panel-movement" aria-selected="false" tabindex="-1" data-mode="movement">MRR Movement</button>
+      </div>
+
+      <form class="calc-form" novalidate>
+        <div class="calc-field calc-currency">
+          <label for="calc-currency">Currency</label>
+          <select id="calc-currency" name="currency" aria-describedby="calc-currency-note">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="CAD">CAD</option>
+            <option value="AUD">AUD</option>
+          </select>
+          <p id="calc-currency-note" class="calc-hint">Currency selection changes the displayed symbol. It does not convert values between currencies.</p>
+        </div>
+
+        <div role="tabpanel" id="panel-quick" aria-labelledby="tab-quick" class="calc-panel">
+          <fieldset>
+            <legend>Convert recurring revenue</legend>
+            <div class="calc-field">
+              <label for="quick-amount">Revenue amount</label>
+              <input id="quick-amount" name="amount" inputmode="decimal" autocomplete="off" aria-describedby="quick-amount-error">
+              <p class="calc-error" id="quick-amount-error" hidden></p>
+            </div>
+            <div class="calc-field calc-radios" role="radiogroup" aria-label="Convert from">
+              <span class="calc-label">Convert from</span>
+              <label><input type="radio" name="from" value="mrr" checked> MRR</label>
+              <label><input type="radio" name="from" value="arr"> ARR</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div role="tabpanel" id="panel-plans" aria-labelledby="tab-plans" class="calc-panel" hidden>
+          <fieldset>
+            <legend>Subscription plans</legend>
+            <ol class="calc-plans" id="calc-plans"></ol>
+            <button type="button" class="calc-secondary" id="calc-add-plan">Add subscription plan</button>
+            <p class="calc-hint">Up to 20 plans. Plan names stay in your browser and are never added to share links.</p>
+          </fieldset>
+        </div>
+
+        <div role="tabpanel" id="panel-movement" aria-labelledby="tab-movement" class="calc-panel" hidden>
+          <fieldset>
+            <legend>MRR movement for one month</legend>
+            <div class="calc-grid">
+              <div class="calc-field"><label for="mv-start">Starting MRR</label><input id="mv-start" name="start" inputmode="decimal" autocomplete="off" aria-describedby="mv-start-error"><p class="calc-error" id="mv-start-error" hidden></p></div>
+              <div class="calc-field"><label for="mv-new">New MRR</label><input id="mv-new" name="new" inputmode="decimal" autocomplete="off" aria-describedby="mv-new-error"><p class="calc-error" id="mv-new-error" hidden></p></div>
+              <div class="calc-field"><label for="mv-expansion">Expansion MRR</label><input id="mv-expansion" name="expansion" inputmode="decimal" autocomplete="off" aria-describedby="mv-expansion-error"><p class="calc-error" id="mv-expansion-error" hidden></p></div>
+              <div class="calc-field"><label for="mv-reactivation">Reactivation MRR</label><input id="mv-reactivation" name="reactivation" inputmode="decimal" autocomplete="off" aria-describedby="mv-reactivation-error"><p class="calc-error" id="mv-reactivation-error" hidden></p></div>
+              <div class="calc-field"><label for="mv-contraction">Contraction MRR</label><input id="mv-contraction" name="contraction" inputmode="decimal" autocomplete="off" aria-describedby="mv-contraction-error"><p class="calc-error" id="mv-contraction-error" hidden></p></div>
+              <div class="calc-field"><label for="mv-churn">Churned MRR</label><input id="mv-churn" name="churn" inputmode="decimal" autocomplete="off" aria-describedby="mv-churn-error"><p class="calc-error" id="mv-churn-error" hidden></p></div>
+              <div class="calc-field"><label for="mv-month">Measurement month (optional)</label><input id="mv-month" name="month" type="month"></div>
+            </div>
+            <p class="calc-hint">Empty movement fields count as zero.</p>
+          </fieldset>
+        </div>
+
+        <div class="calc-actions">
+          <button type="submit" class="calc-primary">Calculate</button>
+          <button type="button" class="calc-secondary" id="calc-example">Load example</button>
+          <button type="button" class="calc-secondary" id="calc-reset">Reset calculator</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="calc-results" aria-labelledby="calc-results-title">
+      <h2 id="calc-results-title" class="calc-results-title">Results</h2>
+      <div id="calc-output" class="calc-output">
+        <p class="calc-empty">Enter values and select Calculate to see results with their formulas.</p>
+      </div>
+      <p class="calc-warning" id="calc-warning" role="alert" hidden></p>
+      <div class="calc-result-actions" id="calc-result-actions" hidden>
+        <button type="button" class="calc-secondary" id="calc-copy">Copy results</button>
+        <button type="button" class="calc-secondary" id="calc-share">Copy share link</button>
+        <button type="button" class="calc-secondary" id="calc-csv">Download CSV</button>
+        <button type="button" class="calc-secondary" id="calc-print">Print results</button>
+        <button type="button" class="calc-link" id="calc-forget">Forget saved calculation</button>
+      </div>
+      <p class="visually-hidden" id="calc-status" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <template id="calc-plan-row">
+    <li class="calc-plan">
+      <div class="calc-field"><label>Plan name (optional)</label><input data-field="name" autocomplete="off" maxlength="60"></div>
+      <div class="calc-field"><label>Active customers</label><input data-field="customers" inputmode="numeric" autocomplete="off"><p class="calc-error" hidden></p></div>
+      <div class="calc-field"><label>Price per customer</label><input data-field="price" inputmode="decimal" autocomplete="off"><p class="calc-error" hidden></p></div>
+      <div class="calc-field"><label>Billing interval</label><select data-field="interval"><option value="monthly">Monthly</option><option value="quarterly">Quarterly</option><option value="semiannual">Semiannual</option><option value="annual">Annual</option></select></div>
+      <button type="button" class="calc-link calc-remove">Remove plan</button>
+    </li>
+  </template>
+</section>
