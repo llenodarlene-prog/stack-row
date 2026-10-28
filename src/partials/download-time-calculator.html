@@ -1,0 +1,32 @@
+<div class="calc-tabs" role="tablist" aria-label="Calculate">
+  <button type="button" role="tab" id="tab-time" aria-controls="panel-time" aria-selected="true" data-mode="time">Transfer Time</button>
+  <button type="button" role="tab" id="tab-speed" aria-controls="panel-speed" aria-selected="false" tabindex="-1" data-mode="speed">Required Speed</button>
+  <button type="button" role="tab" id="tab-data" aria-controls="panel-data" aria-selected="false" tabindex="-1" data-mode="data">Data Moved</button>
+</div>
+<form class="calc-form" novalidate>
+  <div class="calc-field calc-radios" role="radiogroup" aria-label="Direction">
+    <span class="calc-label">Direction</span>
+    <label><input type="radio" name="direction" value="download" checked> Download</label>
+    <label><input type="radio" name="direction" value="upload"> Upload</label>
+  </div>
+  <div class="calc-grid" data-hidden-by="size" id="dt-size-group">
+    <div class="calc-field"><label for="dt-size">File or dataset size</label><input id="dt-size" name="size" inputmode="decimal" autocomplete="off"></div>
+    <div class="calc-field"><label for="dt-unit">Size unit</label><select id="dt-unit" name="unit"><option>KB</option><option>MB</option><option selected>GB</option><option>TB</option><option>PB</option><option>KiB</option><option>MiB</option><option>GiB</option><option>TiB</option></select></div>
+    <div class="calc-field"><label for="dt-files">Number of files</label><input id="dt-files" name="files" inputmode="numeric" autocomplete="off" placeholder="1"></div>
+  </div>
+  <div class="calc-grid" data-hidden-by="speed" id="dt-speed-group">
+    <div class="calc-field"><label for="dt-speed">Connection speed</label><input id="dt-speed" name="speed" inputmode="decimal" autocomplete="off"></div>
+    <div class="calc-field"><label for="dt-sunit">Speed unit</label><select id="dt-sunit" name="sunit"><option>Kbps</option><option selected>Mbps</option><option>Gbps</option><option>MB/s</option><option>GB/s</option></select></div>
+  </div>
+  <div class="calc-grid" data-hidden-by="time" id="dt-time-group">
+    <div class="calc-field"><label for="dt-time">Time available</label><input id="dt-time" name="time" inputmode="decimal" autocomplete="off"></div>
+    <div class="calc-field"><label for="dt-tunit">Time unit</label><select id="dt-tunit" name="tunit"><option>seconds</option><option>minutes</option><option selected>hours</option><option>days</option></select></div>
+  </div>
+  <div role="tabpanel" id="panel-time" aria-labelledby="tab-time" class="calc-panel"></div>
+  <div role="tabpanel" id="panel-speed" aria-labelledby="tab-speed" class="calc-panel" hidden></div>
+  <div role="tabpanel" id="panel-data" aria-labelledby="tab-data" class="calc-panel" hidden></div>
+  <div class="calc-grid">
+    <div class="calc-field"><label for="dt-preset">Overhead assumption</label><select id="dt-preset" name="preset"><option value="0">Ideal (0%)</option><option value="10" selected>Wired connection (10%)</option><option value="25">Wi-Fi (25%)</option><option value="20">VPN (20%)</option><option value="15">Cloud upload (15%)</option><option value="custom">Custom</option></select></div>
+    <div class="calc-field" data-hidden-by="custom" id="dt-custom-field"><label for="dt-overhead">Custom overhead percentage</label><input id="dt-overhead" name="overhead" inputmode="decimal" autocomplete="off"></div>
+  </div>
+  <p class="calc-hint">Overhead presets are Stack Row planning assumptions, not measurements. Edit them to match a speed test of your own connection.</p>

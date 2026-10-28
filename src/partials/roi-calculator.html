@@ -1,0 +1,38 @@
+<div class="calc-tabs" role="tablist" aria-label="Calculation">
+  <button type="button" role="tab" id="tab-simple" aria-controls="panel-simple" aria-selected="true" data-mode="simple">Simple ROI</button>
+  <button type="button" role="tab" id="tab-project" aria-controls="panel-project" aria-selected="false" tabindex="-1" data-mode="project">Technology Project</button>
+</div>
+<form class="calc-form" novalidate>
+  <div class="calc-field calc-currency">
+    <label for="calc-currency">Currency</label>
+    <select id="calc-currency" name="currency" aria-describedby="calc-currency-note"><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="CAD">CAD</option><option value="AUD">AUD</option></select>
+    <p id="calc-currency-note" class="calc-hint">Changes the displayed symbol only. It does not convert currencies.</p>
+  </div>
+  <div role="tabpanel" id="panel-simple" aria-labelledby="tab-simple" class="calc-panel">
+    <div class="calc-grid">
+      <div class="calc-field"><label for="roi-cost">Amount invested</label><input id="roi-cost" name="cost" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="roi-value">Final value or total return</label><input id="roi-value" name="value" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="roi-years">Holding period in years (optional)</label><input id="roi-years" name="years" inputmode="decimal" autocomplete="off"></div>
+    </div>
+  </div>
+  <div role="tabpanel" id="panel-project" aria-labelledby="tab-project" class="calc-panel" hidden>
+    <fieldset>
+      <legend>Costs</legend>
+      <div class="calc-grid">
+        <div class="calc-field"><label for="roi-impl">Implementation (one time)</label><input id="roi-impl" name="implementation" inputmode="decimal" autocomplete="off"></div>
+        <div class="calc-field"><label for="roi-train">Training (one time)</label><input id="roi-train" name="training" inputmode="decimal" autocomplete="off"></div>
+        <div class="calc-field"><label for="roi-lic">Licensing per month</label><input id="roi-lic" name="licensing" inputmode="decimal" autocomplete="off"></div>
+        <div class="calc-field"><label for="roi-ops">Other operating cost per month</label><input id="roi-ops" name="operating" inputmode="decimal" autocomplete="off"></div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Benefits</legend>
+      <div class="calc-grid">
+        <div class="calc-field"><label for="roi-rev">Added revenue or savings per month</label><input id="roi-rev" name="revenue" inputmode="decimal" autocomplete="off"></div>
+        <div class="calc-field"><label for="roi-hours">Staff hours saved per month</label><input id="roi-hours" name="hours" inputmode="decimal" autocomplete="off"></div>
+        <div class="calc-field"><label for="roi-rate">Loaded cost per staff hour</label><input id="roi-rate" name="hourly" inputmode="decimal" autocomplete="off"></div>
+        <div class="calc-field"><label for="roi-months">Period in months</label><input id="roi-months" name="months" inputmode="numeric" autocomplete="off" placeholder="36"></div>
+      </div>
+    </fieldset>
+    <div class="calc-field"><label for="roi-sens">Sensitivity range (± percentage on benefits)</label><input id="roi-sens" name="sensitivity" inputmode="decimal" autocomplete="off" placeholder="20"></div>
+  </div>

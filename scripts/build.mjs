@@ -41,11 +41,55 @@ async function fingerprint(source, folder, name, extension) {
 const stylesheet = await fingerprint('src/styles/main.css', 'styles', 'main', 'css');
 const script = await fingerprint('src/scripts/main.js', 'scripts', 'main', 'js');
 // Interactive tools load their own stylesheet and scripts on their page only.
-const calculatorAssets = {
-  styles: await fingerprint('src/styles/calculator.css', 'styles', 'calculator', 'css'),
-  scripts: [await fingerprint('src/scripts/arr-mrr-formulas.js', 'scripts', 'arr-mrr-formulas', 'js'), await fingerprint('src/scripts/arr-mrr-calculator.js', 'scripts', 'arr-mrr-calculator', 'js')],
-  markup: await readFile('src/partials/arr-mrr-calculator.html', 'utf8')
+// A calculator page names its tool in front matter; the tool's partial holds
+// its inputs, and toolShell() wraps them with the shared actions and results.
+const calculatorStyles = await fingerprint('src/styles/calculator.css', 'styles', 'calculator', 'css');
+const toolCore = await fingerprint('src/scripts/tool-core.js', 'scripts', 'tool-core', 'js');
+const toolFormulas = await fingerprint('src/scripts/tool-formulas.js', 'scripts', 'tool-formulas', 'js');
+function toolShell(inputs, { example = true } = {}) {
+  return `<section class="calc" id="calculator" aria-labelledby="calc-title">
+  <h2 id="calc-title" class="visually-hidden">Calculator</h2>
+  <noscript><p class="calc-note">This calculator needs JavaScript. The formulas below show how to work out each result by hand.</p></noscript>
+  <div class="calc-shell">
+    <div class="calc-inputs">
+${inputs}
+        <div class="calc-actions">
+          <button type="submit" class="calc-primary">Calculate</button>${example ? `
+          <button type="button" class="calc-secondary" id="calc-example">Load example</button>` : ''}
+          <button type="button" class="calc-link" id="calc-reset">Reset calculator</button>
+        </div>
+      </form>
+    </div>
+    <div class="calc-results" aria-labelledby="calc-results-title">
+      <h2 id="calc-results-title" class="calc-results-title">Results</h2>
+      <div id="calc-output" class="calc-output"><p class="calc-empty">Enter values and select Calculate to see results with their formulas, or load the example.</p></div>
+      <p class="calc-warning" id="calc-warning" role="alert" hidden></p>
+      <div class="calc-result-actions" id="calc-result-actions" hidden>
+        <button type="button" class="calc-secondary" id="calc-copy">Copy results</button>
+        <button type="button" class="calc-secondary" id="calc-share">Copy share link</button>
+        <button type="button" class="calc-secondary" id="calc-csv">Download CSV</button>
+        <button type="button" class="calc-secondary" id="calc-print">Print results</button>
+        <button type="button" class="calc-link" id="calc-forget">Forget saved calculation</button>
+      </div>
+      <p class="calc-privacy">Calculations run in your browser. Nothing you enter is sent to Stack Row.</p>
+      <p class="visually-hidden" id="calc-status" aria-live="polite"></p>
+    </div>
+  </div>
+</section>`;
+}
+const calculatorTools = {
+  'arr-mrr': {
+    scripts: [await fingerprint('src/scripts/arr-mrr-formulas.js', 'scripts', 'arr-mrr-formulas', 'js'), await fingerprint('src/scripts/arr-mrr-calculator.js', 'scripts', 'arr-mrr-calculator', 'js')],
+    markup: await readFile('src/partials/arr-mrr-calculator.html', 'utf8')
+  }
 };
+for (const name of ['markup', 'binary-hex', 'raid', 'download-time', 'roi']) {
+  calculatorTools[name] = {
+    scripts: [toolCore, toolFormulas, await fingerprint(`src/scripts/${name}-calculator.js`, 'scripts', `${name}-calculator`, 'js')],
+    markup: toolShell(await readFile(`src/partials/${name}-calculator.html`, 'utf8'))
+  };
+}
+const toolFor = item => calculatorTools[item.tool || 'arr-mrr'];
 for (const asset of assets.filter(item => item.deploy !== false)) {
   const source = asset.path.replace(/^\//, '');
   const target = path.join(dist, source);
@@ -335,7 +379,8 @@ const socialImage = item => {
 
 function breadcrumbs(item) {
   const hub = isPost(item) ? hubFor(item) : null;
-  const trail = [{ name: 'Home', slug: '/' }, ...(hub ? [{ name: hub.label || hub.title, slug: hub.slug }] : []), { name: item.title, slug: item.slug }];
+  const parent = hub ? { name: hub.label || hub.title, slug: hub.slug } : item.template === 'calculator' ? { name: 'Tools', slug: '/tools/' } : null;
+  const trail = [{ name: 'Home', slug: '/' }, ...(parent ? [parent] : []), { name: item.title, slug: item.slug }];
   return { '@type': 'BreadcrumbList', itemListElement: trail.map((entry, index) => ({ '@type': 'ListItem', position: index + 1, name: entry.name, item: canonical(siteUrl, entry.slug) })) };
 }
 
@@ -451,17 +496,27 @@ function frame(key, sizes) {
   return `<figure class="frame"><div class="frame-bar" aria-hidden="true"><span></span><span></span><span></span></div>${image(key, { sizes, eager: true })}</figure>`;
 }
 
+// Cards for every calculator page that is visible in this build.
+function toolCards() {
+  const cards = visible.filter(entry => entry.template === 'calculator' && entry.draft !== true && !entry.scheduled).sort((a, b) => Number(a.order ?? 99) - Number(b.order ?? 99));
+  return `<ul class="tool-cards" aria-label="Calculators">${cards.map(entry => `<li class="tool-card"><p class="calc-badge">${escapeHtml(entry.category || 'Calculator')}</p><h2><a href="${entry.slug}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.card || entry.description)}</p><a class="calc-secondary tool-card-action" href="${entry.slug}" aria-label="Open the ${escapeHtml(entry.title)}">Open calculator</a></li>`).join('')}</ul>`;
+}
+
 function main(item) {
   const draft = item.draft === true;
   const banner = draft ? `<p class="draft-banner">${isPost(item) ? 'Editorial draft. Not approved for publication.' : 'Review draft. Not approved for publication.'}</p>` : '';
-  if (item.template === 'calculator') {
+  if (item.template === 'calculator' || item.template === 'tools') {
     const lines = item.body.replace(/\r/g, '').split('\n');
     const split = lines.findIndex(line => /^##\s/.test(line));
     const head = (split < 0 ? lines : lines.slice(0, split));
     const [first, ...intro] = head;
     const { body } = enhance(render((split < 0 ? [] : lines.slice(split)).join('\n')));
-    const crumbs = `<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">${escapeHtml(item.title)}</span></nav>`;
-    return `<div class="calc-page"><div class="shell">${banner}${crumbs}${render(first)}<div class="calc-intro">${render(intro.join('\n'))}</div>${calculatorAssets.markup}<div class="prose">${body}</div></div></div>`;
+    const tools = item.template === 'calculator';
+    const crumbs = `<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>${tools ? '<a href="/tools/">Tools</a><span aria-hidden="true">/</span>' : ''}<span aria-current="page">${escapeHtml(tools ? item.title : 'Tools')}</span></nav>`;
+    const reviewed = item.reviewed ? `<p class="calc-reviewed">Reviewed ${escapeHtml(new Date(`${item.reviewed}T00:00:00Z`).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' }))}</p>` : '';
+    const badge = tools ? '<p class="calc-badge">Calculator</p>' : '';
+    const widget = tools ? toolFor(item).markup : toolCards(item);
+    return `<div class="calc-page"><div class="shell">${banner}${crumbs}${badge}${render(first)}<div class="calc-intro">${render(intro.join('\n'))}${reviewed}</div>${widget}<div class="prose">${body}</div></div></div>`;
   }
   if (isPost(item) || item.layout === 'prose') {
     const hub = hubFor(item);
@@ -540,9 +595,9 @@ for (const item of visible) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Sora:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${stylesheet}">
-  <script src="${script}" defer></script>${item.template === 'calculator' ? `
-  <link rel="stylesheet" href="${calculatorAssets.styles}">${calculatorAssets.scripts.map(src => `
-  <script src="${src}" defer></script>`).join('')}` : ''}
+  <script src="${script}" defer></script>${item.template === 'calculator' || item.template === 'tools' ? `
+  <link rel="stylesheet" href="${calculatorStyles}">` : ''}${item.template === 'calculator' ? toolFor(item).scripts.map(src => `
+  <script src="${src}" defer></script>`).join('') : ''}
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>

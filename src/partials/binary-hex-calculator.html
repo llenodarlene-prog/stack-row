@@ -1,0 +1,28 @@
+<div class="calc-tabs" role="tablist" aria-label="Calculation">
+  <button type="button" role="tab" id="tab-convert" aria-controls="panel-convert" aria-selected="true" data-mode="convert">Convert</button>
+  <button type="button" role="tab" id="tab-math" aria-controls="panel-math" aria-selected="false" tabindex="-1" data-mode="math">Arithmetic</button>
+</div>
+<form class="calc-form" novalidate>
+  <div role="tabpanel" id="panel-convert" aria-labelledby="tab-convert" class="calc-panel">
+    <div class="calc-grid">
+      <div class="calc-field"><label for="bx-value">Value</label><input id="bx-value" name="value" class="calc-mono" autocomplete="off" spellcheck="false" autocapitalize="off"></div>
+      <div class="calc-field"><label for="bx-base">Input base</label><select id="bx-base" name="base"><option value="2">Binary (base 2)</option><option value="8">Octal (base 8)</option><option value="10" selected>Decimal (base 10)</option><option value="16">Hexadecimal (base 16)</option></select></div>
+    </div>
+  </div>
+  <div role="tabpanel" id="panel-math" aria-labelledby="tab-math" class="calc-panel" hidden>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="bx-a">First value</label><input id="bx-a" name="a" class="calc-mono" autocomplete="off" spellcheck="false" autocapitalize="off"></div>
+      <div class="calc-field"><label for="bx-op">Operation</label><select id="bx-op" name="op"><option value="add">Add (+)</option><option value="subtract">Subtract (−)</option><option value="multiply">Multiply (×)</option><option value="divide">Divide (÷)</option></select></div>
+      <div class="calc-field"><label for="bx-b">Second value</label><input id="bx-b" name="b" class="calc-mono" autocomplete="off" spellcheck="false" autocapitalize="off"></div>
+      <div class="calc-field"><label for="bx-mbase">Base of both values</label><select id="bx-mbase" name="mbase"><option value="2">Binary (base 2)</option><option value="8">Octal (base 8)</option><option value="10">Decimal (base 10)</option><option value="16" selected>Hexadecimal (base 16)</option></select></div>
+    </div>
+  </div>
+  <div class="calc-grid">
+    <div class="calc-field"><label for="bx-width">Bit width</label><select id="bx-width" name="width"><option value="auto">Automatic</option><option value="8">8-bit</option><option value="16">16-bit</option><option value="32">32-bit</option><option value="64">64-bit</option><option value="128">128-bit</option></select></div>
+    <div class="calc-field calc-radios" role="radiogroup" aria-label="Integer type">
+      <span class="calc-label">Integer type</span>
+      <label><input type="radio" name="sign" value="unsigned" checked> Unsigned</label>
+      <label><input type="radio" name="sign" value="signed"> Signed</label>
+    </div>
+  </div>
+  <p class="calc-hint">Prefixes such as 0x and 0b, spaces, and underscores are ignored. With Signed selected, binary, octal, and hex input is read as a two's complement bit pattern at the chosen width. Results update as you type.</p>
