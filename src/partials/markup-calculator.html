@@ -1,0 +1,44 @@
+<div class="calc-tabs" role="tablist" aria-label="Calculation">
+  <button type="button" role="tab" id="tab-markup" aria-controls="panel-markup" aria-selected="true" data-mode="markup">Price From Markup</button>
+  <button type="button" role="tab" id="tab-price" aria-controls="panel-price" aria-selected="false" tabindex="-1" data-mode="price">Markup From Price</button>
+  <button type="button" role="tab" id="tab-margin" aria-controls="panel-margin" aria-selected="false" tabindex="-1" data-mode="margin">Price From Margin</button>
+  <button type="button" role="tab" id="tab-convert" aria-controls="panel-convert" aria-selected="false" tabindex="-1" data-mode="convert">Markup and Margin</button>
+</div>
+<form class="calc-form" novalidate>
+  <div class="calc-field calc-currency">
+    <label for="calc-currency">Currency</label>
+    <select id="calc-currency" name="currency" aria-describedby="calc-currency-note"><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="CAD">CAD</option><option value="AUD">AUD</option></select>
+    <p id="calc-currency-note" class="calc-hint">Changes the displayed symbol only. It does not convert currencies.</p>
+  </div>
+  <div data-hidden-by="convert" id="markup-cost-group">
+    <div class="calc-field"><label for="mk-cost">Cost per item</label><input id="mk-cost" name="cost" inputmode="decimal" autocomplete="off"></div>
+  </div>
+  <div role="tabpanel" id="panel-markup" aria-labelledby="tab-markup" class="calc-panel">
+    <div class="calc-field"><label for="mk-markup">Markup percentage</label><input id="mk-markup" name="markup" inputmode="decimal" autocomplete="off"></div>
+  </div>
+  <div role="tabpanel" id="panel-price" aria-labelledby="tab-price" class="calc-panel" hidden>
+    <div class="calc-field"><label for="mk-price">Selling price per item</label><input id="mk-price" name="price" inputmode="decimal" autocomplete="off"></div>
+  </div>
+  <div role="tabpanel" id="panel-margin" aria-labelledby="tab-margin" class="calc-panel" hidden>
+    <div class="calc-field"><label for="mk-margin">Target gross margin percentage</label><input id="mk-margin" name="margin" inputmode="decimal" autocomplete="off"></div>
+  </div>
+  <div role="tabpanel" id="panel-convert" aria-labelledby="tab-convert" class="calc-panel" hidden>
+    <fieldset>
+      <legend>Convert a percentage</legend>
+      <div class="calc-field calc-radios" role="radiogroup" aria-label="Convert from">
+        <span class="calc-label">Convert from</span>
+        <label><input type="radio" name="from" value="markup" checked> Markup</label>
+        <label><input type="radio" name="from" value="margin"> Margin</label>
+      </div>
+      <div class="calc-field"><label for="mk-percent">Percentage</label><input id="mk-percent" name="percent" inputmode="decimal" autocomplete="off"></div>
+    </fieldset>
+  </div>
+  <details class="calc-more" data-hidden-by="convert" id="markup-options">
+    <summary>Quantity, discount, and sales tax</summary>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="mk-qty">Quantity</label><input id="mk-qty" name="qty" inputmode="numeric" autocomplete="off" placeholder="1"></div>
+      <div class="calc-field"><label for="mk-discount">Discount percentage</label><input id="mk-discount" name="discount" inputmode="decimal" autocomplete="off" placeholder="0"></div>
+      <div class="calc-field"><label for="mk-tax">Sales tax percentage</label><input id="mk-tax" name="tax" inputmode="decimal" autocomplete="off" placeholder="0"></div>
+    </div>
+    <p class="calc-hint">Discounts reduce the selling price before tax. Tax is added for the customer and is not counted as profit.</p>
+  </details>

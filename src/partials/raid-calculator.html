@@ -1,0 +1,13 @@
+<form class="calc-form" novalidate>
+  <fieldset>
+    <legend>Array configuration</legend>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="rd-level">RAID level</label><select id="rd-level" name="level"><option value="0">RAID 0 (striping)</option><option value="1">RAID 1 (mirroring)</option><option value="5" selected>RAID 5 (single parity)</option><option value="6">RAID 6 (double parity)</option><option value="10">RAID 10 (striped mirrors)</option><option value="50">RAID 50 (striped RAID 5)</option><option value="60">RAID 60 (striped RAID 6)</option><option value="jbod">JBOD (spanning)</option></select></div>
+      <div class="calc-field"><label for="rd-disks">Number of disks</label><input id="rd-disks" name="disks" inputmode="numeric" autocomplete="off"></div>
+      <div class="calc-field"><label for="rd-size">Capacity per disk (TB)</label><input id="rd-size" name="size" inputmode="decimal" autocomplete="off" aria-describedby="rd-size-note"><p class="calc-hint" id="rd-size-note">Enter the smallest drive if sizes differ.</p></div>
+      <div class="calc-field"><label for="rd-spares">Hot spares</label><input id="rd-spares" name="spares" inputmode="numeric" autocomplete="off" placeholder="0"></div>
+      <div class="calc-field" data-hidden-by="groups" id="rd-groups-field"><label for="rd-groups">RAID groups (spans)</label><input id="rd-groups" name="groups" inputmode="numeric" autocomplete="off" placeholder="2"></div>
+      <div class="calc-field"><label for="rd-largest">Largest disk (TB, optional)</label><input id="rd-largest" name="largest" inputmode="decimal" autocomplete="off"></div>
+    </div>
+    <p class="calc-hint">Hot spares are counted in the number of disks but hold no data until a disk fails.</p>
+  </fieldset>
