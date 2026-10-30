@@ -1,0 +1,23 @@
+<div class="calc-tabs" role="tablist" aria-label="Calculate">
+  <button type="button" role="tab" id="tab-cpm" aria-controls="panel-cpm" aria-selected="true" data-mode="cpm">CPM</button>
+  <button type="button" role="tab" id="tab-cost" aria-controls="panel-cost" aria-selected="false" tabindex="-1" data-mode="cost">Total Cost</button>
+  <button type="button" role="tab" id="tab-impressions" aria-controls="panel-impressions" aria-selected="false" tabindex="-1" data-mode="impressions">Impressions</button>
+</div>
+<form class="calc-form" novalidate>
+  <div class="calc-field calc-currency"><label for="calc-currency">Currency</label><select id="calc-currency" name="currency" aria-describedby="calc-currency-note"><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="CAD">CAD</option><option value="AUD">AUD</option></select><p id="calc-currency-note" class="calc-hint">Changes the displayed symbol only. It does not convert currencies.</p></div>
+  <div class="calc-grid">
+    <div class="calc-field" data-hidden-by="cost" id="cpm-cost-field"><label for="cpm-cost">Campaign cost</label><input id="cpm-cost" name="cost" inputmode="decimal" autocomplete="off"></div>
+    <div class="calc-field" data-hidden-by="impressions" id="cpm-impr-field"><label for="cpm-impr">Impressions</label><input id="cpm-impr" name="impressions" inputmode="numeric" autocomplete="off"></div>
+    <div class="calc-field" data-hidden-by="cpm" id="cpm-rate-field"><label for="cpm-rate">CPM (cost per 1,000 impressions)</label><input id="cpm-rate" name="cpm" inputmode="decimal" autocomplete="off"></div>
+  </div>
+  <div role="tabpanel" id="panel-cpm" aria-labelledby="tab-cpm" class="calc-panel"></div>
+  <div role="tabpanel" id="panel-cost" aria-labelledby="tab-cost" class="calc-panel" hidden></div>
+  <div role="tabpanel" id="panel-impressions" aria-labelledby="tab-impressions" class="calc-panel" hidden></div>
+  <details class="calc-more">
+    <summary>Clicks and conversions (optional)</summary>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="cpm-clicks">Clicks</label><input id="cpm-clicks" name="clicks" inputmode="numeric" autocomplete="off"></div>
+      <div class="calc-field"><label for="cpm-conv">Conversions</label><input id="cpm-conv" name="conversions" inputmode="numeric" autocomplete="off"></div>
+    </div>
+    <p class="calc-hint">Adds click-through rate, cost per click, and cost per acquisition so you can compare CPM with CPC pricing.</p>
+  </details>

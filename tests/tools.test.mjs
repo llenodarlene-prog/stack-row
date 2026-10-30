@@ -4,8 +4,9 @@ import test from 'node:test';
 import vm from 'node:vm';
 
 const context = {};
-vm.runInNewContext(await readFile('src/scripts/tool-formulas.js', 'utf8'), context);
-const { Markup, Base, Raid, Transfer, Roi } = context.StackRowFormulas;
+vm.runInNewContext((await readFile('src/scripts/tool-formulas.js', 'utf8')) + (await readFile('src/scripts/llm-prices.js', 'utf8')), context);
+const { Markup, Base, Raid, Transfer, Roi, Cpm, Roas, Significance, Valuation, Tokens } = context.StackRowFormulas;
+const Prices = context.StackRowLlmPrices;
 const close = (actual, expected, digits = 2) => assert.equal(Number(actual.toFixed(digits)), expected);
 
 test('markup: price, margin, discount, tax, and quantity match the worked example', () => {
@@ -85,4 +86,62 @@ test('roi: simple, annualized, project, and payback', () => {
   close(project.payback, 6.82);
   close(project.annualized, 27.45);
   assert.equal(Roi.project({ implementation: 1000, licensing: 500, revenue: 400, months: 12 }).payback, null);
+});
+
+test('cpm: three directions and click metrics match the worked example', () => {
+  assert.equal(Cpm.cpm(2500, 400000), 6.25);
+  assert.equal(Cpm.cost(6.25, 400000), 2500);
+  assert.equal(Cpm.impressions(2500, 6.25), 400000);
+  const x = Cpm.extras(2500, 400000, 3200, 96);
+  close(x.ctr, 0.8);
+  close(x.cpc, 0.78);
+  close(x.cpa, 26.04);
+  assert.equal(Cpm.cpm(10, 0), null);
+});
+
+test('roas: ratio, break-even, and profit after ad spend', () => {
+  const r = Roas.calculate({ revenue: 12000, spend: 3000, margin: 40 });
+  assert.equal(r.roas, 4);
+  assert.equal(r.breakEven, 2.5);
+  assert.equal(r.profitAfterAds, 1800);
+  assert.equal(r.aboveBreakEven, true);
+  assert.equal(Roas.calculate({ revenue: 2000, spend: 1000, margin: 25 }).aboveBreakEven, false);
+  assert.equal(Roas.targetRevenue(2000, 5), 10000);
+});
+
+test('significance: z-test matches the worked example and normal CDF is accurate', () => {
+  close(Significance.normalCdf(1.959964), 0.975, 5);
+  close(Significance.normalCdf(0), 0.5, 6);
+  const r = Significance.test({ visitorsA: 10000, conversionsA: 500, visitorsB: 10000, conversionsB: 580, confidence: 95, sides: 2 });
+  close(r.z, 2.5, 2);
+  close(r.p, 0.0123, 4);
+  assert.equal(r.significant, true);
+  close(r.uplift, 16);
+  close(r.ciLow, 0.17);
+  close(r.ciHigh, 1.43);
+  const same = Significance.test({ visitorsA: 1000, conversionsA: 50, visitorsB: 1000, conversionsB: 50, confidence: 95, sides: 2 });
+  assert.equal(same.significant, false);
+  assert.equal(Significance.test({ visitorsA: 20, conversionsA: 1, visitorsB: 20, conversionsB: 3 }).smallCells, true);
+});
+
+test('valuation: multiples and DCF match the worked examples', () => {
+  const m = Valuation.multiple(400000, 2.5, 3.5);
+  assert.equal(m.low, 1000000);
+  assert.equal(m.high, 1400000);
+  const d = Valuation.dcf({ cashFlow: 200000, growth: 10, discount: 15, years: 5, terminalGrowth: 3 });
+  close(d.total, 2251433, 0);
+  close(d.pv, 876884, 0);
+  assert.ok(Valuation.dcf({ cashFlow: 1, growth: 0, discount: 3, years: 5, terminalGrowth: 3 }).error);
+});
+
+test('tokens: estimate, cost, long-prompt tier, and dated price switch', () => {
+  assert.equal(Tokens.estimate('abcdefgh').tokens, 2);
+  const sonnet = Prices.current('2026-10-30').find(m => m.id === 'claude-sonnet-5-5');
+  close(Tokens.cost(sonnet, 2000, 500).total * 10000, 90);
+  const haiku = Prices.current('2026-10-30').find(m => m.id === 'claude-haiku-5-5');
+  assert.equal(Tokens.cost(haiku, 150000, 0).tier, 'long prompt');
+  close(Tokens.cost(sonnet, 1000000, 0, 50).input, 1.05);
+  assert.equal(Prices.current('2026-11-15').find(m => m.id === 'gemini-4-argon').input, 2);
+  assert.equal(Prices.current('2026-12-01').find(m => m.id === 'gemini-4-argon').input, 4);
+  assert.equal(Prices.current('2027-01-01').filter(m => m.id === 'gemini-3.8-flash').length, 1);
 });

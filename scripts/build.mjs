@@ -83,9 +83,12 @@ const calculatorTools = {
     markup: await readFile('src/partials/arr-mrr-calculator.html', 'utf8')
   }
 };
-for (const name of ['markup', 'binary-hex', 'raid', 'download-time', 'roi']) {
+// Tools that need extra data files (such as dated price tables) list them here.
+const hubScript = await fingerprint('src/scripts/tools-hub.js', 'scripts', 'tools-hub', 'js');
+const toolExtras = { 'ai-token': [await fingerprint('src/scripts/llm-prices.js', 'scripts', 'llm-prices', 'js')] };
+for (const name of ['markup', 'binary-hex', 'raid', 'download-time', 'roi', 'cpm', 'roas', 'statistical-significance', 'business-valuation', 'ai-token']) {
   calculatorTools[name] = {
-    scripts: [toolCore, toolFormulas, await fingerprint(`src/scripts/${name}-calculator.js`, 'scripts', `${name}-calculator`, 'js')],
+    scripts: [toolCore, toolFormulas, ...(toolExtras[name] || []), await fingerprint(`src/scripts/${name}-calculator.js`, 'scripts', `${name}-calculator`, 'js')],
     markup: toolShell(await readFile(`src/partials/${name}-calculator.html`, 'utf8'))
   };
 }
@@ -499,7 +502,9 @@ function frame(key, sizes) {
 // Cards for every calculator page that is visible in this build.
 function toolCards() {
   const cards = visible.filter(entry => entry.template === 'calculator' && entry.draft !== true && !entry.scheduled).sort((a, b) => Number(a.order ?? 99) - Number(b.order ?? 99));
-  return `<ul class="tool-cards" aria-label="Calculators">${cards.map(entry => `<li class="tool-card"><p class="calc-badge">${escapeHtml(entry.category || 'Calculator')}</p><h2><a href="${entry.slug}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.card || entry.description)}</p><a class="calc-secondary tool-card-action" href="${entry.slug}" aria-label="Open the ${escapeHtml(entry.title)}">Open calculator</a></li>`).join('')}</ul>`;
+  const categories = [...new Set(cards.map(entry => entry.category || 'Calculator'))].sort();
+  const filter = `<div class="tool-filter" id="tool-filter" hidden><div class="tool-chips" role="group" aria-label="Filter by category"><button type="button" class="tool-chip" data-category="all" aria-pressed="true">All</button>${categories.map(c => `<button type="button" class="tool-chip" data-category="${escapeHtml(c)}" aria-pressed="false">${escapeHtml(c)}</button>`).join('')}</div><div class="tool-search"><label for="tool-search" class="visually-hidden">Search calculators</label><input id="tool-search" type="search" placeholder="Search calculators" autocomplete="off"><button type="button" class="calc-link" id="tool-clear">Clear</button></div><p class="calc-hint" id="tool-count" aria-live="polite"></p></div>`;
+  return `${filter}<ul class="tool-cards" aria-label="Calculators">${cards.map(entry => `<li class="tool-card" data-category="${escapeHtml(entry.category || 'Calculator')}"><p class="calc-badge">${escapeHtml(entry.category || 'Calculator')}</p><h2><a href="${entry.slug}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.card || entry.description)}</p><a class="calc-secondary tool-card-action" href="${entry.slug}" aria-label="Open the ${escapeHtml(entry.title)}">Open calculator</a></li>`).join('')}</ul><p class="calc-note" id="tool-empty" hidden>No calculators match. <button type="button" class="calc-link" id="tool-empty-clear">Clear the search</button>.</p>`;
 }
 
 function main(item) {
@@ -597,7 +602,8 @@ for (const item of visible) {
   <link rel="stylesheet" href="${stylesheet}">
   <script src="${script}" defer></script>${item.template === 'calculator' || item.template === 'tools' ? `
   <link rel="stylesheet" href="${calculatorStyles}">` : ''}${item.template === 'calculator' ? toolFor(item).scripts.map(src => `
-  <script src="${src}" defer></script>`).join('') : ''}
+  <script src="${src}" defer></script>`).join('') : ''}${item.template === 'tools' ? `
+  <script src="${hubScript}" defer></script>` : ''}
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>

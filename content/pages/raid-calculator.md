@@ -7,7 +7,7 @@ type: page
 template: calculator
 tool: raid
 order: 3
-category: Storage
+category: Cloud and Infrastructure
 card: Work out usable capacity, overhead, and fault tolerance for RAID 0, 1, 5, 6, 10, 50, 60, and JBOD.
 reviewed: 2026-10-28
 primary_keyword: raid calculator

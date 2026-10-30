@@ -1,0 +1,20 @@
+<form class="calc-form" novalidate>
+  <fieldset>
+    <legend>Control (A)</legend>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="ab-va">Visitors in A</label><input id="ab-va" name="va" inputmode="numeric" autocomplete="off"></div>
+      <div class="calc-field"><label for="ab-ca">Conversions in A</label><input id="ab-ca" name="ca" inputmode="numeric" autocomplete="off"></div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Variant (B)</legend>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="ab-vb">Visitors in B</label><input id="ab-vb" name="vb" inputmode="numeric" autocomplete="off"></div>
+      <div class="calc-field"><label for="ab-cb">Conversions in B</label><input id="ab-cb" name="cb" inputmode="numeric" autocomplete="off"></div>
+    </div>
+  </fieldset>
+  <div class="calc-grid">
+    <div class="calc-field"><label for="ab-conf">Confidence level</label><select id="ab-conf" name="confidence"><option value="90">90%</option><option value="95" selected>95%</option><option value="99">99%</option></select></div>
+    <div class="calc-field"><label for="ab-sides">Hypothesis</label><select id="ab-sides" name="sides"><option value="2" selected>Two-sided (B is different from A)</option><option value="1">One-sided (B is better than A)</option></select></div>
+  </div>
+  <p class="calc-hint">Choose the confidence level and hypothesis before the test starts, and check the result once at the planned sample size.</p>

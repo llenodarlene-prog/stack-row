@@ -7,7 +7,7 @@ type: page
 template: calculator
 tool: roi
 order: 5
-category: Finance
+category: Business Technology
 card: Calculate ROI, annualized ROI, and payback for an investment or a software project.
 reviewed: 2026-10-28
 primary_keyword: roi calculator

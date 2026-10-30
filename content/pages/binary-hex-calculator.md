@@ -7,7 +7,7 @@ type: page
 template: calculator
 tool: binary-hex
 order: 2
-category: Developer
+category: Developer and Data
 card: Convert binary, decimal, hex, and octal, do arithmetic in any base, and check two's complement.
 reviewed: 2026-10-28
 primary_keyword: binary calculator

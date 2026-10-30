@@ -7,7 +7,7 @@ type: page
 template: calculator
 tool: download-time
 order: 4
-category: Networking
+category: Cloud and Infrastructure
 card: Estimate transfer time, the speed needed to meet a deadline, or how much data a link can move.
 reviewed: 2026-10-28
 primary_keyword: download time calculator
