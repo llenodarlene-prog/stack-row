@@ -52,6 +52,7 @@ const tablerSprite = `<svg class="ti-sprite" aria-hidden="true" focusable="false
 }))).join('')}</svg>`;
 const tablerIcon = (name, className = '') => (tablerNames.includes(name) ? `<svg class="ti${className ? ` ${className}` : ''}" aria-hidden="true" focusable="false"><use href="#ti-${name}"></use></svg>` : '');
 const withIcons = html => html.replace(/\{\{icon:([a-z0-9-]+)\}\}/g, (match, name) => tablerIcon(name));
+const questionStyles = await fingerprint('src/styles/questions.css', 'styles', 'questions', 'css');
 const calculatorStyles = await fingerprint('src/styles/calculator.css', 'styles', 'calculator', 'css');
 const toolCore = await fingerprint('src/scripts/tool-core.js', 'scripts', 'tool-core', 'js');
 const toolFormulas = await fingerprint('src/scripts/tool-formulas.js', 'scripts', 'tool-formulas', 'js');
@@ -391,7 +392,7 @@ const socialImage = item => {
 
 function breadcrumbs(item) {
   const hub = isPost(item) ? hubFor(item) : null;
-  const parent = hub ? { name: hub.label || hub.title, slug: hub.slug } : item.template === 'calculator' ? { name: 'Tools', slug: '/tools/' } : null;
+  const parent = hub ? { name: hub.label || hub.title, slug: hub.slug } : item.template === 'calculator' ? { name: 'Tools', slug: '/tools/' } : item.template === 'questions' ? { name: 'Questions', slug: '/questions/' } : null;
   const trail = [{ name: 'Home', slug: '/' }, ...(parent ? [parent] : []), { name: item.title, slug: item.slug }];
   return { '@type': 'BreadcrumbList', itemListElement: trail.map((entry, index) => ({ '@type': 'ListItem', position: index + 1, name: entry.name, item: canonical(siteUrl, entry.slug) })) };
 }
@@ -459,6 +460,15 @@ function schemaFor(item, url) {
     };
   }
   if (item.slug === '/') return { '@context': 'https://schema.org', '@graph': [organization, website, webpage] };
+  if (isQuestions(item)) {
+    // Google no longer shows FAQ rich results, and Stack Row writes every
+    // answer itself, so these pages are collections, not QAPage or FAQPage.
+    webpage['@type'] = ['WebPage', 'CollectionPage'];
+    if (item.reviewed) webpage.dateModified = item.reviewed;
+    if (item.author) webpage.author = { '@type': 'Person', name: item.author, url: item.author_url ? canonical(siteUrl, item.author_url) : undefined };
+    if (item.template === 'questions-index') webpage.hasPart = visible.filter(entry => entry.template === 'questions' && entry.draft !== true && !entry.scheduled).map(entry => ({ '@type': 'WebPage', name: entry.title, url: canonical(siteUrl, entry.slug) }));
+    return { '@context': 'https://schema.org', '@graph': [organization, website, webpage, { ...breadcrumbs(item), '@id': `${url}#breadcrumb` }] };
+  }
   if (item.template === 'calculator') {
     const faq = faqEntries(item.body);
     const app = {
@@ -518,9 +528,78 @@ function toolCards() {
   return `${filter}<ul class="tool-cards" aria-label="Calculators">${cards.map(entry => `<li class="tool-card" data-category="${escapeHtml(entry.category || 'Calculator')}"><div class="tool-card-top"><span class="tool-card-icon" data-category="${escapeHtml(entry.category || '')}">${tablerIcon(entry.icon || 'calculator')}</span><p class="calc-badge">${escapeHtml(entry.category || 'Calculator')}</p></div><h2><a href="${entry.slug}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.card || entry.description)}</p><a class="calc-secondary tool-card-action" href="${entry.slug}" aria-label="Open the ${escapeHtml(entry.title)}">Open calculator${tablerIcon('arrow-right')}</a></li>`).join('')}</ul><p class="calc-note" id="tool-empty" hidden>No calculators match. <button type="button" class="calc-link" id="tool-empty-clear">Clear the search</button>.</p>`;
 }
 
+const isQuestions = item => item.template === 'questions' || item.template === 'questions-index';
+const longDate = date => new Date(`${date}T00:00:00Z`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+
+// Illustration lines inside question pages:
+//   [[flow: Title | step > step > step]]       a left-to-right process diagram
+//   [[layers: Title | Owner: text | Owner: text]]  a stacked responsibility diagram
+function questionFigure(line) {
+  const match = line.match(/^\[\[(flow|layers):\s*(.+?)\]\]$/);
+  if (!match) return null;
+  const [title, ...rest] = match[2].split('|').map(part => part.trim());
+  if (match[1] === 'flow') {
+    const steps = rest.join('|').split('>').map(step => step.trim()).filter(Boolean);
+    return `<figure class="qa-figure"><figcaption>${tablerIcon('arrow-right')}${escapeHtml(title)}</figcaption><ol class="qa-flow">${steps.map((step, index) => `<li><span class="qa-flow-num">${index + 1}</span><span>${escapeHtml(step)}</span></li>`).join('')}</ol></figure>`;
+  }
+  const rows = rest.map(row => { const [owner, ...text] = row.split(':'); return { owner: owner.trim(), text: text.join(':').trim() }; });
+  return `<figure class="qa-figure"><figcaption>${tablerIcon('stack-2')}${escapeHtml(title)}</figcaption><ul class="qa-layers">${rows.map(row => `<li class="qa-layer-${row.owner.toLowerCase() === 'provider' ? 'provider' : 'you'}"><span class="qa-layer-owner">${escapeHtml(row.owner)}</span><span>${escapeHtml(row.text)}</span></li>`).join('')}</ul></figure>`;
+}
+
+function renderQuestionsBody(markdown) {
+  const figures = [];
+  const prepared = markdown.split('\n').map(line => {
+    const html = questionFigure(line.trim());
+    if (!html) return line;
+    figures.push(html);
+    return `QFIGURE${figures.length - 1}QFIGURE`;
+  }).join('\n');
+  let html = render(prepared).replace(/<p>QFIGURE(\d+)QFIGURE<\/p>/g, (m, i) => figures[Number(i)]);
+  const { body, outline } = enhance(html);
+  // Each question becomes a card: the heading, a highlighted direct answer,
+  // then any supporting detail.
+  const cards = body.replace(/<h3>([\s\S]*?)<\/h3>([\s\S]*?)(?=<h3>|<h2 |$)/g, (m, question, rest) => {
+    const answer = rest.replace(/^\s*<p>/, '<p class="qa-answer">');
+    return `<section class="qa" id="${anchor(question)}" aria-labelledby="${anchor(question)}-q"><h3 id="${anchor(question)}-q"><span class="qa-mark" aria-hidden="true">Q</span><span>${question}</span></h3><div class="qa-body">${answer}</div></section>`;
+  });
+  return { body: cards, outline };
+}
+
+function questionsMain(item) {
+  const lines = item.body.replace(/\r/g, '').split('\n');
+  const split = lines.findIndex(line => /^##\s/.test(line));
+  const [first, ...intro] = split < 0 ? lines : lines.slice(0, split);
+  const markdown = split < 0 ? '' : lines.slice(split).join('\n');
+  const index = item.template === 'questions-index';
+  const crumbs = `<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>${index ? '<span aria-current="page">Questions</span>' : `<a href="/questions/">Questions</a><span aria-hidden="true">/</span><span aria-current="page">${escapeHtml(item.category || item.title)}</span>`}</nav>`;
+  const { body, outline } = renderQuestionsBody(markdown);
+  const count = (item.body.match(/^### /gm) || []).length;
+  const sectionIcons = String(item.sections || '').split(',').map(name => name.trim());
+  const meta = [item.reviewed ? `<span>${tablerIcon('calendar-event')}Reviewed ${longDate(item.reviewed)}</span>` : '', item.author ? `<span>${tablerIcon('user-circle')}By ${item.author_url ? `<a href="${item.author_url}">${escapeHtml(item.author)}</a>` : escapeHtml(item.author)}</span>` : '', count ? `<span>${tablerIcon('message-question')}${count} questions answered</span>` : ''].filter(Boolean).join('');
+  const hero = `<header class="qa-hero"><div class="shell">${crumbs}<div class="qa-hero-row"><span class="qa-hero-icon" data-category="${escapeHtml(item.category || '')}">${tablerIcon(item.icon || 'help-circle')}</span><div><p class="calc-badge">${index ? 'Answer Center' : 'Questions'}</p>${render(first)}</div></div><div class="qa-intro">${render(intro.join('\n'))}</div>${meta ? `<p class="qa-meta">${meta}</p>` : ''}</div></header>`;
+  let jump = '';
+  if (!index) {
+    const sections = outline.filter(entry => entry.text !== 'Sources');
+    const counts = markdown.split(/^## /m).slice(1).map(chunk => (chunk.match(/^### /gm) || []).length);
+    jump = `<nav class="qa-jump" aria-label="Topics on this page"><div class="shell"><p class="qa-jump-title">Jump to a topic</p><ul>${sections.map((entry, i) => `<li><a href="#${entry.id}">${tablerIcon(sectionIcons[i] || 'help-circle')}<span>${entry.text}</span><span class="qa-count">${counts[i] || ''}</span></a></li>`).join('')}</ul></div></nav>`;
+  }
+  let hubs = '';
+  if (index) {
+    const pages = visible.filter(entry => entry.template === 'questions' && entry.draft !== true && !entry.scheduled);
+    hubs = `<ul class="qa-hubs" aria-label="Question topics">${pages.map(entry => `<li class="qa-hub" data-category="${escapeHtml(entry.category || '')}"><span class="qa-hub-icon">${tablerIcon(entry.icon || 'help-circle')}</span><h2><a href="${entry.slug}">${escapeHtml(entry.category || entry.title)}</a></h2><p>${escapeHtml(entry.description)}</p><p class="qa-hub-foot"><span>${(entry.body.match(/^### /gm) || []).length} answers</span>${tablerIcon('arrow-right')}</p></li>`).join('')}</ul>`;
+  }
+  // Tools and articles the answers link to, gathered from the body.
+  const seen = new Set();
+  const linked = [...markdown.matchAll(/\]\((\/[^)#\s]*)\)/g)].map(m => bySlug.get(m[1])).filter(target => target && target.slug !== item.slug && !seen.has(target.slug) && seen.add(target.slug));
+  const related = linked.length ? `<section class="qa-related"><div class="shell"><h2>Tools and Articles Mentioned Here</h2><ul>${linked.map(target => `<li><a href="${target.slug}">${tablerIcon(target.template === 'calculator' ? (target.icon || 'calculator') : 'file-text')}<span><strong>${escapeHtml(target.title)}</strong><small>${target.template === 'calculator' ? 'Calculator' : 'Article'}</small></span></a></li>`).join('')}</ul></div></section>` : '';
+  const author = item.author ? `<aside class="qa-author"><div class="shell">${tablerIcon('user-circle')}<p>Written and reviewed by ${item.author_url ? `<a href="${item.author_url}">${escapeHtml(item.author)}</a>` : escapeHtml(item.author)}${item.reviewed ? `, last checked ${longDate(item.reviewed)}` : ''}. Spot something out of date? Tell us through the <a href="/contact/">contact page</a>.</p></div></aside>` : '';
+  return `${tablerSprite}<div class="qa-page">${hero}${jump}<div class="shell qa-main">${hubs}<div class="prose qa-prose">${body}</div></div>${related}${author}</div>`;
+}
+
 function main(item) {
   const draft = item.draft === true;
   const banner = draft ? `<p class="draft-banner">${isPost(item) ? 'Editorial draft. Not approved for publication.' : 'Review draft. Not approved for publication.'}</p>` : '';
+  if (isQuestions(item)) return questionsMain(item);
   if (item.template === 'calculator' || item.template === 'tools') {
     const lines = item.body.replace(/\r/g, '').split('\n');
     const split = lines.findIndex(line => /^##\s/.test(line));
@@ -612,7 +691,8 @@ for (const item of visible) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Sora:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${stylesheet}">
-  <script src="${script}" defer></script>${item.template === 'calculator' || item.template === 'tools' ? `
+  <script src="${script}" defer></script>${isQuestions(item) ? `
+  <link rel="stylesheet" href="${questionStyles}">` : ''}${item.template === 'calculator' || item.template === 'tools' ? `
   <link rel="stylesheet" href="${calculatorStyles}">` : ''}${item.template === 'calculator' ? toolFor(item).scripts.map(src => `
   <script src="${src}" defer></script>`).join('') : ''}${item.template === 'tools' ? `
   <script src="${hubScript}" defer></script>` : ''}
