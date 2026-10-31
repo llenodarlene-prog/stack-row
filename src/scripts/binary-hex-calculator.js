@@ -43,6 +43,7 @@
   }
 
   T.mount({
+    icon: 'binary',
     name: 'Binary and Hex Calculator',
     file: 'binary-hex-calculation',
     storeKey: 'stackrow:binary-hex:v1',
@@ -78,11 +79,27 @@
       if (!width) warning = 'The result needs more than 128 bits, so no fixed-width pattern is shown.';
       else if (!Base.fits(value, width, signed || value < 0n)) warning = `The result does not fit in ${width} bits${signed ? ' as a signed integer' : value < 0n ? ' because unsigned integers cannot be negative' : ''}. The bit pattern shown wraps around, which is how fixed-width hardware overflows.`;
       const { node, rows } = table(value, width, signed, copyButton);
+      const pattern = width && width <= 32 ? Base.twos(value, width) : null;
+      let grid = null;
+      if (pattern) {
+        // One box per bit, most significant first, grouped in nibbles.
+        grid = el('figure', 'viz viz-bits');
+        grid.append(el('figcaption', 'viz-title', `${width}-bit pattern${signed || value < 0n ? ' (two’s complement)' : ''}`));
+        const row = el('div', 'viz-bitrow');
+        row.setAttribute('role', 'img');
+        row.setAttribute('aria-label', `Bits: ${pattern}`);
+        [...pattern].forEach((bit, i) => {
+          const box = el('span', bit === '1' ? 'viz-bit viz-bit-on' : 'viz-bit', bit);
+          if (i === 0 && (signed || value < 0n)) box.classList.add('viz-bit-sign');
+          row.append(box);
+        });
+        grid.append(row, el('p', 'calc-hint', signed || value < 0n ? 'The first bit is the sign bit.' : `Bit ${width - 1} is on the left; bit 0 is on the right.`));
+      }
       const bits = Base.bitLength(value);
       lines.unshift(`The value needs ${bits} bit${bits === 1 ? '' : 's'}${value < 0n ? ' of magnitude plus a sign' : ''}. The smallest standard ${signed || value < 0n ? 'signed' : 'unsigned'} width that holds it is ${auto ? `${auto}-bit` : 'over 128 bits'}.`);
       return {
         metrics: [],
-        nodes: [node],
+        nodes: grid ? [grid, node] : [node],
         lines,
         warning,
         inputs,

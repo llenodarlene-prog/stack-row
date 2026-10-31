@@ -82,6 +82,10 @@
           "url": "/tools/"
         },
         {
+          "label": "CPM Calculator",
+          "url": "/tools/cpm-calculator/"
+        },
+        {
           "label": "Markup Calculator",
           "url": "/tools/markup-calculator/"
         },
@@ -90,20 +94,16 @@
           "url": "/tools/roi-calculator/"
         },
         {
+          "label": "AI Token Calculator",
+          "url": "/tools/ai-token-calculator/"
+        },
+        {
           "label": "RAID Calculator",
           "url": "/tools/raid-calculator/"
         },
         {
           "label": "Binary and Hex Calculator",
           "url": "/tools/binary-hex-calculator/"
-        },
-        {
-          "label": "Download Time Calculator",
-          "url": "/tools/download-time-calculator/"
-        },
-        {
-          "label": "ARR and MRR Calculator",
-          "url": "/tools/arr-mrr-calculator/"
         }
       ]
     },

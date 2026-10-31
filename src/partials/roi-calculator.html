@@ -1,6 +1,6 @@
 <div class="calc-tabs" role="tablist" aria-label="Calculation">
-  <button type="button" role="tab" id="tab-simple" aria-controls="panel-simple" aria-selected="true" data-mode="simple">Simple ROI</button>
-  <button type="button" role="tab" id="tab-project" aria-controls="panel-project" aria-selected="false" tabindex="-1" data-mode="project">Technology Project</button>
+  <button type="button" role="tab" id="tab-simple" aria-controls="panel-simple" aria-selected="true" data-mode="simple">{{icon:coin}}Simple ROI</button>
+  <button type="button" role="tab" id="tab-project" aria-controls="panel-project" aria-selected="false" tabindex="-1" data-mode="project">{{icon:report-money}}Technology Project</button>
 </div>
 <form class="calc-form" novalidate>
   <div class="calc-field calc-currency">
@@ -31,8 +31,8 @@
         <div class="calc-field"><label for="roi-rev">Added revenue or savings per month</label><input id="roi-rev" name="revenue" inputmode="decimal" autocomplete="off"></div>
         <div class="calc-field"><label for="roi-hours">Staff hours saved per month</label><input id="roi-hours" name="hours" inputmode="decimal" autocomplete="off"></div>
         <div class="calc-field"><label for="roi-rate">Loaded cost per staff hour</label><input id="roi-rate" name="hourly" inputmode="decimal" autocomplete="off"></div>
-        <div class="calc-field"><label for="roi-months">Period in months</label><input id="roi-months" name="months" inputmode="numeric" autocomplete="off" placeholder="36"></div>
+        <div class="calc-field"><label for="roi-months">Period in months</label><input id="roi-months" name="months" data-slider="1,120,1" inputmode="numeric" autocomplete="off" placeholder="36"></div>
       </div>
     </fieldset>
-    <div class="calc-field"><label for="roi-sens">Sensitivity range (± percentage on benefits)</label><input id="roi-sens" name="sensitivity" inputmode="decimal" autocomplete="off" placeholder="20"></div>
+    <div class="calc-field"><label for="roi-sens">Sensitivity range (± percentage on benefits)</label><input id="roi-sens" name="sensitivity" data-slider="0,50,5" inputmode="decimal" autocomplete="off" placeholder="20"></div>
   </div>

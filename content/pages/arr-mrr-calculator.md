@@ -5,9 +5,10 @@ description: Calculate MRR, ARR, net new MRR, revenue growth, churn, GRR and NRR
 slug: /tools/arr-mrr-calculator/
 type: page
 template: calculator
+icon: chart-line
 tool: arr-mrr
 order: 6
-category: SaaS
+category: SaaS and Startups
 card: Convert MRR and ARR, normalize billing intervals, and measure monthly MRR movement.
 reviewed: 2026-10-28
 primary_keyword: annual recurring revenue calculator

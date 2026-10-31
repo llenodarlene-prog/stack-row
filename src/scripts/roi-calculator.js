@@ -26,12 +26,13 @@
   }
 
   T.mount({
+    icon: 'trending-up',
     name: 'ROI Calculator',
     file: 'roi-calculation',
     storeKey: 'stackrow:roi:v1',
     modeNames: { simple: 'Simple ROI', project: 'Technology Project' },
     example: { mode: 'project', values: { implementation: '25000', training: '5000', licensing: '2000', operating: '500', revenue: '1500', hours: '120', hourly: '45', months: '36', sensitivity: '20' } },
-    compute(c, { money }) {
+    compute(c, { money, viz }) {
       if (c.mode === 'simple') {
         const cost = c.number('cost', { required: true, label: 'the amount invested' });
         const value = c.number('value', { required: true, label: 'the final value' });
@@ -42,6 +43,7 @@
         const metrics = [['ROI', pct(r.roi), 'ROI = (final value - amount invested) ÷ amount invested × 100', true], ['Net gain', money(r.gain), 'Final value - amount invested']];
         if (years) metrics.push(['Annualized ROI', pct(r.annualized), `((final ÷ invested)^(1 ÷ ${T.formatNumber(years, 2)} years) - 1) × 100`]);
         return {
+          nodes: [viz.bars('Invested versus returned', [{ label: 'Invested', value: cost, display: money(cost), tone: 'navy' }, { label: 'Final value', value: value, display: money(value), tone: r.gain >= 0 ? 'green' : 'red' }])],
           metrics,
           lines: [r.gain >= 0 ? `Every ${money(1)} invested returned ${money(value / cost)}.` : 'The investment lost value over the period.', ...(years ? [] : ['Add a holding period to compare investments of different lengths.'])],
           inputs: [['Amount invested', money(cost)], ['Final value', money(value)], ['Years', years ? String(years) : 'Not entered']],
