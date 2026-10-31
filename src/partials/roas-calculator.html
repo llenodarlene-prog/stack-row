@@ -1,6 +1,6 @@
 <div class="calc-tabs" role="tablist" aria-label="Calculate">
-  <button type="button" role="tab" id="tab-roas" aria-controls="panel-roas" aria-selected="true" data-mode="roas">ROAS</button>
-  <button type="button" role="tab" id="tab-target" aria-controls="panel-target" aria-selected="false" tabindex="-1" data-mode="target">Target Planning</button>
+  <button type="button" role="tab" id="tab-roas" aria-controls="panel-roas" aria-selected="true" data-mode="roas">{{icon:target-arrow}}ROAS</button>
+  <button type="button" role="tab" id="tab-target" aria-controls="panel-target" aria-selected="false" tabindex="-1" data-mode="target">{{icon:chart-line}}Target Planning</button>
 </div>
 <form class="calc-form" novalidate>
   <div class="calc-field calc-currency"><label for="calc-currency">Currency</label><select id="calc-currency" name="currency" aria-describedby="calc-currency-note"><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="CAD">CAD</option><option value="AUD">AUD</option></select><p id="calc-currency-note" class="calc-hint">Changes the displayed symbol only. It does not convert currencies.</p></div>
@@ -13,7 +13,7 @@
   <div role="tabpanel" id="panel-target" aria-labelledby="tab-target" class="calc-panel" hidden>
     <div class="calc-grid">
       <div class="calc-field"><label for="roas-budget">Planned ad spend</label><input id="roas-budget" name="budget" inputmode="decimal" autocomplete="off"></div>
-      <div class="calc-field"><label for="roas-goal">Target ROAS (for example 4 for 4:1)</label><input id="roas-goal" name="target" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="roas-goal">Target ROAS (for example 4 for 4:1)</label><input id="roas-goal" name="target" data-slider="0.5,15,0.1" inputmode="decimal" autocomplete="off"></div>
     </div>
   </div>
-  <div class="calc-field"><label for="roas-margin">Gross margin percentage (optional)</label><input id="roas-margin" name="margin" inputmode="decimal" autocomplete="off"><p class="calc-hint">Revenue minus cost of goods, as a share of revenue. Used for break-even ROAS and profit after ad spend.</p></div>
+  <div class="calc-field"><label for="roas-margin">Gross margin percentage (optional)</label><input id="roas-margin" name="margin" data-slider="1,100,1" inputmode="decimal" autocomplete="off"><p class="calc-hint">Revenue minus cost of goods, as a share of revenue. Used for break-even ROAS and profit after ad spend.</p></div>

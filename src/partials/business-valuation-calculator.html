@@ -1,32 +1,32 @@
 <div class="calc-tabs" role="tablist" aria-label="Method">
-  <button type="button" role="tab" id="tab-revenue" aria-controls="panel-revenue" aria-selected="true" data-mode="revenue">Revenue Multiple</button>
-  <button type="button" role="tab" id="tab-earnings" aria-controls="panel-earnings" aria-selected="false" tabindex="-1" data-mode="earnings">Earnings Multiple</button>
-  <button type="button" role="tab" id="tab-dcf" aria-controls="panel-dcf" aria-selected="false" tabindex="-1" data-mode="dcf">Discounted Cash Flow</button>
+  <button type="button" role="tab" id="tab-revenue" aria-controls="panel-revenue" aria-selected="true" data-mode="revenue">{{icon:chart-line}}Revenue Multiple</button>
+  <button type="button" role="tab" id="tab-earnings" aria-controls="panel-earnings" aria-selected="false" tabindex="-1" data-mode="earnings">{{icon:coin}}Earnings Multiple</button>
+  <button type="button" role="tab" id="tab-dcf" aria-controls="panel-dcf" aria-selected="false" tabindex="-1" data-mode="dcf">{{icon:hourglass-high}}Discounted Cash Flow</button>
 </div>
 <form class="calc-form" novalidate>
   <div class="calc-field calc-currency"><label for="calc-currency">Currency</label><select id="calc-currency" name="currency" aria-describedby="calc-currency-note"><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="CAD">CAD</option><option value="AUD">AUD</option></select><p id="calc-currency-note" class="calc-hint">Changes the displayed symbol only. It does not convert currencies.</p></div>
   <div role="tabpanel" id="panel-revenue" aria-labelledby="tab-revenue" class="calc-panel">
     <div class="calc-grid">
       <div class="calc-field"><label for="bv-rev">Annual revenue</label><input id="bv-rev" name="revenue" inputmode="decimal" autocomplete="off"></div>
-      <div class="calc-field"><label for="bv-rlow">Low multiple</label><input id="bv-rlow" name="rlow" inputmode="decimal" autocomplete="off"></div>
-      <div class="calc-field"><label for="bv-rhigh">High multiple</label><input id="bv-rhigh" name="rhigh" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="bv-rlow">Low multiple</label><input id="bv-rlow" name="rlow" data-slider="0,20,0.1" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="bv-rhigh">High multiple</label><input id="bv-rhigh" name="rhigh" data-slider="0,30,0.1" inputmode="decimal" autocomplete="off"></div>
     </div>
   </div>
   <div role="tabpanel" id="panel-earnings" aria-labelledby="tab-earnings" class="calc-panel" hidden>
     <div class="calc-grid">
       <div class="calc-field"><label for="bv-basis">Earnings measure</label><select id="bv-basis" name="basis"><option value="sde">SDE (owner earnings)</option><option value="ebitda">EBITDA</option></select></div>
       <div class="calc-field"><label for="bv-earn">Annual earnings</label><input id="bv-earn" name="earnings" inputmode="decimal" autocomplete="off"></div>
-      <div class="calc-field"><label for="bv-elow">Low multiple</label><input id="bv-elow" name="elow" inputmode="decimal" autocomplete="off"></div>
-      <div class="calc-field"><label for="bv-ehigh">High multiple</label><input id="bv-ehigh" name="ehigh" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="bv-elow">Low multiple</label><input id="bv-elow" name="elow" data-slider="0,15,0.1" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="bv-ehigh">High multiple</label><input id="bv-ehigh" name="ehigh" data-slider="0,20,0.1" inputmode="decimal" autocomplete="off"></div>
     </div>
   </div>
   <div role="tabpanel" id="panel-dcf" aria-labelledby="tab-dcf" class="calc-panel" hidden>
     <div class="calc-grid">
       <div class="calc-field"><label for="bv-cf">Current annual free cash flow</label><input id="bv-cf" name="cashflow" inputmode="decimal" autocomplete="off"></div>
-      <div class="calc-field"><label for="bv-g">Annual growth (%)</label><input id="bv-g" name="growth" inputmode="decimal" autocomplete="off"></div>
-      <div class="calc-field"><label for="bv-r">Discount rate (%)</label><input id="bv-r" name="discount" inputmode="decimal" autocomplete="off"></div>
-      <div class="calc-field"><label for="bv-y">Forecast years</label><input id="bv-y" name="years" inputmode="numeric" autocomplete="off" placeholder="5"></div>
-      <div class="calc-field"><label for="bv-tg">Terminal growth (%)</label><input id="bv-tg" name="terminal" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="bv-g">Annual growth (%)</label><input id="bv-g" name="growth" data-slider="-20,60,1" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="bv-r">Discount rate (%)</label><input id="bv-r" name="discount" data-slider="1,40,0.5" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="bv-y">Forecast years</label><input id="bv-y" name="years" data-slider="1,15,1" inputmode="numeric" autocomplete="off" placeholder="5"></div>
+      <div class="calc-field"><label for="bv-tg">Terminal growth (%)</label><input id="bv-tg" name="terminal" data-slider="0,6,0.25" inputmode="decimal" autocomplete="off"></div>
     </div>
   </div>
   <p class="calc-hint">Multiples and rates are your assumptions. The example values are illustrations, not market data for your industry.</p>

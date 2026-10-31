@@ -43,6 +43,15 @@ const script = await fingerprint('src/scripts/main.js', 'scripts', 'main', 'js')
 // Interactive tools load their own stylesheet and scripts on their page only.
 // A calculator page names its tool in front matter; the tool's partial holds
 // its inputs, and toolShell() wraps them with the shared actions and results.
+// Tabler icons (MIT, src/icons/tabler) are inlined once per tool page as an SVG
+// sprite; markup and scripts reference them with <use href="#ti-name">.
+const tablerNames = (await readdir('src/icons/tabler')).filter(file => file.endsWith('.svg')).map(file => file.slice(0, -4)).sort();
+const tablerSprite = `<svg class="ti-sprite" aria-hidden="true" focusable="false" width="0" height="0">${(await Promise.all(tablerNames.map(async name => {
+  const inner = (await readFile(`src/icons/tabler/${name}.svg`, 'utf8')).replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '').replace(/\s+/g, ' ').trim();
+  return `<symbol id="ti-${name}" viewBox="0 0 24 24">${inner}</symbol>`;
+}))).join('')}</svg>`;
+const tablerIcon = (name, className = '') => (tablerNames.includes(name) ? `<svg class="ti${className ? ` ${className}` : ''}" aria-hidden="true" focusable="false"><use href="#ti-${name}"></use></svg>` : '');
+const withIcons = html => html.replace(/\{\{icon:([a-z0-9-]+)\}\}/g, (match, name) => tablerIcon(name));
 const calculatorStyles = await fingerprint('src/styles/calculator.css', 'styles', 'calculator', 'css');
 const toolCore = await fingerprint('src/scripts/tool-core.js', 'scripts', 'tool-core', 'js');
 const toolFormulas = await fingerprint('src/scripts/tool-formulas.js', 'scripts', 'tool-formulas', 'js');
@@ -54,24 +63,24 @@ function toolShell(inputs, { example = true } = {}) {
     <div class="calc-inputs">
 ${inputs}
         <div class="calc-actions">
-          <button type="submit" class="calc-primary">Calculate</button>${example ? `
-          <button type="button" class="calc-secondary" id="calc-example">Load example</button>` : ''}
-          <button type="button" class="calc-link" id="calc-reset">Reset calculator</button>
+          <button type="submit" class="calc-primary">{{icon:calculator}}Calculate</button>${example ? `
+          <button type="button" class="calc-secondary" id="calc-example">{{icon:sparkles}}Load example</button>` : ''}
+          <button type="button" class="calc-link" id="calc-reset">{{icon:refresh}}Reset calculator</button>
         </div>
       </form>
     </div>
     <div class="calc-results" aria-labelledby="calc-results-title">
-      <h2 id="calc-results-title" class="calc-results-title">Results</h2>
-      <div id="calc-output" class="calc-output"><p class="calc-empty">Enter values and select Calculate to see results with their formulas, or load the example.</p></div>
+      <h2 id="calc-results-title" class="calc-results-title">{{icon:chart-bar}}Results</h2>
+      <div id="calc-output" class="calc-output"><div class="calc-empty">{{icon:bulb}}<p>Start typing and results appear here instantly, with the formula behind each one. Or load the example.</p></div></div>
       <p class="calc-warning" id="calc-warning" role="alert" hidden></p>
       <div class="calc-result-actions" id="calc-result-actions" hidden>
-        <button type="button" class="calc-secondary" id="calc-copy">Copy results</button>
-        <button type="button" class="calc-secondary" id="calc-share">Copy share link</button>
-        <button type="button" class="calc-secondary" id="calc-csv">Download CSV</button>
-        <button type="button" class="calc-secondary" id="calc-print">Print results</button>
+        <button type="button" class="calc-secondary" id="calc-copy">{{icon:copy}}Copy results</button>
+        <button type="button" class="calc-secondary" id="calc-share">{{icon:share}}Copy share link</button>
+        <button type="button" class="calc-secondary" id="calc-csv">{{icon:download}}Download CSV</button>
+        <button type="button" class="calc-secondary" id="calc-print">{{icon:printer}}Print results</button>
         <button type="button" class="calc-link" id="calc-forget">Forget saved calculation</button>
       </div>
-      <p class="calc-privacy">Calculations run in your browser. Nothing you enter is sent to Stack Row.</p>
+      <p class="calc-privacy">{{icon:lock}}Calculations run in your browser. Nothing you enter is sent to Stack Row.</p>
       <p class="visually-hidden" id="calc-status" aria-live="polite"></p>
     </div>
   </div>
@@ -80,7 +89,7 @@ ${inputs}
 const calculatorTools = {
   'arr-mrr': {
     scripts: [await fingerprint('src/scripts/arr-mrr-formulas.js', 'scripts', 'arr-mrr-formulas', 'js'), await fingerprint('src/scripts/arr-mrr-calculator.js', 'scripts', 'arr-mrr-calculator', 'js')],
-    markup: await readFile('src/partials/arr-mrr-calculator.html', 'utf8')
+    markup: withIcons(await readFile('src/partials/arr-mrr-calculator.html', 'utf8'))
   }
 };
 // Tools that need extra data files (such as dated price tables) list them here.
@@ -89,7 +98,7 @@ const toolExtras = { 'ai-token': [await fingerprint('src/scripts/llm-prices.js',
 for (const name of ['markup', 'binary-hex', 'raid', 'download-time', 'roi', 'cpm', 'roas', 'statistical-significance', 'business-valuation', 'ai-token']) {
   calculatorTools[name] = {
     scripts: [toolCore, toolFormulas, ...(toolExtras[name] || []), await fingerprint(`src/scripts/${name}-calculator.js`, 'scripts', `${name}-calculator`, 'js')],
-    markup: toolShell(await readFile(`src/partials/${name}-calculator.html`, 'utf8'))
+    markup: withIcons(toolShell(await readFile(`src/partials/${name}-calculator.html`, 'utf8')))
   };
 }
 const toolFor = item => calculatorTools[item.tool || 'arr-mrr'];
@@ -500,11 +509,13 @@ function frame(key, sizes) {
 }
 
 // Cards for every calculator page that is visible in this build.
+const categoryIcons = { 'Business Technology': 'report-money', AI: 'brain', 'Cloud and Infrastructure': 'server', 'Developer and Data': 'hierarchy-2', 'SaaS and Startups': 'building', Cybersecurity: 'lock' };
+
 function toolCards() {
   const cards = visible.filter(entry => entry.template === 'calculator' && entry.draft !== true && !entry.scheduled).sort((a, b) => Number(a.order ?? 99) - Number(b.order ?? 99));
   const categories = [...new Set(cards.map(entry => entry.category || 'Calculator'))].sort();
-  const filter = `<div class="tool-filter" id="tool-filter" hidden><div class="tool-chips" role="group" aria-label="Filter by category"><button type="button" class="tool-chip" data-category="all" aria-pressed="true">All</button>${categories.map(c => `<button type="button" class="tool-chip" data-category="${escapeHtml(c)}" aria-pressed="false">${escapeHtml(c)}</button>`).join('')}</div><div class="tool-search"><label for="tool-search" class="visually-hidden">Search calculators</label><input id="tool-search" type="search" placeholder="Search calculators" autocomplete="off"><button type="button" class="calc-link" id="tool-clear">Clear</button></div><p class="calc-hint" id="tool-count" aria-live="polite"></p></div>`;
-  return `${filter}<ul class="tool-cards" aria-label="Calculators">${cards.map(entry => `<li class="tool-card" data-category="${escapeHtml(entry.category || 'Calculator')}"><p class="calc-badge">${escapeHtml(entry.category || 'Calculator')}</p><h2><a href="${entry.slug}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.card || entry.description)}</p><a class="calc-secondary tool-card-action" href="${entry.slug}" aria-label="Open the ${escapeHtml(entry.title)}">Open calculator</a></li>`).join('')}</ul><p class="calc-note" id="tool-empty" hidden>No calculators match. <button type="button" class="calc-link" id="tool-empty-clear">Clear the search</button>.</p>`;
+  const filter = `<div class="tool-filter" id="tool-filter" hidden><div class="tool-chips" role="group" aria-label="Filter by category"><button type="button" class="tool-chip" data-category="all" aria-pressed="true">${tablerIcon('chart-dots-3')}All</button>${categories.map(c => `<button type="button" class="tool-chip" data-category="${escapeHtml(c)}" aria-pressed="false">${tablerIcon(categoryIcons[c] || 'calculator')}${escapeHtml(c)}</button>`).join('')}</div><div class="tool-search">${tablerIcon('search')}<label for="tool-search" class="visually-hidden">Search calculators</label><input id="tool-search" type="search" placeholder="Search calculators" autocomplete="off"><button type="button" class="calc-link" id="tool-clear">Clear</button></div><p class="calc-hint" id="tool-count" aria-live="polite"></p></div>`;
+  return `${filter}<ul class="tool-cards" aria-label="Calculators">${cards.map(entry => `<li class="tool-card" data-category="${escapeHtml(entry.category || 'Calculator')}"><div class="tool-card-top"><span class="tool-card-icon" data-category="${escapeHtml(entry.category || '')}">${tablerIcon(entry.icon || 'calculator')}</span><p class="calc-badge">${escapeHtml(entry.category || 'Calculator')}</p></div><h2><a href="${entry.slug}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.card || entry.description)}</p><a class="calc-secondary tool-card-action" href="${entry.slug}" aria-label="Open the ${escapeHtml(entry.title)}">Open calculator${tablerIcon('arrow-right')}</a></li>`).join('')}</ul><p class="calc-note" id="tool-empty" hidden>No calculators match. <button type="button" class="calc-link" id="tool-empty-clear">Clear the search</button>.</p>`;
 }
 
 function main(item) {
@@ -519,9 +530,10 @@ function main(item) {
     const tools = item.template === 'calculator';
     const crumbs = `<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>${tools ? '<a href="/tools/">Tools</a><span aria-hidden="true">/</span>' : ''}<span aria-current="page">${escapeHtml(tools ? item.title : 'Tools')}</span></nav>`;
     const reviewed = item.reviewed ? `<p class="calc-reviewed">Reviewed ${escapeHtml(new Date(`${item.reviewed}T00:00:00Z`).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' }))}</p>` : '';
-    const badge = tools ? '<p class="calc-badge">Calculator</p>' : '';
+    const badge = tools ? `<p class="calc-badge">${escapeHtml(item.category || 'Calculator')}</p>` : '';
     const widget = tools ? toolFor(item).markup : toolCards(item);
-    return `<div class="calc-page"><div class="shell">${banner}${crumbs}${badge}${render(first)}<div class="calc-intro">${render(intro.join('\n'))}${reviewed}</div>${widget}<div class="prose">${body}</div></div></div>`;
+    const hero = tools && item.icon ? `<div class="calc-hero"><span class="calc-hero-icon" data-category="${escapeHtml(item.category || '')}">${tablerIcon(item.icon)}</span><div>${badge}${render(first)}</div></div>` : `${badge}${render(first)}`;
+    return `${tablerSprite}<div class="calc-page"><div class="shell">${banner}${crumbs}${hero}<div class="calc-intro">${render(intro.join('\n'))}${reviewed}</div>${widget}<div class="prose">${body}</div></div></div>`;
   }
   if (isPost(item) || item.layout === 'prose') {
     const hub = hubFor(item);

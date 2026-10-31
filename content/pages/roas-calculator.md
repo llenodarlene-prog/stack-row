@@ -5,6 +5,7 @@ description: Calculate return on ad spend, break-even ROAS from your gross margi
 slug: /tools/roas-calculator/
 type: page
 template: calculator
+icon: target-arrow
 tool: roas
 order: 8
 category: Business Technology

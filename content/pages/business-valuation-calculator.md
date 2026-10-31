@@ -5,6 +5,7 @@ description: Estimate a business value range using revenue multiples, SDE or EBI
 slug: /tools/business-valuation-calculator/
 type: page
 template: calculator
+icon: building-store
 tool: business-valuation
 order: 10
 category: SaaS and Startups

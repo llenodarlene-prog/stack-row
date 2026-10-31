@@ -5,6 +5,7 @@ description: Calculate return on investment, annualized ROI, payback period, and
 slug: /tools/roi-calculator/
 type: page
 template: calculator
+icon: trending-up
 tool: roi
 order: 5
 category: Business Technology

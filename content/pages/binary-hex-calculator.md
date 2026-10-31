@@ -5,6 +5,7 @@ description: Convert between binary, octal, decimal, and hexadecimal, do arithme
 slug: /tools/binary-hex-calculator/
 type: page
 template: calculator
+icon: binary
 tool: binary-hex
 order: 2
 category: Developer and Data

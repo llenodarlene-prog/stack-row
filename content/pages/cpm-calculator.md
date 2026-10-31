@@ -5,6 +5,7 @@ description: Calculate CPM from ad cost and impressions, total cost from a CPM, 
 slug: /tools/cpm-calculator/
 type: page
 template: calculator
+icon: eye
 tool: cpm
 order: 7
 category: Business Technology

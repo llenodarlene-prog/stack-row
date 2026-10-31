@@ -8,11 +8,12 @@
   const toggle = mode => { $('cpm-cost-field').hidden = mode === 'cost'; $('cpm-impr-field').hidden = mode === 'impressions'; $('cpm-rate-field').hidden = mode === 'cpm'; };
   const current = () => document.querySelector('.calc-tabs [aria-selected="true"]').dataset.mode;
   T.mount({
+    icon: 'eye',
     name: 'CPM Calculator', file: 'cpm-calculation', storeKey: 'stackrow:cpm:v1',
     modeNames: { cpm: 'CPM', cost: 'Total Cost', impressions: 'Impressions' },
     example: { mode: 'cpm', values: { cost: '2500', impressions: '400000', clicks: '3200', conversions: '96' } },
     onMode: toggle, onRestore() { toggle(current()); }, onReset() { toggle('cpm'); },
-    compute(c, { money }) {
+    compute(c, { money, viz }) {
       const need = k => c.mode !== { cost: 'cost', impressions: 'impressions', cpm: 'cpm' }[k];
       const cost = need('cost') ? c.number('cost', { required: true, label: 'a campaign cost' }) : null;
       const impressions = need('impressions') ? c.number('impressions', { required: true, whole: true, label: 'impressions' }) : null;
@@ -39,7 +40,11 @@
       if (x.ctr !== null) metrics.push(['Click-through rate', T.formatPercent(x.ctr), 'Clicks ÷ impressions × 100'], ['Effective cost per click', money(x.cpc), 'Cost ÷ clicks']);
       if (x.cpa !== null) metrics.push(['Cost per acquisition', money(x.cpa), 'Cost ÷ conversions']);
       if (x.conversionRate !== null) metrics.push(['Conversion rate', T.formatPercent(x.conversionRate), 'Conversions ÷ clicks × 100']);
+      const funnel = [{ label: 'Impressions', value: fImpr, display: T.formatNumber(fImpr, 0), tone: 'navy' }];
+      if (clicks) funnel.push({ label: 'Clicks', value: clicks, display: `${T.formatNumber(clicks, 0)} (${T.formatPercent(x.ctr)})`, tone: 'blue' });
+      if (conversions) funnel.push({ label: 'Conversions', value: conversions, display: `${T.formatNumber(conversions, 0)}${x.conversionRate !== null ? ` (${T.formatPercent(x.conversionRate)})` : ''}`, tone: 'cyan' });
       return {
+        nodes: funnel.length > 1 ? [viz.bars('Campaign funnel', funnel)] : [],
         metrics,
         lines: [`At a ${money(fCpm)} CPM, every ${money(fCpm)} buys 1,000 impressions. ${x.cpc !== null ? `With ${T.formatPercent(x.ctr)} click-through, that works out to ${money(x.cpc)} per click.` : 'Add clicks to compare this with cost-per-click pricing.'}`],
         inputs: [['Cost', money(fCost)], ['Impressions', T.formatNumber(fImpr, 0)], ['CPM', money(fCpm)], ['Clicks', clicks ? String(clicks) : 'Not entered'], ['Conversions', conversions ? String(conversions) : 'Not entered']],

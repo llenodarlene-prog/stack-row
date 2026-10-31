@@ -5,6 +5,7 @@ description: Calculate selling price from cost and markup, find markup from pric
 slug: /tools/markup-calculator/
 type: page
 template: calculator
+icon: tag
 tool: markup
 order: 1
 category: Business Technology

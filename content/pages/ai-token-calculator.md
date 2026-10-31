@@ -5,6 +5,7 @@ description: Estimate tokens from pasted text or a file and compare API costs ac
 slug: /tools/ai-token-calculator/
 type: page
 template: calculator
+icon: brain
 tool: ai-token
 order: 11
 category: AI

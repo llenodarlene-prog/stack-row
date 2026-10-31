@@ -5,6 +5,7 @@ description: Check whether an A/B test result is statistically significant with 
 slug: /tools/statistical-significance-calculator/
 type: page
 template: calculator
+icon: flask
 tool: statistical-significance
 order: 9
 category: Developer and Data

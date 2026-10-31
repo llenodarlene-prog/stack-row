@@ -6,10 +6,11 @@
   if (!Valuation || !T) return;
   const el = (tag, className, text) => { const node = document.createElement(tag); if (className) node.className = className; if (text !== undefined) node.textContent = text; return node; };
   T.mount({
+    icon: 'building-store',
     name: 'Business Valuation Calculator', file: 'business-valuation', storeKey: 'stackrow:valuation:v1',
     modeNames: { revenue: 'Revenue Multiple', earnings: 'Earnings Multiple', dcf: 'Discounted Cash Flow' },
     example: { mode: 'earnings', values: { basis: 'sde', earnings: '400000', elow: '2.5', ehigh: '3.5' } },
-    compute(c, { money }) {
+    compute(c, { money, viz }) {
       if (c.mode === 'dcf') {
         const cf = c.number('cashflow', { required: true, label: 'free cash flow' });
         const g = c.number('growth', { required: true, negative: true, min: -50, max: 100, label: 'a growth rate' });
@@ -27,7 +28,7 @@
         const thead = el('thead'); thead.append(head); table.append(thead, body);
         return {
           metrics: [['Estimated value (DCF)', money(d.total), 'Present value of forecast cash flows + present value of terminal value', true], ['Forecast cash flows (present value)', money(d.pv), `${years} years discounted at ${r}%`], ['Terminal value (present value)', money(d.terminalPv), `Final cash flow × (1 + ${tg}%) ÷ (${r}% − ${tg}%), discounted`]],
-          nodes: [table],
+          nodes: [viz.stack('Where the value comes from', [{ label: 'Forecast years', value: d.pv, display: money(d.pv), tone: 'blue' }, { label: 'Terminal value', value: d.terminalPv, display: money(d.terminalPv), tone: 'navy' }]), table],
           lines: [`The terminal value makes up ${T.formatNumber(d.terminalShare, 0)}% of the total, so the result is very sensitive to the discount rate and terminal growth you choose.`],
           warning: d.terminalShare > 75 ? 'More than three quarters of the value comes from the terminal value. Small changes in assumptions will move the result a lot.' : '',
           inputs: [['Free cash flow', money(cf)], ['Growth', `${g}%`], ['Discount rate', `${r}%`], ['Years', String(years)], ['Terminal growth', `${tg}%`]],
@@ -43,6 +44,7 @@
       const v = Valuation.multiple(base, low, high);
       const label = rev ? 'revenue' : c.value('basis') === 'sde' ? 'SDE' : 'EBITDA';
       return {
+        nodes: [viz.range('Estimated value range', { low: v.low, high: v.high, max: v.high * 1.25 || 1, lowDisplay: money(v.low), highDisplay: money(v.high) })],
         metrics: [['Estimated value range', `${money(v.low)} to ${money(v.high)}`, `${label} × ${low} to ${label} × ${high}`, true], ['Midpoint', money((v.low + v.high) / 2), 'Average of the low and high values']],
         lines: [rev ? 'Revenue multiples ignore profitability, so two companies with equal revenue can deserve very different values.' : `${label === 'SDE' ? 'SDE (seller’s discretionary earnings) is typical for owner-run small businesses.' : 'EBITDA multiples are typical for larger companies with professional management.'} The multiple you choose drives the result.`],
         inputs: [[rev ? 'Annual revenue' : `Annual ${label}`, money(base)], ['Low multiple', String(low)], ['High multiple', String(high)]],

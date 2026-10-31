@@ -5,6 +5,7 @@ description: Calculate MRR, ARR, net new MRR, revenue growth, churn, GRR and NRR
 slug: /tools/arr-mrr-calculator/
 type: page
 template: calculator
+icon: chart-line
 tool: arr-mrr
 order: 6
 category: SaaS and Startups

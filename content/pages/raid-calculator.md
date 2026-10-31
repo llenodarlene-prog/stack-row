@@ -5,6 +5,7 @@ description: Calculate usable capacity, storage efficiency, fault tolerance, and
 slug: /tools/raid-calculator/
 type: page
 template: calculator
+icon: database
 tool: raid
 order: 3
 category: Cloud and Infrastructure

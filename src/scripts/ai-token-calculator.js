@@ -21,10 +21,11 @@
     reader.readAsText(file);
   });
   T.mount({
+    icon: 'brain',
     name: 'AI Token Counter and Cost Calculator', file: 'ai-token-cost', storeKey: 'stackrow:ai-tokens:v1',
     private: ['text'],
     example: { values: { input: '2000', output: '500', requests: '10000', cached: '0' } },
-    compute(c) {
+    compute(c, { viz }) {
       const input = c.number('input', { required: true, whole: true, max: 10_000_000, label: 'input tokens' });
       const output = c.number('output', { required: true, whole: true, max: 1_000_000, label: 'output tokens' });
       const requests = c.number('requests', { whole: true, fallback: 1, min: 1, max: 1e9 });
@@ -56,7 +57,7 @@
           ['Highest monthly cost', usd(priciest.cost.total * requests), tied(priciest)],
           ['Tokens per request', `${T.formatNumber(input, 0)} in + ${T.formatNumber(output, 0)} out`, text.value ? `Estimated from ${T.formatNumber(est.chars, 0)} characters (about 4 characters per token)` : 'As entered']
         ],
-        nodes: [table, sources],
+        nodes: [viz.bars(`Monthly cost by model (${T.formatNumber(requests, 0)} requests)`, rows.map(({ m, cost }) => ({ label: m.name, value: cost.total * requests, display: usd(cost.total * requests), tone: { Anthropic: 'navy', OpenAI: 'blue', Google: 'cyan' }[m.provider] })), { highlight: 0 }), sources],
         lines: [text.value ? 'Token counts from pasted text are estimates. Each model family uses its own tokenizer, so exact counts differ, especially for code and non-English text.' : 'Enter exact token counts from your provider dashboard for the most accurate cost.'],
         warning: over.length ? `Prompts over 272K tokens are priced differently for ${over.join(', ')}. Those rows use the standard rate; check the provider's page.` : '',
         inputs: [['Input tokens per request', String(input)], ['Output tokens per request', String(output)], ['Requests per month', String(requests)], ['Cached input', `${cached}%`], ['Prices reviewed', P.REVIEWED]],

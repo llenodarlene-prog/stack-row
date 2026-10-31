@@ -5,6 +5,7 @@ description: Calculate download or upload time from file size and connection spe
 slug: /tools/download-time-calculator/
 type: page
 template: calculator
+icon: cloud-download
 tool: download-time
 order: 4
 category: Cloud and Infrastructure

@@ -6,9 +6,10 @@
   if (!Significance || !T) return;
   const pct = v => T.formatPercent(v, 2);
   T.mount({
+    icon: 'flask',
     name: 'Statistical Significance Calculator', file: 'ab-test-significance', storeKey: 'stackrow:ab-test:v1',
     example: { values: { va: '10000', ca: '500', vb: '10000', cb: '580', confidence: '95', sides: '2' } },
-    compute(c) {
+    compute(c, { viz }) {
       const va = c.number('va', { required: true, whole: true, min: 1, label: 'visitors for A' });
       const ca = c.number('ca', { required: true, whole: true, label: 'conversions for A' });
       const vb = c.number('vb', { required: true, whole: true, min: 1, label: 'visitors for B' });
@@ -26,8 +27,10 @@
         `The ${confidence}% confidence interval for the difference is ${pct(r.ciLow)} to ${pct(r.ciHigh)} percentage points.${r.ciLow < 0 && r.ciHigh > 0 ? ' It includes zero.' : ''}`];
       if (sides === 1 && r.diff < 0) lines.push('A one-sided test only looks for B being better. B performed worse here.');
       return {
+        nodes: [viz.bars('Conversion rate by version', [{ label: 'A (control)', value: r.rateA, display: pct(r.rateA), tone: 'navy' }, { label: 'B (variant)', value: r.rateB, display: pct(r.rateB), tone: r.significant ? (r.diff > 0 ? 'green' : 'red') : 'blue' }]),
+          viz.gauge('Evidence: p-value against the significance threshold', { value: Math.min(r.p, 0.2), max: 0.2, display: `p = ${r.p < 0.0001 ? '< 0.0001' : r.p.toFixed(4)}`, marker: 1 - confidence / 100, markerLabel: `α ${(1 - confidence / 100).toFixed(2)}`, good: r.significant })],
         metrics: [
-          ['Result', verdict, `p-value ${r.p < 0.0001 ? '< 0.0001' : r.p.toFixed(4)} vs α ${(1 - confidence / 100).toFixed(2)} (${sides === 2 ? 'two-sided' : 'one-sided'})`, true],
+          ['Result', verdict, `p-value ${r.p < 0.0001 ? '< 0.0001' : r.p.toFixed(4)} vs α ${(1 - confidence / 100).toFixed(2)} (${sides === 2 ? 'two-sided' : 'one-sided'})`, true, r.significant ? 'circle-check' : 'alert-triangle'],
           ['Conversion rate A', pct(r.rateA), 'Conversions ÷ visitors'],
           ['Conversion rate B', pct(r.rateB), 'Conversions ÷ visitors'],
           ['Relative uplift', r.uplift === null ? 'Not available' : `${r.uplift >= 0 ? '+' : ''}${T.formatNumber(r.uplift, 2)}%`, '(rate B − rate A) ÷ rate A'],

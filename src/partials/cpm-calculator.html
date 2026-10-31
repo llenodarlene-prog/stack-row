@@ -1,7 +1,7 @@
 <div class="calc-tabs" role="tablist" aria-label="Calculate">
-  <button type="button" role="tab" id="tab-cpm" aria-controls="panel-cpm" aria-selected="true" data-mode="cpm">CPM</button>
-  <button type="button" role="tab" id="tab-cost" aria-controls="panel-cost" aria-selected="false" tabindex="-1" data-mode="cost">Total Cost</button>
-  <button type="button" role="tab" id="tab-impressions" aria-controls="panel-impressions" aria-selected="false" tabindex="-1" data-mode="impressions">Impressions</button>
+  <button type="button" role="tab" id="tab-cpm" aria-controls="panel-cpm" aria-selected="true" data-mode="cpm">{{icon:eye}}CPM</button>
+  <button type="button" role="tab" id="tab-cost" aria-controls="panel-cost" aria-selected="false" tabindex="-1" data-mode="cost">{{icon:currency-dollar}}Total Cost</button>
+  <button type="button" role="tab" id="tab-impressions" aria-controls="panel-impressions" aria-selected="false" tabindex="-1" data-mode="impressions">{{icon:users}}Impressions</button>
 </div>
 <form class="calc-form" novalidate>
   <div class="calc-field calc-currency"><label for="calc-currency">Currency</label><select id="calc-currency" name="currency" aria-describedby="calc-currency-note"><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="CAD">CAD</option><option value="AUD">AUD</option></select><p id="calc-currency-note" class="calc-hint">Changes the displayed symbol only. It does not convert currencies.</p></div>
