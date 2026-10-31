@@ -16,6 +16,7 @@
   $('dt-preset').addEventListener('change', () => toggle());
 
   T.mount({
+    icon: 'cloud-download',
     name: 'Download Time Calculator',
     file: 'download-time-calculation',
     storeKey: 'stackrow:download-time:v1',
@@ -24,7 +25,7 @@
     onMode: toggle,
     onRestore() { toggle(document.querySelector('.calc-tabs [aria-selected="true"]').dataset.mode); },
     onReset() { window.setTimeout(() => toggle('time'), 0); },
-    compute(c) {
+    compute(c, { viz }) {
       const preset = c.value('preset');
       const overhead = preset === 'custom' ? c.number('overhead', { required: true, label: 'an overhead percentage', max: 95 }) : Number(preset);
       const needSize = c.mode !== 'data';
@@ -47,11 +48,12 @@
       if (needTime) inputs.push(['Time available', `${T.formatNumber(time, 3)} ${c.value('tunit')}`]);
       inputs.push(['Overhead assumption', `${overhead}%`]);
       const effective = `Effective speed = speed × (1 - ${overhead}% overhead)`;
-      let metrics; let outputs;
+      let metrics; let outputs; let visual = null;
       if (c.mode === 'time') {
         const t = Transfer.time(bytes, bps, overhead);
         const ideal = Transfer.time(bytes, bps, 0);
         metrics = [[`Estimated ${direction} time`, Transfer.duration(t), `Time = size in bits ÷ effective speed · ${effective}`, true], ['Ideal time at full line rate', Transfer.duration(ideal), 'No protocol, signal, or congestion overhead'], ['Total data', Transfer.bytes(bytes), `${T.formatNumber(bytes * 8, 0)} bits`], ['Effective speed', Transfer.rate(bps * Transfer.efficiency(overhead))]];
+        visual = viz.bars('Transfer time', [{ label: 'At full line rate', value: ideal, display: Transfer.duration(ideal), tone: 'cyan' }, { label: `With ${overhead}% overhead`, value: t, display: Transfer.duration(t), tone: 'navy' }]);
         outputs = [['Estimated time', Transfer.duration(t)], ['Estimated seconds', T.formatNumber(t, 1)], ['Ideal time', Transfer.duration(ideal)], ['Total data', Transfer.bytes(bytes)]];
       } else if (c.mode === 'speed') {
         const need = Transfer.speed(bytes, seconds, overhead);
@@ -63,6 +65,7 @@
         outputs = [['Data transferable', Transfer.bytes(moved)], ['Bytes', T.formatNumber(moved, 0)]];
       }
       return {
+        nodes: visual ? [visual] : [],
         metrics, inputs, outputs,
         lines: ['Speeds are sold in bits per second and file sizes are shown in bytes, so the calculator multiplies bytes by 8. Real transfers also depend on the server, disk speed, and other traffic.']
       };

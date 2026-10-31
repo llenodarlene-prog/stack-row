@@ -202,5 +202,96 @@
     }
   };
 
-  root.StackRowFormulas = { Markup, Base, Raid, Transfer, Roi };
+
+  // Advertising cost per thousand impressions.
+  const Cpm = {
+    cpm: (cost, impressions) => (impressions > 0 ? (cost / impressions) * 1000 : null),
+    cost: (cpm, impressions) => (cpm * impressions) / 1000,
+    impressions: (cost, cpm) => (cpm > 0 ? (cost / cpm) * 1000 : null),
+    extras(cost, impressions, clicks, conversions) {
+      return {
+        ctr: impressions > 0 && clicks ? (clicks / impressions) * 100 : null,
+        cpc: clicks ? cost / clicks : null,
+        cpa: conversions ? cost / conversions : null,
+        conversionRate: clicks && conversions ? (conversions / clicks) * 100 : null
+      };
+    }
+  };
+
+  // Return on ad spend. Break-even ROAS is 1 / gross margin.
+  const Roas = {
+    calculate({ revenue, spend, margin = null }) {
+      const roas = spend > 0 ? revenue / spend : null;
+      const breakEven = margin && margin > 0 ? 100 / margin : null;
+      const grossProfit = margin !== null ? revenue * (margin / 100) : null;
+      return { roas, roasPct: roas === null ? null : roas * 100, breakEven, profitAfterAds: grossProfit === null ? null : grossProfit - spend, aboveBreakEven: breakEven === null || roas === null ? null : roas >= breakEven };
+    },
+    targetRevenue: (spend, target) => spend * target,
+    maxSpend: (revenue, target) => (target > 0 ? revenue / target : null)
+  };
+
+  // Two-proportion z-test for A/B tests.
+  function normalCdf(x) {
+    // Abramowitz and Stegun 7.1.26 approximation of erf; absolute error below 1.5e-7.
+    const t = 1 / (1 + 0.3275911 * Math.abs(x) / Math.SQRT2);
+    const y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-(x * x) / 2);
+    return x >= 0 ? (1 + y) / 2 : (1 - y) / 2;
+  }
+  const Z = { 90: 1.6448536, 95: 1.959964, 99: 2.5758293 };
+  const Significance = {
+    normalCdf,
+    test({ visitorsA, conversionsA, visitorsB, conversionsB, confidence = 95, sides = 2 }) {
+      const pA = conversionsA / visitorsA;
+      const pB = conversionsB / visitorsB;
+      const pooled = (conversionsA + conversionsB) / (visitorsA + visitorsB);
+      const sePooled = Math.sqrt(pooled * (1 - pooled) * (1 / visitorsA + 1 / visitorsB));
+      const z = sePooled > 0 ? (pB - pA) / sePooled : 0;
+      const p = sides === 2 ? 2 * (1 - normalCdf(Math.abs(z))) : 1 - normalCdf(z);
+      const seDiff = Math.sqrt((pA * (1 - pA)) / visitorsA + (pB * (1 - pB)) / visitorsB);
+      const zc = sides === 2 ? Z[confidence] : { 90: 1.2815516, 95: 1.6448536, 99: 2.3263479 }[confidence];
+      const diff = pB - pA;
+      const smallCells = [conversionsA, visitorsA - conversionsA, conversionsB, visitorsB - conversionsB].some(n => n < 5);
+      return { rateA: pA * 100, rateB: pB * 100, uplift: pA > 0 ? (diff / pA) * 100 : null, diff: diff * 100, z, p, significant: p < 1 - confidence / 100, ciLow: (diff - Z[confidence] * seDiff) * 100, ciHigh: (diff + Z[confidence] * seDiff) * 100, smallCells, criticalZ: zc };
+    }
+  };
+
+  // Simplified business valuation methods, each giving a range.
+  const Valuation = {
+    multiple: (base, low, high) => ({ low: base * low, high: base * high }),
+    dcf({ cashFlow, growth, discount, years, terminalGrowth }) {
+      const r = discount / 100, g = growth / 100, tg = terminalGrowth / 100;
+      if (r <= tg) return { error: 'The discount rate must be higher than the terminal growth rate.' };
+      let pv = 0, cf = cashFlow;
+      const rows = [];
+      for (let y = 1; y <= years; y++) {
+        cf *= 1 + g;
+        const value = cf / (1 + r) ** y;
+        pv += value;
+        rows.push({ year: y, cashFlow: cf, presentValue: value });
+      }
+      const terminal = (cf * (1 + tg)) / (r - tg);
+      const terminalPv = terminal / (1 + r) ** years;
+      return { pv, terminal, terminalPv, total: pv + terminalPv, rows, terminalShare: (terminalPv / (pv + terminalPv)) * 100 };
+    }
+  };
+
+  // Token estimates and model cost. Providers publish about 4 characters per
+  // token for English text; exact counts depend on each model's tokenizer.
+  const Tokens = {
+    estimate(text) {
+      const chars = [...String(text || '')].length;
+      const words = (String(text || '').trim().match(/\S+/g) || []).length;
+      return { chars, words, tokens: Math.ceil(chars / 4) };
+    },
+    cost(model, inputTokens, outputTokens, cachedShare = 0) {
+      const tier = model.longOver && inputTokens > model.longOver ? model.long : model;
+      const cached = inputTokens * (cachedShare / 100);
+      const fresh = inputTokens - cached;
+      const input = (fresh * tier.input + cached * tier.cached) / 1e6;
+      const output = (outputTokens * tier.output) / 1e6;
+      return { input, output, total: input + output, tier: tier === model ? 'standard' : 'long prompt', overShort: Boolean(model.maxShort && inputTokens > model.maxShort) };
+    }
+  };
+
+  root.StackRowFormulas = { Markup, Base, Raid, Transfer, Roi, Cpm, Roas, Significance, Valuation, Tokens };
 })(typeof window !== 'undefined' ? window : globalThis);

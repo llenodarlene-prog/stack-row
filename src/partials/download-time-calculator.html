@@ -1,7 +1,7 @@
 <div class="calc-tabs" role="tablist" aria-label="Calculate">
-  <button type="button" role="tab" id="tab-time" aria-controls="panel-time" aria-selected="true" data-mode="time">Transfer Time</button>
-  <button type="button" role="tab" id="tab-speed" aria-controls="panel-speed" aria-selected="false" tabindex="-1" data-mode="speed">Required Speed</button>
-  <button type="button" role="tab" id="tab-data" aria-controls="panel-data" aria-selected="false" tabindex="-1" data-mode="data">Data Moved</button>
+  <button type="button" role="tab" id="tab-time" aria-controls="panel-time" aria-selected="true" data-mode="time">{{icon:clock}}Transfer Time</button>
+  <button type="button" role="tab" id="tab-speed" aria-controls="panel-speed" aria-selected="false" tabindex="-1" data-mode="speed">{{icon:gauge}}Required Speed</button>
+  <button type="button" role="tab" id="tab-data" aria-controls="panel-data" aria-selected="false" tabindex="-1" data-mode="data">{{icon:database}}Data Moved</button>
 </div>
 <form class="calc-form" novalidate>
   <div class="calc-field calc-radios" role="radiogroup" aria-label="Direction">
@@ -27,6 +27,6 @@
   <div role="tabpanel" id="panel-data" aria-labelledby="tab-data" class="calc-panel" hidden></div>
   <div class="calc-grid">
     <div class="calc-field"><label for="dt-preset">Overhead assumption</label><select id="dt-preset" name="preset"><option value="0">Ideal (0%)</option><option value="10" selected>Wired connection (10%)</option><option value="25">Wi-Fi (25%)</option><option value="20">VPN (20%)</option><option value="15">Cloud upload (15%)</option><option value="custom">Custom</option></select></div>
-    <div class="calc-field" data-hidden-by="custom" id="dt-custom-field"><label for="dt-overhead">Custom overhead percentage</label><input id="dt-overhead" name="overhead" inputmode="decimal" autocomplete="off"></div>
+    <div class="calc-field" data-hidden-by="custom" id="dt-custom-field"><label for="dt-overhead">Custom overhead percentage</label><input id="dt-overhead" name="overhead" data-slider="0,90,1" inputmode="decimal" autocomplete="off"></div>
   </div>
   <p class="calc-hint">Overhead presets are Stack Row planning assumptions, not measurements. Edit them to match a speed test of your own connection.</p>

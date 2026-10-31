@@ -42,13 +42,14 @@
   }
 
   T.mount({
+    icon: 'database',
     name: 'RAID Calculator',
     file: 'raid-calculation',
     storeKey: 'stackrow:raid:v1',
     example: { values: { level: '6', disks: '8', size: '12', spares: '1', largest: '' } },
     onRestore: toggle,
     onReset() { window.setTimeout(toggle, 0); },
-    compute(c) {
+    compute(c, { viz }) {
       const level = c.value('level');
       const disks = c.number('disks', { required: true, whole: true, min: 1, max: 256, label: 'the number of disks' });
       const size = c.number('size', { required: true, label: 'a disk capacity', max: 1000 });
@@ -75,7 +76,7 @@
           ['Fault tolerance', tolerance],
           ['Theoretical read and write', `${r.readFactor}× read, write penalty ${r.writePenalty}`, 'Read speed relative to one disk; disk operations per random write']
         ],
-        nodes: [layout(level, r, disks, spares, groups)],
+        nodes: [viz.stack('How raw capacity is used', [{ label: 'Usable', value: r.usable, display: tb(r.usable), tone: 'green' }, { label: 'Parity or mirrors', value: r.redundancy, display: tb(r.redundancy), tone: 'navy' }, ...(r.spareCapacity ? [{ label: 'Hot spares', value: r.spareCapacity, display: tb(r.spareCapacity), tone: 'muted' }] : [])]), layout(level, r, disks, spares, groups)],
         lines, warning,
         inputs: [['RAID level', levelName(level)], ['Disks', String(disks)], ['Capacity per disk', tb(size)], ['Hot spares', String(spares)], ...(['50', '60'].includes(level) ? [['Groups', String(groups)]] : [])],
         outputs: [['Usable capacity', tb(r.usable)], ['Usable capacity (binary)', tib(r.usable)], ['Raw capacity', tb(r.raw)], ['Storage efficiency', T.formatPercent(r.efficiency, 1)], ['Fault tolerance', tolerance], ['Read multiplier', `${r.readFactor}x`], ['Write penalty', String(r.writePenalty)]]

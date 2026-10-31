@@ -5,9 +5,10 @@ description: Calculate selling price from cost and markup, find markup from pric
 slug: /tools/markup-calculator/
 type: page
 template: calculator
+icon: tag
 tool: markup
 order: 1
-category: Pricing
+category: Business Technology
 card: Find a selling price from cost and markup, or convert between markup and gross margin.
 reviewed: 2026-10-28
 primary_keyword: markup calculator

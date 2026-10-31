@@ -28,6 +28,94 @@
   // Spreadsheet apps run cells that start with these characters as formulas.
   const csvCell = value => { let text = String(value ?? ''); if (/^[=+\-@]/.test(text)) text = `'${text}`; return `"${text.replaceAll('"', '""')}"`; };
   const el = (tag, className, text) => { const node = document.createElement(tag); if (className) node.className = className; if (text !== undefined) node.textContent = text; return node; };
+  const SVG = 'http://www.w3.org/2000/svg';
+  // A Tabler icon from the page's inline sprite (decorative, hidden from screen readers).
+  function icon(name, className = '') {
+    const svg = document.createElementNS(SVG, 'svg');
+    svg.setAttribute('class', `ti${className ? ` ${className}` : ''}`);
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    const use = document.createElementNS(SVG, 'use');
+    use.setAttribute('href', `#ti-${name}`);
+    svg.append(use);
+    return svg;
+  }
+
+  // Small charts built from DOM elements. Every chart also states its values in
+  // text, so nothing depends on seeing the shapes.
+  const viz = {
+    // Horizontal bars: [{ label, value, display, tone }]
+    bars(title, items, { highlight } = {}) {
+      const max = Math.max(...items.map(i => Math.abs(i.value)), 1e-12);
+      const figure = el('figure', 'viz viz-bars');
+      figure.append(el('figcaption', 'viz-title', title));
+      const list = el('ul');
+      items.forEach((item, index) => {
+        const li = el('li', `viz-bar${item.tone ? ` viz-${item.tone}` : ''}${highlight === index ? ' viz-highlight' : ''}`);
+        const track = el('span', 'viz-track');
+        const fill = el('span', 'viz-fill');
+        fill.style.setProperty('--w', `${Math.max(1.5, (Math.abs(item.value) / max) * 100)}%`);
+        track.append(fill);
+        li.append(el('span', 'viz-label', item.label), track, el('span', 'viz-value', item.display));
+        list.append(li);
+      });
+      figure.append(list);
+      return figure;
+    },
+    // One bar split into parts: [{ label, value, display, tone }]
+    stack(title, parts) {
+      const total = parts.reduce((sum, p) => sum + Math.max(0, p.value), 0) || 1;
+      const figure = el('figure', 'viz viz-stack');
+      figure.append(el('figcaption', 'viz-title', title));
+      const bar = el('div', 'viz-stackbar');
+      const legend = el('ul', 'viz-legend');
+      for (const part of parts) {
+        const seg = el('span', `viz-seg viz-${part.tone || 'blue'}`);
+        seg.style.setProperty('--w', `${(Math.max(0, part.value) / total) * 100}%`);
+        bar.append(seg);
+        const item = el('li', `viz-${part.tone || 'blue'}`);
+        item.append(el('span', 'viz-dot'), el('span', '', `${part.label}: ${part.display}`));
+        legend.append(item);
+      }
+      figure.append(bar, legend);
+      return figure;
+    },
+    // A scale with the result marked and an optional reference marker.
+    gauge(title, { value, min = 0, max, display, marker, markerLabel, good }) {
+      const clamp = v => Math.min(100, Math.max(0, ((v - min) / (max - min)) * 100));
+      const figure = el('figure', `viz viz-gauge${good === true ? ' viz-good' : good === false ? ' viz-bad' : ''}`);
+      figure.append(el('figcaption', 'viz-title', title));
+      const scale = el('div', 'viz-scale');
+      const fill = el('span', 'viz-scale-fill');
+      fill.style.setProperty('--w', `${clamp(value)}%`);
+      scale.append(fill);
+      if (marker !== undefined && marker !== null) {
+        const m = el('span', 'viz-marker');
+        m.style.setProperty('--x', `${clamp(marker)}%`);
+        m.append(el('span', 'viz-marker-label', markerLabel));
+        scale.append(m);
+      }
+      const pin = el('span', 'viz-pin', display);
+      pin.style.setProperty('--x', `${clamp(value)}%`);
+      scale.append(pin);
+      figure.append(scale);
+      return figure;
+    },
+    // A low-to-high range on a scale.
+    range(title, { low, high, max, lowDisplay, highDisplay }) {
+      const figure = el('figure', 'viz viz-range');
+      figure.append(el('figcaption', 'viz-title', title));
+      const scale = el('div', 'viz-scale');
+      const band = el('span', 'viz-band');
+      band.style.setProperty('--x', `${(low / max) * 100}%`);
+      band.style.setProperty('--w', `${Math.max(1, ((high - low) / max) * 100)}%`);
+      scale.append(band);
+      const labels = el('div', 'viz-range-labels');
+      labels.append(el('span', '', lowDisplay), el('span', '', highDisplay));
+      figure.append(scale, labels);
+      return figure;
+    }
+  };
 
   function mount(tool) {
     const host = document.getElementById('calculator');
@@ -93,7 +181,7 @@
 
     // The context handed to compute(): readers that validate and remember
     // which fields failed.
-    function context(invalid) {
+    function context(invalid, quiet = false) {
       return {
         mode,
         value: name => form.elements[name]?.value ?? '',
@@ -102,7 +190,11 @@
           const input = form.elements[name];
           const parsed = parseNumber(input.value, options);
           let message = parsed.error || '';
-          if (parsed.empty && required) message = `Enter ${label}.`;
+          if (parsed.empty && required) {
+            // While typing, an empty required field just means "not finished yet".
+            if (quiet) { setError(input, ''); invalid.push(input); return NaN; }
+            message = `Enter ${label}.`;
+          }
           if (!message && !parsed.empty && min !== undefined && parsed.value < min) message = `Use ${min} or more.`;
           if (!message && !parsed.empty && max !== undefined && parsed.value > max) message = `Use ${max} or less.`;
           setError(input, message);
@@ -114,13 +206,18 @@
       };
     }
 
-    function metric([label, value, formula, primary]) {
+    function metric([label, value, formula, primary, iconName]) {
       const box = el('div', primary ? 'calc-metric calc-metric-primary' : 'calc-metric');
-      box.append(el('p', 'calc-metric-label', label), el('p', 'calc-metric-value', value));
+      const name = iconName || (primary ? tool.icon : null);
+      const head = el('p', 'calc-metric-label');
+      if (name) head.append(icon(name));
+      head.append(document.createTextNode(label));
+      box.append(head, el('p', 'calc-metric-value', value));
       if (formula) box.append(el('p', 'calc-metric-formula', formula));
       return box;
     }
 
+    let sliderSyncs = [];
     function show(result) {
       output.replaceChildren();
       const summary = el('div', 'calc-print-only');
@@ -138,6 +235,7 @@
       warning.hidden = !result.warning;
       actions.hidden = false;
       output.classList.remove('calc-updated'); void output.offsetWidth; output.classList.add('calc-updated');
+      sliderSyncs.forEach(sync => sync());
     }
 
     function params() {
@@ -152,9 +250,9 @@
       return query;
     }
 
-    function calculate({ explicit = true, save = true } = {}) {
+    function calculate({ explicit = true, save = true, quiet = false } = {}) {
       const invalid = [];
-      const result = tool.compute(context(invalid), { money: value => formatMoney(value, form.elements.currency?.value), copyButton });
+      const result = tool.compute(context(invalid, quiet), { money: value => formatMoney(value, form.elements.currency?.value), copyButton, viz, icon });
       if (invalid.length || !result) {
         if (explicit && invalid.length) { invalid[0].focus(); announce('Some fields need attention.'); }
         return null;
@@ -217,7 +315,29 @@
     const pageUrl = () => `${window.location.origin}${window.location.pathname}`;
 
     form.addEventListener('submit', event => { event.preventDefault(); calculate(); });
-    if (tool.live) form.addEventListener('input', () => calculate({ explicit: false, save: false }));
+    // Results update as you type; Calculate also saves the calculation and
+    // moves to the results on small screens.
+    let liveTimer;
+    const live = () => { window.clearTimeout(liveTimer); liveTimer = window.setTimeout(() => calculate({ explicit: false, save: false, quiet: true }), tool.live ? 0 : 200); };
+    form.addEventListener('input', live);
+    form.addEventListener('change', live);
+    tabs.forEach(tab => tab.addEventListener('click', live));
+
+    // Sliders: an input with data-slider="min,max,step" gets a linked range
+    // control. The slider has no name, so only the typed field is submitted.
+    for (const input of form.querySelectorAll('input[data-slider]')) {
+      const [min, max, step] = input.dataset.slider.split(',');
+      const slider = el('input', 'calc-slider');
+      Object.assign(slider, { type: 'range', min, max, step });
+      slider.setAttribute('aria-label', `${input.labels?.[0]?.textContent || input.name} slider`);
+      const sync = () => { const v = parseNumber(input.value); slider.value = v.value !== undefined ? String(v.value) : min; };
+      slider.addEventListener('input', () => { input.value = slider.value; input.dispatchEvent(new Event('input', { bubbles: true })); });
+      input.addEventListener('input', sync);
+      form.addEventListener('reset', () => window.setTimeout(sync, 0));
+      input.insertAdjacentElement('afterend', slider);
+      sliderSyncs.push(sync);
+      sync();
+    }
     form.elements.currency?.addEventListener('change', () => { if (last) calculate({ explicit: false }); });
     $('calc-example')?.addEventListener('click', event => {
       clearAll();
@@ -264,5 +384,5 @@
     else tool.onRestore?.();
   }
 
-  root.StackRowTool = { mount, parseNumber, formatMoney, formatNumber, formatPercent, csvCell };
+  root.StackRowTool = { mount, parseNumber, formatMoney, formatNumber, formatPercent, csvCell, viz, icon };
 })(typeof window !== 'undefined' ? window : globalThis);
