@@ -43,7 +43,8 @@ function inline(value) {
 const cells = line => line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(cell => cell.trim());
 
 // Supports h1 to h3 (with an optional {#id}), paragraphs, lists, pipe tables,
-// and ::: name containers. Raw HTML is always escaped.
+// ::: name containers, and screenshot figures written on their own line as
+// ![alt text](/assets/screenshots/file.webp "Caption"). Raw HTML is always escaped.
 export function markdownToHtml(markdown) {
   const lines = markdown.replace(/\r/g, '').split('\n');
   const output = [];
@@ -78,6 +79,12 @@ export function markdownToHtml(markdown) {
     if (line.trim() === ':::' && containers) { flush(); output.push('</div>'); containers--; continue; }
     if (line.trim().startsWith('|')) { flushParagraph(); closeList(); table.push(cells(line)); continue; }
     flushTable();
+    const figure = line.trim().match(/^!\[([^\]]+)\]\((\/assets\/screenshots\/[\w./-]+)(?:\s+"([^"]+)")?\)$/);
+    if (figure) {
+      flushParagraph(); closeList();
+      output.push(`<figure class="screenshot"><img src="${escapeHtml(figure[2])}" alt="${escapeHtml(figure[1])}" loading="lazy" decoding="async">${figure[3] ? `<figcaption>${inline(figure[3])}</figcaption>` : ''}</figure>`);
+      continue;
+    }
     const heading = line.match(/^(#{1,3})\s+(.+?)(?:\s+\{#([a-z][\w-]*)\})?$/);
     if (heading) {
       flushParagraph(); closeList();

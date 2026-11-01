@@ -27,7 +27,7 @@ Our AI coverage connects market findings with access, governance, commercial ter
 
 ## Research and Practical Analysis
 
-Start with the broader evidence, then examine the requirements of a defined use case.
+Start with the broader evidence, then examine the requirements of a defined use case. For quick definitions, see our [artificial intelligence questions](/questions/artificial-intelligence/), from tokens to AI governance.
 
 ::: cards
 ### [AI Statistics on Investment and Production Use](/ai/ai-statistics-investment-production-use/)

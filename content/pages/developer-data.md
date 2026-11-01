@@ -27,7 +27,7 @@ This category brings together APIs, developer tooling, data platforms, and low-c
 
 ## Related Reading From Across Stack Row {#related}
 
-While this category’s dedicated coverage develops, these completed pieces address closely connected data and platform questions.
+While this category’s dedicated coverage develops, these completed pieces address closely connected data and platform questions. For short answers on SQL, data lakes, and API gateways, see our [developer and data questions](/questions/developer-data/).
 
 ::: cards
 ### [Snowflake AI and Compute Costs](/ai/snowflake-ai-compute-costs/)
