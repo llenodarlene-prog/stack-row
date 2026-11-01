@@ -81,6 +81,37 @@ for (const [slug, { item, links }] of bodies) {
   if (inbound < 2) fail(`${item.id}: only ${inbound} contextual body link(s) from other posts; at least 2 required`);
 }
 
+// Tool screenshots (docs/EDITORIAL-QA-SOP.md section 11a). Every screenshot
+// must be a registered asset with its tool, source, capture month and, for
+// vendor images, a credit. A post that lists featured_tools in its front
+// matter needs a captioned screenshot of each one.
+const assetByPath = new Map(assets.map(asset => [asset.path, asset]));
+const screenshotSources = new Set(['own-capture', 'vendor-press-kit']);
+for (const asset of assets.filter(asset => asset.path.startsWith('/assets/screenshots/'))) {
+  if (!asset.tool) fail(`${asset.path}: screenshot asset needs a tool name`);
+  if (!screenshotSources.has(asset.source)) fail(`${asset.path}: screenshot source must be own-capture or vendor-press-kit`);
+  if (!/^\d{4}-\d{2}$/.test(asset.captured || '')) fail(`${asset.path}: screenshot needs a captured month (YYYY-MM)`);
+  if (asset.source === 'vendor-press-kit' && !asset.credit) fail(`${asset.path}: vendor images need a credit line`);
+  if (/screenshot|image of|picture of/i.test(asset.alt)) fail(`${asset.path}: alt text should describe what is shown, not say "screenshot"`);
+}
+for (const dir of ['content/posts', 'content/pages']) {
+  for (const name of (await readdir(dir)).filter(file => file.endsWith('.md'))) {
+    const file = `${dir}/${name}`;
+    const { metadata, body } = await readContent(file);
+    const shots = [...body.matchAll(/^!\[([^\]]+)\]\((\/assets\/screenshots\/[\w./-]+)(?:\s+"([^"]+)")?\)\s*$/gm)];
+    for (const [, , src, caption] of shots) {
+      if (!assetByPath.has(src)) fail(`${file}: screenshot ${src} is not registered in data/assets.json`);
+      if (!caption || !/captured \w+ \d{4}/i.test(caption)) fail(`${file}: screenshot ${src} needs a caption with "captured Month YYYY"`);
+    }
+    const featured = Array.isArray(metadata.featured_tools) ? metadata.featured_tools : [];
+    if (featured.length && metadata.draft !== true) {
+      const shown = new Set(shots.map(([, , src]) => assetByPath.get(src)?.tool?.toLowerCase()).filter(Boolean));
+      const missing = featured.filter(tool => !shown.has(String(tool).toLowerCase()));
+      if (missing.length) fail(`${file}: featured tools need a screenshot: ${missing.join(', ')}`);
+    }
+  }
+}
+
 // A page marked complete is cleared for production, so it cannot be a draft or
 // still carry editor instructions.
 const placeholder = /\[(?:insert|add|confirm|identify|describe|where)\b|will be added before launch/i;

@@ -706,7 +706,12 @@ for (const item of visible) {
 </html>`;
   const target = item.slug === '/' ? path.join(dist, 'index.html') : path.join(dist, cleanSlug(item.slug), 'index.html');
   await mkdir(path.dirname(target), { recursive: true });
-  await writeFile(target, html);
+  // Screenshot figures get their registered dimensions so the page doesn't shift as they load.
+  const sized = html.replace(/<img src="(\/assets\/screenshots\/[^"]+)"/g, (match, src) => {
+    const asset = assetByPath.get(src);
+    return asset ? `${match} width="${asset.width}" height="${asset.height}"` : match;
+  });
+  await writeFile(target, sized);
   pageRecords.push({ slug: item.slug, source: item.source, draft, scheduled: item.scheduled === true, published: item.published || null, type: item.type, url });
 }
 

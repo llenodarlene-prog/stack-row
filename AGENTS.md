@@ -18,7 +18,7 @@ Run every check in `docs/EDITORIAL-QA-SOP.md` (direct answers, title promise, ev
 Every blog the content owner hands over gets one more independent pass from the AI assistant before scheduling, even when the owner has already researched, fact-checked, and QA'd it. The owner's sign-off does not replace this layer.
 
 1. Fact-check: verify every statistic, price, date, quote, ranking, and named source against a current primary source. Correct, reword, or remove anything that cannot be verified, and never substitute an unverified figure.
-2. QA: check the keyword in the title, intro, and one H2; no intro text under Key Takeaways or FAQs; AI kill list; no em dashes; internal links per the silo rule; working external links; image and alt text.
+2. QA: check the keyword in the title, intro, and one H2; no intro text under Key Takeaways or FAQs; AI kill list; no em dashes; internal links per the silo rule; working external links; image and alt text; and a captioned screenshot of every tool or app the piece lists or highlights (SOP section 11a, enforced through `featured_tools`).
 3. Report: list every change and every removed claim to the owner before scheduling. The owner gives final approval; the assistant never records approval on the owner's behalf.
 
 ## Repository rules
