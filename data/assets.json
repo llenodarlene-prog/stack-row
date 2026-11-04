@@ -683,7 +683,7 @@
     "path": "/assets/screenshots/1password-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "1Password homepage headed \"Secure access for every human and AI agent\" with Talk to sales and View plans buttons above an admin console preview",
+    "alt": "1Password homepage headed \"Secure access for every human and AI agent\" above an admin console preview",
     "tool": "1Password",
     "source": "own-capture",
     "captured": "2026-11"
@@ -773,7 +773,7 @@
     "path": "/assets/screenshots/bitwarden-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Bitwarden homepage headed \"Secure every login for people, agents, and machines\" with Get Started Free and Talk to Sales buttons above vault previews",
+    "alt": "Bitwarden homepage headed \"Secure every login for people, agents, and machines\" above vault previews",
     "tool": "Bitwarden",
     "source": "own-capture",
     "captured": "2026-11"
@@ -800,7 +800,7 @@
     "path": "/assets/screenshots/celoxis-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Celoxis homepage headed \"Bring all your projects, resources, budgets, and risks into one execution platform\" above a manager dashboard",
+    "alt": "Celoxis homepage pitching one platform for projects, resources, budgets and risks, above a manager dashboard",
     "tool": "Celoxis",
     "source": "own-capture",
     "captured": "2026-11"
@@ -836,7 +836,7 @@
     "path": "/assets/screenshots/copy-ai-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Copy.ai homepage headed \"The First AI-Native GTM Platform\" with a pipeline of content, campaign and deal steps and a demo request box",
+    "alt": "Copy.ai homepage headed \"The First AI-Native GTM Platform\" with content, pipeline and campaign steps",
     "tool": "Copy.ai",
     "source": "own-capture",
     "captured": "2026-11"
@@ -845,7 +845,7 @@
     "path": "/assets/screenshots/crowdstrike-falcon-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "CrowdStrike Falcon platform page headed \"One unified platform to secure the agentic enterprise\" above a ring diagram of its security services",
+    "alt": "CrowdStrike Falcon platform page above a ring diagram of its security services",
     "tool": "CrowdStrike Falcon",
     "source": "own-capture",
     "captured": "2026-11"
@@ -863,7 +863,7 @@
     "path": "/assets/screenshots/datadog-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Datadog homepage headed \"AI-Powered Observability and Security\" with Free Trial and See the Platform buttons above dashboard panels",
+    "alt": "Datadog homepage headed \"AI-Powered Observability and Security\" above monitoring dashboard panels",
     "tool": "Datadog",
     "source": "own-capture",
     "captured": "2026-11"
@@ -872,7 +872,7 @@
     "path": "/assets/screenshots/datagrip-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "JetBrains DataGrip page headed \"Many databases, one tool for you and your agents\" above the Database Explorer listing MySQL, DuckDB and Oracle",
+    "alt": "JetBrains DataGrip page headed \"Many databases, one tool\" above the Database Explorer data source list",
     "tool": "JetBrains DataGrip",
     "source": "own-capture",
     "captured": "2026-11"
@@ -890,7 +890,7 @@
     "path": "/assets/screenshots/dbeaver-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "DBeaver Community homepage describing a free universal database tool, with a SQL editor preview and Community and PRO edition columns",
+    "alt": "DBeaver Community homepage for the free universal database tool, with a SQL editor preview and edition columns",
     "tool": "DBeaver",
     "source": "own-capture",
     "captured": "2026-11"
@@ -899,7 +899,7 @@
     "path": "/assets/screenshots/dbschema-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "DbSchema homepage headed \"Visual Database Management Tool\" with Free Download and Watch the intro buttons over a schema diagram",
+    "alt": "DbSchema homepage headed \"Visual Database Management Tool\" over a database schema diagram",
     "tool": "DbSchema",
     "source": "own-capture",
     "captured": "2026-11"
@@ -917,7 +917,7 @@
     "path": "/assets/screenshots/docker-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Docker homepage headed \"Trust Docker for the Agents You Don't\" above cards for Docker Sandboxes, AI Governance and Hardened Images",
+    "alt": "Docker homepage headed \"Trust Docker for the Agents You Don't\" above Sandboxes, AI Governance and Hardened Images cards",
     "tool": "Docker",
     "source": "own-capture",
     "captured": "2026-11"
@@ -944,7 +944,7 @@
     "path": "/assets/screenshots/easeus-todo-backup-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "EaseUS Todo Backup Business page headed \"Effective Backup Solutions for Business and Servers\" with Buy Now and Free Trial buttons",
+    "alt": "EaseUS Todo Backup Business page for business and server backup, with Buy Now and Free Trial buttons",
     "tool": "EaseUS Todo Backup",
     "source": "own-capture",
     "captured": "2026-11"
@@ -980,7 +980,7 @@
     "path": "/assets/screenshots/grammarly-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Grammarly homepage headed \"Think big. We'll take care of the details.\" above cards for paragraph rewrites, tone suggestions and proofreading",
+    "alt": "Grammarly homepage above cards for paragraph rewrites, tone suggestions and proofreading",
     "tool": "Grammarly",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1016,7 +1016,7 @@
     "path": "/assets/screenshots/jasper-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Jasper homepage headed \"Applied AI for Enterprise Marketing\" with Get a Demo and Start Free Trial buttons above a translation agent illustration",
+    "alt": "Jasper homepage headed \"Applied AI for Enterprise Marketing\" with Get a Demo and Start Free Trial buttons",
     "tool": "Jasper",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1025,7 +1025,7 @@
     "path": "/assets/screenshots/keeper-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Keeper Business Password Manager page priced from $2 per user per month beside the Keeper vault with shared folder permissions",
+    "alt": "Keeper Business Password Manager page priced from $2 per user per month beside the Keeper vault",
     "tool": "Keeper",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1034,7 +1034,7 @@
     "path": "/assets/screenshots/less-annoying-crm-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Less Annoying CRM homepage headed \"More than a spreadsheet, less than a CRM.\" above a contact activity feed with notes and tasks",
+    "alt": "Less Annoying CRM homepage headed \"More than a spreadsheet, less than a CRM.\" above a contact activity feed",
     "tool": "Less Annoying CRM",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1088,7 +1088,7 @@
     "path": "/assets/screenshots/monday-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "monday.com homepage headed \"The AI workspace for people and agents\" beside a marketing campaign board with an AI assets generator",
+    "alt": "monday.com homepage headed \"The AI workspace for people and agents\" beside a marketing campaign board",
     "tool": "Monday.com",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1115,7 +1115,7 @@
     "path": "/assets/screenshots/nordpass-product-page-2026-11.webp",
     "width": 1040,
     "height": 708,
-    "alt": "NordPass team password manager page with the headline \"Give your team full control over credentials\", pricing from $1.79 per user per month and a password generator card",
+    "alt": "NordPass team password manager page priced from $1.79 per user per month, with a password generator card",
     "tool": "NordPass",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1160,7 +1160,7 @@
     "path": "/assets/screenshots/paessler-prtg-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Paessler PRTG page headed \"Complete Infrastructure Control. Deployed Today.\" beside the PRTG system dashboard with sensor gauges",
+    "alt": "Paessler PRTG page headed \"Complete Infrastructure Control\" beside the PRTG dashboard with sensor gauges",
     "tool": "Paessler PRTG",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1169,7 +1169,7 @@
     "path": "/assets/screenshots/palo-alto-networks-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Palo Alto Networks homepage promoting a Cortex AI observability platform under the headline \"Ask. Remediate. Optimize.\" with recommended reading cards",
+    "alt": "Palo Alto Networks homepage promoting its Cortex AI platform: \"Ask. Remediate. Optimize.\"",
     "tool": "Palo Alto Networks",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1205,7 +1205,7 @@
     "path": "/assets/screenshots/podman-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Podman homepage headed \"The best free & open source container tools\" with Get Started and Download buttons beside Podman Desktop",
+    "alt": "Podman homepage headed \"The best free & open source container tools\" beside Podman Desktop",
     "tool": "Podman",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1223,7 +1223,7 @@
     "path": "/assets/screenshots/proton-pass-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Proton Pass homepage headed \"The best free password manager\" with Create free account and Get Pass for Business buttons above the mobile app",
+    "alt": "Proton Pass homepage headed \"The best free password manager\" above the mobile app vault",
     "tool": "Proton Pass",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1250,7 +1250,7 @@
     "path": "/assets/screenshots/salesforce-starter-product-page-2026-11.webp",
     "width": 1022,
     "height": 486,
-    "alt": "Salesforce small business page with the headline \"The CRM that understands your business\" beside an opportunity record in the Sales app",
+    "alt": "Salesforce small business page headed \"The CRM that understands your business\" beside an opportunity record",
     "tool": "Salesforce Starter Suite",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1277,7 +1277,7 @@
     "path": "/assets/screenshots/site24x7-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Site24x7 network monitoring page headed \"Monitor network health, performance, and traffic in real time\" beside a device dashboard",
+    "alt": "Site24x7 network monitoring page beside a dashboard of device health and network topology",
     "tool": "Site24x7",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1286,7 +1286,7 @@
     "path": "/assets/screenshots/smartsheet-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Smartsheet homepage headed \"AI that connects systems, runs projects, and helps teams act faster\" beside a project plan Gantt view",
+    "alt": "Smartsheet homepage headed \"AI that connects systems, runs projects, and helps teams act faster\" beside a Gantt view",
     "tool": "Smartsheet",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1313,7 +1313,7 @@
     "path": "/assets/screenshots/solarwinds-product-page-2026-11.webp",
     "width": 998,
     "height": 360,
-    "alt": "SolarWinds network monitoring page with the headline \"Network Monitoring and Observability\" beside a dashboard listing network devices and response times",
+    "alt": "SolarWinds \"Network Monitoring and Observability\" page beside a dashboard of network devices and response times",
     "tool": "SolarWinds",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1367,7 +1367,7 @@
     "path": "/assets/screenshots/urbackup-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "UrBackup homepage explaining the open source client and server backup system, with download buttons for client, server and restore stick",
+    "alt": "UrBackup homepage explaining the open source backup system, with client, server and restore downloads",
     "tool": "UrBackup",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1376,7 +1376,7 @@
     "path": "/assets/screenshots/utm-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "UTM homepage headed \"Securely run operating systems on your Mac\" with Download for Mac and Mac App Store buttons above a VM list",
+    "alt": "UTM homepage headed \"Securely run operating systems on your Mac\" above a virtual machine list",
     "tool": "UTM",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1412,7 +1412,7 @@
     "path": "/assets/screenshots/windows-backup-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Microsoft Support article \"Back up and restore with Windows Backup\" with Windows 11 and Windows 10 tabs and a Copilot help box",
+    "alt": "Microsoft Support article \"Back up and restore with Windows Backup\" with Windows 11 and 10 tabs",
     "tool": "Windows Backup",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1430,7 +1430,7 @@
     "path": "/assets/screenshots/zabbix-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Zabbix homepage headed \"The universal, open source observability solution for IT & OT\" with Start Monitoring and Watch Demo buttons",
+    "alt": "Zabbix homepage headed \"The universal, open source observability solution for IT & OT\" with a demo button",
     "tool": "Zabbix",
     "source": "own-capture",
     "captured": "2026-11"
@@ -1457,7 +1457,7 @@
     "path": "/assets/screenshots/planview-projectadvantage-product-page-2026-11.webp",
     "width": 1440,
     "height": 900,
-    "alt": "Planview ProjectAdvantage page headed \"Take control of project delivery and empower your teams\", noting it was formerly Sciforma",
+    "alt": "Planview ProjectAdvantage page headed \"Take control of project delivery\", noting it was formerly Sciforma",
     "tool": "Planview ProjectAdvantage",
     "source": "own-capture",
     "captured": "2026-11"

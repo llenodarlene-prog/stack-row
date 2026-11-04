@@ -94,13 +94,20 @@ for (const asset of assets.filter(asset => asset.path.startsWith('/assets/screen
   if (asset.source === 'vendor-press-kit' && !asset.credit) fail(`${asset.path}: vendor images need a credit line`);
   if (/screenshot|image of|picture of/i.test(asset.alt)) fail(`${asset.path}: alt text should describe what is shown, not say "screenshot"`);
 }
+// Image SEO: every registered image needs alt text a screen reader can read
+// in one pass (125 characters or fewer).
+for (const asset of assets) {
+  if (!asset.alt || !asset.alt.trim()) fail(`${asset.path}: image needs alt text`);
+  else if (asset.alt.length > 125) fail(`${asset.path}: alt text is ${asset.alt.length} characters; keep it to 125 or fewer`);
+}
 for (const dir of ['content/posts', 'content/pages']) {
   for (const name of (await readdir(dir)).filter(file => file.endsWith('.md'))) {
     const file = `${dir}/${name}`;
     const { metadata, body } = await readContent(file);
     const shots = [...body.matchAll(/^!\[([^\]]+)\]\((\/assets\/screenshots\/[\w./-]+)(?:\s+"([^"]+)")?\)\s*$/gm)];
-    for (const [, , src, caption] of shots) {
+    for (const [, alt, src, caption] of shots) {
       if (!assetByPath.has(src)) fail(`${file}: screenshot ${src} is not registered in data/assets.json`);
+      if (assetByPath.has(src) && alt !== assetByPath.get(src).alt) fail(`${file}: screenshot ${src} alt text must match data/assets.json`);
       if (!caption || !/captured \w+ \d{4}/i.test(caption)) fail(`${file}: screenshot ${src} needs a caption with "captured Month YYYY"`);
     }
     const featured = Array.isArray(metadata.featured_tools) ? metadata.featured_tools : [];

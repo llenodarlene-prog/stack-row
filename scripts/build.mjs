@@ -683,7 +683,11 @@ for (const item of visible) {
   <meta property="og:url" content="${url}">
   <meta property="og:image" content="${siteUrl}${social}">
   <meta name="twitter:card" content="${social.includes('/images/') ? 'summary_large_image' : 'summary'}">
-  <meta property="og:image:alt" content="${escapeHtml(assetByPath.get(social)?.alt || site.name)}">
+  <meta property="og:image:alt" content="${escapeHtml(assetByPath.get(social)?.alt || site.name)}">${assetByPath.get(social)?.width ? `
+  <meta property="og:image:width" content="${assetByPath.get(social).width}">
+  <meta property="og:image:height" content="${assetByPath.get(social).height}">` : ''}
+  <meta name="twitter:image" content="${siteUrl}${social}">
+  <meta name="twitter:image:alt" content="${escapeHtml(assetByPath.get(social)?.alt || site.name)}">
   <meta name="theme-color" content="${site.colors.navy}">
   <link rel="icon" href="/assets/brand/stack-row-icon-192.png" type="image/png">
   <script type="application/ld+json">${schema}</script>
