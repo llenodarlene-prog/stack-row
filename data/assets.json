@@ -678,5 +678,779 @@
     "height": 450,
     "role": "page image, small",
     "alt": "Person backing up files from a laptop to an external drive"
+  },
+  {
+    "path": "/assets/screenshots/1password-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "1Password public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "1Password",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/acronis-cyber-protect-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Acronis Cyber Protect public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Acronis Cyber Protect",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/adobe-firefly-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Adobe Firefly public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Adobe Firefly",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/adobe-workfront-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 672,
+    "alt": "Adobe Workfront page headed \"Where human-agent work gets done\" beside a project task list with owners, durations and progress",
+    "tool": "Adobe Workfront",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/aomei-backupper-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "AOMEI Backupper public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "AOMEI Backupper",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/asana-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Asana public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Asana",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/atlassian-rovo-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Atlassian Rovo public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Atlassian Rovo",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/auvik-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Auvik public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Auvik",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/aws-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "AWS public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "AWS",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/azure-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Microsoft Azure public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Microsoft Azure",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/bitwarden-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Bitwarden public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Bitwarden",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/canva-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Canva public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Canva",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/capsule-crm-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Capsule public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Capsule",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/celoxis-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Celoxis public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Celoxis",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/checkmk-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Checkmk public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Checkmk",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/clickup-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "ClickUp public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "ClickUp",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/cloudflare-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Cloudflare public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Cloudflare",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/copy-ai-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Copy.ai public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Copy.ai",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/crowdstrike-falcon-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "CrowdStrike Falcon public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "CrowdStrike Falcon",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/dashlane-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Dashlane public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Dashlane",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/datadog-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Datadog public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Datadog",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/datagrip-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "JetBrains DataGrip public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "JetBrains DataGrip",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/dbdiagram-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "dbdiagram.io public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "dbdiagram.io",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/dbeaver-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "DBeaver public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "DBeaver",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/dbschema-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "DbSchema public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "DbSchema",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/descript-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Descript public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Descript",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/docker-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Docker public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Docker",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/domotz-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Domotz public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Domotz",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/drawsql-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "DrawSQL public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "DrawSQL",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/easeus-todo-backup-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "EaseUS Todo Backup public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "EaseUS Todo Backup",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/freshsales-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Freshsales public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Freshsales",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/google-cloud-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Google Cloud public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Google Cloud",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/google-password-manager-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Google Password Manager public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Google Password Manager",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/grammarly-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Grammarly public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Grammarly",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/hubspot-content-hub-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "HubSpot Content Hub public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "HubSpot Content Hub",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/hubspot-crm-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "HubSpot public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "HubSpot",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/hubspot-enterprise-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "HubSpot public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "HubSpot",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/jasper-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Jasper public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Jasper",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/keeper-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Keeper public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Keeper",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/less-annoying-crm-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Less Annoying CRM public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Less Annoying CRM",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/librenms-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "LibreNMS public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "LibreNMS",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/looker-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Looker public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Looker",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/macrium-reflect-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Macrium Reflect X public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Macrium Reflect X",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/meisterplan-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Meisterplan public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Meisterplan",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/microsoft-planner-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Microsoft Planner public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Microsoft Planner",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/monday-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Monday.com public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Monday.com",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/multipass-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Multipass public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Multipass",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/mysql-workbench-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "MySQL Workbench public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "MySQL Workbench",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/nordpass-product-page-2026-11.webp",
+    "width": 1040,
+    "height": 708,
+    "alt": "NordPass team password manager page with the headline \"Give your team full control over credentials\", pricing from $1.79 per user per month and a password generator card",
+    "tool": "NordPass",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/okta-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Okta public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Okta",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/oneplan-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "OnePlan public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "OnePlan",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/opmanager-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "ManageEngine OpManager public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "ManageEngine OpManager",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/orbstack-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "OrbStack public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "OrbStack",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/paessler-prtg-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Paessler PRTG public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Paessler PRTG",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/palo-alto-networks-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Palo Alto Networks public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Palo Alto Networks",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/parallels-desktop-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Parallels Desktop public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Parallels Desktop",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/pgadmin-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "pgAdmin public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "pgAdmin",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/pipedrive-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Pipedrive public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Pipedrive",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/podman-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Podman public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Podman",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/power-bi-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Power BI public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Power BI",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/proton-pass-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Proton Pass public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Proton Pass",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/salesforce-agentforce-product-page-2026-11.webp",
+    "width": 1098,
+    "height": 571,
+    "alt": "Agentforce page with the headline \"Scale service with Agentforce\" and a diagram of AI agents handling service tasks",
+    "tool": "Salesforce Agentforce",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/salesforce-sales-cloud-product-page-2026-11.webp",
+    "width": 1030,
+    "height": 701,
+    "alt": "Salesforce Sales Cloud page with the headline \"Grow revenue with the #1 CRM that works for you\" and a product video panel",
+    "tool": "Salesforce Sales Cloud",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/salesforce-starter-product-page-2026-11.webp",
+    "width": 1022,
+    "height": 486,
+    "alt": "Salesforce small business page with the headline \"The CRM that understands your business\" beside an opportunity record in the Sales app",
+    "tool": "Salesforce Starter Suite",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/semrush-content-toolkit-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Semrush Content Toolkit public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Semrush Content Toolkit",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/servicenow-now-assist-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 810,
+    "alt": "Now Assist overview title card in green on dark blue, with a sparkle icon inside a circle",
+    "tool": "ServiceNow Now Assist",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/site24x7-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Site24x7 public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Site24x7",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/smartsheet-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Smartsheet public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Smartsheet",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/smartsheet-control-center-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 672,
+    "alt": "Smartsheet Control Center introduction showing the Select Blueprint step with an IT Operations Projects blueprint",
+    "tool": "Smartsheet Control Center",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/snowflake-cortex-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Snowflake Cortex AI public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Snowflake Cortex AI",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/solarwinds-product-page-2026-11.webp",
+    "width": 998,
+    "height": 360,
+    "alt": "SolarWinds network monitoring page with the headline \"Network Monitoring and Observability\" beside a dashboard listing network devices and response times",
+    "tool": "SolarWinds",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/surfer-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Surfer public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Surfer",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/tableau-product-page-2026-11.webp",
+    "width": 1086,
+    "height": 489,
+    "alt": "Tableau Desktop page offering a free download, with a bar chart built in the Tableau Desktop editor",
+    "tool": "Tableau",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/tart-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Tart public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Tart",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/teamwork-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Teamwork.com public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Teamwork.com",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/trello-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Trello public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Trello",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/urbackup-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "UrBackup public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "UrBackup",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/utm-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "UTM public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "UTM",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/veeam-agent-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Veeam Agent for Microsoft Windows public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Veeam Agent for Microsoft Windows",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/virtualbox-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Oracle VirtualBox public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Oracle VirtualBox",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/vmware-fusion-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "VMware Fusion public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "VMware Fusion",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/windows-backup-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Windows Backup public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Windows Backup",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/wrike-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Wrike public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Wrike",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zabbix-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Zabbix public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Zabbix",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zoho-analytics-product-page-2026-11.webp",
+    "width": 1215,
+    "height": 750,
+    "alt": "Zoho Analytics page headed \"Add agents to your analytics team\", with the Ask Zia assistant answering a sales question",
+    "tool": "Zoho Analytics",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zoho-crm-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Zoho CRM public website, top of the page: navigation, main headline and call-to-action buttons",
+    "tool": "Zoho CRM",
+    "source": "own-capture",
+    "captured": "2026-11"
   }
 ]
