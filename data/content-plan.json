@@ -1,45 +1,777 @@
 [
-  {"id":"A1","type":"article","title":"Cybersecurity Statistics by Sector and Company Size","primary_keyword":"cybersecurity statistics","slug":"/cybersecurity/cybersecurity-statistics/","cluster":"Cybersecurity Risk","role":"Hub","targets":["A6","A7","A8","A9","A10"]},
-  {"id":"A2","type":"article","title":"SaaS Statistics on Revenue and Adoption","primary_keyword":"saas statistics","slug":"/saas/saas-statistics-revenue-adoption/","cluster":"SaaS & Enterprise Software","role":"Hub","targets":["A4","B5","B7"]},
-  {"id":"A3","type":"article","title":"AI Statistics on Investment and Production Use","primary_keyword":"ai statistics","slug":"/ai/ai-statistics-investment-production-use/","cluster":"Enterprise AI","role":"Hub","targets":["B6","B7","B9","B10","A4"]},
-  {"id":"A4","type":"article","title":"B2B Technology Statistics for Software Buyers","primary_keyword":"b2b technology statistics","slug":"/business-technology/b2b-tech-statistics/","cluster":"B2B Technology Buying","role":"Bridge","targets":["A2","A3","A5","B5"]},
-  {"id":"A5","type":"article","title":"Cloud Computing Statistics by Deployment Model","primary_keyword":"cloud computing statistics","slug":"/cloud-infrastructure/cloud-computing-statistics/","cluster":"Cloud & Infrastructure","role":"Hub","targets":["A6","B2","B8","A4"]},
-  {"id":"A6","type":"article","title":"Cloud Security Statistics on Access and Misconfiguration","primary_keyword":"cloud security statistics","slug":"/cybersecurity/cloud-security-statistics/","cluster":"Cloud Security","role":"Supporting","targets":["A1","A5","B2","B4"]},
-  {"id":"A7","type":"article","title":"Ransomware Statistics on Attacks and Recovery Costs","primary_keyword":"ransomware statistics","slug":"/cybersecurity/ransomware-statistics/","cluster":"Cybersecurity Risk","role":"Supporting","targets":["A1","A9","A10","B1","B3"]},
-  {"id":"A8","type":"article","title":"Phishing Statistics by Attack Stage","primary_keyword":"phishing statistics","slug":"/cybersecurity/phishing-statistics-attack-stage/","cluster":"Cybersecurity Risk","role":"Supporting","targets":["A1","A9","B4","B3"]},
-  {"id":"A9","type":"article","title":"Data Breach Statistics on Incidents and Exposed Records","primary_keyword":"data breach statistics","slug":"/cybersecurity/data-breach-statistics/","cluster":"Cybersecurity Risk","role":"Supporting","targets":["A1","A6","A7","A8","A10"]},
-  {"id":"A10","type":"article","title":"Cybercrime Statistics on Reported Losses","primary_keyword":"cybercrime statistics","slug":"/cybersecurity/cybercrime-statistics/","cluster":"Cybersecurity Risk","role":"Supporting","targets":["A1","A7","A8","A9"]},
-  {"id":"B1","type":"blog","title":"Evaluating CrowdStrike Platform Consolidation Costs","primary_keyword":"crowdstrike platform costs","slug":"/cybersecurity/crowdstrike-platform-costs/","cluster":"Cybersecurity Platforms","role":"Commercial Support","targets":["A1","A7","A9","B3"]},
-  {"id":"B2","type":"blog","title":"Cloudflare Security Across Networks and Applications","primary_keyword":"cloudflare security","slug":"/cybersecurity/cloudflare-security/","cluster":"Cloud Security","role":"Commercial Support","targets":["A5","A6","A1","B3"]},
-  {"id":"B3","type":"blog","title":"Palo Alto Networks Platformization and Procurement","primary_keyword":"palo alto networks platformization","slug":"/cybersecurity/palo-alto-networks-platformization/","cluster":"Cybersecurity Platforms","role":"Commercial Support","targets":["A1","A6","A7","B1"]},
-  {"id":"B4","type":"blog","title":"Okta Identity Security Across the Employee Lifecycle","primary_keyword":"okta identity security","slug":"/cybersecurity/okta-identity-security/","cluster":"Identity Security","role":"Commercial Support","targets":["A1","A6","A8","A9"]},
-  {"id":"B5","type":"blog","title":"When HubSpot Enterprise Fits the Operating Model","primary_keyword":"hubspot enterprise","slug":"/business-technology/hubspot-enterprise/","cluster":"SaaS & Enterprise Software","role":"Commercial Support","targets":["A2","A4","B6"]},
-  {"id":"B6","type":"blog","title":"Preparing Data Access for Salesforce AI","primary_keyword":"salesforce ai","slug":"/ai/salesforce-ai-data-access/","cluster":"Enterprise AI","role":"Commercial Support","targets":["A3","A4","B7","B9"]},
-  {"id":"B7","type":"blog","title":"ServiceNow AI Within Existing Workflows","primary_keyword":"servicenow ai","slug":"/ai/servicenow-ai-workflows/","cluster":"Enterprise AI","role":"Commercial Support","targets":["A3","A2","A4","B6"]},
-  {"id":"B8","type":"blog","title":"Datadog Pricing: Billing Units and Worked Cost Examples","primary_keyword":"datadog pricing","slug":"/cloud-infrastructure/datadog-observability-costs/","cluster":"Cloud & Infrastructure","role":"Commercial Support","targets":["A5","A6","A4"]},
-  {"id":"B9","type":"blog","title":"Snowflake AI and Compute Costs","primary_keyword":"snowflake ai compute costs","slug":"/ai/snowflake-ai-compute-costs/","cluster":"Enterprise AI","role":"Commercial Support","targets":["A3","A5","B6","B10"]},
-  {"id":"B10","type":"blog","title":"Atlassian AI and Knowledge Permissions","primary_keyword":"atlassian ai knowledge permissions","slug":"/ai/atlassian-ai-knowledge-permissions/","cluster":"Enterprise AI","role":"Commercial Support","targets":["A3","A2","B6","B9"]},
-  {"id":"C1","type":"blog","title":"IaaS in Cloud Computing: Services, Costs, and Responsibilities","primary_keyword":"iaas in cloud computing","slug":"/cloud-infrastructure/iaas-in-cloud-computing/","cluster":"Cloud & Infrastructure","role":"Commercial Support","set":"cloud-expansion-2026-10","targets":["A5","B2","B8"]},
-  {"id":"C2","type":"blog","title":"IaaS vs PaaS: Choosing the Right Service Model","primary_keyword":"iaas vs paas","slug":"/cloud-infrastructure/iaas-vs-paas/","cluster":"Cloud & Infrastructure","role":"Commercial Support","set":"cloud-expansion-2026-10","targets":["B10","B9"]},
-  {"id":"C3","type":"blog","title":"Private Cloud: Architecture, Costs, and Operating Requirements","primary_keyword":"private cloud","slug":"/cloud-infrastructure/private-cloud/","cluster":"Cloud & Infrastructure","role":"Commercial Support","set":"cloud-expansion-2026-10","targets":["A5","B10","A7"]},
-  {"id":"C4","type":"blog","title":"Cloud Computing Service Providers: A Business Evaluation Framework","primary_keyword":"cloud computing service providers","slug":"/cloud-infrastructure/cloud-computing-service-providers/","cluster":"Cloud & Infrastructure","role":"Commercial Support","set":"cloud-expansion-2026-10","targets":["A5","B8","B10"]},
-  {"id":"D1","type":"blog","title":"What Is ERP? Follow an Order from Sales to Finance","primary_keyword":"what is erp","slug":"/business-technology/what-is-erp/","cluster":"Business Technology","role":"Commercial Support","set":"batch-2026-10-b","targets":["A4","B5","D2"]},
-  {"id":"D2","type":"blog","title":"What Is B2B SaaS? Business Models, Costs and Examples","primary_keyword":"b2b saas","slug":"/saas/what-is-b2b-saas/","cluster":"SaaS & Enterprise Software","role":"Commercial Support","set":"batch-2026-10-b","targets":["A2","D1","D8"]},
-  {"id":"D3","type":"blog","title":"Phishing Email Examples: Red Flags and What to Do Next","primary_keyword":"phishing email","slug":"/cybersecurity/phishing-email-examples/","cluster":"Cybersecurity Risk","role":"Commercial Support","set":"batch-2026-10-b","targets":["A1","A8","D4"]},
-  {"id":"D4","type":"blog","title":"What Is MFA? Authentication Factors, Methods and Recovery","primary_keyword":"what is mfa","slug":"/cybersecurity/what-is-mfa/","cluster":"Identity Security","role":"Commercial Support","set":"batch-2026-10-b","targets":["A1","B4","D3"]},
-  {"id":"D5","type":"blog","title":"Podman vs Docker: Rootless Operation, Compose and Team Fit","primary_keyword":"podman vs docker","slug":"/developer-data/podman-vs-docker/","cluster":"Developer & Data","role":"Commercial Support","set":"batch-2026-10-b","targets":["C2","A5","A6"]},
-  {"id":"D6","type":"blog","title":"HubSpot vs Salesforce: Administration, Reporting and Total Cost","primary_keyword":"hubspot vs salesforce","slug":"/business-technology/hubspot-vs-salesforce/","cluster":"Business Technology","role":"Commercial Support","set":"batch-2026-10-b","targets":["A4","B5","B6"]},
-  {"id":"D7","type":"blog","title":"Business Intelligence Software: Compare Reporting and Governance Needs","primary_keyword":"business intelligence software","slug":"/developer-data/business-intelligence-software/","cluster":"Developer & Data","role":"Commercial Support","set":"batch-2026-10-b","targets":["B9","A6","A2"]},
-  {"id":"D8","type":"blog","title":"Churn Rate Analysis: A Worked Customer-Cohort Example","primary_keyword":"churn rate analysis","slug":"/saas/churn-rate-analysis/","cluster":"SaaS & Enterprise Software","role":"Commercial Support","set":"batch-2026-10-b","targets":["A2","B5","A4"]},
-  {"id":"D9","type":"blog","title":"What Are AI Agents? Tools, Permissions and Human Approval","primary_keyword":"what are ai agents","slug":"/ai/what-are-ai-agents/","cluster":"Enterprise AI","role":"Commercial Support","set":"batch-2026-10-b","targets":["B7","B10","A3"]},
-  {"id":"E1","type":"blog","title":"Best Password Manager for 2026: 7 Options Compared","primary_keyword":"best password manager","slug":"/cybersecurity/best-password-manager/","cluster":"Identity Security","role":"Commercial Support","set":"pair-05-2026-10","targets":["A1","A9","A8"]},
-  {"id":"E2","type":"blog","title":"Virtual Machine for Mac: 7 Options for Windows, Linux, and Testing","primary_keyword":"virtual machine for mac","slug":"/cloud-infrastructure/virtual-machine-for-mac/","cluster":"Cloud & Infrastructure","role":"Commercial Support","set":"pair-05-2026-10","targets":["A5","D5","C2"]},
-  {"id":"E3","type":"blog","title":"CRM Software for Small Companies: 7 Options, Costs and Best Fits","primary_keyword":"crm software for small companies","slug":"/business-technology/crm-software-small-companies/","cluster":"Business Technology","role":"Commercial Support","set":"pairs-01-04-2026-10","targets":["A4","D6","D2"]},
-  {"id":"E4","type":"blog","title":"9 Network Monitoring Tools for Small IT Teams","primary_keyword":"network monitoring tools","slug":"/cloud-infrastructure/network-monitoring-tools/","cluster":"Cloud & Infrastructure","role":"Commercial Support","set":"pairs-01-04-2026-10","targets":["A5","B8","A1"]},
-  {"id":"E5","type":"blog","title":"Cloud-Based Project Management Software: 7 Tools, Costs and Workflow Fit","primary_keyword":"cloud-based project management software","slug":"/business-technology/cloud-based-project-management-software/","cluster":"Business Technology","role":"Commercial Support","set":"pairs-01-04-2026-10","targets":["A4","D2","B10"]},
-  {"id":"E6","type":"blog","title":"9 AI Tools for Marketing Teams, Organized by Job","primary_keyword":"ai tools for marketing","slug":"/ai/ai-tools-for-marketing/","cluster":"Enterprise AI","role":"Commercial Support","set":"pairs-01-04-2026-10","targets":["A3","B5","B6"]},
-  {"id":"E7","type":"blog","title":"7 Project Portfolio Management Software Options for Growing Teams","primary_keyword":"project portfolio management software","slug":"/saas/project-portfolio-management-software/","cluster":"SaaS & Enterprise Software","role":"Commercial Support","set":"pairs-01-04-2026-10","targets":["A2","D1","D2"]},
-  {"id":"E8","type":"blog","title":"What Are API Gateways? Functions, Examples, and When You Need One","primary_keyword":"api gateways","slug":"/developer-data/api-gateways/","cluster":"Developer & Data","role":"Commercial Support","set":"pairs-01-04-2026-10","targets":["D5","C2","D9"]},
-  {"id":"E9","type":"blog","title":"7 Database Visualizer Tools for Schemas and Relationships","primary_keyword":"database visualizer tool","slug":"/developer-data/database-visualization-tools/","cluster":"Developer & Data","role":"Commercial Support","set":"pairs-01-04-2026-10","targets":["D7","B9","A5"]},
-  {"id":"E10","type":"blog","title":"7 Windows Backup Software Options for Files, Images, and Recovery","primary_keyword":"windows backup software","slug":"/cybersecurity/windows-backup-software/","cluster":"Cybersecurity Risk","role":"Commercial Support","set":"pairs-01-04-2026-10","targets":["A1","A7","A9"]}
+  {
+    "id": "A1",
+    "type": "article",
+    "title": "Cybersecurity Statistics by Sector and Company Size",
+    "primary_keyword": "cybersecurity statistics",
+    "slug": "/cybersecurity/cybersecurity-statistics/",
+    "cluster": "Cybersecurity Risk",
+    "role": "Hub",
+    "targets": [
+      "A6",
+      "A7",
+      "A8",
+      "A9",
+      "A10"
+    ]
+  },
+  {
+    "id": "A2",
+    "type": "article",
+    "title": "SaaS Statistics on Revenue and Adoption",
+    "primary_keyword": "saas statistics",
+    "slug": "/saas/saas-statistics-revenue-adoption/",
+    "cluster": "SaaS & Enterprise Software",
+    "role": "Hub",
+    "targets": [
+      "A4",
+      "B5",
+      "B7"
+    ]
+  },
+  {
+    "id": "A3",
+    "type": "article",
+    "title": "AI Statistics on Investment and Production Use",
+    "primary_keyword": "ai statistics",
+    "slug": "/ai/ai-statistics-investment-production-use/",
+    "cluster": "Enterprise AI",
+    "role": "Hub",
+    "targets": [
+      "B6",
+      "B7",
+      "B9",
+      "B10",
+      "A4"
+    ]
+  },
+  {
+    "id": "A4",
+    "type": "article",
+    "title": "B2B Technology Statistics for Software Buyers",
+    "primary_keyword": "b2b technology statistics",
+    "slug": "/business-technology/b2b-tech-statistics/",
+    "cluster": "B2B Technology Buying",
+    "role": "Bridge",
+    "targets": [
+      "A2",
+      "A3",
+      "A5",
+      "B5"
+    ]
+  },
+  {
+    "id": "A5",
+    "type": "article",
+    "title": "Cloud Computing Statistics by Deployment Model",
+    "primary_keyword": "cloud computing statistics",
+    "slug": "/cloud-infrastructure/cloud-computing-statistics/",
+    "cluster": "Cloud & Infrastructure",
+    "role": "Hub",
+    "targets": [
+      "A6",
+      "B2",
+      "B8",
+      "A4"
+    ]
+  },
+  {
+    "id": "A6",
+    "type": "article",
+    "title": "Cloud Security Statistics on Access and Misconfiguration",
+    "primary_keyword": "cloud security statistics",
+    "slug": "/cybersecurity/cloud-security-statistics/",
+    "cluster": "Cloud Security",
+    "role": "Supporting",
+    "targets": [
+      "A1",
+      "A5",
+      "B2",
+      "B4"
+    ]
+  },
+  {
+    "id": "A7",
+    "type": "article",
+    "title": "Ransomware Statistics on Attacks and Recovery Costs",
+    "primary_keyword": "ransomware statistics",
+    "slug": "/cybersecurity/ransomware-statistics/",
+    "cluster": "Cybersecurity Risk",
+    "role": "Supporting",
+    "targets": [
+      "A1",
+      "A9",
+      "A10",
+      "B1",
+      "B3"
+    ]
+  },
+  {
+    "id": "A8",
+    "type": "article",
+    "title": "Phishing Statistics by Attack Stage",
+    "primary_keyword": "phishing statistics",
+    "slug": "/cybersecurity/phishing-statistics-attack-stage/",
+    "cluster": "Cybersecurity Risk",
+    "role": "Supporting",
+    "targets": [
+      "A1",
+      "A9",
+      "B4",
+      "B3"
+    ]
+  },
+  {
+    "id": "A9",
+    "type": "article",
+    "title": "Data Breach Statistics on Incidents and Exposed Records",
+    "primary_keyword": "data breach statistics",
+    "slug": "/cybersecurity/data-breach-statistics/",
+    "cluster": "Cybersecurity Risk",
+    "role": "Supporting",
+    "targets": [
+      "A1",
+      "A6",
+      "A7",
+      "A8",
+      "A10"
+    ]
+  },
+  {
+    "id": "A10",
+    "type": "article",
+    "title": "Cybercrime Statistics on Reported Losses",
+    "primary_keyword": "cybercrime statistics",
+    "slug": "/cybersecurity/cybercrime-statistics/",
+    "cluster": "Cybersecurity Risk",
+    "role": "Supporting",
+    "targets": [
+      "A1",
+      "A7",
+      "A8",
+      "A9"
+    ]
+  },
+  {
+    "id": "B1",
+    "type": "blog",
+    "title": "Evaluating CrowdStrike Platform Consolidation Costs",
+    "primary_keyword": "crowdstrike platform costs",
+    "slug": "/cybersecurity/crowdstrike-platform-costs/",
+    "cluster": "Cybersecurity Platforms",
+    "role": "Commercial Support",
+    "targets": [
+      "A1",
+      "A7",
+      "A9",
+      "B3"
+    ]
+  },
+  {
+    "id": "B2",
+    "type": "blog",
+    "title": "Cloudflare Security Across Networks and Applications",
+    "primary_keyword": "cloudflare security",
+    "slug": "/cybersecurity/cloudflare-security/",
+    "cluster": "Cloud Security",
+    "role": "Commercial Support",
+    "targets": [
+      "A5",
+      "A6",
+      "A1",
+      "B3"
+    ]
+  },
+  {
+    "id": "B3",
+    "type": "blog",
+    "title": "Palo Alto Networks Platformization and Procurement",
+    "primary_keyword": "palo alto networks platformization",
+    "slug": "/cybersecurity/palo-alto-networks-platformization/",
+    "cluster": "Cybersecurity Platforms",
+    "role": "Commercial Support",
+    "targets": [
+      "A1",
+      "A6",
+      "A7",
+      "B1"
+    ]
+  },
+  {
+    "id": "B4",
+    "type": "blog",
+    "title": "Okta Identity Security Across the Employee Lifecycle",
+    "primary_keyword": "okta identity security",
+    "slug": "/cybersecurity/okta-identity-security/",
+    "cluster": "Identity Security",
+    "role": "Commercial Support",
+    "targets": [
+      "A1",
+      "A6",
+      "A8",
+      "A9"
+    ]
+  },
+  {
+    "id": "B5",
+    "type": "blog",
+    "title": "When HubSpot Enterprise Fits the Operating Model",
+    "primary_keyword": "hubspot enterprise",
+    "slug": "/business-technology/hubspot-enterprise/",
+    "cluster": "SaaS & Enterprise Software",
+    "role": "Commercial Support",
+    "targets": [
+      "A2",
+      "A4",
+      "B6"
+    ]
+  },
+  {
+    "id": "B6",
+    "type": "blog",
+    "title": "Preparing Data Access for Salesforce AI",
+    "primary_keyword": "salesforce ai",
+    "slug": "/ai/salesforce-ai-data-access/",
+    "cluster": "Enterprise AI",
+    "role": "Commercial Support",
+    "targets": [
+      "A3",
+      "A4",
+      "B7",
+      "B9"
+    ]
+  },
+  {
+    "id": "B7",
+    "type": "blog",
+    "title": "ServiceNow AI Within Existing Workflows",
+    "primary_keyword": "servicenow ai",
+    "slug": "/ai/servicenow-ai-workflows/",
+    "cluster": "Enterprise AI",
+    "role": "Commercial Support",
+    "targets": [
+      "A3",
+      "A2",
+      "A4",
+      "B6"
+    ]
+  },
+  {
+    "id": "B8",
+    "type": "blog",
+    "title": "Datadog Pricing: Billing Units and Worked Cost Examples",
+    "primary_keyword": "datadog pricing",
+    "slug": "/cloud-infrastructure/datadog-observability-costs/",
+    "cluster": "Cloud & Infrastructure",
+    "role": "Commercial Support",
+    "targets": [
+      "A5",
+      "A6",
+      "A4"
+    ]
+  },
+  {
+    "id": "B9",
+    "type": "blog",
+    "title": "Snowflake AI and Compute Costs",
+    "primary_keyword": "snowflake ai compute costs",
+    "slug": "/ai/snowflake-ai-compute-costs/",
+    "cluster": "Enterprise AI",
+    "role": "Commercial Support",
+    "targets": [
+      "A3",
+      "A5",
+      "B6",
+      "B10"
+    ]
+  },
+  {
+    "id": "B10",
+    "type": "blog",
+    "title": "Atlassian AI and Knowledge Permissions",
+    "primary_keyword": "atlassian ai knowledge permissions",
+    "slug": "/ai/atlassian-ai-knowledge-permissions/",
+    "cluster": "Enterprise AI",
+    "role": "Commercial Support",
+    "targets": [
+      "A3",
+      "A2",
+      "B6",
+      "B9"
+    ]
+  },
+  {
+    "id": "C1",
+    "type": "blog",
+    "title": "IaaS in Cloud Computing: Services, Costs, and Responsibilities",
+    "primary_keyword": "iaas in cloud computing",
+    "slug": "/cloud-infrastructure/iaas-in-cloud-computing/",
+    "cluster": "Cloud & Infrastructure",
+    "role": "Commercial Support",
+    "set": "cloud-expansion-2026-10",
+    "targets": [
+      "A5",
+      "B2",
+      "B8"
+    ]
+  },
+  {
+    "id": "C2",
+    "type": "blog",
+    "title": "IaaS vs PaaS: Choosing the Right Service Model",
+    "primary_keyword": "iaas vs paas",
+    "slug": "/cloud-infrastructure/iaas-vs-paas/",
+    "cluster": "Cloud & Infrastructure",
+    "role": "Commercial Support",
+    "set": "cloud-expansion-2026-10",
+    "targets": [
+      "B10",
+      "B9"
+    ]
+  },
+  {
+    "id": "C3",
+    "type": "blog",
+    "title": "Private Cloud: Architecture, Costs, and Operating Requirements",
+    "primary_keyword": "private cloud",
+    "slug": "/cloud-infrastructure/private-cloud/",
+    "cluster": "Cloud & Infrastructure",
+    "role": "Commercial Support",
+    "set": "cloud-expansion-2026-10",
+    "targets": [
+      "A5",
+      "B10",
+      "A7"
+    ]
+  },
+  {
+    "id": "C4",
+    "type": "blog",
+    "title": "Cloud Computing Service Providers: A Business Evaluation Framework",
+    "primary_keyword": "cloud computing service providers",
+    "slug": "/cloud-infrastructure/cloud-computing-service-providers/",
+    "cluster": "Cloud & Infrastructure",
+    "role": "Commercial Support",
+    "set": "cloud-expansion-2026-10",
+    "targets": [
+      "A5",
+      "B8",
+      "B10"
+    ]
+  },
+  {
+    "id": "D1",
+    "type": "blog",
+    "title": "What Is ERP? Follow an Order from Sales to Finance",
+    "primary_keyword": "what is erp",
+    "slug": "/business-technology/what-is-erp/",
+    "cluster": "Business Technology",
+    "role": "Commercial Support",
+    "set": "batch-2026-10-b",
+    "targets": [
+      "A4",
+      "B5",
+      "D2"
+    ]
+  },
+  {
+    "id": "D2",
+    "type": "blog",
+    "title": "What Is B2B SaaS? Business Models, Costs and Examples",
+    "primary_keyword": "b2b saas",
+    "slug": "/saas/what-is-b2b-saas/",
+    "cluster": "SaaS & Enterprise Software",
+    "role": "Commercial Support",
+    "set": "batch-2026-10-b",
+    "targets": [
+      "A2",
+      "D1",
+      "D8"
+    ]
+  },
+  {
+    "id": "D3",
+    "type": "blog",
+    "title": "Phishing Email Examples: Red Flags and What to Do Next",
+    "primary_keyword": "phishing email",
+    "slug": "/cybersecurity/phishing-email-examples/",
+    "cluster": "Cybersecurity Risk",
+    "role": "Commercial Support",
+    "set": "batch-2026-10-b",
+    "targets": [
+      "A1",
+      "A8",
+      "D4"
+    ]
+  },
+  {
+    "id": "D4",
+    "type": "blog",
+    "title": "What Is MFA? Authentication Factors, Methods and Recovery",
+    "primary_keyword": "what is mfa",
+    "slug": "/cybersecurity/what-is-mfa/",
+    "cluster": "Identity Security",
+    "role": "Commercial Support",
+    "set": "batch-2026-10-b",
+    "targets": [
+      "A1",
+      "B4",
+      "D3"
+    ]
+  },
+  {
+    "id": "D5",
+    "type": "blog",
+    "title": "Podman vs Docker: Rootless Operation, Compose and Team Fit",
+    "primary_keyword": "podman vs docker",
+    "slug": "/developer-data/podman-vs-docker/",
+    "cluster": "Developer & Data",
+    "role": "Commercial Support",
+    "set": "batch-2026-10-b",
+    "targets": [
+      "C2",
+      "A5",
+      "A6"
+    ]
+  },
+  {
+    "id": "D6",
+    "type": "blog",
+    "title": "HubSpot vs Salesforce: Administration, Reporting and Total Cost",
+    "primary_keyword": "hubspot vs salesforce",
+    "slug": "/business-technology/hubspot-vs-salesforce/",
+    "cluster": "Business Technology",
+    "role": "Commercial Support",
+    "set": "batch-2026-10-b",
+    "targets": [
+      "A4",
+      "B5",
+      "B6"
+    ]
+  },
+  {
+    "id": "D7",
+    "type": "blog",
+    "title": "Business Intelligence Software: Compare Reporting and Governance Needs",
+    "primary_keyword": "business intelligence software",
+    "slug": "/developer-data/business-intelligence-software/",
+    "cluster": "Developer & Data",
+    "role": "Commercial Support",
+    "set": "batch-2026-10-b",
+    "targets": [
+      "B9",
+      "A6",
+      "A2"
+    ]
+  },
+  {
+    "id": "D8",
+    "type": "blog",
+    "title": "Churn Rate Analysis: A Worked Customer-Cohort Example",
+    "primary_keyword": "churn rate analysis",
+    "slug": "/saas/churn-rate-analysis/",
+    "cluster": "SaaS & Enterprise Software",
+    "role": "Commercial Support",
+    "set": "batch-2026-10-b",
+    "targets": [
+      "A2",
+      "B5",
+      "A4"
+    ]
+  },
+  {
+    "id": "D9",
+    "type": "blog",
+    "title": "What Are AI Agents? Tools, Permissions and Human Approval",
+    "primary_keyword": "what are ai agents",
+    "slug": "/ai/what-are-ai-agents/",
+    "cluster": "Enterprise AI",
+    "role": "Commercial Support",
+    "set": "batch-2026-10-b",
+    "targets": [
+      "B7",
+      "B10",
+      "A3"
+    ]
+  },
+  {
+    "id": "E1",
+    "type": "blog",
+    "title": "Best Password Manager for 2026: 7 Options Compared",
+    "primary_keyword": "best password manager",
+    "slug": "/cybersecurity/best-password-manager/",
+    "cluster": "Identity Security",
+    "role": "Commercial Support",
+    "set": "pair-05-2026-10",
+    "targets": [
+      "A1",
+      "A9",
+      "A8"
+    ]
+  },
+  {
+    "id": "E2",
+    "type": "blog",
+    "title": "Virtual Machine for Mac: 7 Options for Windows, Linux, and Testing",
+    "primary_keyword": "virtual machine for mac",
+    "slug": "/cloud-infrastructure/virtual-machine-for-mac/",
+    "cluster": "Cloud & Infrastructure",
+    "role": "Commercial Support",
+    "set": "pair-05-2026-10",
+    "targets": [
+      "A5",
+      "D5",
+      "C2"
+    ]
+  },
+  {
+    "id": "E3",
+    "type": "blog",
+    "title": "CRM Software for Small Companies: 7 Options, Costs and Best Fits",
+    "primary_keyword": "crm software for small companies",
+    "slug": "/business-technology/crm-software-small-companies/",
+    "cluster": "Business Technology",
+    "role": "Commercial Support",
+    "set": "pairs-01-04-2026-10",
+    "targets": [
+      "A4",
+      "D6",
+      "D2"
+    ]
+  },
+  {
+    "id": "E4",
+    "type": "blog",
+    "title": "9 Network Monitoring Tools for Small IT Teams",
+    "primary_keyword": "network monitoring tools",
+    "slug": "/cloud-infrastructure/network-monitoring-tools/",
+    "cluster": "Cloud & Infrastructure",
+    "role": "Commercial Support",
+    "set": "pairs-01-04-2026-10",
+    "targets": [
+      "A5",
+      "B8",
+      "A1"
+    ]
+  },
+  {
+    "id": "E5",
+    "type": "blog",
+    "title": "Cloud-Based Project Management Software: 7 Tools, Costs and Workflow Fit",
+    "primary_keyword": "cloud-based project management software",
+    "slug": "/business-technology/cloud-based-project-management-software/",
+    "cluster": "Business Technology",
+    "role": "Commercial Support",
+    "set": "pairs-01-04-2026-10",
+    "targets": [
+      "A4",
+      "D2",
+      "B10"
+    ]
+  },
+  {
+    "id": "E6",
+    "type": "blog",
+    "title": "9 AI Tools for Marketing Teams, Organized by Job",
+    "primary_keyword": "ai tools for marketing",
+    "slug": "/ai/ai-tools-for-marketing/",
+    "cluster": "Enterprise AI",
+    "role": "Commercial Support",
+    "set": "pairs-01-04-2026-10",
+    "targets": [
+      "A3",
+      "B5",
+      "B6"
+    ]
+  },
+  {
+    "id": "E7",
+    "type": "blog",
+    "title": "7 Project Portfolio Management Software Options for Growing Teams",
+    "primary_keyword": "project portfolio management software",
+    "slug": "/saas/project-portfolio-management-software/",
+    "cluster": "SaaS & Enterprise Software",
+    "role": "Commercial Support",
+    "set": "pairs-01-04-2026-10",
+    "targets": [
+      "A2",
+      "D1",
+      "D2"
+    ]
+  },
+  {
+    "id": "E8",
+    "type": "blog",
+    "title": "What Are API Gateways? Functions, Examples, and When You Need One",
+    "primary_keyword": "api gateways",
+    "slug": "/developer-data/api-gateways/",
+    "cluster": "Developer & Data",
+    "role": "Commercial Support",
+    "set": "pairs-01-04-2026-10",
+    "targets": [
+      "D5",
+      "C2",
+      "D9"
+    ]
+  },
+  {
+    "id": "E9",
+    "type": "blog",
+    "title": "7 Database Visualizer Tools for Schemas and Relationships",
+    "primary_keyword": "database visualizer tool",
+    "slug": "/developer-data/database-visualization-tools/",
+    "cluster": "Developer & Data",
+    "role": "Commercial Support",
+    "set": "pairs-01-04-2026-10",
+    "targets": [
+      "D7",
+      "B9",
+      "A5"
+    ]
+  },
+  {
+    "id": "E10",
+    "type": "blog",
+    "title": "7 Windows Backup Software Options for Files, Images, and Recovery",
+    "primary_keyword": "windows backup software",
+    "slug": "/cybersecurity/windows-backup-software/",
+    "cluster": "Cybersecurity Risk",
+    "role": "Commercial Support",
+    "set": "pairs-01-04-2026-10",
+    "targets": [
+      "A1",
+      "A7",
+      "A9"
+    ]
+  },
+  {
+    "id": "F1",
+    "set": "listicles-2026-11",
+    "type": "blog",
+    "title": "10 Best AI Agents for Research, Operations, and Developer Work",
+    "primary_keyword": "best AI agents",
+    "slug": "/ai/best-ai-agents/",
+    "cluster": "Enterprise AI",
+    "role": "Commercial Support",
+    "targets": [
+      "D9",
+      "B6",
+      "B9"
+    ]
+  },
+  {
+    "id": "F2",
+    "set": "listicles-2026-11",
+    "type": "blog",
+    "title": "12 Business Intelligence Tools Compared by Data Source, Modeling, and Reporting",
+    "primary_keyword": "business intelligence tools",
+    "slug": "/business-technology/business-intelligence-tools/",
+    "cluster": "Business Technology",
+    "role": "Commercial Support",
+    "targets": [
+      "A4",
+      "D7",
+      "A5"
+    ]
+  },
+  {
+    "id": "F3",
+    "set": "listicles-2026-11",
+    "type": "blog",
+    "title": "10 API Testing Tools for Manual Checks, Automation, and CI/CD",
+    "primary_keyword": "API testing tools",
+    "slug": "/developer-data/api-testing-tools/",
+    "cluster": "Developer & Data",
+    "role": "Commercial Support",
+    "targets": [
+      "E8",
+      "D5"
+    ]
+  },
+  {
+    "id": "F5",
+    "set": "listicles-2026-11",
+    "type": "blog",
+    "title": "9 Datadog Alternatives for Metrics, Logs, Traces, and Cost Control",
+    "primary_keyword": "Datadog alternatives",
+    "slug": "/cloud-infrastructure/datadog-alternatives/",
+    "cluster": "Cloud & Infrastructure",
+    "role": "Commercial Support",
+    "targets": [
+      "B8",
+      "E4"
+    ]
+  },
+  {
+    "id": "F6",
+    "set": "listicles-2026-11",
+    "type": "blog",
+    "title": "9 Docker Alternatives for Local Development and Container Workflows",
+    "primary_keyword": "Docker alternatives",
+    "slug": "/cloud-infrastructure/docker-alternatives/",
+    "cluster": "Cloud & Infrastructure",
+    "role": "Commercial Support",
+    "targets": [
+      "D5",
+      "E2"
+    ]
+  },
+  {
+    "id": "F7",
+    "set": "listicles-2026-11",
+    "type": "blog",
+    "title": "15 Free AI Tools Compared by Task, Limits, and Data Use",
+    "primary_keyword": "free AI tools",
+    "slug": "/ai/free-ai-tools/",
+    "cluster": "Enterprise AI",
+    "role": "Commercial Support",
+    "targets": [
+      "D9",
+      "E6"
+    ]
+  },
+  {
+    "id": "F8",
+    "set": "listicles-2026-11",
+    "type": "blog",
+    "title": "10 ChatGPT Alternatives for Research, Coding, and Private Use",
+    "primary_keyword": "ChatGPT alternatives",
+    "slug": "/ai/chatgpt-alternatives/",
+    "cluster": "Enterprise AI",
+    "role": "Commercial Support",
+    "targets": [
+      "D5",
+      "B10",
+      "D9"
+    ]
+  },
+  {
+    "id": "F9",
+    "set": "listicles-2026-11",
+    "type": "blog",
+    "title": "12 CI/CD Tools Compared for GitHub, GitLab, and Self-Hosted Pipelines",
+    "primary_keyword": "CI/CD tools",
+    "slug": "/developer-data/ci-cd-tools/",
+    "cluster": "Developer & Data",
+    "role": "Commercial Support",
+    "targets": [
+      "D5",
+      "E4"
+    ]
+  },
+  {
+    "id": "F10",
+    "set": "listicles-2026-11",
+    "type": "blog",
+    "title": "Best Authenticator App: 9 Options Compared for Backup and Recovery",
+    "primary_keyword": "best authenticator app",
+    "slug": "/cybersecurity/best-authenticator-app/",
+    "cluster": "Identity Security",
+    "role": "Commercial Support",
+    "targets": [
+      "D4",
+      "E1",
+      "B4"
+    ]
+  }
 ]
