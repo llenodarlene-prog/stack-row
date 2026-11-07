@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "content_id": "F9",
+  "slug": "/developer-data/ci-cd-tools/",
+  "status": "scaffolded",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-07",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-01",
+      "keyword": "CI/CD tools",
+      "search_volume": 8100,
+      "seo_difficulty": 38,
+      "cpc_usd": 8.9,
+      "source": "Owner master content plan, research date 2026-11-01"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner content map and SERP gap notes, 2026-11-01.",
+  "sources": [
+    {
+      "url": "https://about.gitlab.com/pricing/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://argo-cd.readthedocs.io/en/stable/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://buildkite.com/pricing/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://circleci.com/pricing/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://docs.drone.io/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://docs.github.com/en/billing/concepts/product-billing/github-actions",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://tekton.dev/docs/pipelines/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://www.atlassian.com/software/bitbucket/pricing",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://www.harness.io/pricing",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://www.jenkins.io/doc/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://www.jetbrains.com/teamcity/buy/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "D5",
+    "E4"
+  ],
+  "fact_check": {
+    "status": "pending",
+    "reviewer": "",
+    "date_utc": ""
+  },
+  "qa": {
+    "status": "pending",
+    "reviewer": "",
+    "date_utc": ""
+  },
+  "corrections": [
+    {
+      "date_utc": "2026-11-07",
+      "change": "Drone noted as owned by Harness per drone.io banner."
+    }
+  ]
+}
