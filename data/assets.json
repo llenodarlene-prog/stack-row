@@ -1589,15 +1589,6 @@
     "captured": "2026-11"
   },
   {
-    "path": "/assets/screenshots/domo-homepage-2026-11.webp",
-    "width": 1348,
-    "height": 926,
-    "alt": "Domo homepage now branded Progress and Domo, headed \"The modern data ecosystem\" above customer logos",
-    "tool": "Domo",
-    "source": "own-capture",
-    "captured": "2026-11"
-  },
-  {
     "path": "/assets/screenshots/sisense-homepage-2026-11.webp",
     "width": 1440,
     "height": 900,
@@ -2183,15 +2174,6 @@
     "captured": "2026-11"
   },
   {
-    "path": "/assets/screenshots/1password-otp-support-article-2026-11.webp",
-    "width": 1348,
-    "height": 926,
-    "alt": "1Password support article on using 1Password as an authenticator for two-factor sites",
-    "tool": "1Password",
-    "source": "own-capture",
-    "captured": "2026-11"
-  },
-  {
     "path": "/assets/images/ai-agents-control-room-1600.jpg",
     "width": 1600,
     "height": 900,
@@ -2346,6 +2328,69 @@
     "height": 750,
     "alt": "Zoho Analytics page headed \"Add agents to your analytics team\", with the Ask Zia assistant answering a sales question",
     "tool": "Zoho Analytics",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/datadog-nm-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Datadog Network Monitoring page beside the Network Path view with hop latency and end-to-end metrics",
+    "tool": "Datadog Network Monitoring",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/logicmonitor-homepage-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "LogicMonitor homepage headed \"Goodbye, blind spots. Say hello to Autonomous IT.\" with Try it free button",
+    "tool": "LogicMonitor",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/nagios-project-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Nagios project page promoting Nagios XI, built on the Nagios Core engine, beside a monitoring dashboard",
+    "tool": "Nagios Core",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/prometheus-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Prometheus homepage headed \"Open source metrics and monitoring for your systems and services\"",
+    "tool": "Prometheus",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/grafana-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Grafana Labs homepage headed \"AI for observability. Observability for AI.\" with an Ask AI box",
+    "tool": "Grafana",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/domo-v2-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 461,
+    "alt": "Domo page headed \"Governed Data for AI Agents\" beside a fraud dashboard with an AI question prompt",
+    "tool": "Domo",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/1password-app-product-image-2026-11.webp",
+    "width": 1440,
+    "height": 810,
+    "alt": "1Password desktop and iPhone apps showing a shared vault with login, passkey and password fields",
+    "tool": "1Password",
     "source": "own-capture",
     "captured": "2026-11"
   }

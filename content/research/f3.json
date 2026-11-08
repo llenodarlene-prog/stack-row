@@ -2,7 +2,7 @@
   "schema": 1,
   "content_id": "F3",
   "slug": "/developer-data/api-testing-tools/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
   "research_date_utc": "2026-11-07",
   "keyword_queries": [
@@ -84,19 +84,20 @@
     "D5"
   ],
   "fact_check": {
-    "status": "pending",
-    "reviewer": "",
-    "date_utc": ""
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-08"
   },
   "qa": {
-    "status": "pending",
-    "reviewer": "",
-    "date_utc": ""
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-08"
   },
   "corrections": [
     {
       "date_utc": "2026-11-07",
       "change": "Katalon: removed the $2,199 list figure; noted the $1,000 offer ended 2026-10-31 and told readers to confirm price."
     }
-  ]
+  ],
+  "approval_note": "Owner approved in chat on 2026-11-08, conditional on Claude final QA (links, kill list, em dashes, silo links, screenshots). Claude QA completed 2026-11-08."
 }

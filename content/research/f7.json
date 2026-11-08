@@ -2,7 +2,7 @@
   "schema": 1,
   "content_id": "F7",
   "slug": "/ai/free-ai-tools/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
   "research_date_utc": "2026-11-07",
   "keyword_queries": [
@@ -21,6 +21,11 @@
   "ranking_competitors": [],
   "competitor_notes": "Owner content map and SERP gap notes, 2026-11-01.",
   "sources": [
+    {
+      "url": "https://claude.com/pricing",
+      "checked_utc": "2026-11-08",
+      "method": "Owner draft 2026-11-01; link checked by Claude 2026-11-08."
+    },
     {
       "url": "https://cursor.com/pricing",
       "checked_utc": "2026-11-01",
@@ -48,11 +53,6 @@
     },
     {
       "url": "https://otter.ai/pricing",
-      "checked_utc": "2026-11-01",
-      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
-    },
-    {
-      "url": "https://support.anthropic.com/en/articles/11049762-choosing-a-claude-ai-plan",
       "checked_utc": "2026-11-01",
       "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
     },
@@ -89,14 +89,14 @@
     "E6"
   ],
   "fact_check": {
-    "status": "pending",
-    "reviewer": "",
-    "date_utc": ""
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-08"
   },
   "qa": {
-    "status": "pending",
-    "reviewer": "",
-    "date_utc": ""
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-08"
   },
   "corrections": [
     {
@@ -110,6 +110,11 @@
     {
       "date_utc": "2026-11-07",
       "change": "Ollama: noted hosted models alongside local use."
+    },
+    {
+      "date_utc": "2026-11-08",
+      "change": "Anthropic support link returned 404; replaced with claude.com/pricing."
     }
-  ]
+  ],
+  "approval_note": "Owner approved in chat on 2026-11-08, conditional on Claude final QA (links, kill list, em dashes, silo links, screenshots). Claude QA completed 2026-11-08."
 }
