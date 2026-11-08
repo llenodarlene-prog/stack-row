@@ -2,7 +2,7 @@
   "schema": 1,
   "content_id": "F9",
   "slug": "/developer-data/ci-cd-tools/",
-  "status": "scaffolded",
+  "status": "verified",
   "required_seo_tool": "Ubersuggest",
   "research_date_utc": "2026-11-07",
   "keyword_queries": [
@@ -89,19 +89,20 @@
     "E4"
   ],
   "fact_check": {
-    "status": "pending",
-    "reviewer": "",
-    "date_utc": ""
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-08"
   },
   "qa": {
-    "status": "pending",
-    "reviewer": "",
-    "date_utc": ""
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-08"
   },
   "corrections": [
     {
       "date_utc": "2026-11-07",
       "change": "Drone noted as owned by Harness per drone.io banner."
     }
-  ]
+  ],
+  "approval_note": "Owner approved in chat on 2026-11-08, conditional on Claude final QA (links, kill list, em dashes, silo links, screenshots). Claude QA completed 2026-11-08."
 }
