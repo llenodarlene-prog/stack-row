@@ -182,6 +182,44 @@ Apply optimization even when the brief does not explicitly request it.
 
 **QA check:** Does presentation make the information easier to understand without weakening its substance?
 
+## 11a. Show the Tools You Write About
+
+Readers want to see a tool before they trust a recommendation. Any article or blog that lists tools or apps, or highlights one or two of them, includes a real screenshot of each featured tool.
+
+**When a screenshot is required:**
+
+- **Listicles and roundups.** Every tool with its own heading gets one screenshot.
+- **Single-tool highlights and comparisons.** Each featured tool gets at least one screenshot, and two when a key feature needs its own view.
+- **Passing mentions.** A tool named once in a sentence doesn't need one.
+
+**Where screenshots come from, in order of preference:**
+
+1. **Our own capture.** A screenshot we take of the product itself, from a trial, demo account, or public product page.
+2. **The vendor's press or media kit.** Official product images published for editorial use, credited to the vendor.
+
+Never use images from other publishers, review sites, or stock libraries. Never use AI-generated or mocked-up interfaces presented as the real product. Never use watermarked images.
+
+**What a good screenshot shows:**
+
+- The part of the product the paragraph discusses, such as the dashboard, pricing editor, or alert view.
+- A clean, cropped view with no browser clutter.
+- No real personal data. Blur or replace names, emails, account IDs, API keys, and customer records before publishing.
+- The current interface. Recapture when the product's design changes, and at least once a year.
+
+**How to file and label it:**
+
+- **File:** WebP or PNG, at least 1,200 pixels wide, under 300 KB, saved as `/assets/screenshots/{tool}-{view}-{yyyy-mm}.webp`.
+- **Registry:** add it to `data/assets.json` with `path`, `width`, `height`, `alt`, `tool`, `source` (`own-capture` or `vendor-press-kit`), `captured` (YYYY-MM), and `credit` for vendor images.
+- **Alt text:** describe what's visible, like "HubSpot CRM contacts list showing lifecycle stage column." Don't start with "Screenshot of."
+- **Caption:** "Screenshot: {Tool} {view}, captured {Month YYYY}." For vendor images, add "Image: {Vendor}."
+- **Placement:** directly under the tool's heading, before its description.
+- **Markdown:** put it on its own line as `![alt text](/assets/screenshots/file.webp "Caption")`.
+- **Front matter:** list every featured tool in `featured_tools`, for example `featured_tools: ["1Password", "Bitwarden"]`. The validator then blocks publishing until each one has a captioned screenshot.
+
+**Accuracy:** A screenshot must match the claims beside it. If the text cites a price or feature, the screenshot can't show an older plan or a retired layout. If no accurate, legally usable screenshot can be obtained, mark the article **REVISE** and tell the owner. Don't publish with a substitute image.
+
+**QA check:** Does every featured tool have a current, captioned, privacy-safe screenshot from an allowed source?
+
 ## 12. Assign the Final QA Status
 
 | Status | Requirement |

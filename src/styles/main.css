@@ -459,3 +459,8 @@ td.num > span:last-child { position: relative; }
   .post-figure img { aspect-ratio: 16 / 9; }
   .prose .chart-row { grid-template-columns: 1fr; }
 }
+
+/* Tool screenshots in articles and blogs. */
+.prose .screenshot { margin: 1.25rem 0 1.5rem; }
+.prose .screenshot img { display: block; width: 100%; height: auto; border: 1px solid var(--sr-border); border-radius: 12px; box-shadow: 0 10px 28px rgba(11, 42, 86, .1); background: var(--sr-white); }
+.prose .screenshot figcaption { margin-top: .5rem; color: var(--sr-muted); font-size: .86rem; }

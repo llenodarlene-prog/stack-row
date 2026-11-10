@@ -1,6 +1,6 @@
 import { access, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
-import { readContent } from './lib.mjs';
+import { PUBLISHED_PATTERN, readContent } from './lib.mjs';
 
 const readJson = async file => JSON.parse(await readFile(file, 'utf8'));
 const [site, plan, assets, killList, manifest] = await Promise.all([
@@ -48,7 +48,7 @@ for (const item of plan) {
   if (metadata.primary_keyword !== item.primary_keyword) fail(`${postFile}: primary keyword does not match plan`);
   if (research.content_id !== item.id || research.slug !== item.slug) fail(`${researchFile}: relationship does not match plan`);
   if (research.required_seo_tool !== 'Ubersuggest') fail(`${researchFile}: Ubersuggest must be the required SEO tool`);
-  if (metadata.published && !/^\d{4}-\d{2}-\d{2}$/.test(String(metadata.published))) fail(`${postFile}: published must be YYYY-MM-DD`);
+  if (metadata.published && !PUBLISHED_PATTERN.test(String(metadata.published))) fail(`${postFile}: published must be YYYY-MM-DD or YYYY-MM-DDTHH:MMZ`);
   if (metadata.draft !== true) {
     if (!metadata.published) fail(`${postFile}: published content requires a published date`);
     if (research.status !== 'verified') fail(`${postFile}: published content requires verified research`);
@@ -79,6 +79,44 @@ for (const [slug, { item, links }] of bodies) {
   if (pillar.slug !== slug && !bodies.get(pillar.slug).links.has(slug)) fail(`${pillar.id}: pillar does not link to its spoke ${item.id} in the body`);
   const inbound = [...bodies.values()].filter(other => other.item.slug !== slug && other.links.has(slug)).length;
   if (inbound < 2) fail(`${item.id}: only ${inbound} contextual body link(s) from other posts; at least 2 required`);
+}
+
+// Tool screenshots (docs/EDITORIAL-QA-SOP.md section 11a). Every screenshot
+// must be a registered asset with its tool, source, capture month and, for
+// vendor images, a credit. A post that lists featured_tools in its front
+// matter needs a captioned screenshot of each one.
+const assetByPath = new Map(assets.map(asset => [asset.path, asset]));
+const screenshotSources = new Set(['own-capture', 'vendor-press-kit']);
+for (const asset of assets.filter(asset => asset.path.startsWith('/assets/screenshots/'))) {
+  if (!asset.tool) fail(`${asset.path}: screenshot asset needs a tool name`);
+  if (!screenshotSources.has(asset.source)) fail(`${asset.path}: screenshot source must be own-capture or vendor-press-kit`);
+  if (!/^\d{4}-\d{2}$/.test(asset.captured || '')) fail(`${asset.path}: screenshot needs a captured month (YYYY-MM)`);
+  if (asset.source === 'vendor-press-kit' && !asset.credit) fail(`${asset.path}: vendor images need a credit line`);
+  if (/screenshot|image of|picture of/i.test(asset.alt)) fail(`${asset.path}: alt text should describe what is shown, not say "screenshot"`);
+}
+// Image SEO: every registered image needs alt text a screen reader can read
+// in one pass (125 characters or fewer).
+for (const asset of assets) {
+  if (!asset.alt || !asset.alt.trim()) fail(`${asset.path}: image needs alt text`);
+  else if (asset.alt.length > 125) fail(`${asset.path}: alt text is ${asset.alt.length} characters; keep it to 125 or fewer`);
+}
+for (const dir of ['content/posts', 'content/pages']) {
+  for (const name of (await readdir(dir)).filter(file => file.endsWith('.md'))) {
+    const file = `${dir}/${name}`;
+    const { metadata, body } = await readContent(file);
+    const shots = [...body.matchAll(/^!\[([^\]]+)\]\((\/assets\/screenshots\/[\w./-]+)(?:\s+"([^"]+)")?\)\s*$/gm)];
+    for (const [, alt, src, caption] of shots) {
+      if (!assetByPath.has(src)) fail(`${file}: screenshot ${src} is not registered in data/assets.json`);
+      if (assetByPath.has(src) && alt !== assetByPath.get(src).alt) fail(`${file}: screenshot ${src} alt text must match data/assets.json`);
+      if (!caption || !/captured \w+ \d{4}/i.test(caption)) fail(`${file}: screenshot ${src} needs a caption with "captured Month YYYY"`);
+    }
+    const featured = Array.isArray(metadata.featured_tools) ? metadata.featured_tools : [];
+    if (featured.length && metadata.draft !== true) {
+      const shown = new Set(shots.map(([, , src]) => assetByPath.get(src)?.tool?.toLowerCase()).filter(Boolean));
+      const missing = featured.filter(tool => !shown.has(String(tool).toLowerCase()));
+      if (missing.length) fail(`${file}: featured tools need a screenshot: ${missing.join(', ')}`);
+    }
+  }
 }
 
 // A page marked complete is cleared for production, so it cannot be a draft or

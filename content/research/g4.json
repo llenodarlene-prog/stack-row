@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "content_id": "G4",
+  "slug": "/ai/ai-energy-consumption-statistics/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-10",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-08",
+      "keyword": "AI energy consumption",
+      "search_volume": 1300,
+      "seo_difficulty": 18,
+      "cpc_usd": 2.26,
+      "source": "Owner statistics batch plan, 2026-11-08"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner content map and SERP gap notes, 2026-11-08.",
+  "sources": [
+    {
+      "url": "https://eta-publications.lbl.gov/publications/united-states-data-center-energy-2025",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    },
+    {
+      "url": "https://www.energy.gov/powering-americas-ai-future-data-center-resource-hub",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    },
+    {
+      "url": "https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    },
+    {
+      "url": "https://www.iea.org/reports/powering-artificial-intelligence",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "A3",
+    "G3",
+    "G6"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-10"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-10"
+  },
+  "approval_note": "Owner approved in chat on 2026-11-10 (\"go ahead\"), conditional on Claude final QA. Claude QA completed 2026-11-10.",
+  "corrections": []
+}

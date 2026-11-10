@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "content_id": "G9",
+  "slug": "/developer-data/developer-productivity-statistics/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-10",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-08",
+      "keyword": "developer productivity",
+      "search_volume": 260,
+      "seo_difficulty": 25,
+      "cpc_usd": 31.86,
+      "source": "Owner statistics batch plan, 2026-11-08"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner content map and SERP gap notes, 2026-11-08.",
+  "sources": [
+    {
+      "url": "https://devecosystem-2025.jetbrains.com/",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    },
+    {
+      "url": "https://dora.dev/ai/gen-ai-report/report/",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    },
+    {
+      "url": "https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    },
+    {
+      "url": "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    },
+    {
+      "url": "https://survey.stackoverflow.co/2026/work/data",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "G10",
+    "F3"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-10"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-10"
+  },
+  "approval_note": "Owner approved in chat on 2026-11-10 (\"go ahead\"), conditional on Claude final QA. Claude QA completed 2026-11-10.",
+  "corrections": []
+}

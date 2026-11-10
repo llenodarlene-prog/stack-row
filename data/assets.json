@@ -678,5 +678,1818 @@
     "height": 450,
     "role": "page image, small",
     "alt": "Person backing up files from a laptop to an external drive"
+  },
+  {
+    "path": "/assets/screenshots/1password-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "1Password homepage headed \"Secure access for every human and AI agent\" above an admin console preview",
+    "tool": "1Password",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/acronis-cyber-protect-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Acronis Cyber Protect page with a yearly price, Buy now and Try now buttons, analyst badges and a backup dashboard preview",
+    "tool": "Acronis Cyber Protect",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/adobe-firefly-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Adobe Firefly web app home with a \"Create anything\" prompt box for images and video and a row of quick action tiles",
+    "tool": "Adobe Firefly",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/adobe-workfront-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 672,
+    "alt": "Adobe Workfront page headed \"Where human-agent work gets done\" beside a project task list with owners, durations and progress",
+    "tool": "Adobe Workfront",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/aomei-backupper-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "AOMEI Backupper Workstation page offering backup, sync and clone software, with a Workstation Edition price card from $49.95",
+    "tool": "AOMEI Backupper",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/asana-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Asana homepage headed \"Supercharge your teams with AI\" with sign-up buttons beside a project intake workflow illustration",
+    "tool": "Asana",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/atlassian-rovo-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Atlassian Rovo page headed \"Meet Rovo: AI that knows your business\" with a prompt box asking it to create Jira work items",
+    "tool": "Atlassian Rovo",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/auvik-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Auvik network management page headed \"Gain real-time visibility across your network in minutes\" above a network topology map",
+    "tool": "Auvik",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/aws-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "AWS homepage with a partner solutions banner, a Start free with AWS button and a What's new section below",
+    "tool": "AWS",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/azure-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Microsoft Azure homepage headed \"Ship AI agents faster in Microsoft Foundry\" with an Ask Microsoft question box below",
+    "tool": "Microsoft Azure",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/bitwarden-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Bitwarden homepage headed \"Secure every login for people, agents, and machines\" above vault previews",
+    "tool": "Bitwarden",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/canva-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Canva homepage asking \"What will you design today?\" with a Start designing button above a collage of AI-generated images",
+    "tool": "Canva",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/capsule-crm-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Capsule CRM homepage headed \"Simple to start. Built for growth.\" with G2 badges beside a contact record card",
+    "tool": "Capsule",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/celoxis-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Celoxis homepage pitching one platform for projects, resources, budgets and risks, above a manager dashboard",
+    "tool": "Celoxis",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/checkmk-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Checkmk homepage headed \"Unified IT Observability for the Hybrid World\" beside a monitoring dashboard with host graphs",
+    "tool": "Checkmk",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/clickup-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "ClickUp homepage headed \"One Workspace built to think and work\" above a task board with an AI chat side panel",
+    "tool": "ClickUp",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/cloudflare-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Cloudflare homepage on an orange banner about the share of internet traffic it serves, with a Start building for free button",
+    "tool": "Cloudflare",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/copy-ai-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Copy.ai homepage headed \"The First AI-Native GTM Platform\" with content, pipeline and campaign steps",
+    "tool": "Copy.ai",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/crowdstrike-falcon-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "CrowdStrike Falcon platform page above a ring diagram of its security services",
+    "tool": "CrowdStrike Falcon",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/dashlane-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Dashlane homepage headed \"Prevent credential breaches\" with Contact Sales and Request a demo buttons above customer logos",
+    "tool": "Dashlane",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/datadog-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Datadog homepage headed \"AI-Powered Observability and Security\" above monitoring dashboard panels",
+    "tool": "Datadog",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/datagrip-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "JetBrains DataGrip page headed \"Many databases, one tool\" above the Database Explorer data source list",
+    "tool": "JetBrains DataGrip",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/dbdiagram-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "dbdiagram.io homepage headed \"Draw Entity-Relationship Diagrams, Painlessly\" above a code editor and the diagram it generates",
+    "tool": "dbdiagram.io",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/dbeaver-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "DBeaver Community homepage for the free universal database tool, with a SQL editor preview and edition columns",
+    "tool": "DBeaver",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/dbschema-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "DbSchema homepage headed \"Visual Database Management Tool\" over a database schema diagram",
+    "tool": "DbSchema",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/descript-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Descript homepage headed \"AI-editing for every kind of video\" above an Underlord editing assistant panel",
+    "tool": "Descript",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/docker-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Docker homepage headed \"Trust Docker for the Agents You Don't\" above Sandboxes, AI Governance and Hardened Images cards",
+    "tool": "Docker",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/domotz-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Domotz homepage headed \"The Agent-Native Network Monitoring Solution\" with a free trial button and G2 rating",
+    "tool": "Domotz",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/drawsql-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "DrawSQL homepage headed \"Your database, diagrammed.\" above a schema diagram editor with tables and relationships",
+    "tool": "DrawSQL",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/easeus-todo-backup-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "EaseUS Todo Backup Business page for business and server backup, with Buy Now and Free Trial buttons",
+    "tool": "EaseUS Todo Backup",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/freshsales-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Freshworks Freshsales page headed \"Sell smarter and close deals faster\" beside a CRM deal view with a contact score",
+    "tool": "Freshsales",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/google-cloud-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Google Cloud homepage headed \"The new way to cloud\" with a free credit offer and three AI news cards",
+    "tool": "Google Cloud",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/google-password-manager-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Google Password Manager page headed \"Simpler sign-in, safer passwords\" with Manage password and Get started buttons",
+    "tool": "Google Password Manager",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/grammarly-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Grammarly homepage above cards for paragraph rewrites, tone suggestions and proofreading",
+    "tool": "Grammarly",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/hubspot-content-hub-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "HubSpot Content Hub page headed \"Content Marketing Software\" with demo and trial buttons above a page editor preview",
+    "tool": "HubSpot Content Hub",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/hubspot-crm-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "HubSpot free CRM page headed \"Free CRM Software for Startups & Small Businesses\" beside a contact record with an actions menu",
+    "tool": "HubSpot",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/hubspot-enterprise-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "HubSpot pricing page with a Starter discount banner and Free and Starter plan cards at $0 and $7 per seat per month",
+    "tool": "HubSpot",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/jasper-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Jasper homepage headed \"Applied AI for Enterprise Marketing\" with Get a Demo and Start Free Trial buttons",
+    "tool": "Jasper",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/keeper-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Keeper Business Password Manager page priced from $2 per user per month beside the Keeper vault",
+    "tool": "Keeper",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/less-annoying-crm-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Less Annoying CRM homepage headed \"More than a spreadsheet, less than a CRM.\" above a contact activity feed",
+    "tool": "Less Annoying CRM",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/librenms-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "LibreNMS homepage welcoming visitors to the network monitoring system, with a What can it do? button over device graphs",
+    "tool": "LibreNMS",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/looker-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Google Cloud Looker page headed \"The agentic BI platform built on a trusted semantic layer\" with a product highlights list",
+    "tool": "Looker",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/macrium-reflect-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Macrium Reflect X Workstation page for Windows PC and workstation backup, with Buy Now and Free 30-Day Trial buttons",
+    "tool": "Macrium Reflect X",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/meisterplan-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Meisterplan homepage headed \"Make Plans That Work\" with demo and trial buttons beside a portfolio planning chart",
+    "tool": "Meisterplan",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/microsoft-planner-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Microsoft Planner page with Try for free and See plans and pricing buttons beside a task board on a tablet",
+    "tool": "Microsoft Planner",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/monday-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "monday.com homepage headed \"The AI workspace for people and agents\" beside a marketing campaign board",
+    "tool": "Monday.com",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/multipass-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Canonical Multipass page headed \"Ubuntu VMs on demand for any workstation\" with an Install now button",
+    "tool": "Multipass",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/mysql-workbench-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "MySQL Workbench product page describing the unified visual tool, with Develop, Administer and Analyze Performance sections",
+    "tool": "MySQL Workbench",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/nordpass-product-page-2026-11.webp",
+    "width": 1040,
+    "height": 708,
+    "alt": "NordPass team password manager page priced from $1.79 per user per month, with a password generator card",
+    "tool": "NordPass",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/okta-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Okta homepage headed \"Bring agents out of the shadows\" with Dive deeper and Contact sales buttons over an office scene",
+    "tool": "Okta",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/oneplan-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "OnePlan homepage headed \"Plan. Fund. Execute.\" with an Ask Sofia AI prompt box and Microsoft partnership badge",
+    "tool": "OnePlan",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/opmanager-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "ManageEngine OpManager homepage with a whitepaper banner and cards for network, server and wireless monitoring",
+    "tool": "ManageEngine OpManager",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/orbstack-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "OrbStack homepage headed \"Say goodbye to slow, clunky containers and VMs\" with a Get OrbStack button above the Mac app",
+    "tool": "OrbStack",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/paessler-prtg-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Paessler PRTG page headed \"Complete Infrastructure Control\" beside the PRTG dashboard with sensor gauges",
+    "tool": "Paessler PRTG",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/palo-alto-networks-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Palo Alto Networks homepage promoting its Cortex AI platform: \"Ask. Remediate. Optimize.\"",
+    "tool": "Palo Alto Networks",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/parallels-desktop-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Parallels Desktop page headed \"Run the Windows apps you need on any Mac\" with a yearly price and Windows 11 on a MacBook",
+    "tool": "Parallels Desktop",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/pgadmin-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "pgAdmin homepage headed \"The PostgreSQL management tool\" with install options by platform beside the pgAdmin dashboard",
+    "tool": "pgAdmin",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/pipedrive-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Pipedrive homepage headed \"The easy, intelligent CRM loved by growing sales teams\" with Try it free and Contact sales buttons",
+    "tool": "Pipedrive",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/podman-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Podman homepage headed \"The best free & open source container tools\" beside Podman Desktop",
+    "tool": "Podman",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/power-bi-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Microsoft Power BI page with a Copilot in Microsoft Fabric card and a Try for free button",
+    "tool": "Power BI",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/proton-pass-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Proton Pass homepage headed \"The best free password manager\" above the mobile app vault",
+    "tool": "Proton Pass",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/salesforce-agentforce-product-page-2026-11.webp",
+    "width": 1098,
+    "height": 571,
+    "alt": "Agentforce page with the headline \"Scale service with Agentforce\" and a diagram of AI agents handling service tasks",
+    "tool": "Salesforce Agentforce",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/salesforce-sales-cloud-product-page-2026-11.webp",
+    "width": 1030,
+    "height": 701,
+    "alt": "Salesforce Sales Cloud page with the headline \"Grow revenue with the #1 CRM that works for you\" and a product video panel",
+    "tool": "Salesforce Sales Cloud",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/salesforce-starter-product-page-2026-11.webp",
+    "width": 1022,
+    "height": 486,
+    "alt": "Salesforce small business page headed \"The CRM that understands your business\" beside an opportunity record",
+    "tool": "Salesforce Starter Suite",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/semrush-content-toolkit-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Semrush plans and pricing page with the Content toolkit selected and a Base plan card at $60 per month",
+    "tool": "Semrush Content Toolkit",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/servicenow-now-assist-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 810,
+    "alt": "Now Assist overview title card in green on dark blue, with a sparkle icon inside a circle",
+    "tool": "ServiceNow Now Assist",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/site24x7-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Site24x7 network monitoring page beside a dashboard of device health and network topology",
+    "tool": "Site24x7",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/smartsheet-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Smartsheet homepage headed \"AI that connects systems, runs projects, and helps teams act faster\" beside a Gantt view",
+    "tool": "Smartsheet",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/smartsheet-control-center-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 672,
+    "alt": "Smartsheet Control Center introduction showing the Select Blueprint step with an IT Operations Projects blueprint",
+    "tool": "Smartsheet Control Center",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/snowflake-cortex-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Snowflake Cortex AI feature page with a Start for free button beside an overview video of Cortex LLM functions",
+    "tool": "Snowflake Cortex AI",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/solarwinds-product-page-2026-11.webp",
+    "width": 998,
+    "height": 360,
+    "alt": "SolarWinds \"Network Monitoring and Observability\" page beside a dashboard of network devices and response times",
+    "tool": "SolarWinds",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/surfer-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Surfer homepage for its AI visibility platform with Try Surfer Platform and Get free AI visibility report buttons",
+    "tool": "Surfer",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/tableau-f2-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Tableau page headed \"Accelerate data to insights to action\" above Desktop, Server, Cloud and Next product cards",
+    "tool": "Tableau",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/tart-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Tart homepage describing a toolset to build, run and manage macOS and Linux VMs on Apple Silicon, with a large Tart logo",
+    "tool": "Tart",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/teamwork-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Teamwork.com homepage headed \"Most tools track work. We make it profitable.\" with trial and demo buttons above feature tabs",
+    "tool": "Teamwork.com",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/trello-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Trello homepage headed \"Capture, organize, and tackle your to-dos from anywhere\" with an email sign-up box",
+    "tool": "Trello",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/urbackup-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "UrBackup homepage explaining the open source backup system, with client, server and restore downloads",
+    "tool": "UrBackup",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/utm-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "UTM homepage headed \"Securely run operating systems on your Mac\" above a virtual machine list",
+    "tool": "UTM",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/veeam-agent-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Veeam Agent for Microsoft Windows FREE page with Download Now and Edition Comparison buttons and a feature list",
+    "tool": "Veeam Agent for Microsoft Windows",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/virtualbox-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Oracle VirtualBox homepage headed \"Powerful open source virtualization\" with a Get Started download box",
+    "tool": "Oracle VirtualBox",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/vmware-fusion-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "VMware by Broadcom Fusion and Workstation desktop hypervisor page with Download Now and Read FAQs buttons",
+    "tool": "VMware Fusion",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/windows-backup-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Microsoft Support article \"Back up and restore with Windows Backup\" with Windows 11 and 10 tabs",
+    "tool": "Windows Backup",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/wrike-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Wrike homepage headed \"Deliver work, powered by humans and agents\" with a Try Wrike for free button and customer logos",
+    "tool": "Wrike",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zabbix-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Zabbix homepage headed \"The universal, open source observability solution for IT & OT\" with a demo button",
+    "tool": "Zabbix",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zoho-analytics-f2-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Zoho Analytics page headed \"Data to decisions in minutes\" beside a cloud or on-premise sign-up form",
+    "tool": "Zoho Analytics",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zoho-crm-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Zoho CRM homepage headed \"Close more deals with free AI agents\" beside a free trial sign-up form",
+    "tool": "Zoho CRM",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/planview-projectadvantage-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Planview ProjectAdvantage page headed \"Take control of project delivery\", noting it was formerly Sciforma",
+    "tool": "Planview ProjectAdvantage",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/lindy-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Lindy homepage headed \"Hire Lindy, get it done.\" above a team workspace with channels",
+    "tool": "Lindy",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/gumloop-agent-builder-2026-11.webp",
+    "width": 1359,
+    "height": 933,
+    "alt": "Gumloop agent builder showing a GTM Agent with model settings and Slack, HubSpot and Gmail connectors",
+    "tool": "Gumloop",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/copilot-studio-product-page-2026-11.webp",
+    "width": 1347,
+    "height": 846,
+    "alt": "Microsoft Copilot Studio page beside the Copilot Studio home screen for building agents and workflows",
+    "tool": "Microsoft Copilot Studio",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/gemini-enterprise-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Google Cloud Gemini platform page headed \"Innovate, build, and deploy enterprise-ready agents and apps\"",
+    "tool": "Gemini Enterprise Agent Platform",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/openai-agents-documentation-2026-11.webp",
+    "width": 1363,
+    "height": 936,
+    "alt": "OpenAI Agents documentation comparing the Agents API, Agents SDK and Responses API runtimes",
+    "tool": "OpenAI Agents SDK",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zapier-agents-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Zapier Agents page headed \"Meet your new AI teammates\" with Get started free and See templates buttons",
+    "tool": "Zapier Agents",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/relevance-ai-product-image-2026-11.webp",
+    "width": 1200,
+    "height": 630,
+    "alt": "Relevance AI agent setup showing an Inbox Manager agent with connected apps, model and triggers",
+    "tool": "Relevance AI",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/crewai-homepage-2026-11.webp",
+    "width": 1347,
+    "height": 740,
+    "alt": "CrewAI homepage headed \"The Enterprise Agent Build & Runtime\" above a prompt box to describe an agent",
+    "tool": "CrewAI",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/langgraph-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "LangGraph page headed \"Balance agent control with agency\" with Start building and Read the docs buttons",
+    "tool": "LangGraph",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/qlik-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Qlik page explaining Qlik Sense is now Qlik Cloud Analytics beside a catalog of analytics apps",
+    "tool": "Qlik Cloud Analytics",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/thoughtspot-documentation-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "ThoughtSpot Cloud documentation showing Spotter, SpotterModel, SpotterViz and SpotterCode agents",
+    "tool": "ThoughtSpot",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/sigma-homepage-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Sigma homepage headed \"Go build it. IT approves.\" above a workbook of late orders and an agent panel",
+    "tool": "Sigma",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/metabase-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Metabase homepage headed \"Open source AI analytics you can verify\" with a Metabot chat panel",
+    "tool": "Metabase",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/superset-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Apache Superset homepage above a SaaS growth dashboard with a world map, pie chart and histogram",
+    "tool": "Apache Superset",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/sisense-homepage-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Sisense homepage headed \"AI inside your product. Under your brand.\" beside a product video",
+    "tool": "Sisense",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/data-studio-overview-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Google Data Studio overview headed \"Your data is beautiful. Use it.\" with a Use it for free button",
+    "tool": "Google Data Studio",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/postman-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Postman API Platform page beside a lifecycle wheel of design, develop, test, mock and monitor stages",
+    "tool": "Postman",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/bruno-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Bruno desktop client running a GitHub search request with query parameters and a JSON response",
+    "tool": "Bruno",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/insomnia-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Insomnia homepage headed \"AI-ready APIs Built Smarter\" with its open-source free tier feature list",
+    "tool": "Insomnia",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/hoppscotch-documentation-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Hoppscotch documentation home with a preview of the Hoppscotch request and response interface",
+    "tool": "Hoppscotch",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/soapui-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "SoapUI homepage headed \"API testing your whole team can rely on.\" with a Try ReadyAPI Free button",
+    "tool": "SoapUI",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/readyapi-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "ReadyAPI page headed \"API Testing That Keeps Pace with AI-Driven Development\" beside the ReadyAPI navigator",
+    "tool": "ReadyAPI",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/katalon-product-image-2026-11.webp",
+    "width": 1440,
+    "height": 801,
+    "alt": "Katalon Studio Web Recorder listing recorded test steps beside a browser with verification actions",
+    "tool": "Katalon Studio",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/rest-assured-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "REST Assured homepage showing a sample JSON response and a Java test that checks it",
+    "tool": "REST Assured",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/playwright-documentation-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Playwright API testing guide explaining APIRequestContext and how to write API tests",
+    "tool": "Playwright",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/jmeter-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Apache JMeter homepage listing load testing features and supported protocols",
+    "tool": "Apache JMeter",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/grafana-cloud-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Grafana Cloud page headed \"Full-stack observability. One view.\" beside service maps and latency charts",
+    "tool": "Grafana Cloud",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/new-relic-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "New Relic homepage headed \"Observability that thinks\" beside an SRE Agent incident summary",
+    "tool": "New Relic",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/dynatrace-homepage-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Dynatrace homepage headed \"Observability built for the age of AI\" beside product dashboards",
+    "tool": "Dynatrace",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/splunk-product-image-2026-11.webp",
+    "width": 1080,
+    "height": 608,
+    "alt": "Splunk dashboard of datacenter sensors with power, temperature, a server room heatmap and anomaly table",
+    "tool": "Splunk Observability Cloud",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/elastic-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Elastic Observability page beside a Kubernetes cluster overview with CPU and memory charts",
+    "tool": "Elastic Observability",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/honeycomb-homepage-2026-11.webp",
+    "width": 1347,
+    "height": 540,
+    "alt": "Honeycomb homepage headed \"Observability built for the AI era\" with Get a demo and Start for free buttons",
+    "tool": "Honeycomb",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/signoz-homepage-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "SigNoz homepage headed \"Observability for your team and AI agents\" with Get Started and Book a demo buttons",
+    "tool": "SigNoz",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/better-stack-product-image-2026-11.webp",
+    "width": 1440,
+    "height": 690,
+    "alt": "Better Stack load balancer dashboard with frequent requests, bot traffic, HTTP methods and users online",
+    "tool": "Better Stack",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/chronosphere-product-image-2026-11.webp",
+    "width": 1440,
+    "height": 732,
+    "alt": "Chronosphere service view for an Ordering Service with CPU, memory, request rate and error charts",
+    "tool": "Cortex XCOR (Chronosphere)",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/podman-desktop-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Podman Desktop homepage above app windows showing the containers list, extensions and settings",
+    "tool": "Podman Desktop",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/orbstack-homepage-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "OrbStack homepage headed \"Say goodbye to slow, clunky containers and VMs\" above the Mac app",
+    "tool": "OrbStack",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/colima-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Colima homepage with Docker, containerd, Kubernetes, Incus and AI runtime tabs beside a demo player",
+    "tool": "Colima",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/rancher-desktop-homepage-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Rancher Desktop page headed \"Container Management and Kubernetes on the Desktop\" with download options",
+    "tool": "Rancher Desktop",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/nerdctl-repository-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "nerdctl GitHub repository describing a Docker-compatible CLI for containerd with Compose and rootless support",
+    "tool": "nerdctl",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/lima-homepage-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Lima homepage headed \"Linux Machines\" beside a terminal showing a Lima VM boot log",
+    "tool": "Lima",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/finch-documentation-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Finch documentation home describing the open source container tool for macOS, Windows and Linux",
+    "tool": "Finch",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/buildah-project-site-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Buildah site with its logo and release announcements for Buildah v1.45 and earlier versions",
+    "tool": "Buildah",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/buildkit-repository-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "BuildKit GitHub repository for the concurrent, cache-efficient, Dockerfile-agnostic builder toolkit",
+    "tool": "BuildKit",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/chatgpt-web-app-2026-11.webp",
+    "width": 1363,
+    "height": 936,
+    "alt": "ChatGPT free web app asking \"Where should we begin?\" above the Ask ChatGPT prompt box",
+    "tool": "ChatGPT",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/gemini-overview-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Google Gemini overview page introducing the Gemini app and how it works",
+    "tool": "Google Gemini",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/claude-product-page-2026-11.webp",
+    "width": 1347,
+    "height": 660,
+    "alt": "Claude product page headed \"Give Claude more\" with Try Claude and Download buttons",
+    "tool": "Claude",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/microsoft-copilot-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Microsoft Copilot page headed \"Built for Work. Made for you.\" with Try for free and plans buttons",
+    "tool": "Microsoft Copilot",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/perplexity-help-center-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Perplexity help center home asking \"How can we help?\" with topics for plans, models and features",
+    "tool": "Perplexity",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/gemini-notebook-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Gemini Notebook page headed \"Turn your files into Slide Decks\" with a Try Gemini Notebook button",
+    "tool": "Gemini Notebook",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/mistral-vibe-documentation-2026-11.webp",
+    "width": 1341,
+    "height": 921,
+    "alt": "Mistral Vibe documentation explaining Work and Code modes and the merger of Chat and Work",
+    "tool": "Mistral Vibe",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/poe-sign-in-page-2026-11.webp",
+    "width": 1363,
+    "height": 936,
+    "alt": "Poe sign-in page inviting users to chat with GPT, Claude, Gemini, Grok and thousands of other bots",
+    "tool": "Poe",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/github-copilot-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "GitHub Copilot page labeled AI coding agent above the Copilot app with sessions and a prompt box",
+    "tool": "GitHub Copilot",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/cursor-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Cursor homepage above Cursor Desktop building a landing page and Cursor CLI running an agent task",
+    "tool": "Cursor",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/ollama-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Ollama homepage headed \"Run open models with zero data retention\" with install and download figures",
+    "tool": "Ollama",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/lm-studio-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "LM Studio homepage above the Bionic agent app building a portfolio site with a live preview",
+    "tool": "LM Studio",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/canva-ai-help-article-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Canva help article \"Get started with Canva AI\" covering plan eligibility and Canva AI 2.0",
+    "tool": "Canva AI",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/otter-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Otter homepage headed \"Your AI notetaker is now also your Conversational Knowledge Engine\"",
+    "tool": "Otter.ai",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/grok-web-app-2026-11.webp",
+    "width": 1363,
+    "height": 936,
+    "alt": "Grok web app asking \"What should we explore?\" above a prompt box with a Fast mode selector",
+    "tool": "Grok",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/github-actions-workflow-editor-2026-11.webp",
+    "width": 1132,
+    "height": 656,
+    "alt": "GitHub Actions workflow editor suggesting push triggers beside featured Marketplace actions",
+    "tool": "GitHub Actions",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/gitlab-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "GitLab CI/CD page headed \"Accelerate CI/CD delivery, with governance built in\"",
+    "tool": "GitLab CI/CD",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/jenkins-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Jenkins homepage with the Jenkins butler logo, \"Build great things at any scale\" and Download button",
+    "tool": "Jenkins",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/circleci-homepage-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "CircleCI homepage headed \"Validate everything. Assume nothing.\" beside the Chunk task assistant",
+    "tool": "CircleCI",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/buildkite-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Buildkite homepage headed \"You deserve better CI\" above a wall of customer logos",
+    "tool": "Buildkite",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/teamcity-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "TeamCity page above its pipeline view with Build, Test and Security scan steps",
+    "tool": "TeamCity",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/azure-pipelines-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Microsoft Azure Pipelines page headed \"Build and deploy faster with Azure Pipelines\"",
+    "tool": "Azure Pipelines",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/bitbucket-product-page-2026-11.webp",
+    "width": 1347,
+    "height": 770,
+    "alt": "Bitbucket Pipelines page headed \"Build CI/CD workflows that are AI-enabled\" with feature cards",
+    "tool": "Bitbucket Pipelines",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/argo-cd-documentation-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Argo CD documentation overview with the Argo CD app tree showing sync and health status",
+    "tool": "Argo CD",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/tekton-homepage-2026-11.webp",
+    "width": 1347,
+    "height": 700,
+    "alt": "Tekton homepage headed \"Kubernetes Native CI/CD\" above a source, build, test and deploy pipeline",
+    "tool": "Tekton",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/drone-homepage-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Drone by Harness homepage headed \"Automate Software Build and Testing\" with a robot arm illustration",
+    "tool": "Drone",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/harness-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Harness CI page headed \"Build and test AI code at scale\" above a build, test and publish pipeline",
+    "tool": "Harness",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/proton-authenticator-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Proton Authenticator page showing the desktop and iPhone apps with codes for Amazon, Netflix and GitHub",
+    "tool": "Proton Authenticator",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/2fas-homepage-2026-11.webp",
+    "width": 1355,
+    "height": 931,
+    "alt": "2FAS homepage headed \"Your Passwords and 2FA Tokens are in safe hands\" with 2FAS Pass and Auth icons",
+    "tool": "2FAS",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/ente-auth-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Ente Auth page describing an open source 2FA app with encrypted backups beside the phone app",
+    "tool": "Ente Auth",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/aegis-homepage-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Aegis Authenticator homepage beside an Android phone showing codes with a QR code card",
+    "tool": "Aegis",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/google-authenticator-Google-Play-listing-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Google Authenticator on Google Play with 100M+ downloads and app screens showing codes",
+    "tool": "Google Authenticator",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/microsoft-authenticator-product-page-2026-11.webp",
+    "width": 1347,
+    "height": 876,
+    "alt": "Microsoft Authenticator page headed \"Download Microsoft Authenticator\" with Download the app button",
+    "tool": "Microsoft Authenticator",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/duo-mobile-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Cisco Duo page headed \"Duo Mobile app: secure access from your smartphone\" with download buttons",
+    "tool": "Duo Mobile",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/bitwarden-authenticator-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Bitwarden Authenticator page beside phone screens listing verification codes for Chase, GitHub and Gmail",
+    "tool": "Bitwarden Authenticator",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/images/ai-agents-control-room-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Team at a marble table reviewing an AI workflow diagram and code on wall screens"
+  },
+  {
+    "path": "/assets/images/ai-agents-control-room-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Team at a marble table reviewing an AI workflow diagram and code on wall screens"
+  },
+  {
+    "path": "/assets/images/analytics-wall-review-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Three colleagues reviewing a wall of analytics dashboards and a world map in a skyline office"
+  },
+  {
+    "path": "/assets/images/analytics-wall-review-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Three colleagues reviewing a wall of analytics dashboards and a world map in a skyline office"
+  },
+  {
+    "path": "/assets/images/api-pipeline-checks-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Developer at a monitor showing a test pipeline of passed checks leading to a deployed package"
+  },
+  {
+    "path": "/assets/images/api-pipeline-checks-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Developer at a monitor showing a test pipeline of passed checks leading to a deployed package"
+  },
+  {
+    "path": "/assets/images/telemetry-dashboards-penthouse-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Engineer studying floating telemetry charts, a timeline and a service graph fed by data streams"
+  },
+  {
+    "path": "/assets/images/telemetry-dashboards-penthouse-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Engineer studying floating telemetry charts, a timeline and a service graph fed by data streams"
+  },
+  {
+    "path": "/assets/images/container-workstation-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Wide monitor showing containers stacked on a Linux host and deployed across a network"
+  },
+  {
+    "path": "/assets/images/container-workstation-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Wide monitor showing containers stacked on a Linux host and deployed across a network"
+  },
+  {
+    "path": "/assets/images/ai-creator-desk-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Smiling woman at a desk with a monitor showing an AI workflow and generated images"
+  },
+  {
+    "path": "/assets/images/ai-creator-desk-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Smiling woman at a desk with a monitor showing an AI workflow and generated images"
+  },
+  {
+    "path": "/assets/images/research-coding-review-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two colleagues at a curved monitor reviewing files, code and privacy toggles"
+  },
+  {
+    "path": "/assets/images/research-coding-review-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two colleagues at a curved monitor reviewing files, code and privacy toggles"
+  },
+  {
+    "path": "/assets/images/delivery-pipeline-screen-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Three engineers beside server racks reviewing a code, build, package, cloud and launch pipeline"
+  },
+  {
+    "path": "/assets/images/delivery-pipeline-screen-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Three engineers beside server racks reviewing a code, build, package, cloud and launch pipeline"
+  },
+  {
+    "path": "/assets/images/authenticator-phone-key-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Hand holding a phone with a security shield beside a laptop and a USB-C security key"
+  },
+  {
+    "path": "/assets/images/authenticator-phone-key-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Hand holding a phone with a security shield beside a laptop and a USB-C security key"
+  },
+  {
+    "path": "/assets/images/network-operations-wall-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two colleagues reviewing a network map, wireless floor plan and dashboards beside server racks"
+  },
+  {
+    "path": "/assets/images/network-operations-wall-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two colleagues reviewing a network map, wireless floor plan and dashboards beside server racks"
+  },
+  {
+    "path": "/assets/screenshots/tableau-product-page-2026-11.webp",
+    "width": 1086,
+    "height": 489,
+    "alt": "Tableau Desktop page offering a free download, with a bar chart built in the Tableau Desktop editor",
+    "tool": "Tableau",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zoho-analytics-product-page-2026-11.webp",
+    "width": 1215,
+    "height": 750,
+    "alt": "Zoho Analytics page headed \"Add agents to your analytics team\", with the Ask Zia assistant answering a sales question",
+    "tool": "Zoho Analytics",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/datadog-nm-product-page-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Datadog Network Monitoring page beside the Network Path view with hop latency and end-to-end metrics",
+    "tool": "Datadog Network Monitoring",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/logicmonitor-homepage-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "LogicMonitor homepage headed \"Goodbye, blind spots. Say hello to Autonomous IT.\" with Try it free button",
+    "tool": "LogicMonitor",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/nagios-project-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Nagios project page promoting Nagios XI, built on the Nagios Core engine, beside a monitoring dashboard",
+    "tool": "Nagios Core",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/prometheus-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Prometheus homepage headed \"Open source metrics and monitoring for your systems and services\"",
+    "tool": "Prometheus",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/grafana-homepage-2026-11.webp",
+    "width": 1348,
+    "height": 926,
+    "alt": "Grafana Labs homepage headed \"AI for observability. Observability for AI.\" with an Ask AI box",
+    "tool": "Grafana",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/domo-v2-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 461,
+    "alt": "Domo page headed \"Governed Data for AI Agents\" beside a fraud dashboard with an AI question prompt",
+    "tool": "Domo",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/1password-app-product-image-2026-11.webp",
+    "width": 1440,
+    "height": 810,
+    "alt": "1Password desktop and iPhone apps showing a shared vault with login, passkey and password fields",
+    "tool": "1Password",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/images/ai-cafe-atrium-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Busy plant-filled atrium cafe where people of all ages work on laptops, read phones and talk"
+  },
+  {
+    "path": "/assets/images/ai-cafe-atrium-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Busy plant-filled atrium cafe where people of all ages work on laptops, read phones and talk"
+  },
+  {
+    "path": "/assets/images/cooling-water-check-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Engineer in a hard hat checking a water flow gauge on stainless cooling pipes in a plant room"
+  },
+  {
+    "path": "/assets/images/cooling-water-check-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Engineer in a hard hat checking a water flow gauge on stainless cooling pipes in a plant room"
+  },
+  {
+    "path": "/assets/images/renewable-server-hall-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Engineer with a tablet beside electrical cabinets and server racks, with solar panels and wind turbines outside"
+  },
+  {
+    "path": "/assets/images/renewable-server-hall-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Engineer with a tablet beside electrical cabinets and server racks, with solar panels and wind turbines outside"
+  },
+  {
+    "path": "/assets/images/data-center-water-walk-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two engineers walking past a data center with cooling units, water tanks and a planted stream"
+  },
+  {
+    "path": "/assets/images/data-center-water-walk-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two engineers walking past a data center with cooling units, water tanks and a planted stream"
+  },
+  {
+    "path": "/assets/images/data-center-substation-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two engineers walking beside a data center and its electrical substation with transformers and power lines"
+  },
+  {
+    "path": "/assets/images/data-center-substation-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two engineers walking beside a data center and its electrical substation with transformers and power lines"
+  },
+  {
+    "path": "/assets/images/developer-pair-charts-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two colleagues in a bright library reviewing a rising bar chart and a laptop"
+  },
+  {
+    "path": "/assets/images/developer-pair-charts-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two colleagues in a bright library reviewing a rising bar chart and a laptop"
+  },
+  {
+    "path": "/assets/images/developer-balcony-break-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Man taking a break with a glass of water at an open balcony door beside a closed laptop"
+  },
+  {
+    "path": "/assets/images/developer-balcony-break-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Man taking a break with a glass of water at an open balcony door beside a closed laptop"
   }
 ]
