@@ -773,5 +773,107 @@
       "E1",
       "B4"
     ]
+  },
+  {
+    "id": "G2",
+    "set": "statistics-2026-11",
+    "type": "blog",
+    "title": "How Many People Use AI in 2026? Global and US Adoption Statistics",
+    "primary_keyword": "how many people use AI",
+    "slug": "/ai/how-many-people-use-ai/",
+    "cluster": "Enterprise AI",
+    "role": "Commercial Support",
+    "targets": [
+      "A3",
+      "F8"
+    ]
+  },
+  {
+    "id": "G3",
+    "set": "statistics-2026-11",
+    "type": "blog",
+    "title": "AI Water Usage Statistics: How Much Water AI Systems Use",
+    "primary_keyword": "AI water usage",
+    "slug": "/ai/ai-water-usage-statistics/",
+    "cluster": "Enterprise AI",
+    "role": "Commercial Support",
+    "targets": [
+      "A3",
+      "G4",
+      "G5"
+    ]
+  },
+  {
+    "id": "G4",
+    "set": "statistics-2026-11",
+    "type": "blog",
+    "title": "AI Energy Consumption Statistics: How Much Electricity AI Uses",
+    "primary_keyword": "AI energy consumption",
+    "slug": "/ai/ai-energy-consumption-statistics/",
+    "cluster": "Enterprise AI",
+    "role": "Commercial Support",
+    "targets": [
+      "A3",
+      "G3",
+      "G6"
+    ]
+  },
+  {
+    "id": "G5",
+    "set": "statistics-2026-11",
+    "type": "blog",
+    "title": "Data Center Water Usage Statistics: Direct, Indirect, and Local Impacts",
+    "primary_keyword": "data center water usage",
+    "slug": "/cloud-infrastructure/data-center-water-usage/",
+    "cluster": "Cloud & Infrastructure",
+    "role": "Commercial Support",
+    "targets": [
+      "A5",
+      "G3",
+      "G6"
+    ]
+  },
+  {
+    "id": "G6",
+    "set": "statistics-2026-11",
+    "type": "blog",
+    "title": "How Much Electricity Do Data Centers Use? 2026 Statistics and Forecasts",
+    "primary_keyword": "how much electricity do data centers use",
+    "slug": "/cloud-infrastructure/how-much-electricity-do-data-centers-use/",
+    "cluster": "Cloud & Infrastructure",
+    "role": "Commercial Support",
+    "targets": [
+      "A5",
+      "G4",
+      "G5"
+    ]
+  },
+  {
+    "id": "G9",
+    "set": "statistics-2026-11",
+    "type": "blog",
+    "title": "Developer Productivity Statistics: What the Research Shows in 2026",
+    "primary_keyword": "developer productivity",
+    "slug": "/developer-data/developer-productivity-statistics/",
+    "cluster": "Developer & Data",
+    "role": "Commercial Support",
+    "targets": [
+      "G10",
+      "F3"
+    ]
+  },
+  {
+    "id": "G10",
+    "set": "statistics-2026-11",
+    "type": "blog",
+    "title": "Developer Burnout Statistics: Prevalence, Causes, and Workplace Signals",
+    "primary_keyword": "developer burnout",
+    "slug": "/developer-data/developer-burnout-statistics/",
+    "cluster": "Developer & Data",
+    "role": "Commercial Support",
+    "targets": [
+      "G9",
+      "F9"
+    ]
   }
 ]

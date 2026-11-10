@@ -1,6 +1,6 @@
 import { access, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
-import { readContent } from './lib.mjs';
+import { PUBLISHED_PATTERN, readContent } from './lib.mjs';
 
 const readJson = async file => JSON.parse(await readFile(file, 'utf8'));
 const [site, plan, assets, killList, manifest] = await Promise.all([
@@ -48,7 +48,7 @@ for (const item of plan) {
   if (metadata.primary_keyword !== item.primary_keyword) fail(`${postFile}: primary keyword does not match plan`);
   if (research.content_id !== item.id || research.slug !== item.slug) fail(`${researchFile}: relationship does not match plan`);
   if (research.required_seo_tool !== 'Ubersuggest') fail(`${researchFile}: Ubersuggest must be the required SEO tool`);
-  if (metadata.published && !/^\d{4}-\d{2}-\d{2}$/.test(String(metadata.published))) fail(`${postFile}: published must be YYYY-MM-DD`);
+  if (metadata.published && !PUBLISHED_PATTERN.test(String(metadata.published))) fail(`${postFile}: published must be YYYY-MM-DD or YYYY-MM-DDTHH:MMZ`);
   if (metadata.draft !== true) {
     if (!metadata.published) fail(`${postFile}: published content requires a published date`);
     if (research.status !== 'verified') fail(`${postFile}: published content requires verified research`);
