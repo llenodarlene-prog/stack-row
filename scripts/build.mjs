@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { cp, mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { icon } from './icons.mjs';
-import { canonical, cleanSlug, escapeHtml, markdownToHtml, readContent } from './lib.mjs';
+import { canonical, cleanSlug, escapeHtml, markdownToHtml, publishInstant, PUBLISHED_PATTERN, readContent } from './lib.mjs';
 
 const readJson = async file => JSON.parse(await readFile(file, 'utf8'));
 const [site, navigation, assets, plan] = await Promise.all([
@@ -22,6 +22,8 @@ const dist = path.resolve(process.env.OUT_DIR || 'dist');
 // out exactly like drafts; the daily production deploy publishes them on time.
 const buildDate = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
 if (!/^\d{4}-\d{2}-\d{2}$/.test(buildDate)) throw new Error('BUILD_DATE must be YYYY-MM-DD');
+// BUILD_DATE alone means "any time that day"; without it, the build runs at the current minute.
+const buildNow = process.env.BUILD_DATE ? Date.parse(`${buildDate}T23:59:59Z`) : Date.now();
 
 async function files(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -121,8 +123,8 @@ for (const file of contentFiles) {
   if (!/^\/(?:$|.*\/)$/.test(metadata.slug)) throw new Error(`${file}: invalid slug`);
   if (routes.has(metadata.slug)) throw new Error(`${file}: duplicate route ${metadata.slug}`);
   routes.set(metadata.slug, file);
-  if (metadata.published && !/^\d{4}-\d{2}-\d{2}$/.test(String(metadata.published))) throw new Error(`${file}: published must be YYYY-MM-DD`);
-  all.push({ ...metadata, body, source: file, scheduled: Boolean(metadata.published) && String(metadata.published) > buildDate });
+  if (metadata.published && !PUBLISHED_PATTERN.test(String(metadata.published))) throw new Error(`${file}: published must be YYYY-MM-DD or YYYY-MM-DDTHH:MMZ`);
+  all.push({ ...metadata, body, source: file, scheduled: Boolean(metadata.published) && publishInstant(metadata.published) > buildNow });
 }
 const isPost = item => ['article', 'blog'].includes(item.type);
 const planById = new Map(plan.map((item, index) => [item.id, { ...item, index }]));
@@ -720,9 +722,9 @@ for (const item of visible) {
 }
 
 const indexed = visible.filter(item => item.draft !== true && !item.scheduled && item.noindex !== true);
-const sitemap = indexed.map(item => `  <url><loc>${canonical(siteUrl, item.slug)}</loc>${item.modified || item.published ? `<lastmod>${escapeHtml(item.modified || item.published)}</lastmod>` : ''}</url>`).join('\n');
+const sitemap = indexed.map(item => `  <url><loc>${canonical(siteUrl, item.slug)}</loc>${item.modified || item.published ? `<lastmod>${escapeHtml(String(item.modified || item.published).slice(0, 10))}</lastmod>` : ''}</url>`).join('\n');
 await writeFile(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemap}\n</urlset>\n`);
-const feedEntries = publishedPosts.slice(0, 20).map(item => `<entry><title>${escapeHtml(item.title)}</title><id>${canonical(siteUrl, item.slug)}</id><link href="${canonical(siteUrl, item.slug)}"/><updated>${item.modified || item.published}T00:00:00Z</updated></entry>`).join('');
+const feedEntries = publishedPosts.slice(0, 20).map(item => `<entry><title>${escapeHtml(item.title)}</title><id>${canonical(siteUrl, item.slug)}</id><link href="${canonical(siteUrl, item.slug)}"/><updated>${String(item.modified || item.published).slice(0, 10)}T00:00:00Z</updated></entry>`).join('');
 await writeFile(path.join(dist, 'feed.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom"><title>${site.name}</title><id>${siteUrl}/</id><link href="${siteUrl}/feed.xml" rel="self"/>${feedEntries}</feed>\n`);
 await writeFile(path.join(dist, 'robots.txt'), indexable ? `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n` : 'User-agent: *\nDisallow: /\n');
 // llms.txt gives AI crawlers a plain index of live content, grouped by silo.

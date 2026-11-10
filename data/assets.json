@@ -2393,5 +2393,103 @@
     "tool": "1Password",
     "source": "own-capture",
     "captured": "2026-11"
+  },
+  {
+    "path": "/assets/images/ai-cafe-atrium-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Busy plant-filled atrium cafe where people of all ages work on laptops, read phones and talk"
+  },
+  {
+    "path": "/assets/images/ai-cafe-atrium-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Busy plant-filled atrium cafe where people of all ages work on laptops, read phones and talk"
+  },
+  {
+    "path": "/assets/images/cooling-water-check-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Engineer in a hard hat checking a water flow gauge on stainless cooling pipes in a plant room"
+  },
+  {
+    "path": "/assets/images/cooling-water-check-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Engineer in a hard hat checking a water flow gauge on stainless cooling pipes in a plant room"
+  },
+  {
+    "path": "/assets/images/renewable-server-hall-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Engineer with a tablet beside electrical cabinets and server racks, with solar panels and wind turbines outside"
+  },
+  {
+    "path": "/assets/images/renewable-server-hall-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Engineer with a tablet beside electrical cabinets and server racks, with solar panels and wind turbines outside"
+  },
+  {
+    "path": "/assets/images/data-center-water-walk-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two engineers walking past a data center with cooling units, water tanks and a planted stream"
+  },
+  {
+    "path": "/assets/images/data-center-water-walk-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two engineers walking past a data center with cooling units, water tanks and a planted stream"
+  },
+  {
+    "path": "/assets/images/data-center-substation-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two engineers walking beside a data center and its electrical substation with transformers and power lines"
+  },
+  {
+    "path": "/assets/images/data-center-substation-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two engineers walking beside a data center and its electrical substation with transformers and power lines"
+  },
+  {
+    "path": "/assets/images/developer-pair-charts-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two colleagues in a bright library reviewing a rising bar chart and a laptop"
+  },
+  {
+    "path": "/assets/images/developer-pair-charts-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two colleagues in a bright library reviewing a rising bar chart and a laptop"
+  },
+  {
+    "path": "/assets/images/developer-balcony-break-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Man taking a break with a glass of water at an open balcony door beside a closed laptop"
+  },
+  {
+    "path": "/assets/images/developer-balcony-break-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Man taking a break with a glass of water at an open balcony door beside a closed laptop"
   }
 ]

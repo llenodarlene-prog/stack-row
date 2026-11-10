@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "content_id": "G3",
+  "slug": "/ai/ai-water-usage-statistics/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-10",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-08",
+      "keyword": "AI water usage",
+      "search_volume": 14800,
+      "seo_difficulty": 18,
+      "cpc_usd": 7.92,
+      "source": "Owner statistics batch plan, 2026-11-08"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner content map and SERP gap notes, 2026-11-08.",
+  "sources": [
+    {
+      "url": "https://blog.google/company-news/outreach-and-initiatives/sustainability/2026-environmental-report/",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    },
+    {
+      "url": "https://datacenters.microsoft.com/sustainability/efficiency/",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    },
+    {
+      "url": "https://eta-publications.lbl.gov/publications/avoiding-waste-heat-through-ai",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    },
+    {
+      "url": "https://eta-publications.lbl.gov/publications/water-use-data-center-workloads",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "A3",
+    "G4",
+    "G5"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-10"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-10"
+  },
+  "approval_note": "Owner approved in chat on 2026-11-10 (\"go ahead\"), conditional on Claude final QA. Claude QA completed 2026-11-10.",
+  "corrections": []
+}

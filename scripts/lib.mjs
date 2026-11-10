@@ -112,3 +112,12 @@ export function markdownToHtml(markdown) {
 
 export const cleanSlug = slug => slug === '/' ? '' : slug.replace(/^\//, '').replace(/\/$/, '');
 export const canonical = (base, slug) => `${base}${slug === '/' ? '/' : `/${cleanSlug(slug)}/`}`;
+
+// Publish dates are YYYY-MM-DD (live from 00:00 UTC that day) or
+// YYYY-MM-DDTHH:MMZ (live from that UTC minute), so posts can be staggered
+// through the day. publishInstant returns milliseconds since the epoch.
+export const PUBLISHED_PATTERN = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}Z)?$/;
+export function publishInstant(value) {
+  const text = String(value);
+  return Date.parse(text.length === 10 ? `${text}T00:00:00Z` : text.replace(/Z$/, ':00Z'));
+}
