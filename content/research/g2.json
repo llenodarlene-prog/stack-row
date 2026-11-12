@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "content_id": "G2",
+  "slug": "/ai/how-many-people-use-ai/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-10",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-08",
+      "keyword": "how many people use AI",
+      "search_volume": 1300,
+      "seo_difficulty": 6,
+      "cpc_usd": 3.18,
+      "source": "Owner statistics batch plan, 2026-11-08"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner content map and SERP gap notes, 2026-11-08.",
+  "sources": [
+    {
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/one-billion-monthly-users/",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    },
+    {
+      "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    },
+    {
+      "url": "https://openai.com/index/the-work-now-within-reach/",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    },
+    {
+      "url": "https://www.pewresearch.org/internet/2026/06/17/americans-and-ai-2026-chatbots-smart-devices-and-views-on-impact/",
+      "checked_utc": "2026-11-10",
+      "method": "Owner source manifest 2026-11-08; link checked by Claude 2026-11-10."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "A3",
+    "F8"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-10"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-10"
+  },
+  "approval_note": "Owner approved in chat on 2026-11-10 (\"go ahead\"), conditional on Claude final QA. Claude QA completed 2026-11-10.",
+  "corrections": []
+}

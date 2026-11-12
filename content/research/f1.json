@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "content_id": "F1",
+  "slug": "/ai/best-ai-agents/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-07",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-01",
+      "keyword": "best AI agents",
+      "search_volume": 1900,
+      "seo_difficulty": 15,
+      "cpc_usd": 24.78,
+      "source": "Owner master content plan, research date 2026-11-01"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner content map and SERP gap notes, 2026-11-01.",
+  "sources": [
+    {
+      "url": "https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://crewai.com/pricing",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/deprecations",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/agents/sdk",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://relevanceai.com/pricing",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://www.gumloop.com/pricing",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://www.langchain.com/pricing",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://www.lindy.ai/pricing",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://www.salesforce.com/agentforce/pricing/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://zapier.com/pricing",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "D9",
+    "B6",
+    "B9"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-08"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-08"
+  },
+  "corrections": [
+    {
+      "date_utc": "2026-11-07",
+      "change": "Removed links to /ai/enterprise-ai-governance/ and /ai/enterprise-ai-cost-per-task/ (pages do not exist)."
+    },
+    {
+      "date_utc": "2026-11-07",
+      "change": "Confirmed OpenAI Agent Builder shutdown on 2026-11-30 against the OpenAI deprecations page."
+    },
+    {
+      "date_utc": "2026-11-07",
+      "change": "Added that Agentspace became part of Gemini Enterprise (Google editor note, 2025-10-09)."
+    }
+  ],
+  "approval_note": "Owner approved in chat on 2026-11-08, conditional on Claude final QA (links, kill list, em dashes, silo links, screenshots). Claude QA completed 2026-11-08."
+}

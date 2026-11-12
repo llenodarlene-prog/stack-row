@@ -27,7 +27,7 @@ Our coverage examines the relationship between architecture, monitoring, access,
 
 ## Start With Deployment and Cost
 
-Use these pieces to clarify the model before comparing a proposal or interpreting a bill.
+Use these pieces to clarify the model before comparing a proposal or interpreting a bill. For quick definitions, see our [cloud and infrastructure questions](/questions/cloud-infrastructure/), from Kubernetes to egress fees.
 
 ::: cards
 ### [Cloud Computing Statistics by Deployment Model](/cloud-infrastructure/cloud-computing-statistics/)

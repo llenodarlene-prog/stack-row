@@ -82,6 +82,10 @@
           "url": "/tools/"
         },
         {
+          "label": "Tech Questions",
+          "url": "/questions/"
+        },
+        {
           "label": "CPM Calculator",
           "url": "/tools/cpm-calculator/"
         },

@@ -33,29 +33,34 @@
       "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
     },
     {
+      "url": "https://docs.librenms.org/Support/Features/",
+      "checked_utc": "2026-11-08",
+      "method": "Owner draft 2026-11-01; link checked by Claude 2026-11-08."
+    },
+    {
+      "url": "https://grafana.com/",
+      "checked_utc": "2026-11-08",
+      "method": "Owner draft 2026-11-01; link checked by Claude 2026-11-08."
+    },
+    {
+      "url": "https://prometheus.io/",
+      "checked_utc": "2026-11-08",
+      "method": "Owner draft 2026-11-01; link checked by Claude 2026-11-08."
+    },
+    {
       "url": "https://support.auvik.com/hc/en-us/articles/201515670-How-much-does-Auvik-cost",
       "checked_utc": "2026-10-25",
       "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
     },
     {
-      "url": "https://uptimeinstitute.com/about-ui/press-releases/uptime-announces-annual-outage-analysis-report-2026",
-      "checked_utc": "2026-10-25",
-      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+      "url": "https://www.datadoghq.com/pricing/?product=network-monitoring",
+      "checked_utc": "2026-11-08",
+      "method": "Owner draft 2026-11-01; link checked by Claude 2026-11-08."
     },
     {
-      "url": "https://www.auvik.com/network-management-software/",
-      "checked_utc": "2026-10-25",
-      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
-    },
-    {
-      "url": "https://www.domotz.com/pricing.php",
-      "checked_utc": "2026-10-25",
-      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
-    },
-    {
-      "url": "https://www.librenms.org/",
-      "checked_utc": "2026-10-25",
-      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+      "url": "https://www.logicmonitor.com/pricing",
+      "checked_utc": "2026-11-08",
+      "method": "Owner draft 2026-11-01; link checked by Claude 2026-11-08."
     },
     {
       "url": "https://www.manageengine.com/network-monitoring/opmanager-editions.html",
@@ -63,29 +68,24 @@
       "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
     },
     {
+      "url": "https://www.nagios.org/projects/nagios-core/",
+      "checked_utc": "2026-11-08",
+      "method": "Owner draft 2026-11-01; link checked by Claude 2026-11-08."
+    },
+    {
       "url": "https://www.paessler.com/pricing",
       "checked_utc": "2026-10-25",
       "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
     },
     {
-      "url": "https://www.site24x7.com/help/network-metrics.html",
-      "checked_utc": "2026-10-25",
-      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+      "url": "https://www.solarwinds.com/pricing",
+      "checked_utc": "2026-11-08",
+      "method": "Owner draft 2026-11-01; link checked by Claude 2026-11-08."
     },
     {
-      "url": "https://www.site24x7.com/site24x7-pricing.html",
-      "checked_utc": "2026-10-25",
-      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
-    },
-    {
-      "url": "https://www.solarwinds.com/network-performance-monitor",
-      "checked_utc": "2026-10-25",
-      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
-    },
-    {
-      "url": "https://www.zabbix.com/network_monitoring",
-      "checked_utc": "2026-10-25",
-      "method": "Cited by the author (research 2026-10-25). Material prices and statistics re-checked by Claude 2026-10-26."
+      "url": "https://www.zabbix.com/subscriptions",
+      "checked_utc": "2026-11-08",
+      "method": "Owner draft 2026-11-01; link checked by Claude 2026-11-08."
     }
   ],
   "statistics": [],
@@ -99,17 +99,22 @@
   "fact_check": {
     "status": "approved",
     "reviewer": "Darlene Aberin",
-    "date_utc": "2026-10-26"
+    "date_utc": "2026-11-08"
   },
   "qa": {
     "status": "approved",
     "reviewer": "Darlene Aberin",
-    "date_utc": "2026-10-26"
+    "date_utc": "2026-11-08"
   },
   "corrections": [
     {
       "date_utc": "2026-10-26",
       "change": "Keyword added to closing."
+    },
+    {
+      "date_utc": "2026-11-08",
+      "change": "Replaced 9-tool version with owner draft 04 (11 tools). Dropped Domotz and Site24x7; added Datadog Network Monitoring, LogicMonitor, Nagios Core, Prometheus and Grafana."
     }
-  ]
+  ],
+  "approval_note": "Owner approved in chat on 2026-11-08, conditional on Claude final QA (links, kill list, em dashes, silo links, screenshots). Claude QA completed 2026-11-08."
 }

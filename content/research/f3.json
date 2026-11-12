@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "content_id": "F3",
+  "slug": "/developer-data/api-testing-tools/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-07",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-01",
+      "keyword": "API testing tools",
+      "search_volume": 1300,
+      "seo_difficulty": 34,
+      "cpc_usd": 20.7,
+      "source": "Owner master content plan, research date 2026-11-01"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner content map and SERP gap notes, 2026-11-01.",
+  "sources": [
+    {
+      "url": "https://docs.hoppscotch.io/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://docs.usebruno.com/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://insomnia.rest/pricing",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://jmeter.apache.org/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://katalon.com/pricing",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://learning.postman.com/docs/postman-cli/postman-cli-overview/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://playwright.dev/docs/api-testing",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://rest-assured.io/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://smartbear.com/product/ready-api/overview/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://www.postman.com/pricing/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://www.soapui.org/docs/open-source/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "E8",
+    "D5"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-08"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-08"
+  },
+  "corrections": [
+    {
+      "date_utc": "2026-11-07",
+      "change": "Katalon: removed the $2,199 list figure; noted the $1,000 offer ended 2026-10-31 and told readers to confirm price."
+    }
+  ],
+  "approval_note": "Owner approved in chat on 2026-11-08, conditional on Claude final QA (links, kill list, em dashes, silo links, screenshots). Claude QA completed 2026-11-08."
+}

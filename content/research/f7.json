@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "content_id": "F7",
+  "slug": "/ai/free-ai-tools/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-07",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-01",
+      "keyword": "free AI tools",
+      "search_volume": 22200,
+      "seo_difficulty": 28,
+      "cpc_usd": 8.29,
+      "source": "Owner master content plan, research date 2026-11-01"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner content map and SERP gap notes, 2026-11-01.",
+  "sources": [
+    {
+      "url": "https://claude.com/pricing",
+      "checked_utc": "2026-11-08",
+      "method": "Owner draft 2026-11-01; link checked by Claude 2026-11-08."
+    },
+    {
+      "url": "https://cursor.com/pricing",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://docs.mistral.ai/vibe",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://github.com/features/copilot/plans",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://lmstudio.ai/app-privacy",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://otter.ai/pricing",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://support.google.com/gemini/answer/16275805",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://support.google.com/gemininotebook/answer/16213268",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://www.adobe.com/products/firefly/plans.html",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://www.canva.com/help/ai-access/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "D9",
+    "E6"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-08"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-08"
+  },
+  "corrections": [
+    {
+      "date_utc": "2026-11-07",
+      "change": "Canva: replaced \"up to 20 AI uses\" with \"up to 200 Standard or 20 Premium AI uses a month\" per Canva help center."
+    },
+    {
+      "date_utc": "2026-11-07",
+      "change": "Mistral Vibe: added September 2026 Chat and Work merger per Mistral docs."
+    },
+    {
+      "date_utc": "2026-11-07",
+      "change": "Ollama: noted hosted models alongside local use."
+    },
+    {
+      "date_utc": "2026-11-08",
+      "change": "Anthropic support link returned 404; replaced with claude.com/pricing."
+    }
+  ],
+  "approval_note": "Owner approved in chat on 2026-11-08, conditional on Claude final QA (links, kill list, em dashes, silo links, screenshots). Claude QA completed 2026-11-08."
+}

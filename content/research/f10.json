@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "content_id": "F10",
+  "slug": "/cybersecurity/best-authenticator-app/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-07",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-01",
+      "keyword": "best authenticator app",
+      "search_volume": 2900,
+      "seo_difficulty": 29,
+      "cpc_usd": 5.37,
+      "source": "Owner master content plan, research date 2026-11-01"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner content map and SERP gap notes, 2026-11-01.",
+  "sources": [
+    {
+      "url": "https://2fas.com/support/2fas-auth-mobile-app/how-to-use-sync-more-devices-with-2fas/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://bitwarden.com/help/authenticator-import-export/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://github.com/beemdevelopment/Aegis",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://help.duo.com/s/article/duo-restore",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://help.ente.io/auth/migration/export",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-transfer-authenticator-new-phone",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://proton.me/support/authenticator",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://support.1password.com/one-time-passwords/",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    },
+    {
+      "url": "https://support.google.com/accounts/answer/1066447",
+      "checked_utc": "2026-11-01",
+      "method": "Cited by the owner draft (checked 2026-11-01). Spot-checked by Claude 2026-11-07 where noted in corrections."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "D4",
+    "E1",
+    "B4"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-08"
+  },
+  "qa": {
+    "status": "approved",
+    "reviewer": "Darlene Aberin",
+    "date_utc": "2026-11-08"
+  },
+  "corrections": [],
+  "approval_note": "Owner approved in chat on 2026-11-08, conditional on Claude final QA (links, kill list, em dashes, silo links, screenshots). Claude QA completed 2026-11-08."
+}
