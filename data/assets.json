@@ -3333,5 +3333,50 @@
     "tool": "QuickBooks Online",
     "source": "own-capture",
     "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/freshbooks-product-page-2026-11.webp",
+    "width": 1570,
+    "height": 994,
+    "alt": "FreshBooks dashboard with outstanding invoices, a bank connection prompt and revenue and expenses",
+    "tool": "FreshBooks",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/sage-accounting-product-page-2026-11.webp",
+    "width": 921,
+    "height": 593,
+    "alt": "Sage dashboard with account balances and aged payables and receivables charts",
+    "tool": "Sage Accounting",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/odoo-accounting-product-page-2026-11.webp",
+    "width": 1920,
+    "height": 1104,
+    "alt": "Odoo Accounting dashboard with customer invoices, vendor bills, bank reconciliation and expense cards",
+    "tool": "Odoo Accounting",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/netsuite-product-page-2026-11.webp",
+    "width": 1180,
+    "height": 734,
+    "alt": "Oracle NetSuite home dashboard with reminders, tiles, KPI indicators and monthly case trend charts",
+    "tool": "Oracle NetSuite",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/plex-product-page-2026-11.webp",
+    "width": 880,
+    "height": 526,
+    "alt": "Plex financial analytics dashboard with revenue, orders, gross profit and shipments by country",
+    "tool": "Plex Smart Manufacturing Platform",
+    "source": "own-capture",
+    "captured": "2026-11"
   }
 ]
