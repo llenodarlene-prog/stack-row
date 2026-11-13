@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "content_id": "H9",
+  "slug": "/business-technology/best-manufacturing-software/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-13",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-12",
+      "keyword": "best manufacturing software",
+      "search_volume": 720,
+      "seo_difficulty": 31,
+      "cpc_usd": 84.78,
+      "source": "Owner weekly keyword plan, 2026-11-12 (volume recorded for the head term)"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner research content map and SERP gap analysis, 2026-11-12.",
+  "sources": [
+    {
+      "url": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/chapter_N3944671.html",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://releaseplans.microsoft.com/en-US/?app=Supply+Chain+Management",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://www-prod.isa.org/web/acom/article/report-93-percent-manufacturers-mes-but-only-23-percent-fully-integrated",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/dynamics-365/products/supply-chain-management/pricing",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "A4",
+    "D1"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "by": "Claude final QA layer",
+    "date_utc": "2026-11-13"
+  },
+  "qa": {
+    "status": "approved",
+    "by": "Claude final QA layer",
+    "date_utc": "2026-11-13"
+  },
+  "corrections": [],
+  "approval_note": "Owner-supplied draft; owner approval of the batch given 2026-11-13 (\"go\"), subject to final QA."
+}

@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "content_id": "H5",
+  "slug": "/business-technology/best-restaurant-management-software/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-13",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-12",
+      "keyword": "best restaurant management software",
+      "search_volume": 1900,
+      "seo_difficulty": 16,
+      "cpc_usd": 50.16,
+      "source": "Owner weekly keyword plan, 2026-11-12 (volume recorded for the head term)"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner research content map and SERP gap analysis, 2026-11-12.",
+  "sources": [
+    {
+      "url": "https://pos.toasttab.com/pricing",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://restaurant.org/research-and-media/media/press-releases/new-research-from-the-national-restaurant-association-identifies-connected-technology-as-restaurants/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://restaurant.org/research-and-media/research/research-reports/research-insight-restaurant-technology/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://restaurant.org/research-and-media/research/research-reports/state-of-the-industry",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://www.touchbistro.com/pricing/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "A4",
+    "H7"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "by": "Claude final QA layer",
+    "date_utc": "2026-11-13"
+  },
+  "qa": {
+    "status": "approved",
+    "by": "Claude final QA layer",
+    "date_utc": "2026-11-13"
+  },
+  "corrections": [],
+  "approval_note": "Owner-supplied draft; owner approval of the batch given 2026-11-13 (\"go\"), subject to final QA."
+}

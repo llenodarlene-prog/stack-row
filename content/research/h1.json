@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "content_id": "H1",
+  "slug": "/business-technology/best-legal-practice-management-software/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-13",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-12",
+      "keyword": "legal practice management software",
+      "search_volume": 9900,
+      "seo_difficulty": 13,
+      "cpc_usd": 107.47,
+      "source": "Owner weekly keyword plan, 2026-11-12 (volume recorded for the head term)"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner research content map and SERP gap analysis, 2026-11-12.",
+  "sources": [
+    {
+      "url": "https://support.filevine.com/hc/en-us/articles/55420679436059-September-2026-Release-Notes",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://support.smokeball.com/hc/en-gb/categories/5735238630551-Release-Notes",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://www.actionstep.com/pricing/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://www.capterra.com/resources/practice-management-software-law-firms/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://www.casepeer.com/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://www.clio.com/pricing/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://www.cosmolex.com/pricing/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://www.iltanet.org/blogs/ilta-news1/2026/09/15/ilta-releases-2026-legal-technology-survey-results",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://www.leap.us/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://www.mycase.com/pricing/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://www.practicepanther.com/pricing/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "A4",
+    "H7"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "by": "Claude final QA layer",
+    "date_utc": "2026-11-13"
+  },
+  "qa": {
+    "status": "approved",
+    "by": "Claude final QA layer",
+    "date_utc": "2026-11-13"
+  },
+  "corrections": [],
+  "approval_note": "Owner-supplied draft; owner approval of the batch given 2026-11-13 (\"go\"), subject to final QA."
+}

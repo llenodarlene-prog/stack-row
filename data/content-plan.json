@@ -875,5 +875,146 @@
       "G9",
       "F9"
     ]
+  },
+  {
+    "id": "H1",
+    "set": "listicles-2026-11b",
+    "type": "blog",
+    "title": "9 Best Legal Practice Management Software Platforms in 2026",
+    "primary_keyword": "legal practice management software",
+    "slug": "/business-technology/best-legal-practice-management-software/",
+    "cluster": "Business Technology",
+    "role": "Commercial Support",
+    "targets": [
+      "A4",
+      "H7"
+    ]
+  },
+  {
+    "id": "H2",
+    "set": "listicles-2026-11b",
+    "type": "blog",
+    "title": "9 Best Slack Alternatives in 2026 for Teams That Need More Control",
+    "primary_keyword": "Slack alternatives",
+    "slug": "/business-technology/best-slack-alternatives/",
+    "cluster": "Business Technology",
+    "role": "Commercial Support",
+    "targets": [
+      "A4",
+      "H4",
+      "H10"
+    ]
+  },
+  {
+    "id": "H3",
+    "set": "listicles-2026-11b",
+    "type": "blog",
+    "title": "10 Best Construction Management Software Platforms in 2026",
+    "primary_keyword": "construction management software",
+    "slug": "/business-technology/best-construction-management-software/",
+    "cluster": "Business Technology",
+    "role": "Commercial Support",
+    "targets": [
+      "A4",
+      "H9"
+    ]
+  },
+  {
+    "id": "H4",
+    "set": "listicles-2026-11b",
+    "type": "blog",
+    "title": "9 Best Jira Alternatives in 2026 for Product and Engineering Teams",
+    "primary_keyword": "Jira alternatives",
+    "slug": "/developer-data/best-jira-alternatives/",
+    "cluster": "Developer & Data",
+    "role": "Commercial Support",
+    "targets": [
+      "H2",
+      "F9"
+    ]
+  },
+  {
+    "id": "H5",
+    "set": "listicles-2026-11b",
+    "type": "blog",
+    "title": "9 Best Restaurant Management Software Platforms for 2026, Plus What to Watch in 2027",
+    "primary_keyword": "best restaurant management software",
+    "slug": "/business-technology/best-restaurant-management-software/",
+    "cluster": "Business Technology",
+    "role": "Commercial Support",
+    "targets": [
+      "A4",
+      "H7"
+    ]
+  },
+  {
+    "id": "H6",
+    "set": "listicles-2026-11b",
+    "type": "blog",
+    "title": "8 Kubernetes Alternatives to Consider in 2026, Plus What to Watch in 2027",
+    "primary_keyword": "Kubernetes alternatives",
+    "slug": "/cloud-infrastructure/kubernetes-alternatives/",
+    "cluster": "Cloud & Infrastructure",
+    "role": "Commercial Support",
+    "targets": [
+      "A5",
+      "F6"
+    ]
+  },
+  {
+    "id": "H7",
+    "set": "listicles-2026-11b",
+    "type": "blog",
+    "title": "10 Best Accounting Software Platforms for Small Businesses in 2026",
+    "primary_keyword": "best accounting software for small business",
+    "slug": "/business-technology/best-accounting-software-small-business/",
+    "cluster": "Business Technology",
+    "role": "Commercial Support",
+    "targets": [
+      "A4",
+      "D1"
+    ]
+  },
+  {
+    "id": "H8",
+    "set": "listicles-2026-11b",
+    "type": "blog",
+    "title": "9 GitHub Copilot Alternatives for 2026: Coding Assistants and Agents Compared",
+    "primary_keyword": "GitHub Copilot alternatives",
+    "slug": "/ai/github-copilot-alternatives/",
+    "cluster": "AI",
+    "role": "Commercial Support",
+    "targets": [
+      "A3",
+      "F8"
+    ]
+  },
+  {
+    "id": "H9",
+    "set": "listicles-2026-11b",
+    "type": "blog",
+    "title": "9 Best Manufacturing Software Platforms for 2026, Plus What to Watch in 2027",
+    "primary_keyword": "best manufacturing software",
+    "slug": "/business-technology/best-manufacturing-software/",
+    "cluster": "Business Technology",
+    "role": "Commercial Support",
+    "targets": [
+      "A4",
+      "D1"
+    ]
+  },
+  {
+    "id": "H10",
+    "set": "listicles-2026-11b",
+    "type": "blog",
+    "title": "9 Salesforce Alternatives for 2026, Plus What to Watch in 2027",
+    "primary_keyword": "Salesforce alternatives",
+    "slug": "/business-technology/salesforce-alternatives/",
+    "cluster": "Business Technology",
+    "role": "Commercial Support",
+    "targets": [
+      "A4",
+      "D6"
+    ]
   }
 ]
