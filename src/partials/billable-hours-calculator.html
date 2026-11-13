@@ -1,0 +1,13 @@
+<div class="calc-tabs" role="tablist" aria-label="Calculate">
+  <button type="button" role="tab" id="tab-hours" aria-controls="panel-hours" aria-selected="true" data-mode="hours">{{icon:clock-hour-4}}Billable Hours</button>
+  <button type="button" role="tab" id="tab-rate" aria-controls="panel-rate" aria-selected="false" tabindex="-1" data-mode="rate">{{icon:coin}}Required Rate</button>
+</div>
+<form class="calc-form" novalidate>
+  <div class="calc-field calc-currency"><label for="calc-currency">Currency</label><select id="calc-currency" name="currency" aria-describedby="calc-currency-note"><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="CAD">CAD</option><option value="AUD">AUD</option></select><p id="calc-currency-note" class="calc-hint">Changes the displayed symbol only. It does not convert currencies.</p></div>
+  <div class="calc-grid"><div class="calc-field"><label for="bh-week">Hours worked per week</label><input id="bh-week" name="week" data-slider="1,80,1" inputmode="decimal" autocomplete="off"></div><div class="calc-field"><label for="bh-weeks">Working weeks per year</label><input id="bh-weeks" name="weeks" data-slider="1,52,1" inputmode="decimal" autocomplete="off"><p class="calc-hint">52 minus vacation, holidays and sick days.</p></div><div class="calc-field"><label for="bh-util">Utilization rate (%)</label><input id="bh-util" name="util" data-slider="1,100,1" inputmode="decimal" autocomplete="off"><p class="calc-hint">The share of working hours you can bill.</p></div></div>
+  <div role="tabpanel" id="panel-hours" aria-labelledby="tab-hours" class="calc-panel">
+    <div class="calc-grid"><div class="calc-field"><label for="bh-rate">Hourly rate (optional)</label><input id="bh-rate" name="rate" inputmode="decimal" autocomplete="off"></div></div>
+  </div>
+  <div role="tabpanel" id="panel-rate" aria-labelledby="tab-rate" class="calc-panel" hidden>
+    <div class="calc-grid"><div class="calc-field"><label for="bh-income">Target take-home income per year</label><input id="bh-income" name="income" inputmode="decimal" autocomplete="off"></div><div class="calc-field"><label for="bh-costs">Business expenses per year</label><input id="bh-costs" name="costs" inputmode="decimal" autocomplete="off"><p class="calc-hint">Software, insurance, equipment, accounting.</p></div><div class="calc-field"><label for="bh-tax">Tax set-aside (%)</label><input id="bh-tax" name="tax" data-slider="0,50,1" inputmode="decimal" autocomplete="off"></div></div>
+  </div>
