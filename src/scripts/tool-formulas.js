@@ -293,5 +293,124 @@
     }
   };
 
-  root.StackRowFormulas = { Markup, Base, Raid, Transfer, Roi, Cpm, Roas, Significance, Valuation, Tokens };
+  // IPv4 and IPv6 subnetting. IPv4 uses unsigned 32-bit math; IPv6 uses BigInt.
+  const Subnet = {
+    parse4(text) {
+      const parts = String(text).trim().split('.');
+      if (parts.length !== 4 || parts.some(p => !/^\d{1,3}$/.test(p) || Number(p) > 255)) return null;
+      return parts.reduce((n, p) => n * 256 + Number(p), 0);
+    },
+    format4: n => [24, 16, 8, 0].map(s => Math.floor(n / 2 ** s) % 256).join('.'),
+    mask4: prefix => (prefix === 0 ? 0 : (2 ** 32 - 2 ** (32 - prefix))),
+    prefixFromMask(mask) {
+      const bits = mask.toString(2).padStart(32, '0');
+      return /^1*0*$/.test(bits) ? bits.indexOf('0') === -1 ? 32 : bits.indexOf('0') : null;
+    },
+    ipv4(address, prefix) {
+      const mask = Subnet.mask4(prefix);
+      const size = 2 ** (32 - prefix);
+      const network = Math.floor(address / size) * size;
+      const broadcast = network + size - 1;
+      const usable = prefix >= 31 ? size : size - 2;
+      const first = prefix >= 31 ? network : network + 1;
+      const last = prefix >= 31 ? broadcast : broadcast - 1;
+      const a = Math.floor(address / 2 ** 24);
+      const b = Math.floor(address / 2 ** 16) % 256;
+      const scope = a === 10 || (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168) ? 'Private (RFC 1918)'
+        : a === 127 ? 'Loopback' : a === 169 && b === 254 ? 'Link-local' : a === 100 && b >= 64 && b <= 127 ? 'Shared address space (RFC 6598)'
+        : a >= 224 && a <= 239 ? 'Multicast' : a >= 240 ? 'Reserved' : 'Public';
+      return { network, broadcast, first, last, size, usable, mask, wildcard: 2 ** 32 - 1 - mask, scope };
+    },
+    binary4: n => n.toString(2).padStart(32, '0').match(/.{8}/g).join('.'),
+    parse6(text) {
+      let s = String(text).trim().toLowerCase();
+      if (!/^[0-9a-f:]+$/.test(s) || (s.match(/::/g) || []).length > 1) return null;
+      let groups;
+      if (s.includes('::')) {
+        const [l, r] = s.split('::');
+        const left = l ? l.split(':') : [], right = r ? r.split(':') : [];
+        if (left.length + right.length > 7) return null;
+        groups = [...left, ...Array(8 - left.length - right.length).fill('0'), ...right];
+      } else groups = s.split(':');
+      if (groups.length !== 8 || groups.some(g => !/^[0-9a-f]{1,4}$/.test(g))) return null;
+      return groups.reduce((n, g) => (n << 16n) + BigInt(parseInt(g, 16)), 0n);
+    },
+    format6(n) {
+      const groups = [];
+      for (let i = 7; i >= 0; i--) groups.push(((n >> BigInt(i * 16)) & 0xffffn).toString(16));
+      // Compress the longest run of zero groups (RFC 5952).
+      let best = [-1, 0], cur = [-1, 0];
+      groups.forEach((g, i) => { if (g === '0') { if (cur[0] < 0) cur = [i, 0]; cur[1]++; if (cur[1] > best[1]) best = [...cur]; } else cur = [-1, 0]; });
+      if (best[1] < 2) return groups.join(':');
+      return `${groups.slice(0, best[0]).join(':')}::${groups.slice(best[0] + best[1]).join(':')}`;
+    },
+    ipv6(address, prefix) {
+      const hostBits = BigInt(128 - prefix);
+      const size = 1n << hostBits;
+      const network = (address >> hostBits) << hostBits;
+      return { network, last: network + size - 1n, size };
+    }
+  };
+
+  // Profit margins. Gross uses cost of goods; operating and net subtract more.
+  const Margin = {
+    fromCost(revenue, cost) {
+      const profit = revenue - cost;
+      return { profit, margin: revenue ? (profit / revenue) * 100 : null, markup: cost ? (profit / cost) * 100 : null };
+    },
+    statement({ revenue, cogs, opex = 0, interest = 0, taxes = 0 }) {
+      const gross = revenue - cogs, operating = gross - opex, net = operating - interest - taxes;
+      const pct = v => (revenue ? (v / revenue) * 100 : null);
+      return { gross, operating, net, grossMargin: pct(gross), operatingMargin: pct(operating), netMargin: pct(net) };
+    },
+    priceForMargin: (cost, margin) => (margin < 100 ? cost / (1 - margin / 100) : null)
+  };
+
+  // Fully loaded employee cost with 2026 US federal employer payroll taxes.
+  const Employee = {
+    SS_RATE: 0.062, SS_WAGE_BASE: 184500, MEDICARE_RATE: 0.0145, FUTA_RATE: 0.006, FUTA_WAGE_BASE: 7000,
+    cost({ wages, stateUiRate = 0, stateUiBase = 0, health = 0, retirementPct = 0, otherBenefits = 0, overhead = 0, hours = 2080 }) {
+      const ss = Math.min(wages, Employee.SS_WAGE_BASE) * Employee.SS_RATE;
+      const medicare = wages * Employee.MEDICARE_RATE;
+      const futa = Math.min(wages, Employee.FUTA_WAGE_BASE) * Employee.FUTA_RATE;
+      const sui = Math.min(wages, stateUiBase || wages) * (stateUiRate / 100);
+      const taxes = ss + medicare + futa + sui;
+      const retirement = wages * (retirementPct / 100);
+      const benefits = health * 12 + retirement + otherBenefits;
+      const total = wages + taxes + benefits + overhead;
+      return { ss, medicare, futa, sui, taxes, retirement, benefits, total, monthly: total / 12, hourly: hours ? total / hours : null, multiplier: wages ? total / wages : null };
+    }
+  };
+
+  // Burn rate and runway. Projects month by month when growth rates are set.
+  const Runway = {
+    simulate({ cash, revenue, expenses, revenueGrowth = 0, expenseGrowth = 0, maxMonths = 120 }) {
+      const months = [];
+      let balance = cash, rev = revenue, exp = expenses;
+      for (let m = 1; m <= maxMonths; m++) {
+        balance += rev - exp;
+        months.push({ month: m, revenue: rev, expenses: exp, net: rev - exp, balance });
+        if (balance < 0) break;
+        rev *= 1 + revenueGrowth / 100; exp *= 1 + expenseGrowth / 100;
+      }
+      const out = months.find(r => r.balance < 0);
+      // Fractional runway for the month cash runs out.
+      const runway = out ? out.month - 1 + (out.balance - out.net === 0 ? 0 : (out.balance - out.net) / -out.net) : null;
+      return { grossBurn: expenses, netBurn: expenses - revenue, runway, months, profitable: !out };
+    }
+  };
+
+  // Billable hours, utilization and the hourly rate a target income needs.
+  const Billable = {
+    hours({ weeklyHours, weeks, utilization }) {
+      const available = weeklyHours * weeks;
+      return { available, billable: available * (utilization / 100), nonBillable: available * (1 - utilization / 100) };
+    },
+    requiredRate({ income, expenses = 0, billableHours, taxPct = 0 }) {
+      const gross = taxPct < 100 ? (income + expenses) / (1 - taxPct / 100) : null;
+      return { needed: gross, rate: gross !== null && billableHours ? gross / billableHours : null };
+    }
+  };
+
+  root.StackRowFormulas = { Markup, Base, Raid, Transfer, Roi, Cpm, Roas, Significance, Valuation, Tokens, Subnet, Margin, Employee, Runway, Billable };
 })(typeof window !== 'undefined' ? window : globalThis);
