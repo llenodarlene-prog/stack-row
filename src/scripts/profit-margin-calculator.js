@@ -45,7 +45,7 @@
       if (!revenue) { c.fail('revenue', 'Use revenue above zero.'); return null; }
       const r = Margin.fromCost(revenue, cost);
       return {
-        nodes: [viz.stack('Where revenue goes', [{ label: 'Cost', value: Math.min(cost, revenue), display: money(cost), tone: 'slate' }, { label: 'Gross profit', value: Math.max(r.profit, 0), display: money(r.profit), tone: 'blue' }])],
+        nodes: [viz.stack('Where revenue goes', [{ label: 'Cost', value: Math.min(cost, revenue), display: money(cost), tone: 'muted' }, { label: 'Gross profit', value: Math.max(r.profit, 0), display: money(r.profit), tone: 'blue' }])],
         metrics: [['Gross profit margin', pct(r.margin), 'Margin = (revenue − cost) ÷ revenue × 100', true], ['Gross profit', money(r.profit)], ['Markup', r.markup === null ? 'Not available' : pct(r.markup), '(Revenue − cost) ÷ cost × 100']],
         lines: [`You keep ${pct(r.margin)} of the selling price as gross profit, a ${r.markup === null ? 'not available' : pct(r.markup)} markup on cost.`],
         warning: r.profit < 0 ? 'Cost is higher than revenue, so this sale loses money.' : '',

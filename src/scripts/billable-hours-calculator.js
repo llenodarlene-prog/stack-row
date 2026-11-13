@@ -16,7 +16,7 @@
       const util = c.number('util', { required: true, label: 'a utilization rate', max: 100 });
       if ([week, weeks, util].some(Number.isNaN)) return null;
       const h = Billable.hours({ weeklyHours: week, weeks, utilization: util });
-      const chart = viz.stack('Working hours per year', [{ label: 'Billable', value: h.billable, display: hrs(h.billable), tone: 'blue' }, { label: 'Non-billable', value: h.nonBillable, display: hrs(h.nonBillable), tone: 'slate' }]);
+      const chart = viz.stack('Working hours per year', [{ label: 'Billable', value: h.billable, display: hrs(h.billable), tone: 'blue' }, { label: 'Non-billable', value: h.nonBillable, display: hrs(h.nonBillable), tone: 'muted' }]);
       if (c.mode === 'rate') {
         const income = c.number('income', { required: true, label: 'a target income' });
         const costs = c.number('costs'), tax = c.number('tax', { max: 90 });

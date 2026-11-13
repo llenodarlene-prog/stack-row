@@ -45,7 +45,7 @@
       const r = Subnet.ipv4(address, prefix);
       const f = Subnet.format4;
       return {
-        nodes: [T.viz.stack('Address block', [{ label: 'Usable hosts', value: r.usable, display: n(r.usable), tone: 'blue' }, { label: 'Network and broadcast', value: r.size - r.usable, display: n(r.size - r.usable), tone: 'slate' }])],
+        nodes: [T.viz.stack('Address block', [{ label: 'Usable hosts', value: r.usable, display: n(r.usable), tone: 'blue' }, { label: 'Network and broadcast', value: r.size - r.usable, display: n(r.size - r.usable), tone: 'muted' }])],
         metrics: [['Network address', `${f(r.network)}/${prefix}`, 'Address AND subnet mask', true], ['Usable host range', prefix === 32 ? f(r.first) : `${f(r.first)} to ${f(r.last)}`], ['Usable hosts', n(r.usable), prefix >= 31 ? '/31 and /32 have no reserved addresses' : '2^(32 − prefix) − 2'], ['Broadcast address', prefix >= 31 ? 'None' : f(r.broadcast)], ['Subnet mask', f(r.mask)], ['Wildcard mask', f(r.wildcard)], ['Address type', r.scope]],
         lines: [`${f(address)}/${prefix} belongs to the ${f(r.network)}/${prefix} network, a block of ${n(r.size)} addresses.`, `Binary mask: ${Subnet.binary4(r.mask)}`],
         inputs: [['Address', f(address)], ['Prefix', `/${prefix}`]],
