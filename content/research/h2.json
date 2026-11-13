@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "content_id": "H2",
+  "slug": "/business-technology/best-slack-alternatives/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-13",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-12",
+      "keyword": "Slack alternatives",
+      "search_volume": 1300,
+      "seo_difficulty": 25,
+      "cpc_usd": 14.58,
+      "source": "Owner weekly keyword plan, 2026-11-12 (volume recorded for the head term)"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner research content map and SERP gap analysis, 2026-11-12.",
+  "sources": [
+    {
+      "url": "https://discord.com/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://docs.mattermost.com/product-overview/desktop-app-changelog",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://docs.rocket.chat/docs/rocketchat-release-notes",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://docs.rocket.chat/docs/version-durability",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://element.io/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://mattermost.com/pricing/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://pumble.com/pricing",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://slack.com/pricing",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://twist.com/pricing",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://workspace.google.com/pricing.html",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/microsoft-teams/compare-microsoft-teams-business-options",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://www.rocket.chat/plans",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://zulip.com/plans/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "A4",
+    "H4",
+    "H10"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "by": "Claude final QA layer",
+    "date_utc": "2026-11-13"
+  },
+  "qa": {
+    "status": "approved",
+    "by": "Claude final QA layer",
+    "date_utc": "2026-11-13"
+  },
+  "corrections": [],
+  "approval_note": "Owner-supplied draft; owner approval of the batch given 2026-11-13 (\"go\"), subject to final QA."
+}

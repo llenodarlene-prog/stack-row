@@ -5,7 +5,7 @@ import vm from 'node:vm';
 
 const context = {};
 vm.runInNewContext((await readFile('src/scripts/tool-formulas.js', 'utf8')) + (await readFile('src/scripts/llm-prices.js', 'utf8')), context);
-const { Markup, Base, Raid, Transfer, Roi, Cpm, Roas, Significance, Valuation, Tokens } = context.StackRowFormulas;
+const { Markup, Base, Raid, Transfer, Roi, Cpm, Roas, Significance, Valuation, Tokens, Subnet, Margin, Employee, Runway, Billable } = context.StackRowFormulas;
 const Prices = context.StackRowLlmPrices;
 const close = (actual, expected, digits = 2) => assert.equal(Number(actual.toFixed(digits)), expected);
 
@@ -144,4 +144,46 @@ test('tokens: estimate, cost, long-prompt tier, and dated price switch', () => {
   assert.equal(Prices.current('2026-11-15').find(m => m.id === 'gemini-4-argon').input, 2);
   assert.equal(Prices.current('2026-12-01').find(m => m.id === 'gemini-4-argon').input, 4);
   assert.equal(Prices.current('2027-01-01').filter(m => m.id === 'gemini-3.8-flash').length, 1);
+});
+
+test('subnet calculator handles IPv4 ranges, /31, /32 and IPv6 compression', () => {
+  const r = Subnet.ipv4(Subnet.parse4('192.168.10.77'), 26);
+  assert.equal(Subnet.format4(r.network), '192.168.10.64');
+  assert.equal(Subnet.format4(r.broadcast), '192.168.10.127');
+  assert.equal(r.usable, 62);
+  assert.equal(Subnet.format4(r.wildcard), '0.0.0.63');
+  assert.equal(Subnet.ipv4(Subnet.parse4('10.0.0.0'), 31).usable, 2);
+  assert.equal(Subnet.ipv4(Subnet.parse4('10.0.0.9'), 32).usable, 1);
+  assert.equal(Subnet.parse4('256.1.1.1'), null);
+  assert.equal(Subnet.prefixFromMask(Subnet.parse4('255.255.240.0')), 20);
+  assert.equal(Subnet.prefixFromMask(Subnet.parse4('255.0.255.0')), null);
+  assert.equal(Subnet.format6(Subnet.ipv6(Subnet.parse6('2001:db8:abcd:12::1'), 48).network), '2001:db8:abcd::');
+  assert.equal(Subnet.ipv6(Subnet.parse6('::1'), 64).size, 2n ** 64n);
+});
+
+test('profit margin separates gross, operating and net margin', () => {
+  assert.equal(Margin.fromCost(100, 60).margin, 40);
+  const s = Margin.statement({ revenue: 1000, cogs: 400, opex: 300, interest: 50, taxes: 50 });
+  assert.deepEqual([s.grossMargin, s.operatingMargin, s.netMargin], [60, 30, 20]);
+  assert.equal(Margin.priceForMargin(60, 40), 100);
+  assert.equal(Margin.priceForMargin(60, 100), null);
+});
+
+test('employee cost caps Social Security and FUTA at their 2026 wage bases', () => {
+  const low = Employee.cost({ wages: 80000 });
+  assert.equal(Math.round(low.ss), 4960);
+  assert.equal(low.futa, 42);
+  const high = Employee.cost({ wages: 250000 });
+  assert.equal(Math.round(high.ss), 11439);
+  assert.equal(Math.round(high.medicare), 3625);
+});
+
+test('runway divides cash by net burn and stops when the company is profitable', () => {
+  assert.equal(Runway.simulate({ cash: 500000, revenue: 20000, expenses: 60000 }).runway, 12.5);
+  assert.equal(Runway.simulate({ cash: 1000, revenue: 5000, expenses: 4000 }).profitable, true);
+});
+
+test('billable hours and required rate', () => {
+  assert.equal(Billable.hours({ weeklyHours: 40, weeks: 46, utilization: 75 }).billable, 1380);
+  assert.equal(Billable.requiredRate({ income: 100000, expenses: 20000, billableHours: 1200, taxPct: 25 }).rate.toFixed(2), '133.33');
 });

@@ -1,0 +1,16 @@
+<div class="calc-tabs" role="tablist" aria-label="Calculate">
+  <button type="button" role="tab" id="tab-gross" aria-controls="panel-gross" aria-selected="true" data-mode="gross">{{icon:percentage}}Gross Margin</button>
+  <button type="button" role="tab" id="tab-net" aria-controls="panel-net" aria-selected="false" tabindex="-1" data-mode="net">{{icon:receipt}}Net Margin</button>
+  <button type="button" role="tab" id="tab-price" aria-controls="panel-price" aria-selected="false" tabindex="-1" data-mode="price">{{icon:tag}}Price From Margin</button>
+</div>
+<form class="calc-form" novalidate>
+  <div class="calc-field calc-currency"><label for="calc-currency">Currency</label><select id="calc-currency" name="currency" aria-describedby="calc-currency-note"><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="CAD">CAD</option><option value="AUD">AUD</option></select><p id="calc-currency-note" class="calc-hint">Changes the displayed symbol only. It does not convert currencies.</p></div>
+  <div role="tabpanel" id="panel-gross" aria-labelledby="tab-gross" class="calc-panel">
+    <div class="calc-grid"><div class="calc-field"><label for="pm-rev">Revenue or selling price</label><input id="pm-rev" name="revenue" inputmode="decimal" autocomplete="off"></div><div class="calc-field"><label for="pm-cost">Cost of goods sold</label><input id="pm-cost" name="cost" inputmode="decimal" autocomplete="off"></div></div>
+  </div>
+  <div role="tabpanel" id="panel-net" aria-labelledby="tab-net" class="calc-panel" hidden>
+    <div class="calc-grid"><div class="calc-field"><label for="pm-nrev">Revenue</label><input id="pm-nrev" name="nrevenue" inputmode="decimal" autocomplete="off"></div><div class="calc-field"><label for="pm-cogs">Cost of goods sold</label><input id="pm-cogs" name="cogs" inputmode="decimal" autocomplete="off"></div><div class="calc-field"><label for="pm-opex">Operating expenses</label><input id="pm-opex" name="opex" inputmode="decimal" autocomplete="off"><p class="calc-hint">Salaries, rent, software, marketing and other running costs.</p></div><div class="calc-field"><label for="pm-int">Interest (optional)</label><input id="pm-int" name="interest" inputmode="decimal" autocomplete="off"></div><div class="calc-field"><label for="pm-tax">Income taxes (optional)</label><input id="pm-tax" name="taxes" inputmode="decimal" autocomplete="off"></div></div>
+  </div>
+  <div role="tabpanel" id="panel-price" aria-labelledby="tab-price" class="calc-panel" hidden>
+    <div class="calc-grid"><div class="calc-field"><label for="pm-pcost">Cost</label><input id="pm-pcost" name="pcost" inputmode="decimal" autocomplete="off"></div><div class="calc-field"><label for="pm-target">Target gross margin percentage</label><input id="pm-target" name="target" data-slider="1,95,1" inputmode="decimal" autocomplete="off"></div></div>
+  </div>

@@ -1,0 +1,17 @@
+<div class="calc-tabs" role="tablist" aria-label="Calculate">
+  <button type="button" role="tab" id="tab-v4" aria-controls="panel-v4" aria-selected="true" data-mode="v4">{{icon:network}}IPv4 Subnet</button>
+  <button type="button" role="tab" id="tab-v6" aria-controls="panel-v6" aria-selected="false" tabindex="-1" data-mode="v6">{{icon:sitemap}}IPv6 Prefix</button>
+</div>
+<form class="calc-form" novalidate>
+  <div role="tabpanel" id="panel-v4" aria-labelledby="tab-v4" class="calc-panel">
+    <div class="calc-grid">
+      <div class="calc-field"><label for="sn-ip">IPv4 address or CIDR (for example 192.168.1.10/24)</label><input id="sn-ip" name="ip" autocomplete="off" spellcheck="false"></div>
+      <div class="calc-field"><label for="sn-prefix">Prefix length or subnet mask (if not in the address)</label><input id="sn-prefix" name="prefix" autocomplete="off" spellcheck="false"><p class="calc-hint">Enter 24 or 255.255.255.0.</p></div>
+    </div>
+  </div>
+  <div role="tabpanel" id="panel-v6" aria-labelledby="tab-v6" class="calc-panel" hidden>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="sn-ip6">IPv6 address or prefix (for example 2001:db8::1/48)</label><input id="sn-ip6" name="ip6" autocomplete="off" spellcheck="false"></div>
+      <div class="calc-field"><label for="sn-prefix6">Prefix length (if not in the address)</label><input id="sn-prefix6" name="prefix6" inputmode="numeric" autocomplete="off"></div>
+    </div>
+  </div>

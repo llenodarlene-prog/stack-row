@@ -2491,5 +2491,802 @@
     "height": 450,
     "role": "page image, small",
     "alt": "Man taking a break with a glass of water at an open balcony door beside a closed laptop"
+  },
+  {
+    "path": "/assets/screenshots/mycase-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "8am MyCase page headed \"Legal practice management, all in one place\" with intake, documents and case assistant features",
+    "tool": "8am MyCase",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/practicepanther-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "PracticePanther features page with a free trial email field and a billing dashboard preview",
+    "tool": "PracticePanther",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/smokeball-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Smokeball page for legal practice management software headed \"Powering People Law\" with demo and pricing buttons",
+    "tool": "Smokeball",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/cosmolex-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "CosmoLex page with a dashboard showing a matter snapshot, timekeeper utilization and billing summary",
+    "tool": "CosmoLex",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/filevine-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Filevine LOIS page headed \"Legal AI that runs the firm\" with an assistant chat window",
+    "tool": "Filevine",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/actionstep-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Actionstep legal practice management page headed \"Build Your Firm Advantage\" with platform and AI buttons",
+    "tool": "Actionstep",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/leap-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "LEAP page headed \"Software that helps law firms get more done\" with demo video and client story buttons",
+    "tool": "LEAP",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/casepeer-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "8am CasePeer page for personal injury practice management with review scores and a demo button",
+    "tool": "8am CASEpeer",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/microsoft-teams-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Microsoft Teams page headed \"The AI-Powered Platform for Work\" with a download button",
+    "tool": "Microsoft Teams",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/google-chat-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Google Chat page headed \"AI-powered chat for teams of all sizes\" with a Gemini in Chat side panel",
+    "tool": "Google Chat",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/mattermost-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Mattermost page for sovereign operations and AI with a channel view showing threaded messages",
+    "tool": "Mattermost",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/rocket-chat-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Rocket.Chat page headed \"Interoperable by design. Governed by you.\" for defense and government teams",
+    "tool": "Rocket.Chat",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/twist-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Twist page headed \"Work communication that won't distract you all day\" with a threaded inbox preview",
+    "tool": "Twist",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zulip-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Zulip page showing a channel list and a topic thread about moving to Zulip",
+    "tool": "Zulip",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/pumble-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Pumble page headed \"The all-in-one team communication app\" with a marketing channel and thread view",
+    "tool": "Pumble",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/discord-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Discord home page headed \"Group chat that's all fun and games\" with download and browser buttons",
+    "tool": "Discord",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/element-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Element page headed \"We're interoperable. So you're sovereign.\" about Matrix-based secure messaging",
+    "tool": "Element",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/procore-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Procore construction project management page headed \"The system of intelligence for the built world\"",
+    "tool": "Procore",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/fieldwire-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Fieldwire by Hilti page headed \"Jobsite Management for Construction Teams\" with app store ratings",
+    "tool": "Fieldwire",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/jobtread-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "JobTread page headed \"The New Standard for Managing Construction Projects\" with a product video",
+    "tool": "JobTread",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/contractor-foreman-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Contractor Foreman page listing a $49 per month starting price above a dashboard preview",
+    "tool": "Contractor Foreman",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/buildxact-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Buildxact page introducing its Blu AI assistant for estimating, quoting and scheduling",
+    "tool": "Buildxact",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/raken-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Raken page headed \"Field management made easy\" with a daily report dashboard preview",
+    "tool": "Raken",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/houzz-pro-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Houzz Pro page for contractors and designers headed \"Build the Future with AI, Today\"",
+    "tool": "Houzz Pro",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/constructiononline-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "ConstructionOnline page with a financial tools banner and a free trial button",
+    "tool": "ConstructionOnline",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/linear-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Linear page headed \"The product development system for teams and agents\" with a dark app preview",
+    "tool": "Linear",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/youtrack-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "JetBrains YouTrack page headed \"Powerful project management for all your teams\" with a sign-up form",
+    "tool": "YouTrack",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/monday-dev-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "monday dev page headed \"Develop with precision and speed\" with sprint and bug tracking options",
+    "tool": "monday dev",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/azure-boards-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Microsoft Azure Boards product page with a \"Get started with Azure\" button",
+    "tool": "Azure Boards",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/openproject-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "OpenProject page headed \"Open source project management software\" with a work package table",
+    "tool": "OpenProject",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/github-projects-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "GitHub page showing a Planning and Priorities project table of initiatives with status and assignees",
+    "tool": "GitHub Projects",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/shortcut-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Shortcut page headed \"Fast Project Management for Software Teams and Their Agents\" with a story board",
+    "tool": "Shortcut",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/toast-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Toast POS page headed \"Built for Busy\" with a chef in a restaurant kitchen",
+    "tool": "Toast",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/lightspeed-restaurant-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Lightspeed restaurant POS page headed \"Serve better with one fast, flexible platform\"",
+    "tool": "Lightspeed Restaurant",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/touchbistro-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "TouchBistro page showing a tablet POS order screen with menu items and seat-based checks",
+    "tool": "TouchBistro",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/spoton-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "SpotOn restaurant POS page headed \"Step into the future of restaurant tech\" with a tablet menu",
+    "tool": "SpotOn",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/clover-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Clover for Restaurants page headed \"You bring the flavor, Clover powers the pay\"",
+    "tool": "Clover",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/restaurant365-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Restaurant365 page about R365 AI with a sales performance dashboard by day of week",
+    "tool": "Restaurant365",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/7shifts-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "7shifts page headed \"The platform behind great restaurant teams\" with a get started button",
+    "tool": "7shifts",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/marginedge-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "MarginEdge restaurant back office page headed \"AI runs the numbers. You run the restaurant.\"",
+    "tool": "MarginEdge",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/aws-ecs-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Amazon Elastic Container Service page with get started and workshop buttons",
+    "tool": "Amazon ECS",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/cloud-run-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Google Cloud Run page headed \"Build apps or websites quickly on a fully managed platform\"",
+    "tool": "Google Cloud Run",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/azure-container-apps-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Microsoft Azure Container Apps page with a product video and a get started button",
+    "tool": "Azure Container Apps",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/nomad-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "HashiCorp Nomad developer page describing a scheduler for containers, binaries and batch jobs",
+    "tool": "HashiCorp Nomad",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/docker-swarm-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Docker documentation page for Swarm mode with a note on running clusters of Docker daemons",
+    "tool": "Docker Swarm",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/render-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Render page headed \"Your fastest path to production for any workload\" with a service diagram",
+    "tool": "Render",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/railway-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Railway page headed \"Ship software peacefully\" with a production deployment and build log view",
+    "tool": "Railway",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/fly-io-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Fly.io page headed \"Computers for agents, from sandboxes to production\" with a start free button",
+    "tool": "Fly.io",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/xero-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Xero US page headed \"The all-in-one to get your business done\" with an invoice paid card",
+    "tool": "Xero",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zoho-books-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Zoho Books page headed \"AI-ready accounting software for growing businesses\" with a dashboard preview",
+    "tool": "Zoho Books",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/wave-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Wave page headed \"Accounting software to keep you organized\" with a cash flow chart and transactions",
+    "tool": "Wave",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/patriot-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Patriot Software page headed \"Accounting Software for Small Business\" with a profit and loss preview",
+    "tool": "Patriot Accounting",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zipbooks-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "ZipBooks page headed \"Simple accounting software that makes you even smarter\" on laptop and phone",
+    "tool": "ZipBooks",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/kashoo-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Kashoo page offering simple online accounting with a free trial sign-up field",
+    "tool": "Kashoo",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/claude-code-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Claude Code page with download and documentation buttons beside a task thread fixing a checkout bug",
+    "tool": "Claude Code",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/openai-codex-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "OpenAI Codex IDE extension page headed \"Build with the context already in your editor\"",
+    "tool": "OpenAI Codex",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/antigravity-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Google Antigravity page headed \"Experience liftoff with the next-gen agent platform\" with a download button",
+    "tool": "Google Antigravity",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/jetbrains-ai-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "JetBrains Air page describing one system for building software with agents",
+    "tool": "JetBrains AI",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/amazon-q-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Amazon Q Developer page with an end of support notice for its IDE plugins on April 30, 2027",
+    "tool": "Amazon Q Developer",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/tabnine-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Tricentis page with a notice that Tabnine is now part of Tricentis",
+    "tool": "Tabnine",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/continue-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Continue page announcing that Continue has joined Cursor, with FAQs on the open-source code",
+    "tool": "Continue",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/qodo-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Qodo page headed \"Code review for agents. Governance for humans.\" with demo and trial buttons",
+    "tool": "Qodo",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/epicor-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Epicor Kinetic ERP page headed \"Operations Transformed\" with demo and product tour buttons",
+    "tool": "Epicor Kinetic",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/dynamics-scm-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Microsoft Dynamics 365 Supply Chain Management page with guided tour and sales buttons",
+    "tool": "Dynamics 365 Supply Chain Management",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/sap-s4hana-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "SAP S/4HANA Cloud Public Edition page with an embedded analytics dashboard preview",
+    "tool": "SAP S/4HANA Cloud",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/infor-csi-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Infor page for industrial manufacturing software with a production schedule preview",
+    "tool": "Infor CloudSuite Industrial",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/katana-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Katana page headed \"Inventory that runs itself\" with a sales order table preview",
+    "tool": "Katana",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/mrpeasy-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "MRPeasy page for AI-powered MRP software for small manufacturers with 10 to 200 employees",
+    "tool": "MRPeasy",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/dynamics-sales-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Microsoft Dynamics 365 Sales page headed \"Close deals faster\" with a try for free button",
+    "tool": "Dynamics 365 Sales",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/creatio-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Creatio CRM page showing an AI agent answering which region is underperforming",
+    "tool": "Creatio",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/copper-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Copper page headed \"The CRM that helps you be there for your clients\" with a Google Workspace badge",
+    "tool": "Copper",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/attio-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Attio page headed \"Welcome to agentic revenue\" with a deal assistant prompt in the app",
+    "tool": "Attio",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/monday-crm-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "monday CRM page headed \"AI revenue execution, live in minutes\" with lead and forecasting options",
+    "tool": "monday CRM",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/images/infrastructure-dashboard-review-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two engineers reviewing a monitoring dashboard beside a glass-walled server room"
+  },
+  {
+    "path": "/assets/images/infrastructure-dashboard-review-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two engineers reviewing a monitoring dashboard beside a glass-walled server room"
+  },
+  {
+    "path": "/assets/images/developers-code-review-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two developers reviewing code together on a large monitor in a bright office"
+  },
+  {
+    "path": "/assets/images/developers-code-review-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two developers reviewing code together on a large monitor in a bright office"
+  },
+  {
+    "path": "/assets/images/construction-site-tablet-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Site manager and engineer in hard hats reviewing a tablet in front of a building under construction"
+  },
+  {
+    "path": "/assets/images/construction-site-tablet-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Site manager and engineer in hard hats reviewing a tablet in front of a building under construction"
+  },
+  {
+    "path": "/assets/images/whiteboard-sprint-planning-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Developer placing sticky notes on a whiteboard planning board while a colleague watches"
+  },
+  {
+    "path": "/assets/images/whiteboard-sprint-planning-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Developer placing sticky notes on a whiteboard planning board while a colleague watches"
+  },
+  {
+    "path": "/assets/images/legal-team-laptop-review-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two lawyers reviewing case papers and a laptop at a conference table"
+  },
+  {
+    "path": "/assets/images/legal-team-laptop-review-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two lawyers reviewing case papers and a laptop at a conference table"
+  },
+  {
+    "path": "/assets/images/team-chat-studio-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Three colleagues talking at a table with a laptop and phone in a plant-filled studio"
+  },
+  {
+    "path": "/assets/images/team-chat-studio-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Three colleagues talking at a table with a laptop and phone in a plant-filled studio"
+  },
+  {
+    "path": "/assets/images/restaurant-manager-tablet-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Restaurant manager using a tablet in a dining room before service while a chef works"
+  },
+  {
+    "path": "/assets/images/restaurant-manager-tablet-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Restaurant manager using a tablet in a dining room before service while a chef works"
+  },
+  {
+    "path": "/assets/images/sales-team-pipeline-meeting-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Three colleagues discussing a sales pipeline on a laptop at a round table"
+  },
+  {
+    "path": "/assets/images/sales-team-pipeline-meeting-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Three colleagues discussing a sales pipeline on a laptop at a round table"
+  },
+  {
+    "path": "/assets/images/shop-owners-receipts-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two small-business owners checking receipts against a laptop and calculator"
+  },
+  {
+    "path": "/assets/images/shop-owners-receipts-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two small-business owners checking receipts against a laptop and calculator"
+  },
+  {
+    "path": "/assets/images/factory-floor-tablet-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Supervisor with a tablet beside an operator running a CNC machine on a factory floor"
+  },
+  {
+    "path": "/assets/images/factory-floor-tablet-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Supervisor with a tablet beside an operator running a CNC machine on a factory floor"
   }
 ]
