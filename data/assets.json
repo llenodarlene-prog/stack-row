@@ -3288,5 +3288,50 @@
     "height": 450,
     "role": "page image, small",
     "alt": "Supervisor with a tablet beside an operator running a CNC machine on a factory floor"
+  },
+  {
+    "path": "/assets/screenshots/clio-product-page-2026-11.webp",
+    "width": 1512,
+    "height": 1000,
+    "alt": "Clio Manage Today dashboard with an Ask Clio box, top priority tasks, upcoming deadlines and matter alerts",
+    "tool": "Clio",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/autodesk-forma-product-page-2026-11.webp",
+    "width": 2000,
+    "height": 1125,
+    "alt": "Autodesk Forma diagram showing Forma above the AEC data model and Platform Services, linked to Revit and AutoCAD",
+    "tool": "Autodesk Forma",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/buildertrend-product-page-2026-11.webp",
+    "width": 1199,
+    "height": 583,
+    "alt": "Buildertrend job dashboard showing past-due items, action items, team activity and a weekly agenda",
+    "tool": "Buildertrend",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/square-restaurants-product-page-2026-11.webp",
+    "width": 636,
+    "height": 424,
+    "alt": "Square for Restaurants POS screen with drink and food menu tiles beside a bar check and Pay button",
+    "tool": "Square for Restaurants",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/quickbooks-product-page-2026-11.webp",
+    "width": 1680,
+    "height": 951,
+    "alt": "QuickBooks Online dashboard with accounting, customer and finance agent cards and bank balances",
+    "tool": "QuickBooks Online",
+    "source": "own-capture",
+    "captured": "2026-11"
   }
 ]
