@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "content_id": "H8",
+  "slug": "/ai/github-copilot-alternatives/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-13",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-12",
+      "keyword": "GitHub Copilot alternatives",
+      "search_volume": 320,
+      "seo_difficulty": 25,
+      "cpc_usd": 17.42,
+      "source": "Owner weekly keyword plan, 2026-11-12 (volume recorded for the head term)"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner research content map and SERP gap analysis, 2026-11-12.",
+  "sources": [
+    {
+      "url": "https://aws.amazon.com/q/developer/pricing/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://devecosystem.jetbrains.com/artificial-intelligence",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://docs.cloud.google.com/gemini/docs/codeassist/sunset",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://docs.continue.dev/",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    },
+    {
+      "url": "https://survey.stackoverflow.co/2026/ai/data/ai-code-agent",
+      "checked_utc": "2026-11-12",
+      "method": "Cited by the owner draft (checked 2026-11-12). Pricing pages spot-checked by Claude 2026-11-13 where noted in corrections."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "A3",
+    "F8"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "by": "Claude final QA layer",
+    "date_utc": "2026-11-13"
+  },
+  "qa": {
+    "status": "approved",
+    "by": "Claude final QA layer",
+    "date_utc": "2026-11-13"
+  },
+  "corrections": [
+    "Tabnine is now part of Tricentis (tabnine.com redirect, checked 2026-11-13).",
+    "Continue was acquired by Cursor (continue.dev notice, checked 2026-11-13).",
+    "AWS ends Amazon Q Developer IDE plugin support on April 30, 2027 and points to Kiro (aws.amazon.com/q/developer, checked 2026-11-13).",
+    "JetBrains AI page now promotes JetBrains Air (checked 2026-11-13)."
+  ],
+  "approval_note": "Owner-supplied draft; owner approval of the batch given 2026-11-13 (\"go\"), subject to final QA."
+}
