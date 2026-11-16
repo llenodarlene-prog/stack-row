@@ -248,7 +248,7 @@
       wrap.append(optIn, label);
       host.querySelector('.calc-privacy')?.insertAdjacentElement('beforebegin', wrap);
       try { optIn.checked = Boolean(tool.storeKey && localStorage.getItem(tool.storeKey)); } catch { optIn.checked = false; }
-      optIn.addEventListener('change', () => { if (optIn.checked) { if (last) store.set({ values: Object.fromEntries(entries()), saved: Date.now() }); announce('Your entries will be saved in this browser.'); } else { store.clear(); announce('Saved entries removed from this browser.'); } });
+      optIn.addEventListener('change', () => { if (optIn.checked) { store.set({ values: Object.fromEntries(entries()), extra: tool.saveState?.(), saved: Date.now() }); announce('Your entries will be saved in this browser.'); } else { store.clear(); announce('Saved entries removed from this browser.'); } });
     }
     // Custom exporters replace the CSV button.
     const exportButtons = [];
@@ -430,7 +430,7 @@
       summaryBox.hidden = true;
       show(result);
       last = { ...result, mode, date: new Date().toISOString().slice(0, 10), share: shareQuery() };
-      if (save) store.set({ values: Object.fromEntries(entries()), saved: Date.now() });
+      if (save) store.set({ values: Object.fromEntries(entries()), extra: tool.saveState?.(), saved: Date.now() });
       if (explicit) {
         announce(result.announce || `${tool.modeNames?.[mode] || tool.name} ${tool.doneWord || 'calculated'}.`);
         if (window.matchMedia('(max-width: 899px)').matches) $('calc-results-title').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
@@ -444,7 +444,11 @@
       const query = new URLSearchParams(window.location.search);
       const known = [...form.elements].map(node => node.name).filter(Boolean);
       const fromUrl = [...query.keys()].length > 0 && cfg.share.mode !== 'disabled' && cfg.restore !== false;
-      const source = fromUrl ? policy.restoreValues(Object.fromEntries(query), cfg, known) : policy.restoreValues(store.get()?.values, cfg, known, { fromUrl: false });
+      const saved = fromUrl ? null : store.get();
+      const source = fromUrl ? policy.restoreValues(Object.fromEntries(query), cfg, known) : policy.restoreValues(saved?.values, cfg, known, { fromUrl: false });
+      // Tools with their own state (such as invoice line items) restore it
+      // through loadState, which must validate it like an imported file.
+      if (saved?.extra && tool.loadState) { const ok = tool.loadState(saved.extra); if (ok) { tool.onRestore?.(); return true; } }
       if (!Object.keys(source).length) return false;
       if (source.mode) selectMode(source.mode);
       let filled = false;
@@ -492,7 +496,7 @@
     // Results update as you type; Calculate also saves the calculation and
     // moves to the results on small screens.
     let liveTimer;
-    const live = () => { if (tool.liveModes && !tool.liveModes.includes(mode)) return; window.clearTimeout(liveTimer); liveTimer = window.setTimeout(() => calculate({ explicit: false, save: false, quiet: true }), tool.live ? 0 : 200); };
+    const live = () => { if (tool.liveModes && !tool.liveModes.includes(mode)) return; window.clearTimeout(liveTimer); liveTimer = window.setTimeout(() => calculate({ explicit: false, save: tool.saveLive === true, quiet: true }), tool.live ? 0 : 200); };
     form.addEventListener('input', live);
     form.addEventListener('change', live);
     tabs.forEach(tab => tab.addEventListener('click', live));
@@ -558,7 +562,8 @@
     for (const button of exportButtons) button.hidden = Boolean(button.dataset.modes) && !button.dataset.modes.split(' ').includes(mode);
     if (restore()) calculate({ explicit: false, save: false });
     else tool.onRestore?.();
-    return { calculate, announce, copyText, download, get last() { return last; } };
+    const saveNow = () => { if (last) store.set({ values: Object.fromEntries(entries()), extra: tool.saveState?.(), saved: Date.now() }); };
+    return { calculate, announce, copyText, download, saveNow, clear: clearAll, get last() { return last; }, get optedIn() { return optIn?.checked === true; } };
   }
 
   root.StackRowTool = { mount, el, parseNumber, formatMoney, formatNumber, formatPercent, csvCell, viz, icon, policy, download, formatBytes };

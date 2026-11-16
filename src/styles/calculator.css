@@ -261,3 +261,39 @@
 .calc-tree-value { overflow-wrap: anywhere; color: var(--sr-slate); }
 .calc-badge-type { font-size: .7rem; text-transform: uppercase; letter-spacing: .03em; border: 1px solid var(--sr-border); border-radius: 999px; padding: 0 .4rem; color: var(--sr-muted); }
 .calc-tree-hit { background: #fef3c7; border-radius: 4px; }
+.calc-group { border: 1px solid var(--sr-border); border-radius: 12px; padding: .75rem 1rem 1rem; margin: 0 0 1rem; min-width: 0; }
+.calc-group legend { font-weight: 700; padding: 0 .35rem; color: var(--sr-navy); }
+.inv-line { border-bottom: 1px dashed var(--sr-border); padding: .5rem 0 .75rem; margin-bottom: .5rem; }
+.inv-line-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr)); gap: .5rem; }
+.inv-line-grid .calc-field { margin: 0; }
+.inv-line-grid input, .inv-line-grid select { width: 100%; min-width: 0; box-sizing: border-box; }
+.inv-line-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: .4rem; align-items: center; }
+.inv-line-amount { font-family: var(--sr-mono); margin-left: auto; }
+.inv-doc { background: #fff; color: #0f172a; border: 1px solid var(--sr-border); border-radius: 10px; padding: 1.25rem; font-size: .9rem; overflow-wrap: anywhere; }
+.inv-doc h3 { margin: 0; font-size: 1.4rem; letter-spacing: .02em; }
+.inv-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: flex-start; margin-bottom: 1rem; }
+.inv-logo { max-width: 180px; max-height: 90px; object-fit: contain; }
+.inv-parties { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.inv-parties p, .inv-meta p { margin: .1rem 0; white-space: pre-line; }
+.inv-label { font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: #475569; font-weight: 600; }
+.inv-items { width: 100%; border-collapse: collapse; margin: .5rem 0 1rem; }
+.inv-items th, .inv-items td { padding: .35rem .4rem; border-bottom: 1px solid #e2e8f0; text-align: left; vertical-align: top; }
+.inv-items .num { text-align: right; white-space: nowrap; }
+.inv-totals { margin-left: auto; max-width: 20rem; width: 100%; border-collapse: collapse; }
+.inv-totals td { padding: .25rem .4rem; }
+.inv-totals td:last-child { text-align: right; font-family: var(--sr-mono); white-space: nowrap; }
+.inv-totals .inv-strong td { font-weight: 700; border-top: 2px solid #0f172a; }
+.inv-notes { margin-top: 1rem; }
+.inv-notes p { white-space: pre-line; margin: .1rem 0 .6rem; }
+@media print {
+  .calc-invoice .calc-metric, .calc-invoice .calc-print-only, .calc-invoice .calc-interpretation, .calc-invoice .calc-warning, .calc-invoice .calc-results-title, .calc-invoice .calc-privacy, .calc-invoice .calc-optin, .calc-invoice #calc-error-summary { display: none !important; }
+  .calc-invoice .inv-doc { border: 0; padding: 0; font-size: 11pt; }
+  .calc-invoice .calc-results { box-shadow: none; border: 0; padding: 0; }
+}
+.calc-invoice .calc-shell > *, .calc-invoice .calc-output, .inv-doc { min-width: 0; max-width: 100%; }
+.calc-invoice .calc-shell { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1100px) { .calc-invoice .calc-shell { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); } }
+@media print {
+  body:has(.calc-invoice) .calc-hero, body:has(.calc-invoice) .calc-intro, body:has(.calc-invoice) .calc-reviewed, body:has(.calc-invoice) .calc-page .prose { display: none !important; }
+  body:has(.calc-invoice) .calc-results { position: static !important; }
+}
