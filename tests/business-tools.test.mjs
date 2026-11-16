@@ -73,3 +73,52 @@ test('invoice page: opt-in persistence, no sharing, no innerHTML, no network', a
   assert.match(page, /persistence: 'opt-in', share: \{ mode: 'disabled' \}/);
   assert.doesNotMatch(page, /innerHTML|insertAdjacentHTML|fetch\(|XMLHttpRequest|sendBeacon/);
 });
+
+const { Clv: C } = context.StackRowBusinessTools;
+const near = (a, b, d = 2) => assert.equal(Number(a.toFixed(d)), b);
+
+test('clv: historical, repeat purchase, subscription and discounted models match fixtures', () => {
+  assert.equal(C.historicalClv({ revenue: 500000, costs: 300000, customers: 1000 }).perCustomer, 200);
+  const s = C.simpleClv({ revenue: 240000, orders: 4000, customers: 1600, periodMonths: 6, marginPct: 40, lifespanYears: 3 });
+  assert.equal(s.aov, 60); assert.equal(s.annualFrequency, 5); near(s.annualContribution, 120); near(s.clv, 360);
+  const sub = C.subscriptionClv({ arpaMonthly: 100, marginPct: 80, churnMonthlyPct: 2 });
+  near(sub.ltv, 4000); near(sub.lifetimeMonths, 50);
+  const d = C.discountedClv({ arpaMonthly: 100, marginPct: 80, churnMonthlyPct: 0, annualDiscountPct: 0, horizonMonths: 12 });
+  near(d.ltv, 960);
+  const d2 = C.discountedClv({ arpaMonthly: 100, marginPct: 80, churnMonthlyPct: 2, annualDiscountPct: 10, horizonMonths: 60 });
+  near(d2.ltv, 2331.42); assert.equal(d2.periods.length, 60); near(d2.periods[59].cumulative, 2331.42);
+});
+
+test('clv: LTV to CAC and payback', () => {
+  const ue = C.unitEconomics(4000, 1200, 80);
+  near(ue.ratio, 3.33); assert.equal(ue.paybackMonths, 15);
+  assert.equal(C.unitEconomics(4000, 0, 80), null);
+  assert.equal(C.unitEconomics(4000, 100, 0).paybackMonths, null);
+});
+
+test('clv: monthly and annual conversions are consistent', () => {
+  near(C.monthlyFromAnnualChurn(20), 1.84, 2);
+  const m = C.monthlyFromAnnualChurn(20) / 100;
+  near(1 - Math.pow(1 - m, 12), 0.2, 6);
+  near(C.monthlyRateFromAnnual(10), 0.80, 2);
+  near(C.subscriptionClv({ arpaMonthly: 1200 / 12, marginPct: 80, churnMonthlyPct: 2 }).ltv, 4000);
+});
+
+test('clv: zero churn, 100% churn, bad margins and counts are handled', () => {
+  assert.equal(C.subscriptionClv({ arpaMonthly: 100, marginPct: 80, churnMonthlyPct: 0 }).field, 'sub_horizon');
+  const finite = C.subscriptionClv({ arpaMonthly: 100, marginPct: 80, churnMonthlyPct: 0, horizonMonths: 36 });
+  assert.equal(finite.ltv, 2880); assert.equal(finite.horizonUsed, true); assert.ok(Number.isFinite(finite.ltv));
+  assert.equal(C.subscriptionClv({ arpaMonthly: 100, marginPct: 80, churnMonthlyPct: 100 }).field, 'sub_churn');
+  assert.equal(C.subscriptionClv({ arpaMonthly: 100, marginPct: 120, churnMonthlyPct: 2 }).field, 'sub_margin');
+  assert.equal(C.simpleClv({ revenue: 1, orders: 5, customers: 10, periodMonths: 12, marginPct: 40, lifespanYears: 1 }).field, 's_orders');
+  assert.equal(C.historicalClv({ revenue: 1, customers: 0 }).field, 'h_customers');
+  assert.ok(C.historicalClv({ revenue: 100, costs: 300, customers: 2 }).perCustomer < 0);
+  assert.equal(C.discountedClv({ arpaMonthly: 1, marginPct: 1, churnMonthlyPct: 1, annualDiscountPct: 1, horizonMonths: 601 }).field, 'd_horizon');
+});
+
+test('clv page: allowlisted numeric sharing with restore rules and auto persistence', async () => {
+  const page = await readFile('src/scripts/customer-lifetime-value-calculator.js', 'utf8');
+  assert.match(page, /share: \{ mode: 'allowlist'/);
+  assert.match(page, /storeKey: 'stackrow:clv:v1'/);
+  assert.doesNotMatch(page, /persistence: 'none'/);
+});

@@ -1,0 +1,52 @@
+<div class="calc-tabs calc-tabs-wrap" role="tablist" aria-label="Choose a model">
+  <button type="button" role="tab" id="tab-subscription" aria-controls="panel-subscription" aria-selected="true" data-mode="subscription">{{icon:refresh}}Subscription</button>
+  <button type="button" role="tab" id="tab-simple" aria-controls="panel-simple" aria-selected="false" tabindex="-1" data-mode="simple">{{icon:receipt}}Repeat purchases</button>
+  <button type="button" role="tab" id="tab-discounted" aria-controls="panel-discounted" aria-selected="false" tabindex="-1" data-mode="discounted">{{icon:chart-bar}}Discounted</button>
+  <button type="button" role="tab" id="tab-historical" aria-controls="panel-historical" aria-selected="false" tabindex="-1" data-mode="historical">{{icon:clock-hour-4}}Historical</button>
+</div>
+<form class="calc-form" novalidate>
+  <div role="tabpanel" id="panel-subscription" aria-labelledby="tab-subscription" class="calc-panel">
+    <p class="calc-hint">For recurring plans. Uses a steady churn rate to estimate how long accounts stay.</p>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="cl-arpa">Revenue per account</label><input id="cl-arpa" name="sub_arpa" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="cl-arpa-unit">Revenue is per</label><select id="cl-arpa-unit" name="sub_arpa_unit"><option value="month">Month</option><option value="year">Year</option></select></div>
+      <div class="calc-field"><label for="cl-margin">Gross margin (%)</label><input id="cl-margin" name="sub_margin" inputmode="decimal" autocomplete="off" data-slider="0,100,1"></div>
+      <div class="calc-field"><label for="cl-churn">Churn rate (%)</label><input id="cl-churn" name="sub_churn" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="cl-churn-unit">Churn is per</label><select id="cl-churn-unit" name="sub_churn_unit"><option value="month">Month</option><option value="year">Year</option></select></div>
+      <div class="calc-field"><label for="cl-horizon">Horizon in months (needed if churn is 0)</label><input id="cl-horizon" name="sub_horizon" inputmode="numeric" autocomplete="off"></div>
+    </div>
+  </div>
+  <div role="tabpanel" id="panel-simple" aria-labelledby="tab-simple" class="calc-panel" hidden>
+    <p class="calc-hint">For stores and services where customers buy again without a contract.</p>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="cl-s-rev">Revenue in the period</label><input id="cl-s-rev" name="s_revenue" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="cl-s-orders">Orders in the period</label><input id="cl-s-orders" name="s_orders" inputmode="numeric" autocomplete="off"></div>
+      <div class="calc-field"><label for="cl-s-cust">Unique customers in the period</label><input id="cl-s-cust" name="s_customers" inputmode="numeric" autocomplete="off"></div>
+      <div class="calc-field"><label for="cl-s-period">Period the data covers</label><select id="cl-s-period" name="s_period"><option value="1">1 month</option><option value="3">3 months</option><option value="6">6 months</option><option value="12" selected>12 months</option></select></div>
+      <div class="calc-field"><label for="cl-s-margin">Gross margin (%)</label><input id="cl-s-margin" name="s_margin" inputmode="decimal" autocomplete="off" data-slider="0,100,1"></div>
+      <div class="calc-field"><label for="cl-s-life">Expected customer lifespan (years)</label><input id="cl-s-life" name="s_lifespan" inputmode="decimal" autocomplete="off"></div>
+    </div>
+  </div>
+  <div role="tabpanel" id="panel-discounted" aria-labelledby="tab-discounted" class="calc-panel" hidden>
+    <p class="calc-hint">Adds up expected profit month by month over a fixed horizon, discounting future months.</p>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="cl-d-arpa">Monthly revenue per account</label><input id="cl-d-arpa" name="d_arpa" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="cl-d-margin">Gross margin (%)</label><input id="cl-d-margin" name="d_margin" inputmode="decimal" autocomplete="off" data-slider="0,100,1"></div>
+      <div class="calc-field"><label for="cl-d-churn">Monthly churn (%)</label><input id="cl-d-churn" name="d_churn" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="cl-d-rate">Annual discount rate (%)</label><input id="cl-d-rate" name="d_discount" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="cl-d-horizon">Horizon (months, up to 600)</label><input id="cl-d-horizon" name="d_horizon" inputmode="numeric" autocomplete="off"></div>
+    </div>
+  </div>
+  <div role="tabpanel" id="panel-historical" aria-labelledby="tab-historical" class="calc-panel" hidden>
+    <p class="calc-hint">What customers have actually contributed so far. Not a forecast.</p>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="cl-h-rev">Revenue from these customers to date</label><input id="cl-h-rev" name="h_revenue" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="cl-h-cost">Direct costs of serving them to date</label><input id="cl-h-cost" name="h_costs" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="cl-h-cust">Number of customers</label><input id="cl-h-cust" name="h_customers" inputmode="numeric" autocomplete="off"></div>
+    </div>
+  </div>
+  <div class="calc-grid">
+    <div class="calc-field"><label for="cl-cac">Customer acquisition cost (optional)</label><input id="cl-cac" name="cac" inputmode="decimal" autocomplete="off"></div>
+    <div class="calc-field"><label for="cl-spread">Scenario range (± %)</label><input id="cl-spread" name="spread" inputmode="decimal" autocomplete="off" value="20"></div>
+    <div class="calc-field"><label for="cl-currency">Currency</label><select id="cl-currency" name="currency"><option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="CAD">CAD</option><option value="AUD">AUD</option></select></div>
+  </div>

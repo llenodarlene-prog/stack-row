@@ -177,8 +177,74 @@
     return null;
   }
 
+
+  // --------------------------------------------------------------------- CLV
+  // Planning estimates, not accounting valuations. Each model states its own
+  // assumptions; inputs are plain numbers with percentages as 0 to 100.
+  const monthlyFromAnnualChurn = annualPct => (1 - Math.pow(1 - annualPct / 100, 1 / 12)) * 100;
+  const monthlyRateFromAnnual = annualPct => (Math.pow(1 + annualPct / 100, 1 / 12) - 1) * 100;
+  const clvFail = (field, message) => fail('field', message, { field });
+
+  function historicalClv({ revenue, costs = 0, customers }) {
+    if (!(customers >= 1)) return clvFail('h_customers', 'Enter at least one customer.');
+    const contribution = revenue - costs;
+    return { ok: true, model: 'historical', perCustomer: contribution / customers, contribution, revenuePerCustomer: revenue / customers };
+  }
+
+  function simpleClv({ revenue, orders, customers, periodMonths, marginPct, lifespanYears }) {
+    if (!(orders > 0)) return clvFail('s_orders', 'Enter the number of orders, more than zero.');
+    if (!(customers > 0)) return clvFail('s_customers', 'Enter the number of unique customers, more than zero.');
+    if (orders < customers) return clvFail('s_orders', 'Orders cannot be fewer than unique customers, because each customer ordered at least once.');
+    if (!(periodMonths > 0)) return clvFail('s_period', 'Choose the period your data covers.');
+    if (marginPct > 100) return clvFail('s_margin', 'Use a gross margin of 100% or less.');
+    if (!(lifespanYears > 0)) return clvFail('s_lifespan', 'Enter an expected customer lifespan, more than zero.');
+    const aov = revenue / orders;
+    const frequency = orders / customers;
+    const annualFrequency = frequency * (12 / periodMonths);
+    const annualContribution = aov * annualFrequency * (marginPct / 100);
+    return { ok: true, model: 'simple', aov, frequency, annualFrequency, annualContribution, monthlyContribution: annualContribution / 12, clv: annualContribution * lifespanYears };
+  }
+
+  // Constant churn, constant contribution. With zero churn the simple formula
+  // has no finite answer, so a finite horizon in months is required instead.
+  function subscriptionClv({ arpaMonthly, marginPct, churnMonthlyPct, horizonMonths = 0 }) {
+    if (!(arpaMonthly >= 0)) return clvFail('sub_arpa', 'Enter revenue per account.');
+    if (marginPct > 100) return clvFail('sub_margin', 'Use a gross margin of 100% or less.');
+    if (churnMonthlyPct >= 100) return clvFail('sub_churn', 'Churn of 100% or more means every customer leaves in the first period. Use a lower rate.');
+    const monthlyContribution = arpaMonthly * (marginPct / 100);
+    if (churnMonthlyPct <= 0) {
+      if (!(horizonMonths > 0)) return clvFail('sub_horizon', 'With zero churn the simple formula has no limit. Enter a horizon in months, or a churn rate above zero.');
+      return { ok: true, model: 'subscription', monthlyContribution, lifetimeMonths: horizonMonths, ltv: monthlyContribution * horizonMonths, horizonUsed: true };
+    }
+    const c = churnMonthlyPct / 100;
+    return { ok: true, model: 'subscription', monthlyContribution, lifetimeMonths: 1 / c, ltv: monthlyContribution / c, horizonUsed: false };
+  }
+
+  // Period-by-period expected contribution: contribution × retention^(t−1),
+  // discounted by (1 + monthly discount rate)^t, summed over the horizon.
+  function discountedClv({ arpaMonthly, marginPct, churnMonthlyPct, annualDiscountPct, horizonMonths }) {
+    if (marginPct > 100) return clvFail('d_margin', 'Use a gross margin of 100% or less.');
+    if (churnMonthlyPct < 0 || churnMonthlyPct >= 100) return clvFail('d_churn', 'Use a monthly churn rate from 0% to just under 100%.');
+    if (!(horizonMonths >= 1) || horizonMonths > 600 || !Number.isInteger(horizonMonths)) return clvFail('d_horizon', 'Use a whole number of months from 1 to 600.');
+    if (annualDiscountPct < 0 || annualDiscountPct > 100) return clvFail('d_discount', 'Use an annual discount rate from 0% to 100%.');
+    const m = arpaMonthly * (marginPct / 100);
+    const r = 1 - churnMonthlyPct / 100;
+    const i = monthlyRateFromAnnual(annualDiscountPct) / 100;
+    let total = 0; let survival = 1; const periods = [];
+    for (let t = 1; t <= horizonMonths; t += 1) {
+      const value = m * survival / Math.pow(1 + i, t);
+      total += value;
+      periods.push({ month: t, retained: survival, value, cumulative: total });
+      survival *= r;
+    }
+    return { ok: true, model: 'discounted', monthlyContribution: m, monthlyDiscountPct: i * 100, ltv: total, periods };
+  }
+
+  const unitEconomics = (ltv, cac, monthlyContribution) => (cac > 0 ? { ratio: ltv / cac, paybackMonths: monthlyContribution > 0 ? cac / monthlyContribution : null } : null);
+
   root.StackRowBusinessTools = Object.assign(root.StackRowBusinessTools || {}, {
     Decimal: { SCALE, parseDecimal, roundTo, formatDecimal, mul, pctOf, divHalf },
-    Invoice: { CURRENCIES, INVOICE_LIMITS, calculateInvoice, formatMoney, nextInvoiceNumber, migrateDraft, validateDraft, draftToJson, sniffImage, TEXT_FIELDS, LINE_FIELDS, DRAFT_VERSION }
+    Invoice: { CURRENCIES, INVOICE_LIMITS, calculateInvoice, formatMoney, nextInvoiceNumber, migrateDraft, validateDraft, draftToJson, sniffImage, TEXT_FIELDS, LINE_FIELDS, DRAFT_VERSION },
+    Clv: { historicalClv, simpleClv, subscriptionClv, discountedClv, unitEconomics, monthlyFromAnnualChurn, monthlyRateFromAnnual }
   });
 })(typeof window !== 'undefined' ? window : globalThis);
