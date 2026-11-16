@@ -256,3 +256,8 @@
 .calc-problem { border-left: 4px solid #b42318; background: #fff5f4; border-radius: 6px; padding: .6rem .8rem; margin-top: .6rem; }
 .calc-problem-title { font-weight: 700; margin: 0 0 .25rem; }
 .calc-tree-title { font-weight: 700; margin: .5rem 0 .25rem; font-family: Inter, system-ui, sans-serif; }
+.calc-tree-row { display: inline-flex; flex-wrap: wrap; gap: .4rem; align-items: baseline; }
+.calc-tree-key { font-weight: 600; }
+.calc-tree-value { overflow-wrap: anywhere; color: var(--sr-slate); }
+.calc-badge-type { font-size: .7rem; text-transform: uppercase; letter-spacing: .03em; border: 1px solid var(--sr-border); border-radius: 999px; padding: 0 .4rem; color: var(--sr-muted); }
+.calc-tree-hit { background: #fef3c7; border-radius: 4px; }

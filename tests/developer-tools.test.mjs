@@ -327,3 +327,82 @@ test('xml page: XML download type, no storage, no share links, text-only renderi
   assert.match(page, /persistence: 'none', share: \{ mode: 'disabled' \}, restore: false/);
   assert.doesNotMatch(page, /localStorage|innerHTML|insertAdjacentHTML|DOMParser|fetch\(/);
 });
+
+const { Json: J } = context.StackRowDevTools;
+
+test('json: every value type, escapes, Unicode, exponents and negative zero', () => {
+  for (const text of ['0', '-0', '1.5e-3', '2E+10', '"plain"', 'true', 'false', 'null', '[]', '{}', '"\\u00e9\\n\\t\\"\\\\\\/"', '"東京 😀"', '{"a":[1,{"b":null}]}']) {
+    const r = J.parseJsonWithDiagnostics(text);
+    assert.equal(r.ok, true, text);
+  }
+  assert.equal(J.parseJsonWithDiagnostics('"\\u00e9\\n"').root.value, 'é\n');
+  assert.equal(J.formatJson('[-0,1.50,1e5]', { minify: true }).value, '[-0,1.50,1e5]');
+});
+
+test('json: common mistakes fail with specific codes and positions', () => {
+  const cases = [['{"a":1,}', 'trailing'], ['[1,2,]', 'trailing'], ["{'a':1}", 'quote'], ['{a:1}', 'key'], ['{"a":1} // c', 'comment'], ['[1, /* x */ 2]', 'comment'], ['"\\x"', 'escape'], ['"\\u12G4"', 'escape'], ['{"a":', 'truncated'], ['"abc', 'truncated'], ['[01]', 'number'], ['[+1]', 'unexpected'], ['[1.]', 'number'], ['"a\tb"', 'control'], ['True', 'literal'], ['NaN', 'number'], ['1 2', 'extra'], ['', 'empty'], ['{"a" 1}', 'unexpected']];
+  for (const [input, code] of cases) assert.equal(J.parseJsonWithDiagnostics(input).code, code, input);
+  const r = J.parseJsonWithDiagnostics('{\n  "a": 1,\n}');
+  assert.equal(r.line, 3); assert.equal(r.column, 1); assert.equal(r.index, 12); assert.ok(r.hint);
+});
+
+test('json: duplicate names are reported and kept', () => {
+  const r = J.formatJson('{"id":1,"x":{"id":2},"id":3}', { minify: true });
+  assert.equal(r.warnings.duplicates.length, 1);
+  assert.equal(r.warnings.duplicates[0].key, 'id');
+  assert.equal(r.warnings.duplicates[0].path, '$');
+  assert.equal(r.value, '{"id":1,"x":{"id":2},"id":3}');
+});
+
+test('json: unsafe integers and extreme exponents warn and keep their digits', () => {
+  const r = J.formatJson('[9007199254740993,-9007199254740993,9007199254740991,1e400,1e-400]', { minify: true });
+  assert.equal(r.warnings.unsafe.length, 2);
+  assert.equal(r.warnings.extreme.length, 2);
+  assert.equal(r.value, '[9007199254740993,-9007199254740993,9007199254740991,1e400,1e-400]');
+});
+
+test('json: depth, node and size caps', () => {
+  assert.equal(J.parseJsonWithDiagnostics('['.repeat(300) + ']'.repeat(300)).code, 'depth');
+  assert.equal(J.parseJsonWithDiagnostics(`[${Array(50).fill(1).join(',')}]`, { maxNodes: 10 }).code, 'nodes');
+  assert.equal(J.parseJsonWithDiagnostics(`"${'x'.repeat(1048577)}"`).code, 'bytes');
+});
+
+test('json: sorting keys leaves arrays unchanged', () => {
+  assert.equal(J.sortJsonKeys('{"b":[3,1,2],"a":{"d":1,"c":2}}', { minify: true }).value, '{"a":{"c":2,"d":1},"b":[3,1,2]}');
+  assert.equal(J.formatJson('{"b":1,"a":2}', { indent: '\t' }).value, '{\n\t"b": 1,\n\t"a": 2\n}\n');
+});
+
+test('json: tree model keeps hostile text as plain strings and stays bounded', () => {
+  const r = J.parseJsonWithDiagnostics('{"<img src=x onerror=alert(1)>":"<script>alert(1)</script>","list":[1,2]}');
+  const model = J.buildJsonTreeModel(r.root);
+  assert.equal(model.root.children[0].key, '<img src=x onerror=alert(1)>');
+  assert.equal(model.root.children[0].summary, '"<script>alert(1)</script>"');
+  assert.equal(model.root.children[1].children[1].path, '$.list[1]');
+  assert.equal(model.root.children[0].path, '$["<img src=x onerror=alert(1)>"]');
+  const big = J.parseJsonWithDiagnostics(`[${Array(3000).fill(0).join(',')}]`);
+  assert.equal(J.buildJsonTreeModel(big.root, { maxTreeNodes: 100 }).truncated, true);
+});
+
+test('json: CSV conversion rules', () => {
+  const r = J.jsonArrayToCsv('[{"a":1,"b":"x,y"},{"b":"line1\\nline2","c":null},{"a":"=SUM(A1)","d":"-5"}]');
+  assert.equal(r.value, 'a,b,c,d\r\n1,"x,y",,\r\n,"line1\nline2",,\r\n"\'=SUM(A1)",,,"\'-5"');
+  assert.deepEqual([...r.columns], ['a', 'b', 'c', 'd']);
+  assert.equal(r.protectedCells, 2);
+  assert.equal(J.jsonArrayToCsv('[{"a":{"x":1}}]').code, 'csv-nested');
+  assert.equal(J.jsonArrayToCsv('[{"a":{"x":1}}]', { nested: 'json' }).value, 'a\r\n"{""x"":1}"');
+  assert.equal(J.jsonArrayToCsv('{"a":1}').code, 'csv-shape');
+  assert.equal(J.jsonArrayToCsv('[1,2]').code, 'csv-shape');
+  assert.equal(J.jsonArrayToCsv('[]').code, 'csv-shape');
+  assert.equal(J.jsonArrayToCsv(`[${Array(11).fill('{"a":1}').join(',')}]`, { limits: { maxCsvRows: 10 } }).code, 'csv-rows');
+  assert.equal(J.jsonArrayToCsv('[{"a":1,"b":2,"c":3}]', { limits: { maxCsvColumns: 2 } }).code, 'csv-columns');
+});
+
+test('json page: native file types, no eval, no storage, no share links', async () => {
+  const page = await readFile('src/scripts/json-validator-formatter.js', 'utf8');
+  const logic = await readFile('src/scripts/developer-tool-formulas.js', 'utf8');
+  assert.match(page, /mime: 'application\/json;charset=utf-8', extension: 'json'/);
+  assert.match(page, /mime: 'text\/csv;charset=utf-8', extension: 'csv'/);
+  assert.match(page, /persistence: 'none', share: \{ mode: 'disabled' \}, restore: false/);
+  assert.doesNotMatch(page, /localStorage|innerHTML|eval\(|new Function|JSON\.parse/);
+  assert.doesNotMatch(logic.replace(/\/\/.*$/gm, ''), /eval\(|new Function|JSON\.parse/);
+});

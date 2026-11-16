@@ -75,7 +75,7 @@ XML can reference outside files through a DOCTYPE, and a crafted DTD can define 
 - **Encoding.** Files must be UTF-8. A declaration naming another encoding is kept but flagged.
 - **Privacy.** Files are read on your device only. Nothing is uploaded, saved or put in the page address.
 
-For XML that travels inside web addresses, the [URL encoder and decoder](/tools/url-encoder-decoder/) handles the percent encoding. Teams comparing data formats in APIs can read Stack Row's explainer on [API gateways](/developer-data/api-gateways/). For pipelines that check XML automatically, see the guide to [CI/CD tools](/developer-data/ci-cd-tools/).
+The [JSON validator and formatter](/tools/json-validator-formatter/) does the same job for JSON. Teams comparing data formats in APIs can read Stack Row's explainer on [API gateways](/developer-data/api-gateways/). For pipelines that check XML automatically, see the guide to [CI/CD tools](/developer-data/ci-cd-tools/).
 
 ## Frequently Asked Questions
 

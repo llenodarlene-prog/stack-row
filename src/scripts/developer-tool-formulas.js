@@ -651,10 +651,228 @@
     return { roots, count, truncated };
   }
 
+
+  // --------------------------------------------------------------------- JSON
+  // A strict RFC 8259 parser that builds its own tree and never calls eval,
+  // Function, or JSON.parse on the whole input. Numbers keep their original
+  // text, so formatting never rounds them. Duplicate names are kept and
+  // reported, instead of silently losing the earlier value.
+  const JSON_LIMITS = { maxBytes: 1048576, maxDepth: 256, maxNodes: 200000, maxTreeNodes: 1500, maxCsvRows: 10000, maxCsvColumns: 200 };
+  const JSON_HINTS = {
+    empty: 'Paste a JSON value, such as {"name": "value"}, or open a file.',
+    bytes: 'Split the document or remove content, then try again.',
+    trailing: 'Remove the comma before the closing bracket or brace. JSON does not allow trailing commas.',
+    quote: 'Use double quotes. JSON strings and names cannot use single quotes.',
+    comment: 'Remove the comment. JSON has no comment syntax.',
+    key: 'Put the name in double quotes, such as "id": 1.',
+    escape: 'Valid escapes are \\" \\\\ \\/ \\b \\f \\n \\r \\t and \\u followed by four hex digits.',
+    control: 'Write control characters such as tabs and new lines as escapes, for example \\n.',
+    number: 'Numbers have no leading zeros, plus signs, or trailing dots, and cannot be NaN or Infinity.',
+    truncated: 'The document ends too early. Check for a missing closing quote, bracket or brace.',
+    extra: 'A JSON document holds one value. Wrap several values in an array, or remove the extra text.',
+    unexpected: 'Check the character at this position. A comma or colon may be missing or doubled.',
+    depth: 'This document is nested deeper than the limit.',
+    nodes: 'This document has more values than the limit.',
+    literal: 'Write true, false and null in lowercase.'
+  };
+  const jsonFail = (text, index, code, message) => fail(code, message, { index, ...locate(text, Math.min(index, text.length)), hint: JSON_HINTS[code] || JSON_HINTS.unexpected });
+
+  function parseJsonWithDiagnostics(text, limits = {}) {
+    const lim = { ...JSON_LIMITS, ...limits };
+    const s = String(text ?? '').replace(/^﻿/, '');
+    if (!s.trim()) return fail('empty', 'The input is empty.', { hint: JSON_HINTS.empty });
+    const bytes = new TextEncoder().encode(s).length;
+    if (bytes > lim.maxBytes) return fail('bytes', `The input is ${bytes.toLocaleString('en-US')} bytes. The limit is ${lim.maxBytes.toLocaleString('en-US')} bytes (1 MB).`, { hint: JSON_HINTS.bytes });
+    let i = 0; let nodes = 0; let maxDepth = 0;
+    const warnings = { duplicates: [], unsafe: [], extreme: [] };
+    const ws = () => { while (i < s.length && (s[i] === ' ' || s[i] === '\t' || s[i] === '\n' || s[i] === '\r')) i += 1; };
+    const err = (code, message, at = i) => { throw jsonFail(s, at, code, message); };
+    function describe(at) {
+      if (at >= s.length) return 'the end of the input';
+      const ch = s[at];
+      return ch === '\n' ? 'a line break' : `"${ch}"`;
+    }
+    function unexpected(context) {
+      if (i >= s.length) err('truncated', `The input ends where ${context} was expected.`);
+      const ch = s[i];
+      if (ch === '/' && (s[i + 1] === '/' || s[i + 1] === '*')) err('comment', 'Comments are not allowed in JSON.');
+      if (ch === "'") err('quote', 'Strings must use double quotes, not single quotes.');
+      err('unexpected', `Expected ${context} but found ${describe(i)}.`);
+    }
+    function string() {
+      const start = i; i += 1;
+      let out = '';
+      for (;;) {
+        if (i >= s.length) err('truncated', 'This string is never closed with a double quote.', start);
+        const ch = s[i];
+        if (ch === '"') { i += 1; return { raw: s.slice(start, i), value: out }; }
+        if (ch === '\\') {
+          const e = s[i + 1];
+          if (e === undefined) err('truncated', 'The input ends inside an escape sequence.');
+          const map = { '"': '"', '\\': '\\', '/': '/', b: '\b', f: '\f', n: '\n', r: '\r', t: '\t' };
+          if (map[e] !== undefined) { out += map[e]; i += 2; continue; }
+          if (e === 'u') {
+            const hex = s.slice(i + 2, i + 6);
+            if (!/^[0-9a-fA-F]{4}$/.test(hex)) err('escape', '\\u must be followed by four hexadecimal digits.');
+            out += String.fromCharCode(parseInt(hex, 16)); i += 6; continue;
+          }
+          err('escape', `\\${e} is not a valid escape in JSON.`);
+        }
+        if (ch.charCodeAt(0) < 0x20) err('control', 'A string contains an unescaped control character, such as a raw tab or line break.');
+        out += ch; i += 1;
+      }
+    }
+    function number() {
+      const start = i;
+      const m = /^-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?/.exec(s.slice(i, i + 400));
+      if (!m || m[0] === '-') err('number', 'This is not a valid JSON number.');
+      i += m[0].length;
+      if (/[0-9.eE+\-A-Za-z]/.test(s[i] || '')) err('number', `The number ${s.slice(start, i + 1)} is not valid JSON.`, start);
+      const raw = m[0];
+      if (!m[2] && !m[3]) { const big = BigInt(raw); if (big > 9007199254740991n || big < -9007199254740991n) warnings.unsafe.push({ raw, index: start }); }
+      else if (!Number.isFinite(Number(raw)) || (Number(raw) === 0 && /[1-9]/.test(raw.replace(/[eE].*$/, '')))) warnings.extreme.push({ raw, index: start });
+      return raw;
+    }
+    function value(depth, path) {
+      ws();
+      nodes += 1;
+      if (nodes > lim.maxNodes) err('nodes', `The document has more than ${lim.maxNodes.toLocaleString('en-US')} values.`);
+      if (depth > maxDepth) maxDepth = depth;
+      if (depth > lim.maxDepth) err('depth', `Values are nested more than ${lim.maxDepth} levels deep.`);
+      const ch = s[i];
+      if (ch === '{') {
+        const start = i; i += 1; ws();
+        const members = []; const seen = new Map();
+        if (s[i] === '}') { i += 1; return { type: 'object', members, index: start }; }
+        for (;;) {
+          ws();
+          if (s[i] === '}' && members.length) err('trailing', 'There is a trailing comma before this }.');
+          if (s[i] !== '"') { if (/[A-Za-z_$]/.test(s[i] || '')) err('key', 'Object names must be in double quotes.'); unexpected('a name in double quotes'); }
+          const keyIndex = i;
+          const key = string();
+          if (seen.has(key.value)) warnings.duplicates.push({ key: key.value, path, index: keyIndex, first: seen.get(key.value) }); else seen.set(key.value, keyIndex);
+          ws();
+          if (s[i] !== ':') unexpected('a colon after the name');
+          i += 1;
+          const v = value(depth + 1, `${path}${/^[A-Za-z_$][A-Za-z0-9_$]*$/.test(key.value) ? `.${key.value}` : `[${JSON.stringify(key.value)}]`}`);
+          members.push({ key: key.value, keyRaw: key.raw, value: v });
+          ws();
+          if (s[i] === ',') { i += 1; continue; }
+          if (s[i] === '}') { i += 1; return { type: 'object', members, index: start }; }
+          unexpected('a comma or }');
+        }
+      }
+      if (ch === '[') {
+        const start = i; i += 1; ws();
+        const items = [];
+        if (s[i] === ']') { i += 1; return { type: 'array', items, index: start }; }
+        for (;;) {
+          ws();
+          if (s[i] === ']' && items.length) err('trailing', 'There is a trailing comma before this ].');
+          items.push(value(depth + 1, `${path}[${items.length}]`));
+          ws();
+          if (s[i] === ',') { i += 1; continue; }
+          if (s[i] === ']') { i += 1; return { type: 'array', items, index: start }; }
+          unexpected('a comma or ]');
+        }
+      }
+      if (ch === '"') { const r = string(); return { type: 'string', raw: r.raw, value: r.value }; }
+      if (ch === '-' || (ch >= '0' && ch <= '9')) return { type: 'number', raw: number() };
+      for (const lit of ['true', 'false', 'null']) if (s.startsWith(lit, i)) { i += lit.length; return { type: lit === 'null' ? 'null' : 'boolean', raw: lit }; }
+      if (/^(True|False|Null|TRUE|FALSE|NULL)/.test(s.slice(i, i + 5))) err('literal', 'Write true, false and null in lowercase.');
+      if (/^(NaN|Infinity|-Infinity|undefined)/.test(s.slice(i, i + 9))) err('number', 'NaN, Infinity and undefined are not valid JSON values.');
+      unexpected('a value');
+      return null;
+    }
+    try {
+      const root = value(0, '$');
+      ws();
+      if (i < s.length) {
+        if (s[i] === '/' && (s[i + 1] === '/' || s[i + 1] === '*')) err('comment', 'Comments are not allowed in JSON.');
+        err('extra', `Unexpected ${describe(i)} after the end of the JSON value.`);
+      }
+      return { ok: true, root, stats: { nodes, maxDepth, bytes }, warnings };
+    } catch (problem) {
+      if (problem && problem.ok === false) return problem;
+      throw problem;
+    }
+  }
+
+  function serializeJson(node, { indent = '  ', minify = false, sortKeys = false } = {}, level = 0) {
+    const nl = minify ? '' : '\n';
+    const pad = n => (minify ? '' : indent.repeat(n));
+    if (node.type === 'object') {
+      if (!node.members.length) return '{}';
+      const members = sortKeys ? [...node.members].sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0)) : node.members;
+      return `{${nl}${members.map(m => `${pad(level + 1)}${m.keyRaw}:${minify ? '' : ' '}${serializeJson(m.value, { indent, minify, sortKeys }, level + 1)}`).join(`,${nl}`)}${nl}${pad(level)}}`;
+    }
+    if (node.type === 'array') {
+      if (!node.items.length) return '[]';
+      return `[${nl}${node.items.map(v => `${pad(level + 1)}${serializeJson(v, { indent, minify, sortKeys }, level + 1)}`).join(`,${nl}`)}${nl}${pad(level)}]`;
+    }
+    return node.raw;
+  }
+  function formatJson(text, options = {}) {
+    const parsed = parseJsonWithDiagnostics(text, options.limits);
+    if (!parsed.ok) return parsed;
+    return { ...parsed, value: serializeJson(parsed.root, options) + (options.minify ? '' : '\n') };
+  }
+  const sortJsonKeys = (text, options = {}) => formatJson(text, { ...options, sortKeys: true });
+
+  function buildJsonTreeModel(root, { maxTreeNodes = JSON_LIMITS.maxTreeNodes } = {}) {
+    let count = 0; let truncated = false;
+    const preview = node => (node.type === 'string' ? (node.value.length > 80 ? `${JSON.stringify(node.value.slice(0, 80))}…` : JSON.stringify(node.value)) : node.raw);
+    function visit(node, key, path) {
+      if (count >= maxTreeNodes) { truncated = true; return null; }
+      count += 1;
+      const item = { key, path, type: node.type, children: [] };
+      if (node.type === 'object') { item.summary = `${node.members.length} ${node.members.length === 1 ? 'member' : 'members'}`; for (const m of node.members) { const c = visit(m.value, m.key, `${path}${/^[A-Za-z_$][A-Za-z0-9_$]*$/.test(m.key) ? `.${m.key}` : `[${JSON.stringify(m.key)}]`}`); if (c) item.children.push(c); } }
+      else if (node.type === 'array') { item.summary = `${node.items.length} ${node.items.length === 1 ? 'item' : 'items'}`; node.items.forEach((v, idx) => { const c = visit(v, String(idx), `${path}[${idx}]`); if (c) item.children.push(c); }); }
+      else item.summary = preview(node);
+      return item;
+    }
+    return { root: visit(root, '$', '$'), count, truncated };
+  }
+
+  // JSON to CSV for an array of objects. Columns are the union of names in
+  // first-seen order. Nested objects or arrays are rejected, or written as
+  // compact JSON text when nested is "json". Cells that start with = + - or @
+  // are prefixed with an apostrophe so spreadsheets do not run them.
+  function csvCellSafe(value) {
+    let text = String(value ?? '');
+    if (/^[=+\-@\t\r]/.test(text)) text = `'${text}`;
+    return /[",\r\n]/.test(text) || text !== String(value ?? '') ? `"${text.replaceAll('"', '""')}"` : text;
+  }
+  function jsonArrayToCsv(text, { nested = 'reject', limits } = {}) {
+    const lim = { ...JSON_LIMITS, ...(limits || {}) };
+    const parsed = parseJsonWithDiagnostics(text, limits);
+    if (!parsed.ok) return parsed;
+    const root = parsed.root;
+    if (root.type !== 'array') return fail('csv-shape', 'CSV conversion needs a top-level array of objects, such as [{"a": 1}, {"a": 2}].');
+    if (!root.items.length) return fail('csv-shape', 'The array is empty, so there are no rows to convert.');
+    if (root.items.length > lim.maxCsvRows) return fail('csv-rows', `The array has ${root.items.length.toLocaleString('en-US')} items. CSV conversion is limited to ${lim.maxCsvRows.toLocaleString('en-US')} rows.`);
+    const columns = []; const seen = new Set();
+    for (const [index, item] of root.items.entries()) {
+      if (item.type !== 'object') return fail('csv-shape', `Item ${index} is ${item.type === 'array' ? 'an array' : `a ${item.type}`}, not an object. Every item must be an object.`);
+      for (const m of item.members) {
+        if ((m.value.type === 'object' || m.value.type === 'array') && nested === 'reject') return fail('csv-nested', `Item ${index} has a nested ${m.value.type} in "${m.key}". Choose "Write nested values as JSON text" or flatten the data first.`);
+        if (!seen.has(m.key)) { seen.add(m.key); columns.push(m.key); }
+      }
+    }
+    if (columns.length > lim.maxCsvColumns) return fail('csv-columns', `The data has ${columns.length} columns. The limit is ${lim.maxCsvColumns}.`);
+    let missing = 0;
+    const cell = node => { if (!node) { missing += 1; return ''; } if (node.type === 'string') return node.value; if (node.type === 'null') return ''; if (node.type === 'object' || node.type === 'array') return serializeJson(node, { minify: true }); return node.raw; };
+    const rows = root.items.map(item => { const last = new Map(); for (const m of item.members) last.set(m.key, m.value); return columns.map(c => cell(last.get(c))); });
+    const csv = [columns, ...rows].map(row => row.map(csvCellSafe).join(',')).join('\r\n');
+    const protectedCells = [columns, ...rows].flat().filter(v => /^[=+\-@\t\r]/.test(String(v))).length;
+    return { ok: true, value: csv, columns, rows: rows.length, missing, protectedCells, warnings: parsed.warnings, stats: parsed.stats };
+  }
+
   root.StackRowDevTools = Object.assign(root.StackRowDevTools || {}, {
     Timestamp: { UNITS, parseTimestampInteger, detectTimestampUnit, toEpochParts, formatTimestamp, convertTimestamp, parseUtcOrOffsetDate, convertTimestampBatch, validZone, rfc3339 },
     Uuid: { MAX_UUIDS, formatUuid, generateUuidV4, generateUuidV7, createV7State, generateUuidBatch, parseUuid, validateUuid, inspectUuid, extractUuidV7Timestamp, bytesToHex },
     Url: { encodeUrlComponent, encodeFormValue, decodeUrlComponent, parseQueryPairs, serializeQueryPairs, parseUrlForDisplay, rebuildUrl, transformUrlText },
-    Xml: { XML_LIMITS, parseXmlSafely, formatXml, minifyXml, buildXmlTreeModel, locate }
+    Xml: { XML_LIMITS, parseXmlSafely, formatXml, minifyXml, buildXmlTreeModel, locate },
+    Json: { JSON_LIMITS, parseJsonWithDiagnostics, serializeJson, formatJson, sortJsonKeys, buildJsonTreeModel, jsonArrayToCsv, csvCellSafe }
   });
 })(typeof window !== 'undefined' ? window : globalThis);
