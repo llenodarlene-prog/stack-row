@@ -194,7 +194,7 @@
     },
     safeFilename(text) { return String(text).toLowerCase().replace(/\.{2,}/g, '').replace(/[^a-z0-9.-]+/g, '-').replace(/-{2,}/g, '-').replace(/^[-.]+|[-.]+$/g, '').slice(0, 80) || 'stack-row-export'; }
   };
-  function formatBytes(bytes) { return bytes >= 1048576 ? `${(bytes / 1048576).toFixed(bytes % 1048576 ? 1 : 0)} MB` : bytes >= 1024 ? `${(bytes / 1024).toFixed(bytes % 1024 ? 1 : 0)} KB` : `${bytes} bytes`; }
+  function formatBytes(bytes) { return bytes >= 1048576 ? `${Number((bytes / 1048576).toFixed(2))} MB` : bytes >= 1024 ? `${(bytes / 1024).toFixed(bytes % 1024 ? 1 : 0)} KB` : `${bytes} bytes`; }
 
   function download(content, { filename, mime }) {
     const blob = content instanceof Blob ? content : new Blob([content], { type: mime });
@@ -292,9 +292,11 @@
         const on = tab.dataset.mode === next;
         tab.setAttribute('aria-selected', String(on));
         tab.tabIndex = on ? 0 : -1;
-        $(tab.getAttribute('aria-controls')).hidden = !on;
         if (on && focus) tab.focus();
       }
+      // Several tabs may share one panel; it stays visible if the active tab uses it.
+      const shown = tabs.find(tab => tab.dataset.mode === next)?.getAttribute('aria-controls');
+      for (const id of new Set(tabs.map(tab => tab.getAttribute('aria-controls')))) $(id).hidden = id !== shown;
       for (const button of exportButtons) button.hidden = Boolean(button.dataset.modes) && !button.dataset.modes.split(' ').includes(next);
       tool.onMode?.(next);
     }

@@ -394,9 +394,267 @@
     return fail('mode', 'Choose a mode.');
   }
 
+
+  // ---------------------------------------------------------------------- XML
+  // A small well-formedness checker and formatter for XML 1.0. It never
+  // resolves entities, DTDs or URLs: a DOCTYPE with an external ID or an
+  // internal subset is rejected, and only the five predefined entities and
+  // numeric character references are accepted. Schema (XSD or DTD) validation
+  // is out of scope.
+  const XML_LIMITS = { maxBytes: 1048576, maxDepth: 256, maxNodes: 200000, maxTreeNodes: 1500 };
+  const NAME_START = 'A-Za-z_:\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD';
+  const NAME_RE = new RegExp(`^[${NAME_START}][${NAME_START}\\-.0-9\\u00B7\\u0300-\\u036F\\u203F-\\u2040]*$`);
+  const PREDEFINED = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'" };
+  const validXmlChar = cp => cp === 0x9 || cp === 0xA || cp === 0xD || (cp >= 0x20 && cp <= 0xD7FF) || (cp >= 0xE000 && cp <= 0xFFFD) || (cp >= 0x10000 && cp <= 0x10FFFF);
+  const HINTS = {
+    empty: 'Paste an XML document or choose a file.',
+    bytes: 'Split the document or remove content, then try again.',
+    mismatch: 'Check that every start tag has a matching end tag with the same name, closed in the reverse order it was opened.',
+    unclosed: 'Add the missing end tag, or close the element with /> if it has no content.',
+    roots: 'An XML document has exactly one root element. Wrap the elements in a single parent element.',
+    name: 'Element and attribute names must start with a letter, underscore or colon, and contain no spaces.',
+    attribute: 'Write attributes as name="value", with the value in matching quotes.',
+    duplicate: 'Remove or rename the repeated attribute. Each attribute may appear once per element.',
+    entity: 'Use &amp;amp; for an ampersand. Only &amp;lt; &amp;gt; &amp;amp; &amp;quot; &amp;apos; and numeric references such as &amp;#169; are allowed without a DTD.',
+    charref: 'Use a number for a character XML allows, such as &amp;#x41; for A.',
+    doctype: 'Remove the DOCTYPE declaration, or reduce it to <!DOCTYPE name>. External entities and DTDs are never loaded here.',
+    namespace: 'Declare the prefix on this element or a parent, for example xmlns:prefix="https://example.com/ns".',
+    text: 'Move the text inside the root element, or remove it.',
+    syntax: 'Check for a stray < or & character. Write them as &amp;lt; and &amp;amp; inside text.',
+    declaration: 'The XML declaration must be the very first thing in the document, with nothing before it.',
+    depth: 'This document is nested deeper than the limit. Flatten it, or format a smaller part.',
+    nodes: 'This document has more nodes than the limit. Format a smaller part.',
+    char: 'Remove the control character. XML 1.0 does not allow it.'
+  };
+
+  function locate(text, index) {
+    const before = text.slice(0, index);
+    const line = (before.match(/\n/g) || []).length + 1;
+    const lineStart = before.lastIndexOf('\n') + 1;
+    const lineEnd = text.indexOf('\n', index);
+    const lineText = text.slice(lineStart, lineEnd < 0 ? text.length : lineEnd);
+    const column = index - lineStart + 1;
+    const from = Math.max(0, column - 41);
+    return { line, column, excerpt: lineText.slice(from, from + 80) };
+  }
+  const xmlFail = (text, index, code, message) => fail(code, message, { ...locate(text, index), hint: HINTS[code] || HINTS.syntax });
+
+  function decodeEntities(raw, text, offset) {
+    let out = '';
+    for (let i = 0; i < raw.length;) {
+      const ch = raw[i];
+      if (ch !== '&') { out += ch; i += 1; continue; }
+      const end = raw.indexOf(';', i);
+      if (end < 0 || end - i > 12) return xmlFail(text, offset + i, 'entity', 'An & starts a reference that is never finished with ";".');
+      const name = raw.slice(i + 1, end);
+      if (name.startsWith('#')) {
+        const m = /^#(?:x([0-9a-fA-F]+)|([0-9]+))$/.exec(name);
+        const cp = m ? (m[1] ? parseInt(m[1], 16) : parseInt(m[2], 10)) : NaN;
+        if (!m || !validXmlChar(cp)) return xmlFail(text, offset + i, 'charref', `&${name}; is not a character XML allows.`);
+        out += String.fromCodePoint(cp);
+      } else if (PREDEFINED[name]) out += PREDEFINED[name];
+      else return xmlFail(text, offset + i, 'entity', `&${name}; is not defined. Without a DTD only the five predefined entities are allowed.`);
+      i = end + 1;
+    }
+    return { ok: true, value: out };
+  }
+
+  // Parses into a node tree. Nodes keep their original raw text so formatting
+  // can reproduce attributes, quotes, references and CDATA exactly.
+  function parseXmlSafely(text, limits = {}) {
+    const lim = { ...XML_LIMITS, ...limits };
+    const source = String(text ?? '');
+    if (!source.trim()) return fail('empty', 'The document is empty.', { hint: HINTS.empty });
+    const bytes = new TextEncoder().encode(source).length;
+    if (bytes > lim.maxBytes) return fail('bytes', `The document is ${bytes.toLocaleString('en-US')} bytes. The limit is ${lim.maxBytes.toLocaleString('en-US')} bytes (1 MB).`, { hint: HINTS.bytes });
+    for (let i = 0; i < source.length; i += 1) {
+      const cp = source.codePointAt(i);
+      if (!validXmlChar(cp)) return xmlFail(source, i, 'char', `Character U+${cp.toString(16).toUpperCase().padStart(4, '0')} is not allowed in XML.`);
+      if (cp > 0xffff) i += 1;
+    }
+    const doc = { type: 'document', children: [], declaration: null };
+    const stack = [{ node: doc, ns: { xml: true } }];
+    let rootCount = 0; let nodes = 0; let maxDepth = 0; let encoding = null;
+    const add = node => { nodes += 1; if (nodes > lim.maxNodes) return false; stack[stack.length - 1].node.children.push(node); return true; };
+    let i = 0;
+    const s = source;
+    while (i < s.length) {
+      const depth = stack.length - 1;
+      if (s[i] !== '<') {
+        const next = s.indexOf('<', i);
+        const raw = s.slice(i, next < 0 ? s.length : next);
+        const decoded = decodeEntities(raw, s, i);
+        if (!decoded.ok) return decoded;
+        if (raw.includes(']]>')) return xmlFail(s, i + raw.indexOf(']]>'), 'syntax', 'The sequence ]]> is not allowed in text.');
+        if (depth === 0) { if (raw.trim()) return xmlFail(s, i + raw.search(/\S/), 'text', 'Text appears outside the root element.'); }
+        else if (!add({ type: 'text', raw, value: decoded.value })) return xmlFail(s, i, 'nodes', 'Too many nodes.');
+        i = next < 0 ? s.length : next;
+        continue;
+      }
+      if (s.startsWith('<?', i)) {
+        const end = s.indexOf('?>', i + 2);
+        if (end < 0) return xmlFail(s, i, 'syntax', 'A processing instruction starting here is never closed with ?>.');
+        const raw = s.slice(i, end + 2);
+        const target = /^<\?([^\s?]+)/.exec(raw)?.[1] || '';
+        if (target.toLowerCase() === 'xml') {
+          if (i !== 0 || target !== 'xml') return xmlFail(s, i, 'declaration', 'The XML declaration must come first, written exactly as <?xml.');
+          if (!/^<\?xml\s+version\s*=\s*(["'])1\.[0-9]+\1/.test(raw)) return xmlFail(s, i, 'declaration', 'The XML declaration needs a version, such as <?xml version="1.0"?>.');
+          encoding = /encoding\s*=\s*(["'])([A-Za-z][A-Za-z0-9._-]*)\1/.exec(raw)?.[2] || null;
+          doc.declaration = raw;
+        } else {
+          if (!NAME_RE.test(target)) return xmlFail(s, i + 2, 'name', `"${target}" is not a valid processing instruction target.`);
+          if (!add({ type: 'pi', raw })) return xmlFail(s, i, 'nodes', 'Too many nodes.');
+        }
+        i = end + 2; continue;
+      }
+      if (s.startsWith('<!--', i)) {
+        const end = s.indexOf('-->', i + 4);
+        if (end < 0) return xmlFail(s, i, 'syntax', 'A comment starting here is never closed with -->.');
+        const body = s.slice(i + 4, end);
+        if (body.includes('--') || body.endsWith('-')) return xmlFail(s, i + 4 + Math.max(0, body.indexOf('--')), 'syntax', 'A comment may not contain two hyphens in a row.');
+        if (!add({ type: 'comment', raw: s.slice(i, end + 3) })) return xmlFail(s, i, 'nodes', 'Too many nodes.');
+        i = end + 3; continue;
+      }
+      if (s.startsWith('<![CDATA[', i)) {
+        if (depth === 0) return xmlFail(s, i, 'text', 'A CDATA section appears outside the root element.');
+        const end = s.indexOf(']]>', i + 9);
+        if (end < 0) return xmlFail(s, i, 'syntax', 'A CDATA section starting here is never closed with ]]>.');
+        if (!add({ type: 'cdata', raw: s.slice(i, end + 3) })) return xmlFail(s, i, 'nodes', 'Too many nodes.');
+        i = end + 3; continue;
+      }
+      if (s.startsWith('<!DOCTYPE', i)) {
+        const end = s.indexOf('>', i);
+        const raw = s.slice(i, end + 1);
+        if (end < 0 || /\[/.test(s.slice(i, end)) || /\b(SYSTEM|PUBLIC)\b/.test(raw)) return xmlFail(s, i, 'doctype', 'DOCTYPE declarations with an internal subset, external ID or entities are not processed, so external files and entity expansion can never happen.');
+        if (rootCount || !/^<!DOCTYPE\s+[^\s>]+\s*>$/.test(raw)) return xmlFail(s, i, 'doctype', 'The DOCTYPE must come before the root element and name it, such as <!DOCTYPE note>.');
+        if (!add({ type: 'doctype', raw })) return xmlFail(s, i, 'nodes', 'Too many nodes.');
+        i = end + 1; continue;
+      }
+      if (s.startsWith('<!', i)) return xmlFail(s, i, 'syntax', 'Unknown markup declaration. Only comments, CDATA sections and a simple DOCTYPE are allowed.');
+      if (s.startsWith('</', i)) {
+        const m = /^<\/([^\s>]+)\s*>/.exec(s.slice(i, i + 1100));
+        if (!m) return xmlFail(s, i, 'syntax', 'An end tag starting here is not closed with >.');
+        const open = stack[stack.length - 1];
+        if (depth === 0) return xmlFail(s, i, 'mismatch', `</${m[1]}> has no matching start tag.`);
+        if (open.node.name !== m[1]) return xmlFail(s, i, 'mismatch', `Expected </${open.node.name}> but found </${m[1]}>.`);
+        stack.pop();
+        i += m[0].length; continue;
+      }
+      // Start tag.
+      let j = i + 1;
+      const nm = /^[^\s/>=]+/.exec(s.slice(j, j + 1100));
+      if (!nm) return xmlFail(s, i, 'syntax', 'A < must start a tag. Write a literal < in text as &lt;.');
+      const name = nm[0];
+      if (!NAME_RE.test(name)) return xmlFail(s, j, 'name', `"${name}" is not a valid element name.`);
+      j += name.length;
+      const attrs = []; const seen = new Set(); let selfClosing = false;
+      for (;;) {
+        const ws = /^\s*/.exec(s.slice(j, j + 1000))[0]; j += ws.length;
+        if (s.startsWith('/>', j)) { selfClosing = true; j += 2; break; }
+        if (s[j] === '>') { j += 1; break; }
+        if (j >= s.length) return xmlFail(s, i, 'unclosed', `The <${name}> tag is never closed with >.`);
+        if (!ws) return xmlFail(s, j, 'attribute', 'Attributes must be separated by a space.');
+        const am = /^([^\s=/>]+)\s*=\s*(["'])/.exec(s.slice(j, j + 1100));
+        if (!am) return xmlFail(s, j, 'attribute', `Attribute near "${s.slice(j, j + 20)}" needs a quoted value.`);
+        const aname = am[1];
+        if (!NAME_RE.test(aname)) return xmlFail(s, j, 'name', `"${aname}" is not a valid attribute name.`);
+        if (seen.has(aname)) return xmlFail(s, j, 'duplicate', `The attribute ${aname} appears more than once.`);
+        seen.add(aname);
+        const valueStart = j + am[0].length;
+        const close = s.indexOf(am[2], valueStart);
+        if (close < 0) return xmlFail(s, j, 'attribute', `The value of ${aname} is never closed.`);
+        const rawValue = s.slice(valueStart, close);
+        if (rawValue.includes('<')) return xmlFail(s, valueStart + rawValue.indexOf('<'), 'attribute', 'An attribute value may not contain <. Write it as &lt;.');
+        const dv = decodeEntities(rawValue, s, valueStart);
+        if (!dv.ok) return dv;
+        attrs.push({ name: aname, raw: s.slice(j, close + 1).replace(/\s*=\s*/, '='), value: dv.value });
+        j = close + 1;
+      }
+      // Namespaces: collect declarations, then check every prefix is bound.
+      const ns = { ...stack[stack.length - 1].ns };
+      for (const a of attrs) { if (a.name === 'xmlns') ns[''] = true; else if (a.name.startsWith('xmlns:')) { if (!a.value) return xmlFail(s, i, 'namespace', `The prefix ${a.name.slice(6)} cannot be bound to an empty namespace.`); ns[a.name.slice(6)] = true; } }
+      for (const n of [name, ...attrs.map(a => a.name)]) {
+        const parts = n.split(':');
+        if (parts.length > 2 || (parts.length === 2 && (!parts[0] || !parts[1]))) return xmlFail(s, i, 'namespace', `"${n}" has more than one colon or an empty prefix.`);
+        if (parts.length === 2 && parts[0] !== 'xmlns' && !ns[parts[0]]) return xmlFail(s, i, 'namespace', `The prefix "${parts[0]}" in ${n} is not declared.`);
+      }
+      if (depth === 0) { rootCount += 1; if (rootCount > 1) return xmlFail(s, i, 'roots', 'The document has more than one root element.'); }
+      const element = { type: 'element', name, attrs, children: [], selfClosing, start: i };
+      if (!add(element)) return xmlFail(s, i, 'nodes', 'Too many nodes.');
+      if (!selfClosing) {
+        stack.push({ node: element, ns });
+        maxDepth = Math.max(maxDepth, stack.length - 1);
+        if (stack.length - 1 > lim.maxDepth) return xmlFail(s, i, 'depth', `Elements are nested more than ${lim.maxDepth} levels deep.`);
+      }
+      i = j;
+    }
+    if (stack.length > 1) { const open = stack[stack.length - 1].node; return xmlFail(s, open.start, 'unclosed', `<${open.name}> is never closed.`); }
+    if (!rootCount) return fail('roots', 'The document has no root element.', { hint: HINTS.roots, line: 1, column: 1, excerpt: s.slice(0, 80) });
+    const warnings = [];
+    if (encoding && !/^utf-?8$/i.test(encoding)) warnings.push(`The declaration names ${encoding}, but the text was read in your browser as Unicode. The output keeps the declaration as written; save the file in ${encoding} or change it to UTF-8.`);
+    return { ok: true, document: doc, stats: { nodes, maxDepth, bytes }, encoding, warnings };
+  }
+
+  // Elements whose content mixes text and markup, or that set
+  // xml:space="preserve", keep their children byte for byte.
+  const preserveSpace = el => el.attrs.some(a => a.name === 'xml:space' && a.value === 'preserve');
+  const hasText = el => el.children.some(c => (c.type === 'text' && c.raw.trim()) || c.type === 'cdata');
+  const openTag = el => `<${el.name}${el.attrs.map(a => ` ${a.raw}`).join('')}${el.selfClosing ? '/>' : '>'}`;
+  function serializeInline(node, keepComments) {
+    if (node.type === 'text' || node.type === 'cdata' || node.type === 'pi' || node.type === 'doctype') return node.raw;
+    if (node.type === 'comment') return keepComments ? node.raw : '';
+    if (node.selfClosing) return openTag(node);
+    return `${openTag(node)}${node.children.map(c => serializeInline(c, keepComments)).join('')}</${node.name}>`;
+  }
+
+  function formatXml(text, { indent = '  ', keepComments = true, minify = false, limits } = {}) {
+    const parsed = parseXmlSafely(text, limits);
+    if (!parsed.ok) return parsed;
+    const lines = [];
+    const nl = minify ? '' : '\n';
+    function walk(node, level) {
+      const pad = minify ? '' : indent.repeat(level);
+      if (node.type === 'text') { if (node.raw.trim()) lines.push(pad + node.raw.trim()); return; }
+      if (node.type === 'comment') { if (keepComments) lines.push(pad + node.raw); return; }
+      if (node.type !== 'element') { lines.push(pad + node.raw); return; }
+      if (node.selfClosing) { lines.push(pad + openTag(node)); return; }
+      const visible = node.children.filter(c => !(c.type === 'text' && !c.raw.trim()) && !(c.type === 'comment' && !keepComments));
+      if (!visible.length) { lines.push(`${pad}${openTag(node)}</${node.name}>`); return; }
+      if (hasText(node) || preserveSpace(node)) { lines.push(pad + serializeInline(node, keepComments || preserveSpace(node))); return; }
+      lines.push(pad + openTag(node));
+      for (const child of node.children) walk(child, level + 1);
+      lines.push(`${pad}</${node.name}>`);
+    }
+    if (parsed.document.declaration) lines.push(parsed.document.declaration);
+    for (const child of parsed.document.children) walk(child, 0);
+    return { ok: true, value: lines.join(nl) + (minify ? '' : '\n'), stats: parsed.stats, warnings: parsed.warnings, document: parsed.document };
+  }
+  const minifyXml = (text, options = {}) => formatXml(text, { ...options, minify: true });
+
+  // A bounded outline for the tree preview. Labels are plain strings; the page
+  // renders them with textContent only.
+  function buildXmlTreeModel(document, { maxTreeNodes = XML_LIMITS.maxTreeNodes } = {}) {
+    let count = 0; let truncated = false;
+    function visit(node) {
+      if (count >= maxTreeNodes) { truncated = true; return null; }
+      count += 1;
+      if (node.type === 'element') {
+        const label = `<${node.name}${node.attrs.length ? ` ${node.attrs.map(a => `${a.name}="${a.value.length > 40 ? `${a.value.slice(0, 40)}…` : a.value}"`).join(' ')}` : ''}>`;
+        const children = [];
+        for (const c of node.children) { if (c.type === 'text' && !c.raw.trim()) continue; const v = visit(c); if (v) children.push(v); }
+        return { label, children };
+      }
+      const raw = node.type === 'text' ? node.value.trim() : node.raw;
+      return { label: `${node.type === 'text' ? 'Text' : node.type === 'cdata' ? 'CDATA' : node.type === 'comment' ? 'Comment' : node.type === 'pi' ? 'Instruction' : 'DOCTYPE'}: ${raw.length > 80 ? `${raw.slice(0, 80)}…` : raw}`, children: [] };
+    }
+    const roots = document.children.map(visit).filter(Boolean);
+    return { roots, count, truncated };
+  }
+
   root.StackRowDevTools = Object.assign(root.StackRowDevTools || {}, {
     Timestamp: { UNITS, parseTimestampInteger, detectTimestampUnit, toEpochParts, formatTimestamp, convertTimestamp, parseUtcOrOffsetDate, convertTimestampBatch, validZone, rfc3339 },
     Uuid: { MAX_UUIDS, formatUuid, generateUuidV4, generateUuidV7, createV7State, generateUuidBatch, parseUuid, validateUuid, inspectUuid, extractUuidV7Timestamp, bytesToHex },
-    Url: { encodeUrlComponent, encodeFormValue, decodeUrlComponent, parseQueryPairs, serializeQueryPairs, parseUrlForDisplay, rebuildUrl, transformUrlText }
+    Url: { encodeUrlComponent, encodeFormValue, decodeUrlComponent, parseQueryPairs, serializeQueryPairs, parseUrlForDisplay, rebuildUrl, transformUrlText },
+    Xml: { XML_LIMITS, parseXmlSafely, formatXml, minifyXml, buildXmlTreeModel, locate }
   });
 })(typeof window !== 'undefined' ? window : globalThis);

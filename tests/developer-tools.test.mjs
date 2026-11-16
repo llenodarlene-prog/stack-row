@@ -259,3 +259,71 @@ test('url page: no storage, no share links, no fetching, no innerHTML', async ()
   assert.match(page, /persistence: 'none', share: \{ mode: 'disabled' \}, restore: false/);
   assert.doesNotMatch(page, /localStorage|innerHTML|fetch\(|XMLHttpRequest/);
 });
+
+const { Xml: X } = context.StackRowDevTools;
+
+test('xml: declaration, namespaces, comments, CDATA and PIs survive formatting', () => {
+  const doc = '<?xml version="1.0" encoding="UTF-8"?><!-- c --><?app go?><r xmlns:p="urn:p"><p:a z="1" a=\'2\'/><b><![CDATA[<x> & y]]></b><?pi data?></r>';
+  const f = X.formatXml(doc).value;
+  for (const part of ['<?xml version="1.0" encoding="UTF-8"?>', '<!-- c -->', '<?app go?>', 'xmlns:p="urn:p"', '<p:a z="1" a=\'2\'/>', '<![CDATA[<x> & y]]>', '<?pi data?>']) assert.ok(f.includes(part), part);
+  assert.equal(X.formatXml(doc, { keepComments: false }).value.includes('<!-- c -->'), false);
+});
+
+test('xml: element and attribute order are unchanged and indentation is applied', () => {
+  const f = X.formatXml('<r><c b="2" a="1"/><a/><b>t</b></r>', { indent: '  ' }).value;
+  assert.equal(f, '<r>\n  <c b="2" a="1"/>\n  <a/>\n  <b>t</b>\n</r>\n');
+  assert.equal(X.formatXml('<r><a/></r>', { indent: '\t' }).value, '<r>\n\t<a/>\n</r>\n');
+  assert.equal(X.minifyXml('<r>\n  <a/>\n  <b> x </b>\n</r>').value, '<r><a/><b> x </b></r>');
+});
+
+test('xml: mixed content and xml:space whitespace is preserved', () => {
+  const mixed = '<p>Hello  <b>bold</b>  world</p>';
+  assert.equal(X.formatXml(`<r>${mixed}</r>`).value, `<r>\n  ${mixed}\n</r>\n`);
+  assert.ok(X.minifyXml(`<r>${mixed}</r>`).value.includes(mixed));
+  const pre = '<code xml:space="preserve">\n  a\n    b\n</code>';
+  assert.ok(X.formatXml(`<r>${pre}</r>`).value.includes(pre));
+  assert.ok(X.minifyXml(`<r>${pre}</r>`).value.includes(pre));
+});
+
+test('xml: malformed documents report line and column', () => {
+  const r = X.parseXmlSafely('<a>\n  <b>\n</a>');
+  assert.equal(r.code, 'mismatch'); assert.equal(r.line, 3); assert.equal(r.column, 1); assert.ok(r.hint);
+  const cases = [['<a><b></a>', 'mismatch'], ['<a>', 'unclosed'], ['<a/><b/>', 'roots'], ['<a x=1/>', 'attribute'], ['<a b="1" b="2"/>', 'duplicate'], ['<1a/>', 'name'], ['<p:a/>', 'namespace'], ['<a>&nbsp;</a>', 'entity'], ['<a>&#0;</a>', 'charref'], ['<a>&#xD800;</a>', 'charref'], ['x<a/>', 'text'], [' <?xml version="1.0"?><a/>', 'declaration'], ['', 'empty'], ['<a>\u0001</a>', 'char'], ['<a><!-- a -- b --></a>', 'syntax'], ['<a>5 < 6</a>', 'syntax']];
+  for (const [input, code] of cases) assert.equal(X.parseXmlSafely(input).code, code, input);
+});
+
+test('xml: external declarations and entity expansion are rejected without network access', async () => {
+  const xxe = '<?xml version="1.0"?><!DOCTYPE r [<!ENTITY x SYSTEM "file:///etc/passwd">]><r>&x;</r>';
+  const lol = '<!DOCTYPE lolz [<!ENTITY lol "lol"><!ENTITY lol2 "&lol;&lol;&lol;&lol;">]><lolz>&lol2;</lolz>';
+  const ext = '<!DOCTYPE r SYSTEM "http://example.com/evil.dtd"><r/>';
+  for (const doc of [xxe, lol, ext]) assert.equal(X.parseXmlSafely(doc).code, 'doctype');
+  assert.equal(X.parseXmlSafely('<!DOCTYPE note><note/>').ok, true);
+  const logic = await readFile('src/scripts/developer-tool-formulas.js', 'utf8');
+  const xmlPart = logic.slice(logic.indexOf('// ---------------------------------------------------------------------- XML'));
+  assert.doesNotMatch(xmlPart, /fetch\(|XMLHttpRequest|DOMParser|import\(/);
+});
+
+test('xml: depth, node and size limits stop processing', () => {
+  const deep = '<a>'.repeat(300) + '</a>'.repeat(300);
+  assert.equal(X.parseXmlSafely(deep).code, 'depth');
+  assert.equal(X.parseXmlSafely('<a>'.repeat(5) + '</a>'.repeat(5), { maxDepth: 4 }).code, 'depth');
+  assert.equal(X.parseXmlSafely(`<r>${'<i/>'.repeat(20)}</r>`, { maxNodes: 10 }).code, 'nodes');
+  assert.equal(X.parseXmlSafely(`<r>${'x'.repeat(1048577)}</r>`).code, 'bytes');
+});
+
+test('xml: tree labels keep hostile markup as plain text and stay bounded', () => {
+  const r = X.parseXmlSafely('<r a="&lt;img src=x onerror=alert(1)&gt;"><![CDATA[<script>alert(1)</script>]]></r>');
+  const model = X.buildXmlTreeModel(r.document);
+  assert.equal(model.roots[0].label, '<r a="<img src=x onerror=alert(1)>">');
+  assert.equal(model.roots[0].children[0].label, 'CDATA: <![CDATA[<script>alert(1)</script>]]>');
+  const big = X.parseXmlSafely(`<r>${'<i/>'.repeat(2000)}</r>`);
+  const bounded = X.buildXmlTreeModel(big.document, { maxTreeNodes: 100 });
+  assert.equal(bounded.count, 100); assert.equal(bounded.truncated, true);
+});
+
+test('xml page: XML download type, no storage, no share links, text-only rendering', async () => {
+  const page = await readFile('src/scripts/xml-formatter-validator.js', 'utf8');
+  assert.match(page, /mime: 'application\/xml;charset=utf-8', extension: 'xml'/);
+  assert.match(page, /persistence: 'none', share: \{ mode: 'disabled' \}, restore: false/);
+  assert.doesNotMatch(page, /localStorage|innerHTML|insertAdjacentHTML|DOMParser|fetch\(/);
+});

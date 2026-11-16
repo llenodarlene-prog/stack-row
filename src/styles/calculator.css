@@ -253,3 +253,6 @@
 @media (max-width: 520px) { .calc-pair { grid-template-columns: 1fr; } }
 .calc-code mark { background: #dbeafe; color: inherit; border-radius: 2px; }
 .calc-page .prose code, .prose code { overflow-wrap: anywhere; word-break: break-word; }
+.calc-problem { border-left: 4px solid #b42318; background: #fff5f4; border-radius: 6px; padding: .6rem .8rem; margin-top: .6rem; }
+.calc-problem-title { font-weight: 700; margin: 0 0 .25rem; }
+.calc-tree-title { font-weight: 700; margin: .5rem 0 .25rem; font-family: Inter, system-ui, sans-serif; }
