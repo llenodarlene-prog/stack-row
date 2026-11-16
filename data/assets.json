@@ -3378,5 +3378,14 @@
     "tool": "Plex Smart Manufacturing Platform",
     "source": "own-capture",
     "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/odoo-manufacturing-product-page-2026-11.webp",
+    "width": 1046,
+    "height": 559,
+    "alt": "Odoo Manufacturing work order planning view with manufacturing orders scheduled across work centers by day",
+    "tool": "Odoo Manufacturing",
+    "source": "own-capture",
+    "captured": "2026-11"
   }
 ]
