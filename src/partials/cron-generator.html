@@ -1,0 +1,21 @@
+<div class="calc-tabs" role="tablist" aria-label="Choose a task">
+  <button type="button" role="tab" id="tab-explain" aria-controls="panel-explain" aria-selected="true" data-mode="explain">{{icon:calendar-time}}Explain an expression</button>
+  <button type="button" role="tab" id="tab-build" aria-controls="panel-build" aria-selected="false" tabindex="-1" data-mode="build">{{icon:clock-hour-4}}Build an expression</button>
+</div>
+<form class="calc-form" novalidate>
+  <div role="tabpanel" id="panel-explain" aria-labelledby="tab-explain" class="calc-panel">
+    <div class="calc-field"><label for="cr-expr">Cron expression</label><input id="cr-expr" name="expr" autocomplete="off" spellcheck="false" aria-describedby="cr-expr-hint"><p class="calc-hint" id="cr-expr-hint">Five fields: minute, hour, day of month, month, day of week. Shortcuts such as @daily also work.</p></div>
+  </div>
+  <div role="tabpanel" id="panel-build" aria-labelledby="tab-build" class="calc-panel" hidden>
+    <div class="calc-field"><label for="cr-preset">Start from</label><select id="cr-preset" name="preset"><option value="">Choose a common schedule</option><option value="*/5 * * * *">Every 5 minutes</option><option value="0 * * * *">Every hour</option><option value="0 9 * * *">Every day at 09:00</option><option value="0 9 * * 1-5">Weekdays at 09:00</option><option value="0 0 * * 0">Every Sunday at midnight</option><option value="0 0 1 * *">First day of every month</option><option value="30 2 1 1,4,7,10 *">Quarterly at 02:30</option></select></div>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="cr-min">Minute (0 to 59)</label><input id="cr-min" name="b_min" value="0" autocomplete="off" spellcheck="false"></div>
+      <div class="calc-field"><label for="cr-hour">Hour (0 to 23)</label><input id="cr-hour" name="b_hour" value="9" autocomplete="off" spellcheck="false"></div>
+      <div class="calc-field"><label for="cr-dom">Day of month (1 to 31)</label><input id="cr-dom" name="b_dom" value="*" autocomplete="off" spellcheck="false"></div>
+      <div class="calc-field"><label for="cr-month">Month (1 to 12 or JAN to DEC)</label><input id="cr-month" name="b_month" value="*" autocomplete="off" spellcheck="false"></div>
+      <div class="calc-field"><label for="cr-dow">Day of week (0 to 7 or SUN to SAT)</label><input id="cr-dow" name="b_dow" value="1-5" autocomplete="off" spellcheck="false"></div>
+    </div>
+    <p class="calc-hint">Each field takes * for every value, a list (1,15), a range (1-5) or a step (*/10).</p>
+  </div>
+  <div class="calc-field"><label for="cr-zone">Show run times in</label><input id="cr-zone" name="zone" list="cr-zones" value="UTC" autocomplete="off" spellcheck="false"><p class="calc-hint">Cron runs in the server's time zone. Type an IANA zone such as America/New_York, or "local".</p></div>
+  <datalist id="cr-zones"><option value="UTC"></option><option value="local"></option></datalist>
