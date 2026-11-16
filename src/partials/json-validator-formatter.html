@@ -1,0 +1,18 @@
+<div class="calc-tabs calc-tabs-wrap" role="tablist" aria-label="Choose an action">
+  <button type="button" role="tab" id="tab-beautify" aria-controls="panel-json" aria-selected="true" data-mode="beautify">{{icon:braces}}Beautify</button>
+  <button type="button" role="tab" id="tab-minify" aria-controls="panel-json" aria-selected="false" tabindex="-1" data-mode="minify">{{icon:code}}Minify</button>
+  <button type="button" role="tab" id="tab-validate" aria-controls="panel-json" aria-selected="false" tabindex="-1" data-mode="validate">{{icon:shield}}Validate</button>
+  <button type="button" role="tab" id="tab-tree" aria-controls="panel-json" aria-selected="false" tabindex="-1" data-mode="tree">{{icon:sitemap}}Tree view</button>
+  <button type="button" role="tab" id="tab-csv" aria-controls="panel-json" aria-selected="false" tabindex="-1" data-mode="csv">{{icon:list}}JSON to CSV</button>
+</div>
+<form class="calc-form" novalidate>
+  <div role="tabpanel" id="panel-json" aria-labelledby="tab-beautify" class="calc-panel">
+    <div class="calc-field"><label for="jf-text">JSON</label><textarea id="jf-text" name="json" spellcheck="false" rows="12" aria-describedby="jf-text-hint"></textarea><p class="calc-hint" id="jf-text-hint">Paste JSON or open a file. Up to 1 MB and 256 levels of nesting.</p></div>
+    <div class="calc-field"><label for="jf-file">Open a JSON file from this device</label><input id="jf-file" type="file" accept=".json,.geojson,.jsonld,application/json,application/geo+json,application/ld+json"></div>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="jf-indent">Indentation</label><select id="jf-indent" name="indent"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="tab">Tab</option></select></div>
+      <div class="calc-field"><label for="jf-sort">Object keys</label><select id="jf-sort" name="sort"><option value="keep">Keep original order</option><option value="sort">Sort A to Z (changes member order)</option></select></div>
+      <div class="calc-field"><label for="jf-nested">Nested values in CSV</label><select id="jf-nested" name="nested"><option value="reject">Stop with an error</option><option value="json">Write nested values as JSON text</option></select></div>
+      <div class="calc-field"><label for="jf-depth">Tree: open levels</label><select id="jf-depth" name="depth"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="all">All</option></select></div>
+    </div>
+  </div>

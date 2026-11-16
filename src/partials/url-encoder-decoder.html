@@ -1,0 +1,31 @@
+<div class="calc-tabs calc-tabs-wrap" role="tablist" aria-label="Choose a mode">
+  <button type="button" role="tab" id="tab-encode" aria-controls="panel-encode" aria-selected="true" data-mode="encode">{{icon:lock}}Encode</button>
+  <button type="button" role="tab" id="tab-decode" aria-controls="panel-decode" aria-selected="false" tabindex="-1" data-mode="decode">{{icon:transform}}Decode</button>
+  <button type="button" role="tab" id="tab-url" aria-controls="panel-url" aria-selected="false" tabindex="-1" data-mode="url">{{icon:link}}Parse URL</button>
+  <button type="button" role="tab" id="tab-query" aria-controls="panel-query" aria-selected="false" tabindex="-1" data-mode="query">{{icon:list}}Edit query</button>
+  <button type="button" role="tab" id="tab-form" aria-controls="panel-form" aria-selected="false" tabindex="-1" data-mode="form">{{icon:file-code}}Form encoding</button>
+</div>
+<form class="calc-form" novalidate>
+  <div role="tabpanel" id="panel-encode" aria-labelledby="tab-encode" class="calc-panel">
+    <div class="calc-field"><label for="ue-enc">Text to encode as a URL component</label><textarea id="ue-enc" name="enc" spellcheck="false" aria-describedby="ue-enc-hint"></textarea><p class="calc-hint" id="ue-enc-hint">Works like JavaScript encodeURIComponent. Up to 100 KB.</p></div>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="ue-spaces">Write spaces as</label><select id="ue-spaces" name="spaces"><option value="%20">%20 (standard for paths and components)</option><option value="+">+ (only for query strings read as form data)</option></select></div>
+      <div class="calc-field"><label for="ue-keep">Existing %XX sequences</label><select id="ue-keep" name="keep"><option value="yes">Leave as they are (no double encoding)</option><option value="no">Encode the % sign too</option></select></div>
+      <div class="calc-field"><label for="ue-hex">Hex letters</label><select id="ue-hex" name="hex"><option value="upper">Uppercase, such as %2F</option><option value="lower">Lowercase, such as %2f</option></select></div>
+    </div>
+  </div>
+  <div role="tabpanel" id="panel-decode" aria-labelledby="tab-decode" class="calc-panel" hidden>
+    <div class="calc-field"><label for="ue-dec">Percent-encoded text to decode</label><textarea id="ue-dec" name="dec" spellcheck="false" aria-describedby="ue-dec-hint"></textarea><p class="calc-hint" id="ue-dec-hint">A plus sign stays a plus sign here. Use Form encoding if + means a space.</p></div>
+  </div>
+  <div role="tabpanel" id="panel-url" aria-labelledby="tab-url" class="calc-panel" hidden>
+    <div class="calc-field"><label for="ue-full">Full URL</label><textarea id="ue-full" name="full" spellcheck="false" rows="3" aria-describedby="ue-full-hint"></textarea><p class="calc-hint" id="ue-full-hint">Include the scheme, such as https://. The URL is only read as text. Nothing is fetched.</p></div>
+  </div>
+  <div role="tabpanel" id="panel-query" aria-labelledby="tab-query" class="calc-panel" hidden>
+    <div class="calc-field"><label for="ue-qurl">URL or query string</label><textarea id="ue-qurl" name="qurl" spellcheck="false" rows="3" aria-describedby="ue-qurl-hint"></textarea><p class="calc-hint" id="ue-qurl-hint">Paste a URL or text such as a=1&amp;b=2, then edit the parameters below. Order and repeated keys are kept.</p></div>
+    <div class="calc-field"><label for="ue-qspaces">Write spaces in values as</label><select id="ue-qspaces" name="qspaces"><option value="+">+ (form style, used by most sites)</option><option value="%20">%20</option></select></div>
+    <fieldset class="calc-pairs"><legend>Parameters</legend><div id="ue-pairs"></div><button type="button" class="calc-secondary" id="ue-add">{{icon:list}}Add parameter</button></fieldset>
+  </div>
+  <div role="tabpanel" id="panel-form" aria-labelledby="tab-form" class="calc-panel" hidden>
+    <div class="calc-field"><label for="ue-form">Text</label><textarea id="ue-form" name="form" spellcheck="false" aria-describedby="ue-form-hint"></textarea><p class="calc-hint" id="ue-form-hint">application/x-www-form-urlencoded, the format HTML forms send. A space is written as +.</p></div>
+    <div class="calc-field"><label for="ue-fdir">Direction</label><select id="ue-fdir" name="fdir"><option value="encode">Encode</option><option value="decode">Decode</option></select></div>
+  </div>

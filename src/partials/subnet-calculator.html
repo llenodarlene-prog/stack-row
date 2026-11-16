@@ -1,6 +1,8 @@
-<div class="calc-tabs" role="tablist" aria-label="Calculate">
+<div class="calc-tabs calc-tabs-wrap" role="tablist" aria-label="Calculate">
   <button type="button" role="tab" id="tab-v4" aria-controls="panel-v4" aria-selected="true" data-mode="v4">{{icon:network}}IPv4 Subnet</button>
   <button type="button" role="tab" id="tab-v6" aria-controls="panel-v6" aria-selected="false" tabindex="-1" data-mode="v6">{{icon:sitemap}}IPv6 Prefix</button>
+  <button type="button" role="tab" id="tab-split" aria-controls="panel-split" aria-selected="false" tabindex="-1" data-mode="split">{{icon:hierarchy-2}}Split</button>
+  <button type="button" role="tab" id="tab-agg" aria-controls="panel-agg" aria-selected="false" tabindex="-1" data-mode="agg">{{icon:list}}Aggregate</button>
 </div>
 <form class="calc-form" novalidate>
   <div role="tabpanel" id="panel-v4" aria-labelledby="tab-v4" class="calc-panel">
@@ -14,4 +16,15 @@
       <div class="calc-field"><label for="sn-ip6">IPv6 address or prefix (for example 2001:db8::1/48)</label><input id="sn-ip6" name="ip6" autocomplete="off" spellcheck="false"></div>
       <div class="calc-field"><label for="sn-prefix6">Prefix length (if not in the address)</label><input id="sn-prefix6" name="prefix6" inputmode="numeric" autocomplete="off"></div>
     </div>
+  </div>
+  <div role="tabpanel" id="panel-split" aria-labelledby="tab-split" class="calc-panel" hidden>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="sn-split">Network to split (IPv4 or IPv6 CIDR)</label><input id="sn-split" name="split_cidr" autocomplete="off" spellcheck="false" placeholder="10.0.0.0/22"></div>
+      <div class="calc-field"><label for="sn-split-by">Split by</label><select id="sn-split-by" name="split_by"><option value="prefix">New prefix length</option><option value="count">Number of subnets</option></select></div>
+      <div class="calc-field"><label for="sn-split-value">New prefix or number of subnets</label><input id="sn-split-value" name="split_value" inputmode="numeric" autocomplete="off" placeholder="24"></div>
+    </div>
+    <p class="calc-hint">Up to 1,024 subnets are listed. The total count is always exact.</p>
+  </div>
+  <div role="tabpanel" id="panel-agg" aria-labelledby="tab-agg" class="calc-panel" hidden>
+    <div class="calc-field"><label for="sn-agg">Networks to combine, one per line</label><textarea id="sn-agg" name="agg" spellcheck="false" rows="6" placeholder="10.0.0.0/24&#10;10.0.1.0/24"></textarea><p class="calc-hint">Up to 1,000 networks of one family. Only aligned, neighboring blocks of the same size combine.</p></div>
   </div>

@@ -1,0 +1,17 @@
+<div class="calc-tabs" role="tablist" aria-label="Choose a task">
+  <button type="button" role="tab" id="tab-generate" aria-controls="panel-generate" aria-selected="true" data-mode="generate">{{icon:fingerprint}}Generate</button>
+  <button type="button" role="tab" id="tab-validate" aria-controls="panel-validate" aria-selected="false" tabindex="-1" data-mode="validate">{{icon:shield}}Validate and inspect</button>
+</div>
+<form class="calc-form" novalidate>
+  <div role="tabpanel" id="panel-generate" aria-labelledby="tab-generate" class="calc-panel">
+    <div class="calc-grid">
+      <div class="calc-field"><label for="uu-version">Version</label><select id="uu-version" name="version"><option value="v4">Version 4 (random)</option><option value="v7">Version 7 (time ordered)</option></select></div>
+      <div class="calc-field"><label for="uu-qty">How many (1 to 1,000)</label><input id="uu-qty" name="quantity" inputmode="numeric" value="1" autocomplete="off"></div>
+      <div class="calc-field"><label for="uu-case">Letter case</label><select id="uu-case" name="case"><option value="lower">Lowercase (standard)</option><option value="upper">Uppercase</option></select></div>
+      <div class="calc-field"><label for="uu-hyphens">Hyphens</label><select id="uu-hyphens" name="hyphens"><option value="yes">With hyphens (standard)</option><option value="no">Without hyphens</option></select></div>
+      <div class="calc-field"><label for="uu-braces">Wrapper</label><select id="uu-braces" name="braces"><option value="no">None (standard)</option><option value="yes">Braces, such as {…}</option></select></div>
+    </div>
+  </div>
+  <div role="tabpanel" id="panel-validate" aria-labelledby="tab-validate" class="calc-panel" hidden>
+    <div class="calc-field"><label for="uu-check">UUID to check</label><input id="uu-check" name="check" autocomplete="off" spellcheck="false" aria-describedby="uu-check-hint"><p class="calc-hint" id="uu-check-hint">Braces, uppercase, a urn:uuid: prefix and the 32-digit form without hyphens are accepted and normalized.</p></div>
+  </div>
