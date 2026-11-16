@@ -246,3 +246,10 @@
 .calc-now-value { margin: .1rem 0; font-family: var(--sr-mono); font-size: 1.1rem; overflow-wrap: anywhere; }
 .calc-uuid-list { font-family: var(--sr-mono); font-size: .85rem; max-height: 24rem; overflow: auto; padding-left: 2.5rem; margin: .5rem 0; }
 .calc-uuid-list li { display: flex; gap: .5rem; align-items: baseline; justify-content: space-between; padding: .15rem 0; overflow-wrap: anywhere; }
+.calc-tabs-wrap { flex-wrap: wrap; }
+.calc-pairs { border: 1px solid var(--sr-border); border-radius: 10px; padding: .75rem; margin: .75rem 0 0; min-width: 0; }
+.calc-pair { display: grid; grid-template-columns: 1fr 1fr auto; gap: .5rem; align-items: end; margin-bottom: .5rem; }
+.calc-pair input { min-width: 0; width: 100%; box-sizing: border-box; }
+@media (max-width: 520px) { .calc-pair { grid-template-columns: 1fr; } }
+.calc-code mark { background: #dbeafe; color: inherit; border-radius: 2px; }
+.calc-page .prose code, .prose code { overflow-wrap: anywhere; word-break: break-word; }

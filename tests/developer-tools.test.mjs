@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import vm from 'node:vm';
 
-const context = { TextEncoder, Intl, Date };
+const context = { TextEncoder, TextDecoder, URL, Intl, Date };
 vm.runInNewContext(await readFile('src/scripts/developer-tool-formulas.js', 'utf8'), context);
 const { Timestamp: TS } = context.StackRowDevTools;
 
@@ -189,4 +189,73 @@ test('uuid: no Math.random, no storage, no share links', async () => {
   assert.doesNotMatch(logic.replace(/\/\/.*$/gm, ''), /Math\.random/);
   assert.doesNotMatch(page.replace(/\/\/.*$/gm, ''), /Math\.random|localStorage/);
   assert.match(page, /persistence: 'none', share: \{ mode: 'disabled' \}, restore: false/);
+});
+
+const { Url: URLT } = context.StackRowDevTools;
+
+test('url: ASCII and Unicode round trips', () => {
+  for (const text of ['hello world', 'café menu/2026?size=large & hot', '😀 東京 ñ', "a-_.!~*'()b"]) {
+    const enc = URLT.encodeUrlComponent(text);
+    assert.equal(URLT.decodeUrlComponent(enc.value).value, text);
+    const form = URLT.encodeFormValue(text);
+    assert.equal(URLT.decodeUrlComponent(form.value, { form: true }).value, text);
+  }
+  assert.equal(URLT.encodeUrlComponent('café menu/2026?size=large & hot').value, 'caf%C3%A9%20menu%2F2026%3Fsize%3Dlarge%20%26%20hot');
+});
+
+test('url: spaces and plus signs differ by mode', () => {
+  assert.equal(URLT.encodeUrlComponent('a b').value, 'a%20b');
+  assert.equal(URLT.encodeUrlComponent('a b', { spaces: '+' }).value, 'a+b');
+  assert.equal(URLT.encodeFormValue('a b').value, 'a+b');
+  assert.equal(URLT.decodeUrlComponent('a+b').value, 'a+b');
+  assert.equal(URLT.decodeUrlComponent('a+b', { form: true }).value, 'a b');
+  assert.equal(URLT.encodeUrlComponent('1+1').value, '1%2B1');
+});
+
+test('url: reserved delimiters and form-safe characters', () => {
+  assert.equal(URLT.encodeUrlComponent('/?#[]@!$&=+,;:').value, '%2F%3F%23%5B%5D%40!%24%26%3D%2B%2C%3B%3A');
+  assert.equal(URLT.encodeFormValue("*-._~!'()").value, "*-._%7E%21%27%28%29");
+  assert.equal(URLT.encodeUrlComponent('a b', { upper: false, spaces: '%20' }).value, 'a%20b');
+  assert.equal(URLT.encodeUrlComponent('/', { upper: false }).value, '%2f');
+});
+
+test('url: existing triplets are not double-encoded unless requested', () => {
+  assert.equal(URLT.encodeUrlComponent('100%25 sure').value, '100%25%20sure');
+  assert.equal(URLT.encodeUrlComponent('100%25', { preserveEncoded: false }).value, '100%2525');
+  assert.equal(URLT.encodeUrlComponent('50% off').value, '50%25%20off');
+});
+
+test('url: invalid triplets and malformed UTF-8 fail specifically', () => {
+  const t = URLT.decodeUrlComponent('100%');
+  assert.equal(t.code, 'triplet'); assert.equal(t.index, 3);
+  assert.equal(URLT.decodeUrlComponent('%G1').code, 'triplet');
+  assert.equal(URLT.decodeUrlComponent('%E2%82').code, 'utf8');
+  assert.equal(URLT.decodeUrlComponent('%FF').code, 'utf8');
+  assert.equal(URLT.encodeUrlComponent('\uD800').code, 'utf8');
+});
+
+test('url: duplicate keys keep order and fragments stay out of the query', () => {
+  const r = URLT.parseQueryPairs('https://x.test/p?tag=a&b=two+words&tag=c#frag=1&z=2');
+  assert.deepEqual([...r.pairs].map(p => `${p.key}=${p.value}`), ['tag=a', 'b=two words', 'tag=c']);
+  const rebuilt = URLT.rebuildUrl('https://x.test/p?tag=a&b=two+words&tag=c#frag=1', r.pairs);
+  assert.equal(rebuilt.value, 'https://x.test/p?tag=a&b=two+words&tag=c#frag=1');
+  assert.equal(URLT.rebuildUrl('a=1&b=2', [{ key: 'b', value: '2' }, { key: 'a', value: '1 1' }], { spaces: '%20' }).value, 'b=2&a=1%201');
+  assert.equal(URLT.parseQueryPairs(Array(1001).fill('a=1').join('&')).code, 'pairs');
+});
+
+test('url: full URL parsing masks credentials and needs a scheme', () => {
+  const r = URLT.parseUrlForDisplay('https://user:secret@example.com:8443/p/a?x=1&x=2#top');
+  assert.equal(r.hasPassword, true);
+  assert.doesNotMatch(JSON.stringify(r), /secret/);
+  assert.equal(r.hostname, 'example.com'); assert.equal(r.port, '8443'); assert.equal(r.hash, '#top');
+  assert.equal(r.pairs.length, 2);
+  assert.equal(URLT.parseUrlForDisplay('example.com/page').code, 'scheme');
+  assert.equal(URLT.parseUrlForDisplay('https://exa mple.com').code, 'url');
+  assert.equal(URLT.parseUrlForDisplay('').code, 'empty');
+});
+
+test('url page: no storage, no share links, no fetching, no innerHTML', async () => {
+  const page = await readFile('src/scripts/url-encoder-decoder.js', 'utf8');
+  assert.match(page, /persistence: 'none', share: \{ mode: 'disabled' \}, restore: false/);
+  assert.doesNotMatch(page, /localStorage|innerHTML|fetch\(|XMLHttpRequest/);
 });

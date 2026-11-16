@@ -275,8 +275,128 @@
   }
   const validateUuid = value => { const r = inspectUuid(value); return r.ok ? { ok: true, canonical: r.canonical } : r; };
 
+
+  // ---------------------------------------------------------------------- URL
+  // Text transforms only. Nothing here fetches a URL. Text becomes bytes with
+  // UTF-8. Component encoding matches JavaScript encodeURIComponent (letters,
+  // digits and - _ . ! ~ * ' ( ) stay as they are). Form encoding follows the
+  // WHATWG application/x-www-form-urlencoded serializer: letters, digits and
+  // * - . _ stay, a space becomes "+", and everything else is percent-encoded.
+  const utf8 = new TextEncoder();
+  const hexByte = (b, upper) => `%${(upper ? b.toString(16).toUpperCase() : b.toString(16)).padStart(2, '0')}`;
+  function hasLoneSurrogate(text) { return /[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:^|[^\uD800-\uDBFF])[\uDC00-\uDFFF]/.test(text); }
+
+  function encodeWith(text, keep, { spaces = '%20', upper = true, preserveEncoded = true } = {}) {
+    if (hasLoneSurrogate(text)) return fail('utf8', 'The text contains a broken Unicode character (a lone surrogate) that cannot be encoded as UTF-8.');
+    let out = '';
+    for (let i = 0; i < text.length;) {
+      if (preserveEncoded && text[i] === '%' && /^[0-9a-fA-F]{2}$/.test(text.slice(i + 1, i + 3))) { out += upper ? text.slice(i, i + 3).toUpperCase() : text.slice(i, i + 3).toLowerCase(); i += 3; continue; }
+      const cp = text.codePointAt(i);
+      const ch = String.fromCodePoint(cp);
+      i += ch.length;
+      if (ch === ' ' && spaces === '+') { out += '+'; continue; }
+      if (keep.test(ch)) { out += ch; continue; }
+      for (const b of utf8.encode(ch)) out += hexByte(b, upper);
+    }
+    return { ok: true, value: out };
+  }
+  const COMPONENT_KEEP = /^[A-Za-z0-9\-_.!~*'()]$/;
+  const FORM_KEEP = /^[A-Za-z0-9*\-._]$/;
+  const encodeUrlComponent = (value, options = {}) => encodeWith(String(value ?? ''), COMPONENT_KEEP, options);
+  const encodeFormValue = (value, options = {}) => encodeWith(String(value ?? ''), FORM_KEEP, { spaces: '+', preserveEncoded: false, ...options });
+
+  // Strict decoding: every % must start a two-digit hex triplet and the bytes
+  // must be valid UTF-8. "+" means a space only when form is true.
+  function decodeUrlComponent(value, { form = false } = {}) {
+    const text = String(value ?? '');
+    const bad = /%(?![0-9a-fA-F]{2})/.exec(text);
+    if (bad) return fail('triplet', `Invalid percent sequence "${text.slice(bad.index, bad.index + 3)}" at character ${bad.index + 1}. A % must be followed by two hexadecimal digits.`, { index: bad.index });
+    const bytes = [];
+    for (let i = 0; i < text.length;) {
+      if (text[i] === '%') { bytes.push(parseInt(text.slice(i + 1, i + 3), 16)); i += 3; continue; }
+      if (form && text[i] === '+') { bytes.push(0x20); i += 1; continue; }
+      const ch = String.fromCodePoint(text.codePointAt(i));
+      for (const b of utf8.encode(ch)) bytes.push(b);
+      i += ch.length;
+    }
+    try { return { ok: true, value: new TextDecoder('utf-8', { fatal: true }).decode(Uint8Array.from(bytes)) }; }
+    catch { return fail('utf8', 'The percent-encoded bytes are not valid UTF-8, so they cannot be turned back into text.'); }
+  }
+
+  // Query pairs keep their order and duplicate keys. A fragment is removed
+  // before parsing, so it never becomes part of a value.
+  function parseQueryPairs(value, { maxPairs = 1000 } = {}) {
+    let text = String(value ?? '');
+    const hash = text.indexOf('#');
+    if (hash >= 0) text = text.slice(0, hash);
+    const q = text.indexOf('?');
+    if (q >= 0) text = text.slice(q + 1);
+    if (!text) return { ok: true, pairs: [] };
+    const parts = text.split('&').filter(p => p !== '');
+    if (parts.length > maxPairs) return fail('pairs', `The query has ${parts.length} parameters. The limit is ${maxPairs}.`);
+    const pairs = parts.map(part => {
+      const eq = part.indexOf('=');
+      const rawKey = eq >= 0 ? part.slice(0, eq) : part;
+      const rawValue = eq >= 0 ? part.slice(eq + 1) : '';
+      const k = decodeUrlComponent(rawKey, { form: true });
+      const v = decodeUrlComponent(rawValue, { form: true });
+      return { key: k.ok ? k.value : rawKey, value: v.ok ? v.value : rawValue, error: !k.ok ? k.message : !v.ok ? v.message : '' };
+    });
+    return { ok: true, pairs };
+  }
+  function serializeQueryPairs(pairs, { spaces = '+' } = {}) {
+    const enc = s => (spaces === '+' ? encodeFormValue(s) : encodeUrlComponent(s, { preserveEncoded: false }));
+    const out = [];
+    for (const { key, value } of pairs) {
+      const k = enc(key); const v = enc(value);
+      if (!k.ok) return k;
+      if (!v.ok) return v;
+      out.push(`${k.value}=${v.value}`);
+    }
+    return { ok: true, value: out.join('&') };
+  }
+
+  // Parses with the platform URL API (WHATWG URL Standard). The password is
+  // never returned, only whether one is present.
+  function parseUrlForDisplay(value) {
+    const text = String(value ?? '').trim();
+    if (!text) return fail('empty', 'Enter a full URL, such as https://example.com/path?q=1.');
+    if (!/^[A-Za-z][A-Za-z0-9+.-]*:/.test(text)) return fail('scheme', 'Add a scheme at the start, such as https://. Full URL mode needs one to parse the address.');
+    let url;
+    try { url = new URL(text); } catch { return fail('url', 'This is not a valid URL. Check for spaces, a missing host, or stray characters.'); }
+    const query = parseQueryPairs(url.search);
+    return {
+      ok: true,
+      href: url.password ? url.href.replace(`:${url.password}@`, ':••••••@') : url.href,
+      scheme: url.protocol.replace(/:$/, ''), username: url.username, hasPassword: url.password !== '',
+      hostname: url.hostname, port: url.port, pathname: url.pathname, search: url.search, hash: url.hash,
+      pairs: query.ok ? query.pairs : []
+    };
+  }
+
+  function rebuildUrl(base, pairs, options = {}) {
+    const text = String(base ?? '').trim();
+    const hash = text.indexOf('#');
+    const fragment = hash >= 0 ? text.slice(hash) : '';
+    const beforeHash = hash >= 0 ? text.slice(0, hash) : text;
+    const q = beforeHash.indexOf('?');
+    const start = q >= 0 ? beforeHash.slice(0, q) : (/[=&]/.test(beforeHash) && !/^[A-Za-z][A-Za-z0-9+.-]*:/.test(beforeHash) ? '' : beforeHash);
+    const s = serializeQueryPairs(pairs, options);
+    if (!s.ok) return s;
+    return { ok: true, value: `${start}${s.value ? `${start || q >= 0 ? '?' : ''}${s.value}` : ''}${fragment}` };
+  }
+
+  function transformUrlText(value, mode, options = {}) {
+    if (mode === 'encode') return encodeUrlComponent(value, options);
+    if (mode === 'decode') return decodeUrlComponent(value, { form: false });
+    if (mode === 'form-encode') return encodeFormValue(value, options);
+    if (mode === 'form-decode') return decodeUrlComponent(value, { form: true });
+    return fail('mode', 'Choose a mode.');
+  }
+
   root.StackRowDevTools = Object.assign(root.StackRowDevTools || {}, {
     Timestamp: { UNITS, parseTimestampInteger, detectTimestampUnit, toEpochParts, formatTimestamp, convertTimestamp, parseUtcOrOffsetDate, convertTimestampBatch, validZone, rfc3339 },
-    Uuid: { MAX_UUIDS, formatUuid, generateUuidV4, generateUuidV7, createV7State, generateUuidBatch, parseUuid, validateUuid, inspectUuid, extractUuidV7Timestamp, bytesToHex }
+    Uuid: { MAX_UUIDS, formatUuid, generateUuidV4, generateUuidV7, createV7State, generateUuidBatch, parseUuid, validateUuid, inspectUuid, extractUuidV7Timestamp, bytesToHex },
+    Url: { encodeUrlComponent, encodeFormValue, decodeUrlComponent, parseQueryPairs, serializeQueryPairs, parseUrlForDisplay, rebuildUrl, transformUrlText }
   });
 })(typeof window !== 'undefined' ? window : globalThis);
