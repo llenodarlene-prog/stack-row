@@ -108,7 +108,9 @@ for (const name of ['markup', 'binary-hex', 'raid', 'download-time', 'roi', 'cpm
 }
 // Developer and business utilities: each names its partial, its page script,
 // any extra logic files, and its shell options.
-const utilityTools = {};
+const utilityTools = {
+  'unix-timestamp-converter': { logic: ['developer-tool-formulas'], shell: { heading: 'Converter', submit: 'Convert', submitIcon: 'transform', exampleLabel: 'Load example', reset: 'Reset converter', csv: 'Download CSV', forget: false, print: false, privacy: 'Conversions run in your browser. Nothing is saved, and bulk lists never enter the page address.', empty: 'Enter a timestamp or a date and the conversion appears here as you type.' } }
+};
 for (const [name, { logic = [], shell = {} }] of Object.entries(utilityTools)) {
   calculatorTools[name] = {
     scripts: [toolCore, ...await Promise.all(logic.map(file => fingerprint(`src/scripts/${file}.js`, 'scripts', file, 'js'))), await fingerprint(`src/scripts/${name}.js`, 'scripts', name, 'js')],
@@ -486,7 +488,7 @@ function schemaFor(item, url) {
     const faq = faqEntries(item.body);
     const app = {
       '@type': 'WebApplication', '@id': `${url}#app`, name: item.title, description: item.description, url,
-      applicationCategory: 'BusinessApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript',
+      applicationCategory: item.app_category || 'BusinessApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript',
       isAccessibleForFree: true, publisher: { '@id': orgId }, inLanguage: site.locale
     };
     webpage.mainEntity = { '@id': `${url}#app` };
@@ -538,7 +540,7 @@ function toolCards() {
   const cards = visible.filter(entry => entry.template === 'calculator' && entry.draft !== true && !entry.scheduled).sort((a, b) => Number(a.order ?? 99) - Number(b.order ?? 99));
   const categories = [...new Set(cards.map(entry => entry.category || 'Calculator'))].sort();
   const filter = `<div class="tool-filter" id="tool-filter" hidden><div class="tool-chips" role="group" aria-label="Filter by category"><button type="button" class="tool-chip" data-category="all" aria-pressed="true">${tablerIcon('chart-dots-3')}All</button>${categories.map(c => `<button type="button" class="tool-chip" data-category="${escapeHtml(c)}" aria-pressed="false">${tablerIcon(categoryIcons[c] || 'calculator')}${escapeHtml(c)}</button>`).join('')}</div><div class="tool-search">${tablerIcon('search')}<label for="tool-search" class="visually-hidden">Search calculators</label><input id="tool-search" type="search" placeholder="Search calculators" autocomplete="off"><button type="button" class="calc-link" id="tool-clear">Clear</button></div><p class="calc-hint" id="tool-count" aria-live="polite"></p></div>`;
-  return `${filter}<ul class="tool-cards" aria-label="Calculators">${cards.map(entry => `<li class="tool-card" data-category="${escapeHtml(entry.category || 'Calculator')}"><div class="tool-card-top"><span class="tool-card-icon" data-category="${escapeHtml(entry.category || '')}">${tablerIcon(entry.icon || 'calculator')}</span><p class="calc-badge">${escapeHtml(entry.category || 'Calculator')}</p></div><h2><a href="${entry.slug}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.card || entry.description)}</p><a class="calc-secondary tool-card-action" href="${entry.slug}" aria-label="Open the ${escapeHtml(entry.title)}">Open calculator${tablerIcon('arrow-right')}</a></li>`).join('')}</ul><p class="calc-note" id="tool-empty" hidden>No calculators match. <button type="button" class="calc-link" id="tool-empty-clear">Clear the search</button>.</p>`;
+  return `${filter}<ul class="tool-cards" aria-label="Calculators">${cards.map(entry => `<li class="tool-card" data-category="${escapeHtml(entry.category || 'Calculator')}"><div class="tool-card-top"><span class="tool-card-icon" data-category="${escapeHtml(entry.category || '')}">${tablerIcon(entry.icon || 'calculator')}</span><p class="calc-badge">${escapeHtml(entry.category || 'Calculator')}</p></div><h2><a href="${entry.slug}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.card || entry.description)}</p><a class="calc-secondary tool-card-action" href="${entry.slug}" aria-label="Open the ${escapeHtml(entry.title)}">${escapeHtml(entry.action || 'Open calculator')}${tablerIcon('arrow-right')}</a></li>`).join('')}</ul><p class="calc-note" id="tool-empty" hidden>No calculators match. <button type="button" class="calc-link" id="tool-empty-clear">Clear the search</button>.</p>`;
 }
 
 const isQuestions = item => item.template === 'questions' || item.template === 'questions-index';

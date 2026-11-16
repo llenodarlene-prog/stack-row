@@ -266,6 +266,7 @@
           download(content, { filename: name.endsWith(`.${exporter.extension}`) ? name : `${name}.${exporter.extension}`, mime: exporter.mime });
           announce(`${exporter.label} started.`);
         });
+        button.dataset.modes = (exporter.modes || []).join(' ');
         exportButtons.push(button);
       }
       csvButton?.replaceWith(...exportButtons);
@@ -294,6 +295,7 @@
         $(tab.getAttribute('aria-controls')).hidden = !on;
         if (on && focus) tab.focus();
       }
+      for (const button of exportButtons) button.hidden = Boolean(button.dataset.modes) && !button.dataset.modes.split(' ').includes(next);
       tool.onMode?.(next);
     }
     for (const tab of tabs) {
@@ -551,10 +553,11 @@
       window.print();
     });
 
+    for (const button of exportButtons) button.hidden = Boolean(button.dataset.modes) && !button.dataset.modes.split(' ').includes(mode);
     if (restore()) calculate({ explicit: false, save: false });
     else tool.onRestore?.();
     return { calculate, announce, copyText, download, get last() { return last; } };
   }
 
-  root.StackRowTool = { mount, parseNumber, formatMoney, formatNumber, formatPercent, csvCell, viz, icon, policy, download, formatBytes };
+  root.StackRowTool = { mount, el, parseNumber, formatMoney, formatNumber, formatPercent, csvCell, viz, icon, policy, download, formatBytes };
 })(typeof window !== 'undefined' ? window : globalThis);

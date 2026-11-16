@@ -239,3 +239,8 @@
 .calc-tree { font-family: var(--sr-mono); font-size: .85rem; max-height: 24rem; overflow: auto; }
 .calc-tree ul { list-style: none; padding-left: 1rem; margin: 0; }
 .calc-tree summary { cursor: pointer; }
+.calc-now { border: 1px solid var(--sr-border); border-radius: 12px; padding: .75rem 1rem; margin-bottom: 1rem; background: var(--sr-soft-white); }
+.calc-now-title { font-weight: 700; margin: 0 0 .5rem; display: flex; gap: .4rem; align-items: center; }
+.calc-now-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: .75rem; }
+.calc-now-label { margin: 0; font-size: .8rem; color: var(--sr-muted); }
+.calc-now-value { margin: .1rem 0; font-family: var(--sr-mono); font-size: 1.1rem; overflow-wrap: anywhere; }
