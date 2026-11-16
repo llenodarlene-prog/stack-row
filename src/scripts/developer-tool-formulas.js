@@ -142,7 +142,141 @@
     return { ok: true, rows, valid: rows.filter(r => r.ok).length, invalid: rows.filter(r => !r.ok).length };
   }
 
+
+  // --------------------------------------------------------------------- UUID
+  // RFC 9562. Random bytes and the clock are injected, so tests can be exact.
+  // The browser page passes crypto.getRandomValues; Math.random is never used.
+  const HEX = [...Array(256)].map((_, i) => i.toString(16).padStart(2, '0'));
+  const MAX_UUIDS = 1000;
+  const bytesToHex = bytes => Array.from(bytes, b => HEX[b]).join('');
+  const hexToBytes = hex => Uint8Array.from(hex.match(/../g), h => parseInt(h, 16));
+
+  function formatUuid(bytes, { upper = false, hyphens = true, braces = false } = {}) {
+    const hex = bytesToHex(bytes);
+    let text = hyphens ? `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}` : hex;
+    if (upper) text = text.toUpperCase();
+    return braces ? `{${text}}` : text;
+  }
+
+  function generateUuidV4(randomBytes) {
+    const b = Uint8Array.from(randomBytes(16));
+    if (b.length !== 16) throw new Error('random source must return 16 bytes');
+    b[6] = (b[6] & 0x0f) | 0x40;
+    b[8] = (b[8] & 0x3f) | 0x80;
+    return b;
+  }
+
+  // UUID v7 with a 12-bit counter in rand_a (RFC 9562 section 6.2, method 1).
+  // The counter starts at a random value below 2048 each new millisecond and
+  // increases for each extra UUID in that millisecond. If the clock repeats or
+  // goes backwards, the last millisecond is reused so order is kept. When the
+  // counter would pass 4095 the function returns an error instead of wrapping.
+  function createV7State() { return { ms: -1, counter: 0 }; }
+  function generateUuidV7(timestampMs, randomBytes, state) {
+    const rnd = Uint8Array.from(randomBytes(10));
+    let ms = Math.floor(timestampMs);
+    if (!Number.isSafeInteger(ms) || ms < 0 || ms > 0xffffffffffff) return fail('clock', 'The clock value is outside the 48-bit UUID v7 range.');
+    if (ms <= state.ms) {
+      ms = state.ms;
+      if (state.counter >= 0xfff) return fail('exhausted', 'Too many UUID v7 values were requested in one millisecond. Wait a moment and generate again.');
+      state.counter += 1;
+    } else {
+      state.ms = ms;
+      state.counter = ((rnd[0] << 8) | rnd[1]) & 0x7ff;
+    }
+    const b = new Uint8Array(16);
+    let t = BigInt(ms);
+    for (let i = 5; i >= 0; i -= 1) { b[i] = Number(t & 0xffn); t >>= 8n; }
+    b[6] = 0x70 | ((state.counter >> 8) & 0x0f);
+    b[7] = state.counter & 0xff;
+    b[8] = 0x80 | (rnd[2] & 0x3f);
+    for (let i = 9; i < 16; i += 1) b[i] = rnd[i - 6];
+    return { ok: true, bytes: b };
+  }
+
+  function generateUuidBatch({ version = 'v4', quantity = 1, upper = false, hyphens = true, braces = false } = {}, { randomBytes, now = () => Date.now(), nativeV4 = null, state = createV7State() } = {}) {
+    if (!Number.isInteger(quantity) || quantity < 1) return fail('quantity', 'Enter a whole number of 1 or more.');
+    if (quantity > MAX_UUIDS) return fail('quantity', `You can generate at most ${MAX_UUIDS.toLocaleString('en-US')} UUIDs at a time.`);
+    if (!['v4', 'v7'].includes(version)) return fail('version', 'Choose version 4 or version 7.');
+    if (typeof randomBytes !== 'function') return fail('random', 'This browser does not provide the Web Cryptography API, so UUIDs cannot be generated safely.');
+    const options = { upper, hyphens, braces };
+    const values = [];
+    for (let i = 0; i < quantity; i += 1) {
+      let bytes;
+      if (version === 'v4') bytes = nativeV4 ? hexToBytes(nativeV4().replaceAll('-', '')) : generateUuidV4(randomBytes);
+      else {
+        const r = generateUuidV7(now(), randomBytes, state);
+        if (!r.ok) return { ...r, values };
+        bytes = r.bytes;
+      }
+      values.push(formatUuid(bytes, options));
+    }
+    return { ok: true, values };
+  }
+
+  // Accepts canonical text, braces, a urn:uuid: prefix, uppercase, and the
+  // 32-digit form without hyphens, and says which of these were used.
+  function parseUuid(value) {
+    let text = String(value ?? '').trim();
+    if (!text) return fail('empty', 'Enter a UUID to check.');
+    if (text.length > 60) return fail('length', 'A UUID is 36 characters in canonical form. This input is too long.');
+    const form = { urn: false, braces: false, upper: /[A-F]/.test(text), lower: /[a-f]/.test(text), hyphens: true };
+    if (/^urn:uuid:/i.test(text)) { form.urn = true; text = text.slice(9); }
+    if (text.startsWith('{') || text.endsWith('}')) {
+      if (!(text.startsWith('{') && text.endsWith('}'))) return fail('braces', 'Braces must surround the whole UUID, with one at each end.');
+      form.braces = true; text = text.slice(1, -1);
+    }
+    if (/[^0-9a-fA-F-]/.test(text)) return fail('hex', 'A UUID may contain only the digits 0-9, the letters a-f, and hyphens.');
+    let hex;
+    if (text.includes('-')) {
+      if (!/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(text)) {
+        return text.replaceAll('-', '').length === 32 ? fail('hyphens', 'Hyphens must split the UUID into groups of 8-4-4-4-12 characters.') : fail('length', `A UUID has 32 hexadecimal digits. This one has ${text.replaceAll('-', '').length}.`);
+      }
+      hex = text.replaceAll('-', '');
+    } else {
+      if (text.length !== 32) return fail('length', `A UUID has 32 hexadecimal digits. This one has ${text.length}.`);
+      hex = text; form.hyphens = false;
+    }
+    return { ok: true, bytes: hexToBytes(hex.toLowerCase()), form };
+  }
+
+  function variantOf(byte8) {
+    if ((byte8 & 0x80) === 0) return 'NCS (reserved, backward compatibility)';
+    if ((byte8 & 0xc0) === 0x80) return 'RFC 9562';
+    if ((byte8 & 0xe0) === 0xc0) return 'Microsoft (reserved)';
+    return 'Reserved for future use';
+  }
+
+  function extractUuidV7Timestamp(value) {
+    const parsed = typeof value === 'string' ? parseUuid(value) : { ok: true, bytes: value };
+    if (!parsed.ok) return parsed;
+    if ((parsed.bytes[6] >> 4) !== 7) return fail('version', 'Only UUID version 7 contains a Unix millisecond timestamp.');
+    let ms = 0;
+    for (let i = 0; i < 6; i += 1) ms = ms * 256 + parsed.bytes[i];
+    return { ok: true, ms, iso: new Date(ms).toISOString() };
+  }
+
+  function inspectUuid(value) {
+    const parsed = parseUuid(value);
+    if (!parsed.ok) return parsed;
+    const { bytes, form } = parsed;
+    const canonical = formatUuid(bytes);
+    const alternate = form.urn || form.braces || form.upper || !form.hyphens;
+    const base = { ok: true, canonical, form, alternate };
+    if (bytes.every(b => b === 0)) return { ...base, special: 'Nil UUID', version: null, variant: 'Not applicable (special value)' };
+    if (bytes.every(b => b === 255)) return { ...base, special: 'Max UUID', version: null, variant: 'Not applicable (special value)' };
+    const variant = variantOf(bytes[8]);
+    if (variant !== 'RFC 9562') return fail('variant', `The variant bits mark this as ${variant}, not an RFC 9562 UUID. The first digit of the fourth group must be 8, 9, a, or b.`, { canonical });
+    const version = bytes[6] >> 4;
+    if (version < 1 || version > 8) return fail('version', `Version ${version} is not defined by RFC 9562. The first digit of the third group must be 1 to 8.`, { canonical });
+    const result = { ...base, special: null, version, variant };
+    if (version === 7) result.timestamp = extractUuidV7Timestamp(bytes);
+    return result;
+  }
+  const validateUuid = value => { const r = inspectUuid(value); return r.ok ? { ok: true, canonical: r.canonical } : r; };
+
   root.StackRowDevTools = Object.assign(root.StackRowDevTools || {}, {
-    Timestamp: { UNITS, parseTimestampInteger, detectTimestampUnit, toEpochParts, formatTimestamp, convertTimestamp, parseUtcOrOffsetDate, convertTimestampBatch, validZone, rfc3339 }
+    Timestamp: { UNITS, parseTimestampInteger, detectTimestampUnit, toEpochParts, formatTimestamp, convertTimestamp, parseUtcOrOffsetDate, convertTimestampBatch, validZone, rfc3339 },
+    Uuid: { MAX_UUIDS, formatUuid, generateUuidV4, generateUuidV7, createV7State, generateUuidBatch, parseUuid, validateUuid, inspectUuid, extractUuidV7Timestamp, bytesToHex }
   });
 })(typeof window !== 'undefined' ? window : globalThis);

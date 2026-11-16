@@ -490,7 +490,7 @@
     // Results update as you type; Calculate also saves the calculation and
     // moves to the results on small screens.
     let liveTimer;
-    const live = () => { window.clearTimeout(liveTimer); liveTimer = window.setTimeout(() => calculate({ explicit: false, save: false, quiet: true }), tool.live ? 0 : 200); };
+    const live = () => { if (tool.liveModes && !tool.liveModes.includes(mode)) return; window.clearTimeout(liveTimer); liveTimer = window.setTimeout(() => calculate({ explicit: false, save: false, quiet: true }), tool.live ? 0 : 200); };
     form.addEventListener('input', live);
     form.addEventListener('change', live);
     tabs.forEach(tab => tab.addEventListener('click', live));

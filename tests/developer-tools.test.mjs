@@ -101,3 +101,92 @@ test('timestamp page: bulk input, dates and offsets are private and persistence 
   assert.match(script, /private: \['bulk', 'dt', 'offset'\]/);
   assert.doesNotMatch(script, /localStorage/);
 });
+
+const { Uuid: U } = context.StackRowDevTools;
+const seq = start => { let n = start; return k => Uint8Array.from({ length: k }, () => (n++) & 255); };
+const fixed = byte => k => new Uint8Array(k).fill(byte);
+const CANON = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
+
+test('uuid: v4 layout, version and variant bits', () => {
+  const r = U.generateUuidBatch({ version: 'v4', quantity: 50 }, { randomBytes: seq(0) });
+  for (const v of r.values) { assert.match(v, CANON); assert.equal(v[14], '4'); assert.match(v[19], /[89ab]/); }
+  assert.equal(U.formatUuid(U.generateUuidV4(fixed(0xff))), 'ffffffff-ffff-4fff-bfff-ffffffffffff');
+  assert.equal(U.formatUuid(U.generateUuidV4(fixed(0))), '00000000-0000-4000-8000-000000000000');
+});
+
+test('uuid: v7 is deterministic for a fixed time and random source', () => {
+  const r = U.generateUuidV7(0x0123456789ab, fixed(0), U.createV7State());
+  assert.equal(U.formatUuid(r.bytes), '01234567-89ab-7000-8000-000000000000');
+  const s = U.generateUuidV7(1700000000000, fixed(0xff), U.createV7State());
+  const text = U.formatUuid(s.bytes);
+  assert.equal(text[14], '7'); assert.match(text[19], /[89ab]/);
+  assert.equal(text, '018bcfe5-6800-77ff-bfff-ffffffffffff');
+  assert.equal(U.extractUuidV7Timestamp(text).ms, 1700000000000);
+});
+
+test('uuid: v7 sorts by time and stays monotonic within a millisecond', () => {
+  const state = U.createV7State();
+  let t = 1700000000000;
+  const across = U.generateUuidBatch({ version: 'v7', quantity: 20 }, { randomBytes: seq(7), now: () => (t += 1), state }).values;
+  assert.deepEqual([...across].sort(), [...across]);
+  const same = U.generateUuidBatch({ version: 'v7', quantity: 1000 }, { randomBytes: seq(3), now: () => 1800000000000, state: U.createV7State() }).values;
+  assert.equal(new Set(same).size, 1000);
+  assert.deepEqual([...same].sort(), [...same]);
+  const back = U.createV7State();
+  const a = U.formatUuid(U.generateUuidV7(1800000000005, seq(1), back).bytes);
+  const b = U.formatUuid(U.generateUuidV7(1800000000001, seq(1), back).bytes);
+  assert.ok(b > a, 'a clock step backwards keeps order');
+});
+
+test('uuid: counter exhaustion returns an error instead of wrapping', () => {
+  const state = U.createV7State();
+  const r = U.generateUuidBatch({ version: 'v7', quantity: 1000 }, { randomBytes: fixed(0xff), now: () => 1800000000000, state });
+  assert.equal(r.ok, true);
+  const more = [];
+  let last;
+  for (let i = 0; i < 4000; i += 1) { last = U.generateUuidV7(1800000000000, fixed(0xff), state); if (!last.ok) break; more.push(U.formatUuid(last.bytes)); }
+  assert.equal(last.code, 'exhausted');
+  assert.deepEqual([...more].sort(), more);
+  const all = [...r.values, ...more];
+  assert.equal(new Set(all).size, all.length);
+});
+
+test('uuid: formatting options change presentation, not bits', () => {
+  const bytes = U.generateUuidV7(1700000000000, fixed(0x12), U.createV7State()).bytes;
+  const plain = U.formatUuid(bytes);
+  const fancy = U.formatUuid(bytes, { upper: true, hyphens: false, braces: true });
+  assert.equal(fancy, `{${plain.replaceAll('-', '').toUpperCase()}}`);
+  assert.equal(U.inspectUuid(fancy).canonical, plain);
+});
+
+test('uuid: validator normalizes accepted forms and names special values', () => {
+  const canonical = '019a8c2e-1234-7abc-8def-0123456789ab';
+  for (const form of [canonical, canonical.toUpperCase(), `{${canonical}}`, canonical.replaceAll('-', ''), `urn:uuid:${canonical}`]) {
+    const r = U.inspectUuid(form);
+    assert.equal(r.ok, true, form); assert.equal(r.canonical, canonical); assert.equal(r.version, 7);
+  }
+  assert.equal(U.inspectUuid(canonical).alternate, false);
+  assert.equal(U.inspectUuid(`{${canonical}}`).alternate, true);
+  assert.equal(U.inspectUuid('00000000-0000-0000-0000-000000000000').special, 'Nil UUID');
+  assert.equal(U.inspectUuid('FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF').special, 'Max UUID');
+});
+
+test('uuid: malformed input gets specific errors', () => {
+  const cases = [['', 'empty'], ['019a8c2e-1234-7abc-8def-0123456789a', 'length'], ['019a8c2e-1234-7abc-8def-0123456789ag', 'hex'], ['019a8c2e1-234-7abc-8def-0123456789ab', 'hyphens'], ['019a8c2e-1234-fabc-8def-0123456789ab', 'version'], ['019a8c2e-1234-0abc-8def-0123456789ab', 'version'], ['019a8c2e-1234-7abc-cdef-0123456789ab', 'variant'], ['019a8c2e-1234-7abc-0def-0123456789ab', 'variant'], ['{019a8c2e-1234-7abc-8def-0123456789ab', 'braces']];
+  for (const [input, code] of cases) assert.equal(U.inspectUuid(input).code, code, input);
+});
+
+test('uuid: quantity limits', () => {
+  const deps = { randomBytes: seq(0) };
+  for (const q of [0, -1, 2.5, 1001, NaN]) assert.equal(U.generateUuidBatch({ quantity: q }, deps).code, 'quantity', String(q));
+  assert.equal(U.generateUuidBatch({ quantity: 1000 }, deps).values.length, 1000);
+  assert.equal(U.generateUuidBatch({ quantity: 1 }, {}).code, 'random');
+});
+
+test('uuid: no Math.random, no storage, no share links', async () => {
+  const logic = await readFile('src/scripts/developer-tool-formulas.js', 'utf8');
+  const page = await readFile('src/scripts/uuid-generator.js', 'utf8');
+  assert.doesNotMatch(logic.replace(/\/\/.*$/gm, ''), /Math\.random/);
+  assert.doesNotMatch(page.replace(/\/\/.*$/gm, ''), /Math\.random|localStorage/);
+  assert.match(page, /persistence: 'none', share: \{ mode: 'disabled' \}, restore: false/);
+});

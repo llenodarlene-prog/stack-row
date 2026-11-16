@@ -109,7 +109,8 @@ for (const name of ['markup', 'binary-hex', 'raid', 'download-time', 'roi', 'cpm
 // Developer and business utilities: each names its partial, its page script,
 // any extra logic files, and its shell options.
 const utilityTools = {
-  'unix-timestamp-converter': { logic: ['developer-tool-formulas'], shell: { heading: 'Converter', submit: 'Convert', submitIcon: 'transform', exampleLabel: 'Load example', reset: 'Reset converter', csv: 'Download CSV', forget: false, print: false, privacy: 'Conversions run in your browser. Nothing is saved, and bulk lists never enter the page address.', empty: 'Enter a timestamp or a date and the conversion appears here as you type.' } }
+  'unix-timestamp-converter': { logic: ['developer-tool-formulas'], shell: { heading: 'Converter', submit: 'Convert', submitIcon: 'transform', exampleLabel: 'Load example', reset: 'Reset converter', csv: 'Download CSV', forget: false, print: false, privacy: 'Conversions run in your browser. Nothing is saved, and bulk lists never enter the page address.', empty: 'Enter a timestamp or a date and the conversion appears here as you type.' } },
+  'uuid-generator': { logic: ['developer-tool-formulas'], shell: { heading: 'Generator', submit: 'Generate', submitIcon: 'fingerprint', exampleLabel: 'Check an example', reset: 'Reset generator', copy: 'Copy all', csv: 'Download CSV', share: false, forget: false, print: false, privacy: 'UUIDs are generated in your browser with the Web Cryptography API. They are not sent to Stack Row, saved, or added to the page address.', empty: 'Choose your options and select Generate.' } }
 };
 for (const [name, { logic = [], shell = {} }] of Object.entries(utilityTools)) {
   calculatorTools[name] = {

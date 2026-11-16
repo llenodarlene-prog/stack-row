@@ -244,3 +244,5 @@
 .calc-now-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: .75rem; }
 .calc-now-label { margin: 0; font-size: .8rem; color: var(--sr-muted); }
 .calc-now-value { margin: .1rem 0; font-family: var(--sr-mono); font-size: 1.1rem; overflow-wrap: anywhere; }
+.calc-uuid-list { font-family: var(--sr-mono); font-size: .85rem; max-height: 24rem; overflow: auto; padding-left: 2.5rem; margin: .5rem 0; }
+.calc-uuid-list li { display: flex; gap: .5rem; align-items: baseline; justify-content: space-between; padding: .15rem 0; overflow-wrap: anywhere; }
