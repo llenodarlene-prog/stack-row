@@ -1,0 +1,15 @@
+<div class="calc-tabs calc-tabs-wrap" role="tablist" aria-label="Choose an action">
+  <button type="button" role="tab" id="tab-format" aria-controls="panel-yaml" aria-selected="true" data-mode="format">{{icon:file-code}}Format</button>
+  <button type="button" role="tab" id="tab-validate" aria-controls="panel-yaml" aria-selected="false" tabindex="-1" data-mode="validate">{{icon:shield}}Validate</button>
+  <button type="button" role="tab" id="tab-tojson" aria-controls="panel-yaml" aria-selected="false" tabindex="-1" data-mode="tojson">{{icon:braces}}YAML to JSON</button>
+  <button type="button" role="tab" id="tab-toyaml" aria-controls="panel-yaml" aria-selected="false" tabindex="-1" data-mode="toyaml">{{icon:transform}}JSON to YAML</button>
+</div>
+<form class="calc-form" novalidate>
+  <div role="tabpanel" id="panel-yaml" aria-labelledby="tab-format" class="calc-panel">
+    <div class="calc-field"><label for="ym-text" id="ym-label">YAML</label><textarea id="ym-text" name="yaml" spellcheck="false" rows="12" aria-describedby="ym-text-hint"></textarea><p class="calc-hint" id="ym-text-hint">Paste YAML or open a file. Up to 1 MB.</p></div>
+    <div class="calc-field"><label for="ym-file">Open a file from this device</label><input id="ym-file" type="file" accept=".yaml,.yml,.json,application/yaml,text/yaml,application/json"></div>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="ym-indent">Indentation</label><select id="ym-indent" name="indent"><option value="2">2 spaces</option><option value="4">4 spaces</option></select></div>
+      <div class="calc-field"><label for="ym-sort">Keys</label><select id="ym-sort" name="sort"><option value="keep">Keep original order</option><option value="sort">Sort A to Z</option></select></div>
+    </div>
+  </div>

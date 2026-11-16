@@ -144,6 +144,17 @@
   const SIZE_UNITS = { B: 1, KB: 1e3, MB: 1e6, GB: 1e9, TB: 1e12, PB: 1e15, KiB: 1024, MiB: 1024 ** 2, GiB: 1024 ** 3, TiB: 1024 ** 4 };
   const SPEED_UNITS = { Kbps: 1e3, Mbps: 1e6, Gbps: 1e9, 'MB/s': 8e6, 'GB/s': 8e9 };
   const TIME_UNITS = { seconds: 1, minutes: 60, hours: 3600, days: 86400 };
+  // Bandwidth planning: peak need = people × per-person rate × share active
+  // at peak × (1 + headroom). Monthly data uses the average share active.
+  const Bandwidth = {
+    plan({ users, rateMbps, peakPct, headroomPct = 0, averagePct = 0 }) {
+      const peakMbps = users * rateMbps * (peakPct / 100);
+      const required = peakMbps * (1 + headroomPct / 100);
+      const monthlyBytes = users * rateMbps * 1e6 * (averagePct / 100) * 2629746 / 8;
+      return { peakMbps, required, monthlyBytes };
+    }
+  };
+
   const Transfer = {
     SIZE_UNITS, SPEED_UNITS, TIME_UNITS,
     efficiency: overhead => 1 - overhead / 100,
@@ -473,5 +484,5 @@
     }
   };
 
-  root.StackRowFormulas = { Markup, Base, Raid, Transfer, Roi, Cpm, Roas, Significance, Valuation, Tokens, Subnet, Margin, Employee, Runway, Billable };
+  root.StackRowFormulas = { Markup, Base, Raid, Transfer, Bandwidth, Roi, Cpm, Roas, Significance, Valuation, Tokens, Subnet, Margin, Employee, Runway, Billable };
 })(typeof window !== 'undefined' ? window : globalThis);

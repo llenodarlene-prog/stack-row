@@ -224,3 +224,11 @@ test('subnet: multi-step aggregation, overlaps and mixed families', () => {
   assert.equal(Subnet.aggregate(['10.0.0.0/24', '::/64']).error, 'family');
   assert.equal(Subnet.aggregate(['nonsense']).line, 1);
 });
+
+test('bandwidth: peak demand, headroom and monthly data', () => {
+  const { Bandwidth } = context.StackRowFormulas;
+  const r = Bandwidth.plan({ users: 40, rateMbps: 3, peakPct: 60, headroomPct: 25 });
+  assert.equal(Number(r.peakMbps.toFixed(6)), 72); assert.equal(Number(r.required.toFixed(6)), 90);
+  const m = Bandwidth.plan({ users: 1, rateMbps: 8, peakPct: 100, averagePct: 100 });
+  assert.equal(Math.round(m.monthlyBytes), 2629746000000);
+});

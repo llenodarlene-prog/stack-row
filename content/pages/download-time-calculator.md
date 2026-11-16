@@ -1,7 +1,7 @@
 ---
 title: Download Time Calculator
-seo_title: Download Time and Data Transfer Calculator | Stack Row
-description: Calculate download or upload time from file size and connection speed, the speed needed to meet a deadline, or how much data a link can move.
+seo_title: Download Time and Bandwidth Calculator | Stack Row
+description: Calculate download or upload time from file size and connection speed, the speed needed to meet a deadline, how much data a link can move, or the bandwidth a team needs.
 slug: /tools/download-time-calculator/
 type: page
 template: calculator
@@ -9,7 +9,7 @@ icon: cloud-download
 tool: download-time
 order: 4
 category: Cloud and Infrastructure
-card: Estimate transfer time, the speed needed to meet a deadline, or how much data a link can move.
+card: Estimate transfer time, required speed, data moved, or the bandwidth a team needs at peak.
 reviewed: 2026-10-28
 primary_keyword: download time calculator
 complete: true
@@ -28,6 +28,14 @@ Choose what you want to find, fill in the two known values, and select Calculate
 - **Data Moved** uses speed and time to find how much data can transfer.
 
 Number of files multiplies the size for batch transfers. Download and upload use the same math, so pick the speed for the direction you are measuring. Load example estimates a 50 GB download over a 100 Mbps connection.
+
+## Planning Bandwidth for a Team or Site
+
+The **Bandwidth Planning** tab works out how much connection speed a group needs at its busiest time. Enter the number of people or devices, how much bandwidth each uses while active, the share active at the peak, and some headroom:
+
+Bandwidth needed = people × rate each × share active at peak × (1 + headroom)
+
+For example, 40 people on video calls that each need about 3 Mbps, with 60% on calls at the busiest time and 25% headroom, need 40 × 3 × 60% × 1.25 = 90 Mbps. Add an average share across the month to estimate the data used each month, which helps with metered or capped plans. Per-app figures come from each vendor's own network requirements, so check the services your team uses.
 
 ## Transfer Time Formulas
 
@@ -74,6 +82,10 @@ Working backward, moving 2 TB in 8 hours with 15% overhead needs about 654 Mbps.
 - Inputs stay in your browser. A calculation is saved locally after you select Calculate.
 
 ## Frequently Asked Questions
+
+### How Much Bandwidth Does My Office Need?
+
+Multiply the number of people by the bandwidth each needs while active, then by the share active at the busiest time, and add 20% to 30% headroom. The Bandwidth Planning tab does this for you and shows the peak demand and headroom separately.
 
 ### How Do I Calculate Download Time?
 

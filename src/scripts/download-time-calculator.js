@@ -2,16 +2,18 @@
 // tool-formulas.js.
 (function () {
   'use strict';
-  const { Transfer } = window.StackRowFormulas;
+  const { Transfer, Bandwidth } = window.StackRowFormulas;
   const T = window.StackRowTool;
   if (!Transfer || !T) return;
   const $ = id => document.getElementById(id);
-  const groups = { time: ['dt-size-group', 'dt-speed-group'], speed: ['dt-size-group', 'dt-time-group'], data: ['dt-speed-group', 'dt-time-group'] };
+  const groups = { time: ['dt-size-group', 'dt-speed-group'], speed: ['dt-size-group', 'dt-time-group'], data: ['dt-speed-group', 'dt-time-group'], bandwidth: [] };
   let current = 'time';
   const toggle = mode => {
     current = mode || current;
     for (const id of ['dt-size-group', 'dt-speed-group', 'dt-time-group']) $(id).hidden = !groups[current].includes(id);
-    $('dt-custom-field').hidden = $('dt-preset').value !== 'custom';
+    const planning = current === 'bandwidth';
+    for (const id of ['dt-overhead-group', 'dt-overhead-hint', 'dt-direction-group']) $(id).hidden = planning;
+    $('dt-custom-field').hidden = planning || $('dt-preset').value !== 'custom';
   };
   $('dt-preset').addEventListener('change', () => toggle());
 
@@ -20,12 +22,30 @@
     name: 'Download Time Calculator',
     file: 'download-time-calculation',
     storeKey: 'stackrow:download-time:v1',
-    modeNames: { time: 'Transfer Time', speed: 'Required Speed', data: 'Data Moved' },
+    modeNames: { time: 'Transfer Time', speed: 'Required Speed', data: 'Data Moved', bandwidth: 'Bandwidth Planning' },
     example: { mode: 'time', values: { size: '50', unit: 'GB', files: '1', speed: '100', sunit: 'Mbps', preset: '10', direction: 'download' } },
     onMode: toggle,
     onRestore() { toggle(document.querySelector('.calc-tabs [aria-selected="true"]').dataset.mode); },
     onReset() { window.setTimeout(() => toggle('time'), 0); },
     compute(c, { viz }) {
+      if (c.mode === 'bandwidth') {
+        const users = c.number('bw_users', { required: true, label: 'the number of people or devices', whole: true, min: 1, max: 10000000 });
+        const rate = c.number('bw_rate', { required: true, label: 'a bandwidth per person' });
+        const peak = c.number('bw_peak', { required: true, label: 'a peak share', min: 0, max: 100 });
+        const head = c.number('bw_head', { label: 'headroom', max: 500 });
+        const avg = c.number('bw_avg', { label: 'an average share', max: 100 });
+        if ([users, rate, peak, head, avg].some(Number.isNaN)) return null;
+        if (rate <= 0) { c.fail('bw_rate', 'Use a rate above zero.'); return null; }
+        const r = Bandwidth.plan({ users, rateMbps: rate, peakPct: peak, headroomPct: head, averagePct: avg });
+        const mbps = v => Transfer.rate(v * 1e6);
+        return {
+          metrics: [['Bandwidth to plan for', mbps(r.required), `${T.formatNumber(users, 0)} × ${T.formatNumber(rate, 2)} Mbps × ${T.formatNumber(peak, 0)}% active × (1 + ${T.formatNumber(head, 0)}% headroom)`, true], ['Peak demand before headroom', mbps(r.peakMbps)], ...(avg ? [['Estimated data per month', Transfer.bytes(r.monthlyBytes), `At ${T.formatNumber(avg, 0)}% average use`]] : [])],
+          nodes: [viz.stack('Planned capacity', [{ label: 'Peak demand', value: r.peakMbps, display: mbps(r.peakMbps), tone: 'blue' }, { label: 'Headroom', value: r.required - r.peakMbps, display: mbps(r.required - r.peakMbps), tone: 'muted' }])],
+          lines: ['Plan for the busiest hour, not the average. Upload and download needs differ, so check both directions for video calls and backups.'],
+          inputs: [['People or devices', T.formatNumber(users, 0)], ['Rate each', `${rate} Mbps`], ['Active at peak', `${peak}%`], ['Headroom', `${head}%`], ['Average use', avg ? `${avg}%` : 'Not entered']],
+          outputs: [['Bandwidth to plan for', mbps(r.required)], ['Peak demand', mbps(r.peakMbps)], ...(avg ? [['Data per month', Transfer.bytes(r.monthlyBytes)]] : [])]
+        };
+      }
       const preset = c.value('preset');
       const overhead = preset === 'custom' ? c.number('overhead', { required: true, label: 'an overhead percentage', max: 95 }) : Number(preset);
       const needSize = c.mode !== 'data';

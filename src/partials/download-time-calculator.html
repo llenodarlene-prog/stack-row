@@ -1,10 +1,11 @@
-<div class="calc-tabs" role="tablist" aria-label="Calculate">
+<div class="calc-tabs calc-tabs-wrap" role="tablist" aria-label="Calculate">
   <button type="button" role="tab" id="tab-time" aria-controls="panel-time" aria-selected="true" data-mode="time">{{icon:clock}}Transfer Time</button>
   <button type="button" role="tab" id="tab-speed" aria-controls="panel-speed" aria-selected="false" tabindex="-1" data-mode="speed">{{icon:gauge}}Required Speed</button>
   <button type="button" role="tab" id="tab-data" aria-controls="panel-data" aria-selected="false" tabindex="-1" data-mode="data">{{icon:database}}Data Moved</button>
+  <button type="button" role="tab" id="tab-bandwidth" aria-controls="panel-bandwidth" aria-selected="false" tabindex="-1" data-mode="bandwidth">{{icon:users}}Bandwidth Planning</button>
 </div>
 <form class="calc-form" novalidate>
-  <div class="calc-field calc-radios" role="radiogroup" aria-label="Direction">
+  <div class="calc-field calc-radios" role="radiogroup" aria-label="Direction" id="dt-direction-group">
     <span class="calc-label">Direction</span>
     <label><input type="radio" name="direction" value="download" checked> Download</label>
     <label><input type="radio" name="direction" value="upload"> Upload</label>
@@ -25,8 +26,17 @@
   <div role="tabpanel" id="panel-time" aria-labelledby="tab-time" class="calc-panel"></div>
   <div role="tabpanel" id="panel-speed" aria-labelledby="tab-speed" class="calc-panel" hidden></div>
   <div role="tabpanel" id="panel-data" aria-labelledby="tab-data" class="calc-panel" hidden></div>
-  <div class="calc-grid">
+  <div role="tabpanel" id="panel-bandwidth" aria-labelledby="tab-bandwidth" class="calc-panel" hidden>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="bw-users">People or devices</label><input id="bw-users" name="bw_users" inputmode="numeric" autocomplete="off"></div>
+      <div class="calc-field"><label for="bw-rate">Bandwidth each needs while active (Mbps)</label><input id="bw-rate" name="bw_rate" inputmode="decimal" autocomplete="off"><p class="calc-hint">Check your apps' published requirements, such as a video calling service's guide.</p></div>
+      <div class="calc-field"><label for="bw-peak">Active at the busiest time (%)</label><input id="bw-peak" name="bw_peak" inputmode="decimal" autocomplete="off" data-slider="1,100,1"></div>
+      <div class="calc-field"><label for="bw-head">Headroom for growth and spikes (%)</label><input id="bw-head" name="bw_head" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="bw-avg">Average use across the month (%)</label><input id="bw-avg" name="bw_avg" inputmode="decimal" autocomplete="off"><p class="calc-hint">Optional. Used to estimate data per month.</p></div>
+    </div>
+  </div>
+  <div class="calc-grid" id="dt-overhead-group">
     <div class="calc-field"><label for="dt-preset">Overhead assumption</label><select id="dt-preset" name="preset"><option value="0">Ideal (0%)</option><option value="10" selected>Wired connection (10%)</option><option value="25">Wi-Fi (25%)</option><option value="20">VPN (20%)</option><option value="15">Cloud upload (15%)</option><option value="custom">Custom</option></select></div>
     <div class="calc-field" data-hidden-by="custom" id="dt-custom-field"><label for="dt-overhead">Custom overhead percentage</label><input id="dt-overhead" name="overhead" data-slider="0,90,1" inputmode="decimal" autocomplete="off"></div>
   </div>
-  <p class="calc-hint">Overhead presets are Stack Row planning assumptions, not measurements. Edit them to match a speed test of your own connection.</p>
+  <p class="calc-hint" id="dt-overhead-hint">Overhead presets are Stack Row planning assumptions, not measurements. Edit them to match a speed test of your own connection.</p>
