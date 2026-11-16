@@ -297,7 +297,8 @@
   const Subnet = {
     parse4(text) {
       const parts = String(text).trim().split('.');
-      if (parts.length !== 4 || parts.some(p => !/^\d{1,3}$/.test(p) || Number(p) > 255)) return null;
+      // Leading zeros (010) are rejected: some systems read them as octal.
+      if (parts.length !== 4 || parts.some(p => !/^(0|[1-9]\d{0,2})$/.test(p) || Number(p) > 255)) return null;
       return parts.reduce((n, p) => n * 256 + Number(p), 0);
     },
     format4: n => [24, 16, 8, 0].map(s => Math.floor(n / 2 ** s) % 256).join('.'),
@@ -349,6 +350,66 @@
       const size = 1n << hostBits;
       const network = (address >> hostBits) << hostBits;
       return { network, last: network + size - 1n, size };
+    },
+    expand6(n) { const groups = []; for (let i = 7; i >= 0; i--) groups.push(((n >> BigInt(i * 16)) & 0xffffn).toString(16).padStart(4, '0')); return groups.join(':'); },
+    // "addr/prefix" for either family. Values are BigInt for both, so splitting
+    // and aggregation share one code path.
+    parseCidr(text) {
+      const raw = String(text ?? '').trim();
+      if (!raw) return { error: 'empty', message: 'Enter a network in CIDR form, such as 10.0.0.0/16.' };
+      if (raw.includes('%')) return { error: 'zone', message: 'Remove the zone identifier (the part after %). It names a local interface, not part of the network.' };
+      const [addr, prefixText, extra] = raw.split('/');
+      if (extra !== undefined || prefixText === undefined) return { error: 'format', message: `"${raw.slice(0, 50)}" needs a prefix length, such as /24.` };
+      const v6 = addr.includes(':');
+      const bits = v6 ? 128 : 32;
+      const value = v6 ? Subnet.parse6(addr) : Subnet.parse4(addr);
+      if (value === null) return { error: 'address', message: `"${addr.slice(0, 50)}" is not a valid ${v6 ? 'IPv6' : 'IPv4'} address${!v6 && /(^|\.)0\d/.test(addr) ? ' (leading zeros are not allowed)' : ''}.` };
+      if (!/^\d{1,3}$/.test(prefixText) || Number(prefixText) > bits) return { error: 'prefix', message: `Use a prefix from /0 to /${bits}.` };
+      const prefix = Number(prefixText);
+      const address = BigInt(value);
+      const host = BigInt(bits - prefix);
+      const network = (address >> host) << host;
+      return { family: v6 ? 6 : 4, bits, prefix, address, network, last: network + (1n << host) - 1n, hostBitsSet: network !== address };
+    },
+    formatBig(family, n) { return family === 6 ? Subnet.format6(n) : Subnet.format4(Number(n)); },
+    // Splits a block into equal subnets of newPrefix. Only the first `limit`
+    // are listed; the exact total is returned as a BigInt.
+    split(cidr, newPrefix, limit = 1024) {
+      if (!Number.isInteger(newPrefix) || newPrefix <= cidr.prefix || newPrefix > cidr.bits) return { error: 'split', message: `The new prefix must be longer than /${cidr.prefix} and at most /${cidr.bits}.` };
+      const total = 1n << BigInt(newPrefix - cidr.prefix);
+      const step = 1n << BigInt(cidr.bits - newPrefix);
+      const shown = total < BigInt(limit) ? Number(total) : limit;
+      const subnets = [];
+      for (let i = 0; i < shown; i++) { const start = cidr.network + step * BigInt(i); subnets.push({ network: start, last: start + step - 1n, prefix: newPrefix }); }
+      return { total, subnets, truncated: total > BigInt(limit), step };
+    },
+    // Combines aligned, adjacent blocks of equal size, repeating until nothing
+    // more can merge. Overlaps and mixed families are reported, not merged.
+    aggregate(list, { max = 1000 } = {}) {
+      const items = list.map(s => s.trim()).filter(Boolean);
+      if (!items.length) return { error: 'empty', message: 'Paste at least one network, one per line.' };
+      if (items.length > max) return { error: 'count', message: `Paste at most ${max} networks.` };
+      const parsed = [];
+      for (const [i, item] of items.entries()) { const c = Subnet.parseCidr(item); if (c.error) return { error: c.error, message: `Line ${i + 1}: ${c.message}`, line: i + 1 }; parsed.push(c); }
+      if (new Set(parsed.map(c => c.family)).size > 1) return { error: 'family', message: 'The list mixes IPv4 and IPv6 networks. Aggregate each family separately.' };
+      parsed.sort((a, b) => (a.network < b.network ? -1 : a.network > b.network ? 1 : a.prefix - b.prefix));
+      for (let i = 1; i < parsed.length; i++) {
+        if (parsed[i].network <= parsed[i - 1].last) return { error: 'overlap', message: `${Subnet.formatBig(parsed[i].family, parsed[i].network)}/${parsed[i].prefix} overlaps ${Subnet.formatBig(parsed[i - 1].family, parsed[i - 1].network)}/${parsed[i - 1].prefix}. Remove the overlap first.` };
+      }
+      let blocks = parsed.map(c => ({ network: c.network, prefix: c.prefix }));
+      const bits = parsed[0].bits; let steps = 0;
+      for (let changed = true; changed && steps < 256; steps++) {
+        changed = false;
+        const next = [];
+        for (let i = 0; i < blocks.length; i++) {
+          const a = blocks[i]; const b = blocks[i + 1];
+          const size = 1n << BigInt(bits - a.prefix);
+          if (b && a.prefix > 0 && b.prefix === a.prefix && b.network === a.network + size && a.network % (size * 2n) === 0n) { next.push({ network: a.network, prefix: a.prefix - 1 }); i++; changed = true; }
+          else next.push(a);
+        }
+        blocks = next;
+      }
+      return { family: parsed[0].family, input: parsed.length, blocks, hostBitsFixed: parsed.filter(c => c.hostBitsSet).length };
     }
   };
 

@@ -1,0 +1,15 @@
+<div class="calc-tabs" role="tablist" aria-label="Choose an action">
+  <button type="button" role="tab" id="tab-beautify" aria-controls="panel-xml" aria-selected="true" data-mode="beautify">{{icon:file-code}}Beautify</button>
+  <button type="button" role="tab" id="tab-minify" aria-controls="panel-xml" aria-selected="false" tabindex="-1" data-mode="minify">{{icon:code}}Minify</button>
+  <button type="button" role="tab" id="tab-validate" aria-controls="panel-xml" aria-selected="false" tabindex="-1" data-mode="validate">{{icon:shield}}Validate</button>
+</div>
+<form class="calc-form" novalidate>
+  <div role="tabpanel" id="panel-xml" aria-labelledby="tab-beautify" class="calc-panel">
+    <div class="calc-field"><label for="xf-text">XML document</label><textarea id="xf-text" name="xml" spellcheck="false" rows="12" aria-describedby="xf-text-hint"></textarea><p class="calc-hint" id="xf-text-hint">Paste XML or open a file. Up to 1 MB and 256 levels of nesting.</p></div>
+    <div class="calc-field"><label for="xf-file">Open an XML file from this device</label><input id="xf-file" type="file" accept=".xml,.xsd,.xsl,.xslt,.svg,.rss,.atom,.plist,text/xml,application/xml"></div>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="xf-indent">Indentation</label><select id="xf-indent" name="indent"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="tab">Tab</option></select></div>
+      <div class="calc-field"><label for="xf-comments">Comments</label><select id="xf-comments" name="comments"><option value="keep">Keep comments</option><option value="drop">Remove comments</option></select></div>
+      <div class="calc-field"><label for="xf-tree">Tree preview</label><select id="xf-tree" name="tree"><option value="show">Show tree</option><option value="hide">Text only</option></select></div>
+    </div>
+  </div>

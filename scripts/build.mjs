@@ -58,32 +58,34 @@ const questionStyles = await fingerprint('src/styles/questions.css', 'styles', '
 const calculatorStyles = await fingerprint('src/styles/calculator.css', 'styles', 'calculator', 'css');
 const toolCore = await fingerprint('src/scripts/tool-core.js', 'scripts', 'tool-core', 'js');
 const toolFormulas = await fingerprint('src/scripts/tool-formulas.js', 'scripts', 'tool-formulas', 'js');
-function toolShell(inputs, { example = true } = {}) {
+// toolShell options let converters, generators and validators use their own
+// labels, actions and privacy statement. Defaults match the calculators.
+function toolShell(inputs, { example = true, submit = 'Calculate', submitIcon = 'calculator', exampleLabel = 'Load example', reset = 'Reset calculator', copy = 'Copy results', csv = 'Download CSV', share = true, forget = true, print = true, privacy = 'Calculations run in your browser. Nothing you enter is sent to Stack Row.', empty = 'Start typing and results appear here instantly, with the formula behind each one. Or load the example.', heading = 'Calculator', resultsTitle = 'Results' } = {}) {
   return `<section class="calc" id="calculator" aria-labelledby="calc-title">
-  <h2 id="calc-title" class="visually-hidden">Calculator</h2>
-  <noscript><p class="calc-note">This calculator needs JavaScript. The formulas below show how to work out each result by hand.</p></noscript>
+  <h2 id="calc-title" class="visually-hidden">${heading}</h2>
+  <noscript><p class="calc-note">This ${heading.toLowerCase()} needs JavaScript. The method below explains how each result is worked out.</p></noscript>
   <div class="calc-shell">
     <div class="calc-inputs">
 ${inputs}
         <div class="calc-actions">
-          <button type="submit" class="calc-primary">{{icon:calculator}}Calculate</button>${example ? `
-          <button type="button" class="calc-secondary" id="calc-example">{{icon:sparkles}}Load example</button>` : ''}
-          <button type="button" class="calc-link" id="calc-reset">{{icon:refresh}}Reset calculator</button>
+          <button type="submit" class="calc-primary">{{icon:${submitIcon}}}${submit}</button>${example ? `
+          <button type="button" class="calc-secondary" id="calc-example">{{icon:sparkles}}${exampleLabel}</button>` : ''}
+          <button type="button" class="calc-link" id="calc-reset">{{icon:refresh}}${reset}</button>
         </div>
       </form>
     </div>
     <div class="calc-results" aria-labelledby="calc-results-title">
-      <h2 id="calc-results-title" class="calc-results-title">{{icon:chart-bar}}Results</h2>
-      <div id="calc-output" class="calc-output"><div class="calc-empty">{{icon:bulb}}<p>Start typing and results appear here instantly, with the formula behind each one. Or load the example.</p></div></div>
+      <h2 id="calc-results-title" class="calc-results-title">{{icon:chart-bar}}${resultsTitle}</h2>
+      <div id="calc-output" class="calc-output"><div class="calc-empty">{{icon:bulb}}<p>${empty}</p></div></div>
       <p class="calc-warning" id="calc-warning" role="alert" hidden></p>
       <div class="calc-result-actions" id="calc-result-actions" hidden>
-        <button type="button" class="calc-secondary" id="calc-copy">{{icon:copy}}Copy results</button>
-        <button type="button" class="calc-secondary" id="calc-share">{{icon:share}}Copy share link</button>
-        <button type="button" class="calc-secondary" id="calc-csv">{{icon:download}}Download CSV</button>
-        <button type="button" class="calc-secondary" id="calc-print">{{icon:printer}}Print results</button>
-        <button type="button" class="calc-link" id="calc-forget">Forget saved calculation</button>
+        <button type="button" class="calc-secondary" id="calc-copy">{{icon:copy}}${copy}</button>${share ? `
+        <button type="button" class="calc-secondary" id="calc-share">{{icon:share}}Copy share link</button>` : ''}
+        <button type="button" class="calc-secondary" id="calc-csv">{{icon:download}}${csv}</button>${print ? `
+        <button type="button" class="calc-secondary" id="calc-print">{{icon:printer}}Print results</button>` : ''}${forget ? `
+        <button type="button" class="calc-link" id="calc-forget">Forget saved calculation</button>` : ''}
       </div>
-      <p class="calc-privacy">{{icon:lock}}Calculations run in your browser. Nothing you enter is sent to Stack Row.</p>
+      <p class="calc-privacy">{{icon:lock}}${privacy}</p>
       <p class="visually-hidden" id="calc-status" aria-live="polite"></p>
     </div>
   </div>
@@ -102,6 +104,23 @@ for (const name of ['markup', 'binary-hex', 'raid', 'download-time', 'roi', 'cpm
   calculatorTools[name] = {
     scripts: [toolCore, toolFormulas, ...(toolExtras[name] || []), await fingerprint(`src/scripts/${name}-calculator.js`, 'scripts', `${name}-calculator`, 'js')],
     markup: withIcons(toolShell(await readFile(`src/partials/${name}-calculator.html`, 'utf8')))
+  };
+}
+// Developer and business utilities: each names its partial, its page script,
+// any extra logic files, and its shell options.
+const utilityTools = {
+  'unix-timestamp-converter': { logic: ['developer-tool-formulas'], shell: { heading: 'Converter', submit: 'Convert', submitIcon: 'transform', exampleLabel: 'Load example', reset: 'Reset converter', csv: 'Download CSV', forget: false, print: false, privacy: 'Conversions run in your browser. Nothing is saved, and bulk lists never enter the page address.', empty: 'Enter a timestamp or a date and the conversion appears here as you type.' } },
+  'uuid-generator': { logic: ['developer-tool-formulas'], shell: { heading: 'Generator', submit: 'Generate', submitIcon: 'fingerprint', exampleLabel: 'Check an example', reset: 'Reset generator', copy: 'Copy all', csv: 'Download CSV', share: false, forget: false, print: false, privacy: 'UUIDs are generated in your browser with the Web Cryptography API. They are not sent to Stack Row, saved, or added to the page address.', empty: 'Choose your options and select Generate.' } },
+  'url-encoder-decoder': { logic: ['developer-tool-formulas'], shell: { heading: 'Encoder', submit: 'Run', submitIcon: 'transform', reset: 'Reset encoder', copy: 'Copy output', csv: 'Download TXT', share: false, forget: false, print: false, privacy: 'Text is processed in your browser and never fetched, saved, or put in the page address. URLs can contain tokens or personal data, so share them with care.', empty: 'Paste text or a URL and the result appears here as you type.' } },
+  'xml-formatter-validator': { logic: ['developer-tool-formulas'], shell: { heading: 'Formatter', submit: 'Run', submitIcon: 'file-code', reset: 'Reset formatter', copy: 'Copy XML', csv: 'Download XML', share: false, forget: false, print: false, privacy: 'XML is processed in your browser. Files are read on this device only. Nothing is uploaded, saved, or put in the page address, and no external entity or URL is ever loaded.', empty: 'Paste XML or open a file, and the formatted result appears here as you type.' } },
+  'json-validator-formatter': { logic: ['developer-tool-formulas'], shell: { heading: 'Formatter', submit: 'Run', submitIcon: 'braces', reset: 'Reset formatter', copy: 'Copy output', csv: 'Download JSON', share: false, forget: false, print: false, privacy: 'JSON is processed in your browser. Files are read on this device only. Nothing is uploaded, saved, or put in the page address. Avoid pasting secrets into any online tool.', empty: 'Paste JSON or open a file, and the result appears here as you type.' } },
+  'customer-lifetime-value-calculator': { logic: ['business-tool-formulas'], shell: {} },
+  'invoice-generator': { logic: ['business-tool-formulas'], shell: { heading: 'Invoice generator', submit: 'Update invoice', submitIcon: 'file-invoice', reset: 'Start a new invoice', copy: 'Copy summary', csv: 'Download draft (JSON)', share: false, forget: true, print: true, privacy: 'Your invoice stays in this browser. Nothing is uploaded or sent, and a draft is saved only if you tick the box. This tool does not send invoices, take payments, or give tax advice.', empty: 'Fill in the details and your invoice appears here.', resultsTitle: 'Invoice' } }
+};
+for (const [name, { logic = [], shell = {} }] of Object.entries(utilityTools)) {
+  calculatorTools[name] = {
+    scripts: [toolCore, ...await Promise.all(logic.map(file => fingerprint(`src/scripts/${file}.js`, 'scripts', file, 'js'))), await fingerprint(`src/scripts/${name}.js`, 'scripts', name, 'js')],
+    markup: withIcons(toolShell(await readFile(`src/partials/${name}.html`, 'utf8'), shell))
   };
 }
 const toolFor = item => calculatorTools[item.tool || 'arr-mrr'];
@@ -475,7 +494,7 @@ function schemaFor(item, url) {
     const faq = faqEntries(item.body);
     const app = {
       '@type': 'WebApplication', '@id': `${url}#app`, name: item.title, description: item.description, url,
-      applicationCategory: 'BusinessApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript',
+      applicationCategory: item.app_category || 'BusinessApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript',
       isAccessibleForFree: true, publisher: { '@id': orgId }, inLanguage: site.locale
     };
     webpage.mainEntity = { '@id': `${url}#app` };
@@ -527,7 +546,7 @@ function toolCards() {
   const cards = visible.filter(entry => entry.template === 'calculator' && entry.draft !== true && !entry.scheduled).sort((a, b) => Number(a.order ?? 99) - Number(b.order ?? 99));
   const categories = [...new Set(cards.map(entry => entry.category || 'Calculator'))].sort();
   const filter = `<div class="tool-filter" id="tool-filter" hidden><div class="tool-chips" role="group" aria-label="Filter by category"><button type="button" class="tool-chip" data-category="all" aria-pressed="true">${tablerIcon('chart-dots-3')}All</button>${categories.map(c => `<button type="button" class="tool-chip" data-category="${escapeHtml(c)}" aria-pressed="false">${tablerIcon(categoryIcons[c] || 'calculator')}${escapeHtml(c)}</button>`).join('')}</div><div class="tool-search">${tablerIcon('search')}<label for="tool-search" class="visually-hidden">Search calculators</label><input id="tool-search" type="search" placeholder="Search calculators" autocomplete="off"><button type="button" class="calc-link" id="tool-clear">Clear</button></div><p class="calc-hint" id="tool-count" aria-live="polite"></p></div>`;
-  return `${filter}<ul class="tool-cards" aria-label="Calculators">${cards.map(entry => `<li class="tool-card" data-category="${escapeHtml(entry.category || 'Calculator')}"><div class="tool-card-top"><span class="tool-card-icon" data-category="${escapeHtml(entry.category || '')}">${tablerIcon(entry.icon || 'calculator')}</span><p class="calc-badge">${escapeHtml(entry.category || 'Calculator')}</p></div><h2><a href="${entry.slug}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.card || entry.description)}</p><a class="calc-secondary tool-card-action" href="${entry.slug}" aria-label="Open the ${escapeHtml(entry.title)}">Open calculator${tablerIcon('arrow-right')}</a></li>`).join('')}</ul><p class="calc-note" id="tool-empty" hidden>No calculators match. <button type="button" class="calc-link" id="tool-empty-clear">Clear the search</button>.</p>`;
+  return `${filter}<ul class="tool-cards" aria-label="Calculators">${cards.map(entry => `<li class="tool-card" data-category="${escapeHtml(entry.category || 'Calculator')}"><div class="tool-card-top"><span class="tool-card-icon" data-category="${escapeHtml(entry.category || '')}">${tablerIcon(entry.icon || 'calculator')}</span><p class="calc-badge">${escapeHtml(entry.category || 'Calculator')}</p></div><h2><a href="${entry.slug}">${escapeHtml(entry.title)}</a></h2><p>${escapeHtml(entry.card || entry.description)}</p><a class="calc-secondary tool-card-action" href="${entry.slug}" aria-label="Open the ${escapeHtml(entry.title)}">${escapeHtml(entry.action || 'Open calculator')}${tablerIcon('arrow-right')}</a></li>`).join('')}</ul><p class="calc-note" id="tool-empty" hidden>No calculators match. <button type="button" class="calc-link" id="tool-empty-clear">Clear the search</button>.</p>`;
 }
 
 const isQuestions = item => item.template === 'questions' || item.template === 'questions-index';

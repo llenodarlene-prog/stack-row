@@ -187,3 +187,40 @@ test('billable hours and required rate', () => {
   assert.equal(Billable.hours({ weeklyHours: 40, weeks: 46, utilization: 75 }).billable, 1380);
   assert.equal(Billable.requiredRate({ income: 100000, expenses: 20000, billableHours: 1200, taxPct: 25 }).rate.toFixed(2), '133.33');
 });
+
+test('subnet: CIDR parsing, boundaries, leading zeros and zone identifiers', () => {
+  const p = c => Subnet.parseCidr(c);
+  assert.equal(p('0.0.0.0/0').last, 4294967295n);
+  assert.equal(p('10.1.2.3/32').network, p('10.1.2.3/32').last);
+  assert.equal(p('10.0.0.5/30').network, BigInt(Subnet.parse4('10.0.0.4')));
+  assert.equal(p('192.168.1.10/24').hostBitsSet, true);
+  assert.equal(p('010.0.0.1/8').error, 'address');
+  assert.equal(Subnet.parse4('010.0.0.1'), null);
+  assert.equal(p('fe80::1%eth0/64').error, 'zone');
+  assert.equal(p('10.0.0.0/33').error, 'prefix');
+  assert.equal(p('::/0').last, (1n << 128n) - 1n);
+  assert.equal(p('2001:db8::1/127').last - p('2001:db8::1/127').network, 1n);
+  assert.equal(p('2001:db8::1/128').network, p('2001:db8::1/128').last);
+  assert.equal(Subnet.expand6(Subnet.parse6('2001:db8::1')), '2001:0db8:0000:0000:0000:0000:0000:0001');
+});
+
+test('subnet: splitting with exact large counts and caps', () => {
+  const r = Subnet.split(Subnet.parseCidr('10.0.0.0/22'), 24);
+  assert.equal(r.total, 4n);
+  assert.deepEqual([...r.subnets].map(s => Subnet.formatBig(4, s.network)), ['10.0.0.0', '10.0.1.0', '10.0.2.0', '10.0.3.0']);
+  const big = Subnet.split(Subnet.parseCidr('2001:db8::/32'), 96, 1024);
+  assert.equal(big.total, 2n ** 64n); assert.equal(big.subnets.length, 1024); assert.equal(big.truncated, true);
+  assert.equal(Subnet.split(Subnet.parseCidr('10.0.0.0/24'), 24).error, 'split');
+  assert.equal(Subnet.split(Subnet.parseCidr('10.0.0.0/24'), 33).error, 'split');
+});
+
+test('subnet: multi-step aggregation, overlaps and mixed families', () => {
+  const r = Subnet.aggregate(['10.0.3.0/24', '10.0.1.0/24', '10.0.0.0/24', '10.0.2.0/24', '10.0.5.0/24']);
+  assert.deepEqual([...r.blocks].map(b => `${Subnet.formatBig(4, b.network)}/${b.prefix}`), ['10.0.0.0/22', '10.0.5.0/24']);
+  assert.deepEqual([...Subnet.aggregate(['10.0.1.0/24', '10.0.2.0/24']).blocks].map(b => b.prefix), [24, 24]);
+  const v6 = Subnet.aggregate(['2001:db8::/33', '2001:db8:8000::/33']);
+  assert.equal(`${Subnet.formatBig(6, v6.blocks[0].network)}/${v6.blocks[0].prefix}`, '2001:db8::/32');
+  assert.equal(Subnet.aggregate(['10.0.0.0/24', '10.0.0.128/25']).error, 'overlap');
+  assert.equal(Subnet.aggregate(['10.0.0.0/24', '::/64']).error, 'family');
+  assert.equal(Subnet.aggregate(['nonsense']).line, 1);
+});

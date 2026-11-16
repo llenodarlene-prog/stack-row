@@ -1,0 +1,55 @@
+<form class="calc-form calc-invoice-form" novalidate>
+  <fieldset class="calc-group"><legend>Your business</legend>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="inv-seller">Business name</label><input id="inv-seller" name="sellerName" maxlength="500" autocomplete="organization"></div>
+      <div class="calc-field"><label for="inv-seller-email">Email</label><input id="inv-seller-email" name="sellerEmail" type="email" maxlength="500" autocomplete="email"></div>
+      <div class="calc-field"><label for="inv-seller-phone">Phone</label><input id="inv-seller-phone" name="sellerPhone" maxlength="500" autocomplete="tel"></div>
+      <div class="calc-field"><label for="inv-seller-taxlabel">Tax ID label (optional)</label><input id="inv-seller-taxlabel" name="sellerTaxLabel" maxlength="500" placeholder="For example VAT number or EIN"></div>
+      <div class="calc-field"><label for="inv-seller-taxid">Tax ID (optional)</label><input id="inv-seller-taxid" name="sellerTaxId" maxlength="500"></div>
+    </div>
+    <div class="calc-field"><label for="inv-seller-address">Address</label><textarea id="inv-seller-address" name="sellerAddress" rows="3" maxlength="2000"></textarea></div>
+    <div class="calc-field"><label for="inv-logo">Logo (PNG, JPEG, WebP or GIF, up to 1 MB)</label><input id="inv-logo" type="file" accept="image/png,image/jpeg,image/webp,image/gif"><p class="calc-hint" id="inv-logo-status" aria-live="polite">The logo is resized in your browser and never uploaded. SVG files are not accepted.</p><button type="button" class="calc-link" id="inv-logo-remove" hidden>Remove logo</button></div>
+  </fieldset>
+  <fieldset class="calc-group"><legend>Bill to</legend>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="inv-customer">Customer name</label><input id="inv-customer" name="customerName" maxlength="500"></div>
+      <div class="calc-field"><label for="inv-customer-email">Email</label><input id="inv-customer-email" name="customerEmail" type="email" maxlength="500"></div>
+      <div class="calc-field"><label for="inv-customer-phone">Phone</label><input id="inv-customer-phone" name="customerPhone" maxlength="500"></div>
+      <div class="calc-field"><label for="inv-customer-taxlabel">Tax ID label (optional)</label><input id="inv-customer-taxlabel" name="customerTaxLabel" maxlength="500"></div>
+      <div class="calc-field"><label for="inv-customer-taxid">Tax ID (optional)</label><input id="inv-customer-taxid" name="customerTaxId" maxlength="500"></div>
+    </div>
+    <div class="calc-field"><label for="inv-customer-address">Address</label><textarea id="inv-customer-address" name="customerAddress" rows="3" maxlength="2000"></textarea></div>
+  </fieldset>
+  <fieldset class="calc-group"><legend>Invoice details</legend>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="inv-number">Invoice number</label><input id="inv-number" name="number" maxlength="500"></div>
+      <div class="calc-field"><label for="inv-po">PO number (optional)</label><input id="inv-po" name="po" maxlength="500"></div>
+      <div class="calc-field"><label for="inv-issue">Issue date</label><input id="inv-issue" name="issueDate" type="date"></div>
+      <div class="calc-field"><label for="inv-due">Due date</label><input id="inv-due" name="dueDate" type="date"></div>
+      <div class="calc-field"><label for="inv-currency">Currency</label><select id="inv-currency" name="currency"><option value="USD">USD, US dollar</option><option value="EUR">EUR, euro</option><option value="GBP">GBP, pound sterling</option><option value="CAD">CAD, Canadian dollar</option><option value="AUD">AUD, Australian dollar</option><option value="NZD">NZD, New Zealand dollar</option><option value="CHF">CHF, Swiss franc</option><option value="SGD">SGD, Singapore dollar</option><option value="INR">INR, Indian rupee</option><option value="PHP">PHP, Philippine peso</option><option value="MXN">MXN, Mexican peso</option><option value="BRL">BRL, Brazilian real</option><option value="ZAR">ZAR, South African rand</option><option value="SEK">SEK, Swedish krona</option><option value="JPY">JPY, Japanese yen (no decimals)</option><option value="KRW">KRW, South Korean won (no decimals)</option></select></div>
+      <div class="calc-field"><label for="inv-terms">Payment terms</label><select id="inv-terms" name="terms"><option value="Due on receipt">Due on receipt</option><option value="Net 7">Net 7</option><option value="Net 15">Net 15</option><option value="Net 30" selected>Net 30</option><option value="Net 60">Net 60</option><option value="">None</option></select></div>
+    </div>
+  </fieldset>
+  <fieldset class="calc-group"><legend>Line items</legend>
+    <div id="inv-lines"></div>
+    <button type="button" class="calc-secondary" id="inv-add">{{icon:list}}Add line</button>
+  </fieldset>
+  <fieldset class="calc-group"><legend>Discount, tax and payments</legend>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="inv-discount">Invoice discount</label><input id="inv-discount" name="discount" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="inv-discount-type">Discount type</label><select id="inv-discount-type" name="discountType"><option value="percent">Percent of subtotal</option><option value="amount">Fixed amount</option></select></div>
+      <div class="calc-field"><label for="inv-taxmode">Tax</label><select id="inv-taxmode" name="taxMode"><option value="none">No tax</option><option value="invoice">One rate for the invoice</option><option value="line">A rate on each line</option></select></div>
+      <div class="calc-field" data-taxmode="invoice"><label for="inv-taxrate">Tax rate (%)</label><input id="inv-taxrate" name="taxRate" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field" data-taxmode="invoice"><label for="inv-taxship">Tax shipping and other charges?</label><select id="inv-taxship" name="taxShipping"><option value="no">No</option><option value="yes">Yes</option></select></div>
+      <div class="calc-field"><label for="inv-shipping">Shipping</label><input id="inv-shipping" name="shipping" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="inv-charge-label">Other charge label</label><input id="inv-charge-label" name="chargeLabel" maxlength="500" placeholder="For example Rush fee"></div>
+      <div class="calc-field"><label for="inv-charge">Other charge amount</label><input id="inv-charge" name="charge" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="inv-paid">Amount already paid</label><input id="inv-paid" name="paid" inputmode="decimal" autocomplete="off"></div>
+    </div>
+  </fieldset>
+  <fieldset class="calc-group"><legend>Notes</legend>
+    <div class="calc-field"><label for="inv-notes">Notes to the customer</label><textarea id="inv-notes" name="notes" rows="2" maxlength="2000"></textarea></div>
+    <div class="calc-field"><label for="inv-payment">Payment instructions</label><textarea id="inv-payment" name="payment" rows="2" maxlength="2000" placeholder="For example bank details or a payment link"></textarea></div>
+    <div class="calc-field"><label for="inv-termstext">Terms and conditions</label><textarea id="inv-termstext" name="termsText" rows="2" maxlength="2000"></textarea></div>
+  </fieldset>
+  <div class="calc-field"><label for="inv-import">Import a saved draft (.json)</label><input id="inv-import" type="file" accept=".json,application/json"></div>

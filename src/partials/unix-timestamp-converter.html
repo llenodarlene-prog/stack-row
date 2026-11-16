@@ -1,0 +1,44 @@
+<div class="calc-now" id="ts-now" aria-labelledby="ts-now-title">
+  <p class="calc-now-title" id="ts-now-title">{{icon:clock-hour-4}}Current Unix time</p>
+  <div class="calc-now-grid">
+    <div><p class="calc-now-label">Seconds</p><p class="calc-now-value" id="ts-now-s">Loading</p><button type="button" class="calc-link" id="ts-copy-s" aria-label="Copy current Unix time in seconds">Copy</button></div>
+    <div><p class="calc-now-label">Milliseconds</p><p class="calc-now-value" id="ts-now-ms">Loading</p><button type="button" class="calc-link" id="ts-copy-ms" aria-label="Copy current Unix time in milliseconds">Copy</button></div>
+  </div>
+</div>
+<div class="calc-tabs" role="tablist" aria-label="Convert">
+  <button type="button" role="tab" id="tab-single" aria-controls="panel-single" aria-selected="true" data-mode="single">{{icon:clock-hour-4}}Timestamp to date</button>
+  <button type="button" role="tab" id="tab-reverse" aria-controls="panel-reverse" aria-selected="false" tabindex="-1" data-mode="reverse">{{icon:calendar}}Date to timestamp</button>
+  <button type="button" role="tab" id="tab-bulk" aria-controls="panel-bulk" aria-selected="false" tabindex="-1" data-mode="bulk">{{icon:list}}Bulk convert</button>
+</div>
+<form class="calc-form" novalidate>
+  <div role="tabpanel" id="panel-single" aria-labelledby="tab-single" class="calc-panel">
+    <div class="calc-grid">
+      <div class="calc-field"><label for="ts-value">Unix timestamp</label><input id="ts-value" name="ts" inputmode="numeric" autocomplete="off" spellcheck="false" aria-describedby="ts-value-hint"><p class="calc-hint" id="ts-value-hint">Whole number. Use a minus sign for dates before 1970.</p></div>
+      <div class="calc-field"><label for="ts-unit">Unit</label><select id="ts-unit" name="unit"><option value="auto">Auto detect</option><option value="s">Seconds</option><option value="ms">Milliseconds</option><option value="us">Microseconds</option><option value="ns">Nanoseconds</option></select></div>
+      <div class="calc-field"><label for="ts-zone">Display time zone</label><input id="ts-zone" name="zone" list="ts-zones" value="UTC" autocomplete="off" spellcheck="false" aria-describedby="ts-zone-hint"><p class="calc-hint" id="ts-zone-hint">Type to search, such as Europe/London. Use "local" for this browser's zone.</p></div>
+    </div>
+    <p class="calc-hint">Examples:
+      <button type="button" class="calc-link" data-ts-example="0">Epoch zero</button>
+      <button type="button" class="calc-link" data-ts-example="1700000000">Seconds</button>
+      <button type="button" class="calc-link" data-ts-example="1700000000000">Milliseconds</button>
+      <button type="button" class="calc-link" data-ts-example="1700000000000000">Microseconds</button>
+      <button type="button" class="calc-link" data-ts-example="1700000000000000000">Nanoseconds</button>
+      <button type="button" class="calc-link" data-ts-example="-86400">Before 1970</button>
+      <button type="button" class="calc-link" data-ts-example="2147483647">2038 limit</button>
+    </p>
+  </div>
+  <div role="tabpanel" id="panel-reverse" aria-labelledby="tab-reverse" class="calc-panel" hidden>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="ts-date">Date and time</label><input id="ts-date" name="dt" type="datetime-local" step="1"></div>
+      <div class="calc-field"><label for="ts-interp">Read the date as</label><select id="ts-interp" name="interp"><option value="utc">UTC</option><option value="local">Browser local time</option><option value="offset">Explicit offset</option></select></div>
+      <div class="calc-field"><label for="ts-offset">Offset from UTC (only for explicit offset)</label><input id="ts-offset" name="offset" autocomplete="off" spellcheck="false" placeholder="+05:30" aria-describedby="ts-offset-hint"><p class="calc-hint" id="ts-offset-hint">Format +HH:MM or -HH:MM.</p></div>
+    </div>
+  </div>
+  <div role="tabpanel" id="panel-bulk" aria-labelledby="tab-bulk" class="calc-panel" hidden>
+    <div class="calc-field"><label for="ts-bulk">Timestamps, one per line</label><textarea id="ts-bulk" name="bulk" spellcheck="false" aria-describedby="ts-bulk-hint"></textarea><p class="calc-hint" id="ts-bulk-hint">Up to 500 lines and 100 KB. Nothing is saved or added to the page address.</p></div>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="ts-bunit">Unit</label><select id="ts-bunit" name="bunit"><option value="auto">Auto detect each line</option><option value="s">Seconds</option><option value="ms">Milliseconds</option><option value="us">Microseconds</option><option value="ns">Nanoseconds</option></select></div>
+      <div class="calc-field"><label for="ts-bzone">Display time zone</label><input id="ts-bzone" name="bzone" list="ts-zones" value="UTC" autocomplete="off" spellcheck="false"></div>
+    </div>
+  </div>
+  <datalist id="ts-zones"><option value="UTC"></option><option value="local"></option></datalist>

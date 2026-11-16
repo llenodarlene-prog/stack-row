@@ -117,7 +117,96 @@
     }
   };
 
+  // Privacy and sharing policy. These helpers are pure (no DOM), so tests can
+  // check them directly. Defaults keep the original calculator behavior:
+  // values save automatically, share links carry every non-private field,
+  // and the query string restores them.
+  const DEFAULT_LABELS = { submit: 'Calculate', example: 'Load example', reset: 'Reset calculator', copy: 'Copy results', share: 'Copy share link', csv: 'Download CSV', print: 'Print results', forget: 'Forget saved calculation', save: 'Save my entries in this browser' };
+  const policy = {
+    normalize(tool = {}) {
+      const persistence = ['auto', 'opt-in', 'none'].includes(tool.persistence) ? tool.persistence : 'auto';
+      const shareMode = ['enabled', 'allowlist', 'disabled'].includes(tool.share?.mode) ? tool.share.mode : 'enabled';
+      return {
+        noun: tool.noun || 'calculator',
+        labels: { ...DEFAULT_LABELS, ...(tool.labels || {}) },
+        persistence,
+        share: { mode: shareMode, fields: [...(tool.share?.fields || [])] },
+        restore: tool.restore === false ? false : (tool.restore || {}),
+        private: [...(tool.private || [])],
+        limits: { maxInputBytes: 100000, maxRows: 500, maxItems: 1000, maxFileBytes: 1048576, ...(tool.limits || {}) },
+        exporters: tool.exporters || null,
+        privacyMessage: tool.privacyMessage || ''
+      };
+    },
+    // Which fields may enter a share link. Private fields never do, even if a
+    // configuration mistake also lists them in the allowlist.
+    shareable(name, cfg) {
+      if (cfg.share.mode === 'disabled' || cfg.private.includes(name)) return false;
+      return cfg.share.mode === 'enabled' || cfg.share.fields.includes(name);
+    },
+    // entries: [[name, value]]. Returns a query string, or null when sharing is off.
+    shareQuery(entries, cfg, mode) {
+      if (cfg.share.mode === 'disabled') return null;
+      const query = new URLSearchParams();
+      if (mode) query.set('mode', mode);
+      for (const [name, value] of entries) if (value !== '' && policy.shareable(name, cfg)) query.set(name, value);
+      return query.toString();
+    },
+    // Filters values from a URL or saved state to known, permitted fields.
+    // A field's rule may be a RegExp, a function, or { pattern, maxLength }.
+    restoreValues(source, cfg, known, { fromUrl = true } = {}) {
+      const out = {};
+      if (!source || cfg.restore === false) return out;
+      if (fromUrl && cfg.share.mode === 'disabled') return out;
+      for (const [name, raw] of Object.entries(source)) {
+        if (name === 'mode') { out.mode = String(raw).slice(0, 40); continue; }
+        if (!known.includes(name)) continue;
+        if (fromUrl && !policy.shareable(name, cfg)) continue;
+        const value = String(raw);
+        const rule = cfg.restore[name];
+        const maxLength = rule?.maxLength ?? 80;
+        if (value.length > maxLength) continue;
+        const isPattern = r => r && typeof r.test === 'function';
+        if (isPattern(rule) && !rule.test(value)) continue;
+        if (typeof rule === 'function' && !rule(value)) continue;
+        if (isPattern(rule?.pattern) && !rule.pattern.test(value)) continue;
+        out[name] = value;
+      }
+      return out;
+    },
+    canStore(cfg, optedIn) { return cfg.persistence === 'auto' || (cfg.persistence === 'opt-in' && optedIn === true); },
+    byteLength(text) { return new TextEncoder().encode(String(text)).length; },
+    // Returns an error message for oversized text, or '' when it fits.
+    checkText(text, { maxBytes, maxRows, label = 'This input' } = {}) {
+      const value = String(text ?? '');
+      const bytes = policy.byteLength(value);
+      if (maxBytes && bytes > maxBytes) return `${label} is ${formatBytes(bytes)}. The limit is ${formatBytes(maxBytes)}. Remove some content and try again.`;
+      if (maxRows) {
+        const rows = value.split(/\r\n|\r|\n/).filter(line => line.trim() !== '').length;
+        if (rows > maxRows) return `${label} has ${rows.toLocaleString('en-US')} lines. The limit is ${maxRows.toLocaleString('en-US')} lines.`;
+      }
+      return '';
+    },
+    checkCount(count, max, label = 'Quantity') {
+      if (!Number.isInteger(count) || count < 1) return `${label} must be a whole number of 1 or more.`;
+      if (count > max) return `${label} can be at most ${max.toLocaleString('en-US')}.`;
+      return '';
+    },
+    safeFilename(text) { return String(text).toLowerCase().replace(/\.{2,}/g, '').replace(/[^a-z0-9.-]+/g, '-').replace(/-{2,}/g, '-').replace(/^[-.]+|[-.]+$/g, '').slice(0, 80) || 'stack-row-export'; }
+  };
+  function formatBytes(bytes) { return bytes >= 1048576 ? `${Number((bytes / 1048576).toFixed(2))} MB` : bytes >= 1024 ? `${(bytes / 1024).toFixed(bytes % 1024 ? 1 : 0)} KB` : `${bytes} bytes`; }
+
+  function download(content, { filename, mime }) {
+    const blob = content instanceof Blob ? content : new Blob([content], { type: mime });
+    const link = el('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    document.body.append(link); link.click(); link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+  }
+
   function mount(tool) {
+    const cfg = policy.normalize(tool);
     const host = document.getElementById('calculator');
     if (!host) return;
     const $ = id => document.getElementById(id);
@@ -133,15 +222,63 @@
     let last = null;
 
     const store = {
-      get() { try { return JSON.parse(localStorage.getItem(tool.storeKey) || 'null'); } catch { return null; } },
-      set(value) { try { localStorage.setItem(tool.storeKey, JSON.stringify(value)); } catch { /* storage unavailable */ } },
-      clear() { try { localStorage.removeItem(tool.storeKey); } catch { /* storage unavailable */ } }
+      get() { if (cfg.persistence === 'none' || !tool.storeKey) return null; try { return JSON.parse(localStorage.getItem(tool.storeKey) || 'null'); } catch { return null; } },
+      set(value) { if (!policy.canStore(cfg, optIn?.checked) || !tool.storeKey) return; try { localStorage.setItem(tool.storeKey, JSON.stringify(value)); } catch { /* storage unavailable */ } },
+      clear() { if (!tool.storeKey) return; try { localStorage.removeItem(tool.storeKey); } catch { /* storage unavailable */ } }
     };
     const announce = message => { status.textContent = ''; window.setTimeout(() => { status.textContent = message; }, 30); };
     const flash = (button, text) => { const original = button.dataset.label || button.textContent; button.dataset.label = original; button.textContent = text; window.setTimeout(() => { button.textContent = original; }, 2000); };
 
+    // Page-specific labels, privacy copy, and which actions exist.
+    const relabel = (id, text) => { const button = $(id); if (!button || !text) return; const svg = button.querySelector('svg'); button.replaceChildren(...(svg ? [svg] : []), document.createTextNode(text)); };
+    relabel('calc-example', cfg.labels.example); relabel('calc-reset', cfg.labels.reset); relabel('calc-copy', cfg.labels.copy);
+    relabel('calc-share', cfg.labels.share); relabel('calc-csv', cfg.labels.csv); relabel('calc-print', cfg.labels.print); relabel('calc-forget', cfg.labels.forget);
+    const submitButton = form.querySelector('button[type="submit"]');
+    if (submitButton && tool.labels?.submit) { const svg = submitButton.querySelector('svg'); submitButton.replaceChildren(...(svg ? [svg] : []), document.createTextNode(cfg.labels.submit)); }
+    if (cfg.privacyMessage) { const privacy = host.querySelector('.calc-privacy'); if (privacy) { const svg = privacy.querySelector('svg'); privacy.replaceChildren(...(svg ? [svg] : []), document.createTextNode(cfg.privacyMessage)); } }
+    if (cfg.share.mode === 'disabled') $('calc-share')?.remove();
+    if (cfg.persistence === 'none') $('calc-forget')?.remove();
+    if (tool.print === false) $('calc-print')?.remove();
+    // Opt-in persistence adds a visible checkbox. Nothing is stored until it is ticked.
+    let optIn = null;
+    if (cfg.persistence === 'opt-in') {
+      const wrap = el('p', 'calc-optin');
+      optIn = el('input'); optIn.type = 'checkbox'; optIn.id = 'calc-optin';
+      const label = el('label', '', cfg.labels.save); label.htmlFor = 'calc-optin';
+      wrap.append(optIn, label);
+      host.querySelector('.calc-privacy')?.insertAdjacentElement('beforebegin', wrap);
+      try { optIn.checked = Boolean(tool.storeKey && localStorage.getItem(tool.storeKey)); } catch { optIn.checked = false; }
+      optIn.addEventListener('change', () => { if (optIn.checked) { store.set({ values: Object.fromEntries(entries()), extra: tool.saveState?.(), saved: Date.now() }); announce('Your entries will be saved in this browser.'); } else { store.clear(); announce('Saved entries removed from this browser.'); } });
+    }
+    // Custom exporters replace the CSV button.
+    const exportButtons = [];
+    if (cfg.exporters) {
+      const csvButton = $('calc-csv');
+      for (const exporter of cfg.exporters) {
+        const button = el('button', 'calc-secondary');
+        button.type = 'button';
+        button.append(icon('download'), document.createTextNode(exporter.label));
+        button.addEventListener('click', () => {
+          if (!last) return;
+          const content = exporter.build(last);
+          if (content === null || content === undefined) return;
+          const name = policy.safeFilename(typeof exporter.filename === 'function' ? exporter.filename(last) : `stack-row-${tool.file}-${last.date}`);
+          download(content, { filename: name.endsWith(`.${exporter.extension}`) ? name : `${name}.${exporter.extension}`, mime: exporter.mime });
+          announce(`${exporter.label} started.`);
+        });
+        button.dataset.modes = (exporter.modes || []).join(' ');
+        exportButtons.push(button);
+      }
+      csvButton?.replaceWith(...exportButtons);
+    }
+    // Error summary: after a failed submission, focus moves here and each item
+    // links to its field.
+    const summaryBox = el('div', 'calc-error-summary'); summaryBox.id = 'calc-error-summary'; summaryBox.tabIndex = -1; summaryBox.hidden = true;
+    summaryBox.setAttribute('role', 'alert');
+    form.prepend(summaryBox);
+
     // Every text input gets an error line linked through aria-describedby.
-    for (const input of form.querySelectorAll('input:not([type="radio"]):not([type="checkbox"])')) {
+    for (const input of form.querySelectorAll('input:not([type="radio"]):not([type="checkbox"]):not([type="file"]), textarea')) {
       if (!input.id || document.getElementById(`${input.id}-error`)) continue;
       const error = el('p', 'calc-error'); error.id = `${input.id}-error`; error.hidden = true;
       input.insertAdjacentElement('afterend', error);
@@ -155,9 +292,12 @@
         const on = tab.dataset.mode === next;
         tab.setAttribute('aria-selected', String(on));
         tab.tabIndex = on ? 0 : -1;
-        $(tab.getAttribute('aria-controls')).hidden = !on;
         if (on && focus) tab.focus();
       }
+      // Several tabs may share one panel; it stays visible if the active tab uses it.
+      const shown = tabs.find(tab => tab.dataset.mode === next)?.getAttribute('aria-controls');
+      for (const id of new Set(tabs.map(tab => tab.getAttribute('aria-controls')))) $(id).hidden = id !== shown;
+      for (const button of exportButtons) button.hidden = Boolean(button.dataset.modes) && !button.dataset.modes.split(' ').includes(next);
       tool.onMode?.(next);
     }
     for (const tab of tabs) {
@@ -201,6 +341,18 @@
           if (message) { invalid.push(input); return NaN; }
           return parsed.empty ? fallback : parsed.value;
         },
+        // Reads a text field and enforces byte and row limits without truncating.
+        text(name, { required = false, label = 'This field', maxBytes = cfg.limits.maxInputBytes, maxRows } = {}) {
+          const input = form.elements[name];
+          const value = input?.value ?? '';
+          let message = policy.checkText(value, { maxBytes, maxRows, label });
+          if (!message && required && !value.trim()) { if (quiet) { setError(input, ''); invalid.push(input); return null; } message = `Enter ${label.toLowerCase()}.`; }
+          setError(input, message);
+          if (message) { invalid.push(input); return null; }
+          return value;
+        },
+        limits: cfg.limits,
+        policy,
         fail(name, message) { const input = form.elements[name]; setError(input, message); invalid.push(input); },
         clear(name) { setError(form.elements[name], ''); }
       };
@@ -238,30 +390,49 @@
       sliderSyncs.forEach(sync => sync());
     }
 
-    function params() {
-      const query = new URLSearchParams();
-      if (modes.length) query.set('mode', mode);
+    // Current field values. Private fields and file inputs are never included.
+    function entries() {
+      const list = modes.length ? [['mode', mode]] : [];
       for (const node of fields()) {
-        if (tool.private?.includes(node.name)) continue;
-        if (node.type === 'radio') { if (node.checked) query.set(node.name, node.value); }
-        else if (node.type === 'checkbox') { if (node.checked) query.set(node.name, '1'); }
-        else if (node.value !== '') query.set(node.name, node.value);
+        if (cfg.private.includes(node.name) || node.type === 'file') continue;
+        if (node.type === 'radio') { if (node.checked) list.push([node.name, node.value]); }
+        else if (node.type === 'checkbox') { if (node.checked) list.push([node.name, '1']); }
+        else if (node.value !== '') list.push([node.name, node.value]);
       }
-      return query;
+      return list;
+    }
+    const shareQuery = () => policy.shareQuery(entries().filter(([name]) => name !== 'mode'), cfg, modes.length ? mode : '');
+
+    function showSummary(invalid) {
+      const unique = [...new Set(invalid)].filter(Boolean);
+      summaryBox.replaceChildren(el('p', 'calc-error-summary-title', unique.length === 1 ? 'One field needs attention:' : `${unique.length} fields need attention:`));
+      const list = el('ul');
+      for (const input of unique) {
+        const labelText = (input.labels?.[0]?.textContent || input.name).trim();
+        const message = document.getElementById(`${input.id}-error`)?.textContent || 'Check this value.';
+        const link = el('a', '', `${labelText}: ${message}`);
+        link.href = `#${input.id}`;
+        link.addEventListener('click', event => { event.preventDefault(); input.focus(); });
+        const item = el('li'); item.append(link); list.append(item);
+      }
+      summaryBox.append(list);
+      summaryBox.hidden = false;
+      summaryBox.focus();
     }
 
     function calculate({ explicit = true, save = true, quiet = false } = {}) {
       const invalid = [];
       const result = tool.compute(context(invalid, quiet), { money: value => formatMoney(value, form.elements.currency?.value), copyButton, viz, icon });
       if (invalid.length || !result) {
-        if (explicit && invalid.length) { invalid[0].focus(); announce('Some fields need attention.'); }
+        if (explicit && invalid.length) showSummary(invalid);
         return null;
       }
+      summaryBox.hidden = true;
       show(result);
-      last = { ...result, mode, date: new Date().toISOString().slice(0, 10), params: params() };
-      if (save) store.set({ values: Object.fromEntries(last.params), saved: Date.now() });
+      last = { ...result, mode, date: new Date().toISOString().slice(0, 10), share: shareQuery() };
+      if (save) store.set({ values: Object.fromEntries(entries()), extra: tool.saveState?.(), saved: Date.now() });
       if (explicit) {
-        announce(`${tool.modeNames?.[mode] || tool.name} calculated.`);
+        announce(result.announce || `${tool.modeNames?.[mode] || tool.name} ${tool.doneWord || 'calculated'}.`);
         if (window.matchMedia('(max-width: 899px)').matches) $('calc-results-title').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
       }
       return last;
@@ -271,14 +442,19 @@
     // fields only; compute() validates them like typed input.
     function restore() {
       const query = new URLSearchParams(window.location.search);
-      const saved = store.get();
-      const source = [...query.keys()].length ? Object.fromEntries(query) : saved?.values;
-      if (!source) return false;
+      const known = [...form.elements].map(node => node.name).filter(Boolean);
+      const fromUrl = [...query.keys()].length > 0 && cfg.share.mode !== 'disabled' && cfg.restore !== false;
+      const saved = fromUrl ? null : store.get();
+      const source = fromUrl ? policy.restoreValues(Object.fromEntries(query), cfg, known) : policy.restoreValues(saved?.values, cfg, known, { fromUrl: false });
+      // Tools with their own state (such as invoice line items) restore it
+      // through loadState, which must validate it like an imported file.
+      if (saved?.extra && tool.loadState) { const ok = tool.loadState(saved.extra); if (ok) { tool.onRestore?.(); return true; } }
+      if (!Object.keys(source).length) return false;
       if (source.mode) selectMode(source.mode);
       let filled = false;
       for (const [name, raw] of Object.entries(source)) {
         const node = form.elements[name];
-        const value = String(raw).slice(0, 80);
+        const value = String(raw);
         if (!node || name === 'mode') continue;
         if (node instanceof RadioNodeList) { if ([...node].some(option => option.value === value)) { node.value = value; filled = true; } }
         else if (node.type === 'checkbox') node.checked = value === '1';
@@ -296,7 +472,9 @@
       warning.hidden = true;
       actions.hidden = true;
       last = null;
+      summaryBox.hidden = true;
       store.clear();
+      if (optIn) optIn.checked = false;
       tool.onReset?.();
       if (window.location.search) window.history.replaceState(null, '', window.location.pathname);
     }
@@ -318,7 +496,7 @@
     // Results update as you type; Calculate also saves the calculation and
     // moves to the results on small screens.
     let liveTimer;
-    const live = () => { window.clearTimeout(liveTimer); liveTimer = window.setTimeout(() => calculate({ explicit: false, save: false, quiet: true }), tool.live ? 0 : 200); };
+    const live = () => { if (tool.liveModes && !tool.liveModes.includes(mode)) return; window.clearTimeout(liveTimer); liveTimer = window.setTimeout(() => calculate({ explicit: false, save: tool.saveLive === true, quiet: true }), tool.live ? 0 : 200); };
     form.addEventListener('input', live);
     form.addEventListener('change', live);
     tabs.forEach(tab => tab.addEventListener('click', live));
@@ -351,19 +529,20 @@
       calculate();
       flash(event.currentTarget, 'Example loaded');
     });
-    $('calc-reset').addEventListener('click', () => { clearAll(); if (modes.length) selectMode(modes[0]); form.querySelector('input:not([type="hidden"])')?.focus(); announce('Calculator reset.'); });
-    $('calc-forget').addEventListener('click', () => { store.clear(); announce('Saved calculation removed from this browser.'); });
+    $('calc-reset').addEventListener('click', () => { clearAll(); if (modes.length) selectMode(modes[0]); form.querySelector('input:not([type="hidden"]), textarea')?.focus(); announce(`${cfg.noun[0].toUpperCase()}${cfg.noun.slice(1)} reset.`); });
+    $('calc-forget')?.addEventListener('click', () => { store.clear(); if (optIn) optIn.checked = false; announce('Saved data removed from this browser.'); });
     $('calc-copy').addEventListener('click', event => {
       if (!last) return;
+      if (tool.copy) { const text = tool.copy(last); if (text) copyText(text, event.currentTarget, `${cfg.labels.copy.replace(/^Copy /, '')} copied.`.replace(/^./, s => s.toUpperCase())); return; }
       const lines = [`Stack Row ${tool.name}${tool.modeNames ? `: ${tool.modeNames[last.mode]}` : ''}`, `Calculated: ${last.date}`, '', 'Inputs', ...last.inputs.map(([label, text]) => `${label}: ${text}`), '', 'Results', ...last.outputs.map(([label, text]) => `${label}: ${text}`), '', pageUrl()];
       copyText(lines.join('\n'), event.currentTarget, 'Results copied.');
     });
-    $('calc-share').addEventListener('click', event => {
-      if (!last) return;
-      window.history.replaceState(null, '', `?${last.params.toString()}`);
-      copyText(`${pageUrl()}?${last.params.toString()}`, event.currentTarget, 'Share link copied.');
+    $('calc-share')?.addEventListener('click', event => {
+      if (!last || last.share === null) return;
+      window.history.replaceState(null, '', `?${last.share}`);
+      copyText(`${pageUrl()}?${last.share}`, event.currentTarget, 'Share link copied.');
     });
-    $('calc-csv').addEventListener('click', () => {
+    $('calc-csv')?.addEventListener('click', () => {
       if (!last) return;
       const rows = [[`Stack Row ${tool.name}`], ...(tool.modeNames ? [['Calculation', tool.modeNames[last.mode]]] : []), ['Date', last.date], [], ['Inputs'], ...last.inputs, [], ['Results'], ...last.outputs];
       const blob = new Blob([rows.map(row => row.map(csvCell).join(',')).join('\r\n')], { type: 'text/csv;charset=utf-8' });
@@ -374,15 +553,18 @@
       window.setTimeout(() => URL.revokeObjectURL(link.href), 1000);
       announce('CSV download started.');
     });
-    $('calc-print').addEventListener('click', () => {
+    $('calc-print')?.addEventListener('click', () => {
       if (!last) return;
       host.dataset.printDate = `Calculated ${last.date} · ${pageUrl()}`;
       window.print();
     });
 
+    for (const button of exportButtons) button.hidden = Boolean(button.dataset.modes) && !button.dataset.modes.split(' ').includes(mode);
     if (restore()) calculate({ explicit: false, save: false });
     else tool.onRestore?.();
+    const saveNow = () => { if (last) store.set({ values: Object.fromEntries(entries()), extra: tool.saveState?.(), saved: Date.now() }); };
+    return { calculate, announce, copyText, download, saveNow, clear: clearAll, get last() { return last; }, get optedIn() { return optIn?.checked === true; } };
   }
 
-  root.StackRowTool = { mount, parseNumber, formatMoney, formatNumber, formatPercent, csvCell, viz, icon };
+  root.StackRowTool = { mount, el, parseNumber, formatMoney, formatNumber, formatPercent, csvCell, viz, icon, policy, download, formatBytes };
 })(typeof window !== 'undefined' ? window : globalThis);
