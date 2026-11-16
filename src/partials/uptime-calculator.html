@@ -1,0 +1,38 @@
+<div class="calc-tabs calc-tabs-wrap" role="tablist" aria-label="Calculate">
+  <button type="button" role="tab" id="tab-sla" aria-controls="panel-sla" aria-selected="true" data-mode="sla">{{icon:clock-check}}Allowed downtime</button>
+  <button type="button" role="tab" id="tab-down" aria-controls="panel-down" aria-selected="false" tabindex="-1" data-mode="down">{{icon:percentage}}Uptime from downtime</button>
+  <button type="button" role="tab" id="tab-budget" aria-controls="panel-budget" aria-selected="false" tabindex="-1" data-mode="budget">{{icon:hourglass}}Error budget</button>
+  <button type="button" role="tab" id="tab-incidents" aria-controls="panel-incidents" aria-selected="false" tabindex="-1" data-mode="incidents">{{icon:alert-triangle}}Incidents and MTTR</button>
+  <button type="button" role="tab" id="tab-system" aria-controls="panel-system" aria-selected="false" tabindex="-1" data-mode="system">{{icon:sitemap}}Combined systems</button>
+</div>
+<form class="calc-form" novalidate>
+  <div role="tabpanel" id="panel-sla" aria-labelledby="tab-sla" class="calc-panel">
+    <div class="calc-field"><label for="up-sla">Availability target (%)</label><input id="up-sla" name="sla" inputmode="decimal" autocomplete="off"><p class="calc-hint">For example 99.9 or 99.95.</p></div>
+  </div>
+  <div role="tabpanel" id="panel-down" aria-labelledby="tab-down" class="calc-panel" hidden>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="up-down">Downtime</label><input id="up-down" name="down" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="up-down-unit">Downtime unit</label><select id="up-down-unit" name="down_unit"><option value="60">Minutes</option><option value="1">Seconds</option><option value="3600">Hours</option></select></div>
+      <div class="calc-field"><label for="up-down-period">Over a</label><select id="up-down-period" name="down_period"><option value="month">Month</option><option value="day">Day</option><option value="week">Week</option><option value="quarter">Quarter</option><option value="year">Year</option></select></div>
+    </div>
+  </div>
+  <div role="tabpanel" id="panel-budget" aria-labelledby="tab-budget" class="calc-panel" hidden>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="up-b-sla">Availability target (%)</label><input id="up-b-sla" name="b_sla" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="up-b-period">Budget period</label><select id="up-b-period" name="b_period"><option value="month">Month</option><option value="week">Week</option><option value="quarter">Quarter</option><option value="year">Year</option></select></div>
+      <div class="calc-field"><label for="up-b-used">Downtime used so far (minutes)</label><input id="up-b-used" name="b_used" inputmode="decimal" autocomplete="off"></div>
+    </div>
+  </div>
+  <div role="tabpanel" id="panel-incidents" aria-labelledby="tab-incidents" class="calc-panel" hidden>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="up-i-count">Incidents</label><input id="up-i-count" name="i_count" inputmode="numeric" autocomplete="off"></div>
+      <div class="calc-field"><label for="up-i-mttr">Mean time to repair (minutes)</label><input id="up-i-mttr" name="i_mttr" inputmode="decimal" autocomplete="off"></div>
+      <div class="calc-field"><label for="up-i-period">Over a</label><select id="up-i-period" name="i_period"><option value="month">Month</option><option value="quarter">Quarter</option><option value="year">Year</option></select></div>
+    </div>
+  </div>
+  <div role="tabpanel" id="panel-system" aria-labelledby="tab-system" class="calc-panel" hidden>
+    <div class="calc-grid">
+      <div class="calc-field"><label for="up-s-list">Availability of each component in the request path (%)</label><input id="up-s-list" name="s_list" autocomplete="off" aria-describedby="up-s-hint"><p class="calc-hint" id="up-s-hint">Separate with commas, such as 99.99, 99.95, 99.9.</p></div>
+      <div class="calc-field"><label for="up-s-copies">Independent redundant copies of the whole path</label><input id="up-s-copies" name="s_copies" inputmode="numeric" value="1" autocomplete="off"></div>
+    </div>
+  </div>
