@@ -223,3 +223,19 @@
 .tool-search > .ti { position: absolute; left: .8rem; color: var(--sr-muted); pointer-events: none; }
 .tool-search input { padding-left: 2.4rem; }
 @media print { .viz { break-inside: avoid; } .calc-slider { display: none; } }
+
+/* Error summary, opt-in saving and long text fields (shared tool framework). */
+.calc-error-summary { border: 2px solid #b42318; border-radius: 10px; padding: .75rem 1rem; margin-bottom: 1rem; background: #fff5f4; }
+.calc-error-summary:focus { outline: 3px solid var(--sr-blue); outline-offset: 2px; }
+.calc-error-summary-title { font-weight: 700; margin: 0 0 .35rem; }
+.calc-error-summary ul { margin: 0; padding-left: 1.2rem; }
+.calc-error-summary a { color: inherit; }
+.calc-optin { display: flex; gap: .5rem; align-items: center; font-size: .9rem; margin: .5rem 0; }
+.calc textarea { width: 100%; min-height: 9rem; font: inherit; font-family: var(--sr-mono); font-size: .9rem; padding: .6rem; border: 1px solid var(--sr-border); border-radius: 8px; resize: vertical; box-sizing: border-box; }
+.calc-code { font-family: var(--sr-mono); font-size: .85rem; white-space: pre-wrap; overflow-wrap: anywhere; max-height: 28rem; overflow: auto; background: var(--sr-soft-white); border-radius: 8px; padding: .75rem; margin: .5rem 0; }
+.calc-table-wrap { overflow-x: auto; max-width: 100%; }
+.calc-table { border-collapse: collapse; width: 100%; font-size: .85rem; }
+.calc-table th, .calc-table td { border-bottom: 1px solid var(--sr-border); padding: .35rem .5rem; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.calc-tree { font-family: var(--sr-mono); font-size: .85rem; max-height: 24rem; overflow: auto; }
+.calc-tree ul { list-style: none; padding-left: 1rem; margin: 0; }
+.calc-tree summary { cursor: pointer; }

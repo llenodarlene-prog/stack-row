@@ -58,32 +58,34 @@ const questionStyles = await fingerprint('src/styles/questions.css', 'styles', '
 const calculatorStyles = await fingerprint('src/styles/calculator.css', 'styles', 'calculator', 'css');
 const toolCore = await fingerprint('src/scripts/tool-core.js', 'scripts', 'tool-core', 'js');
 const toolFormulas = await fingerprint('src/scripts/tool-formulas.js', 'scripts', 'tool-formulas', 'js');
-function toolShell(inputs, { example = true } = {}) {
+// toolShell options let converters, generators and validators use their own
+// labels, actions and privacy statement. Defaults match the calculators.
+function toolShell(inputs, { example = true, submit = 'Calculate', submitIcon = 'calculator', exampleLabel = 'Load example', reset = 'Reset calculator', copy = 'Copy results', csv = 'Download CSV', share = true, forget = true, print = true, privacy = 'Calculations run in your browser. Nothing you enter is sent to Stack Row.', empty = 'Start typing and results appear here instantly, with the formula behind each one. Or load the example.', heading = 'Calculator', resultsTitle = 'Results' } = {}) {
   return `<section class="calc" id="calculator" aria-labelledby="calc-title">
-  <h2 id="calc-title" class="visually-hidden">Calculator</h2>
-  <noscript><p class="calc-note">This calculator needs JavaScript. The formulas below show how to work out each result by hand.</p></noscript>
+  <h2 id="calc-title" class="visually-hidden">${heading}</h2>
+  <noscript><p class="calc-note">This ${heading.toLowerCase()} needs JavaScript. The method below explains how each result is worked out.</p></noscript>
   <div class="calc-shell">
     <div class="calc-inputs">
 ${inputs}
         <div class="calc-actions">
-          <button type="submit" class="calc-primary">{{icon:calculator}}Calculate</button>${example ? `
-          <button type="button" class="calc-secondary" id="calc-example">{{icon:sparkles}}Load example</button>` : ''}
-          <button type="button" class="calc-link" id="calc-reset">{{icon:refresh}}Reset calculator</button>
+          <button type="submit" class="calc-primary">{{icon:${submitIcon}}}${submit}</button>${example ? `
+          <button type="button" class="calc-secondary" id="calc-example">{{icon:sparkles}}${exampleLabel}</button>` : ''}
+          <button type="button" class="calc-link" id="calc-reset">{{icon:refresh}}${reset}</button>
         </div>
       </form>
     </div>
     <div class="calc-results" aria-labelledby="calc-results-title">
-      <h2 id="calc-results-title" class="calc-results-title">{{icon:chart-bar}}Results</h2>
-      <div id="calc-output" class="calc-output"><div class="calc-empty">{{icon:bulb}}<p>Start typing and results appear here instantly, with the formula behind each one. Or load the example.</p></div></div>
+      <h2 id="calc-results-title" class="calc-results-title">{{icon:chart-bar}}${resultsTitle}</h2>
+      <div id="calc-output" class="calc-output"><div class="calc-empty">{{icon:bulb}}<p>${empty}</p></div></div>
       <p class="calc-warning" id="calc-warning" role="alert" hidden></p>
       <div class="calc-result-actions" id="calc-result-actions" hidden>
-        <button type="button" class="calc-secondary" id="calc-copy">{{icon:copy}}Copy results</button>
-        <button type="button" class="calc-secondary" id="calc-share">{{icon:share}}Copy share link</button>
-        <button type="button" class="calc-secondary" id="calc-csv">{{icon:download}}Download CSV</button>
-        <button type="button" class="calc-secondary" id="calc-print">{{icon:printer}}Print results</button>
-        <button type="button" class="calc-link" id="calc-forget">Forget saved calculation</button>
+        <button type="button" class="calc-secondary" id="calc-copy">{{icon:copy}}${copy}</button>${share ? `
+        <button type="button" class="calc-secondary" id="calc-share">{{icon:share}}Copy share link</button>` : ''}
+        <button type="button" class="calc-secondary" id="calc-csv">{{icon:download}}${csv}</button>${print ? `
+        <button type="button" class="calc-secondary" id="calc-print">{{icon:printer}}Print results</button>` : ''}${forget ? `
+        <button type="button" class="calc-link" id="calc-forget">Forget saved calculation</button>` : ''}
       </div>
-      <p class="calc-privacy">{{icon:lock}}Calculations run in your browser. Nothing you enter is sent to Stack Row.</p>
+      <p class="calc-privacy">{{icon:lock}}${privacy}</p>
       <p class="visually-hidden" id="calc-status" aria-live="polite"></p>
     </div>
   </div>
@@ -102,6 +104,15 @@ for (const name of ['markup', 'binary-hex', 'raid', 'download-time', 'roi', 'cpm
   calculatorTools[name] = {
     scripts: [toolCore, toolFormulas, ...(toolExtras[name] || []), await fingerprint(`src/scripts/${name}-calculator.js`, 'scripts', `${name}-calculator`, 'js')],
     markup: withIcons(toolShell(await readFile(`src/partials/${name}-calculator.html`, 'utf8')))
+  };
+}
+// Developer and business utilities: each names its partial, its page script,
+// any extra logic files, and its shell options.
+const utilityTools = {};
+for (const [name, { logic = [], shell = {} }] of Object.entries(utilityTools)) {
+  calculatorTools[name] = {
+    scripts: [toolCore, ...await Promise.all(logic.map(file => fingerprint(`src/scripts/${file}.js`, 'scripts', file, 'js'))), await fingerprint(`src/scripts/${name}.js`, 'scripts', name, 'js')],
+    markup: withIcons(toolShell(await readFile(`src/partials/${name}.html`, 'utf8'), shell))
   };
 }
 const toolFor = item => calculatorTools[item.tool || 'arr-mrr'];
