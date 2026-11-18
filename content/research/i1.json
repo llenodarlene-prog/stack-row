@@ -90,6 +90,21 @@
       "url": "https://www.reuters.com/legal/government/us-banks-detect-unauthorized-ai-agents-customer-accounts-axios-reports-2026-10-22/",
       "checked_utc": "2026-11-18",
       "method": "Owner draft source; reachable or spot-checked by Claude 2026-11-18. Apple outage sources added by Claude."
+    },
+    {
+      "url": "https://www.theregister.com/a/5307739",
+      "checked_utc": "2026-11-18",
+      "method": "Added and read by Claude 2026-11-18 for the outage timeline."
+    },
+    {
+      "url": "https://www.cio.com/article/4248249/microsoft-struggles-to-get-m365-services-back-online-after-widespread-outage.html",
+      "checked_utc": "2026-11-18",
+      "method": "Added and read by Claude 2026-11-18 for the outage timeline."
+    },
+    {
+      "url": "https://www.cbsnews.com/news/banks-online-service-outages-jpmorgan-chase-bank-of-america-wells-fargo/",
+      "checked_utc": "2026-11-18",
+      "method": "Added and read by Claude 2026-11-18 for the outage timeline."
     }
   ],
   "statistics": [],
@@ -114,7 +129,8 @@
     "Added the November 17, 2026 Apple outage (Apple attributed it to an internal update, not an attack; 9to5Mac, Engadget).",
     "AISI figures confirmed: 122 runs, 19 actions in 10 runs, internet access permitted and cyber classifiers disabled, no real-world harm found.",
     "Anthropic campaign: roughly thirty targets, succeeded in a small number of cases, AI performed 80-90% of the campaign; state-sponsored group.",
-    "Federal Reserve Barr speech (Nov 16, 2026) confirmed on banks finding agents in retail accounts."
+    "Federal Reserve Barr speech (Nov 16, 2026) confirmed on banks finding agents in retail accounts.",
+    "Added an outage timeline: Google Cloud London Oct 20 (generator PLC misconfiguration; Lloyds, HSBC, Royal Mail affected; The Register), Microsoft 365 Nov 12-13 (from 16:17 UTC; 130,000+ Outlook reports; CIO.com), US banks and Zelle Nov 16 (Chase: technical bug, not cyber; CBS News)."
   ],
   "approval_note": "Owner-supplied draft; owner asked to publish today (2026-11-18) with \"outage\" as a secondary keyword."
 }
