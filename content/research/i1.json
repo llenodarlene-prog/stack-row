@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "content_id": "I1",
+  "slug": "/ai/rogue-ai-agent/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-18",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-18",
+      "keyword": "rogue ai agent",
+      "search_volume": 170,
+      "seo_difficulty": 15,
+      "cpc_usd": 7.21,
+      "source": "Owner research map, 2026-11-18"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner research and content-gap map, 2026-11-18 (Axios, Reuters, Federal Reserve, CSA, QA Financial, UBS, HKMA, FINOS, AISI, Anthropic).",
+  "sources": [
+    {
+      "url": "https://9to5mac.com/2026/11/17/icloud-app-store-and-other-apple-services-hit-by-ongoing-outage/",
+      "checked_utc": "2026-11-18",
+      "method": "Owner draft source; reachable or spot-checked by Claude 2026-11-18. Apple outage sources added by Claude."
+    },
+    {
+      "url": "https://air-governance-framework.finos.org/single-page.html",
+      "checked_utc": "2026-11-18",
+      "method": "Owner draft source; reachable or spot-checked by Claude 2026-11-18. Apple outage sources added by Claude."
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html",
+      "checked_utc": "2026-11-18",
+      "method": "Owner draft source; reachable or spot-checked by Claude 2026-11-18. Apple outage sources added by Claude."
+    },
+    {
+      "url": "https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing",
+      "checked_utc": "2026-11-18",
+      "method": "Owner draft source; reachable or spot-checked by Claude 2026-11-18. Apple outage sources added by Claude."
+    },
+    {
+      "url": "https://www.anthropic.com/news/disrupting-AI-espionage",
+      "checked_utc": "2026-11-18",
+      "method": "Owner draft source; reachable or spot-checked by Claude 2026-11-18. Apple outage sources added by Claude."
+    },
+    {
+      "url": "https://www.axios.com/2026/10/22/ai-agents-banks-unauthorized-accounts-access",
+      "checked_utc": "2026-11-18",
+      "method": "Owner draft source; reachable or spot-checked by Claude 2026-11-18. Apple outage sources added by Claude."
+    },
+    {
+      "url": "https://www.bis.org/publications/fsi-paper-28-when-machines-attack-frontier-ai-cyber-threats-and-policy-responses-financial-sector",
+      "checked_utc": "2026-11-18",
+      "method": "Owner draft source; reachable or spot-checked by Claude 2026-11-18. Apple outage sources added by Claude."
+    },
+    {
+      "url": "https://www.engadget.com/2319504/icloud-and-other-apple-services-are-down-in-an-apparent-outage/",
+      "checked_utc": "2026-11-18",
+      "method": "Owner draft source; reachable or spot-checked by Claude 2026-11-18. Apple outage sources added by Claude."
+    },
+    {
+      "url": "https://www.federalreserve.gov/newsevents/speech/barr20261116a.htm",
+      "checked_utc": "2026-11-18",
+      "method": "Owner draft source; reachable or spot-checked by Claude 2026-11-18. Apple outage sources added by Claude."
+    },
+    {
+      "url": "https://www.hkma.gov.hk/media/eng/doc/key-information/press-release/2026/20261102e3a1.pdf",
+      "checked_utc": "2026-11-18",
+      "method": "Owner draft source; reachable or spot-checked by Claude 2026-11-18. Apple outage sources added by Claude."
+    },
+    {
+      "url": "https://www.imf.org/en/publications/imf-notes/issues/2026/06/29/artificial-intelligence-and-cybersecurity-in-the-financial-sector-576706",
+      "checked_utc": "2026-11-18",
+      "method": "Owner draft source; reachable or spot-checked by Claude 2026-11-18. Apple outage sources added by Claude."
+    },
+    {
+      "url": "https://www.nist.gov/publications/summary-analysis-responses-request-information-regarding-security-considerations-ai",
+      "checked_utc": "2026-11-18",
+      "method": "Owner draft source; reachable or spot-checked by Claude 2026-11-18. Apple outage sources added by Claude."
+    },
+    {
+      "url": "https://www.occ.treas.gov/publications-and-resources/publications/semiannual-risk-perspective/files/pub-semiannual-risk-perspective-fall-2026.pdf",
+      "checked_utc": "2026-11-18",
+      "method": "Owner draft source; reachable or spot-checked by Claude 2026-11-18. Apple outage sources added by Claude."
+    },
+    {
+      "url": "https://www.reuters.com/legal/government/us-banks-detect-unauthorized-ai-agents-customer-accounts-axios-reports-2026-10-22/",
+      "checked_utc": "2026-11-18",
+      "method": "Owner draft source; reachable or spot-checked by Claude 2026-11-18. Apple outage sources added by Claude."
+    },
+    {
+      "url": "https://www.theregister.com/a/5307739",
+      "checked_utc": "2026-11-18",
+      "method": "Added and read by Claude 2026-11-18 for the outage timeline."
+    },
+    {
+      "url": "https://www.cio.com/article/4248249/microsoft-struggles-to-get-m365-services-back-online-after-widespread-outage.html",
+      "checked_utc": "2026-11-18",
+      "method": "Added and read by Claude 2026-11-18 for the outage timeline."
+    },
+    {
+      "url": "https://www.cbsnews.com/news/banks-online-service-outages-jpmorgan-chase-bank-of-america-wells-fargo/",
+      "checked_utc": "2026-11-18",
+      "method": "Added and read by Claude 2026-11-18 for the outage timeline."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "A3",
+    "D9",
+    "A10",
+    "A1"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "by": "Claude final QA layer",
+    "date_utc": "2026-11-18"
+  },
+  "qa": {
+    "status": "approved",
+    "by": "Claude final QA layer",
+    "date_utc": "2026-11-18"
+  },
+  "corrections": [
+    "Added the November 17, 2026 Apple outage (Apple attributed it to an internal update, not an attack; 9to5Mac, Engadget).",
+    "AISI figures confirmed: 122 runs, 19 actions in 10 runs, internet access permitted and cyber classifiers disabled, no real-world harm found.",
+    "Anthropic campaign: roughly thirty targets, succeeded in a small number of cases, AI performed 80-90% of the campaign; state-sponsored group.",
+    "Federal Reserve Barr speech (Nov 16, 2026) confirmed on banks finding agents in retail accounts.",
+    "Added an outage timeline: Google Cloud London Oct 20 (generator PLC misconfiguration; Lloyds, HSBC, Royal Mail affected; The Register), Microsoft 365 Nov 12-13 (from 16:17 UTC; 130,000+ Outlook reports; CIO.com), US banks and Zelle Nov 16 (Chase: technical bug, not cyber; CBS News).",
+    "Reframed for a general tech audience at the owner request: new title, slug /ai/rogue-ai-agent/, a tech-stack risk table, software examples in the authority ladder, and banking kept as one case study."
+  ],
+  "approval_note": "Owner-supplied draft; owner asked to publish today (2026-11-18) with \"outage\" as a secondary keyword."
+}

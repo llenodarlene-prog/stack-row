@@ -1016,5 +1016,21 @@
       "A4",
       "D6"
     ]
+  },
+  {
+    "id": "I1",
+    "set": "news-2026-11",
+    "type": "blog",
+    "title": "Rogue AI Agents: What the Research Shows About Hacking, Outages and Control",
+    "primary_keyword": "rogue ai agent",
+    "slug": "/ai/rogue-ai-agent/",
+    "cluster": "Enterprise AI",
+    "role": "Commercial Support",
+    "targets": [
+      "A3",
+      "D9",
+      "A10",
+      "A1"
+    ]
   }
 ]
