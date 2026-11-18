@@ -3387,5 +3387,19 @@
     "tool": "Odoo Manufacturing",
     "source": "own-capture",
     "captured": "2026-11"
+  },
+  {
+    "path": "/assets/images/outage-command-center-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Operations desk with monitors showing failed service alerts, beside server racks, an airport, a hospital and cell towers"
+  },
+  {
+    "path": "/assets/images/outage-command-center-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Operations desk with monitors showing failed service alerts, beside server racks, an airport, a hospital and cell towers"
   }
 ]
