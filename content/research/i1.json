@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "content_id": "I1",
-  "slug": "/ai/rogue-ai-agent-hacking-banks/",
+  "slug": "/ai/rogue-ai-agent/",
   "status": "verified",
   "required_seo_tool": "Ubersuggest",
   "research_date_utc": "2026-11-18",
@@ -130,7 +130,8 @@
     "AISI figures confirmed: 122 runs, 19 actions in 10 runs, internet access permitted and cyber classifiers disabled, no real-world harm found.",
     "Anthropic campaign: roughly thirty targets, succeeded in a small number of cases, AI performed 80-90% of the campaign; state-sponsored group.",
     "Federal Reserve Barr speech (Nov 16, 2026) confirmed on banks finding agents in retail accounts.",
-    "Added an outage timeline: Google Cloud London Oct 20 (generator PLC misconfiguration; Lloyds, HSBC, Royal Mail affected; The Register), Microsoft 365 Nov 12-13 (from 16:17 UTC; 130,000+ Outlook reports; CIO.com), US banks and Zelle Nov 16 (Chase: technical bug, not cyber; CBS News)."
+    "Added an outage timeline: Google Cloud London Oct 20 (generator PLC misconfiguration; Lloyds, HSBC, Royal Mail affected; The Register), Microsoft 365 Nov 12-13 (from 16:17 UTC; 130,000+ Outlook reports; CIO.com), US banks and Zelle Nov 16 (Chase: technical bug, not cyber; CBS News).",
+    "Reframed for a general tech audience at the owner request: new title, slug /ai/rogue-ai-agent/, a tech-stack risk table, software examples in the authority ladder, and banking kept as one case study."
   ],
   "approval_note": "Owner-supplied draft; owner asked to publish today (2026-11-18) with \"outage\" as a secondary keyword."
 }
