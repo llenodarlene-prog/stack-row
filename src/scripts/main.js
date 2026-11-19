@@ -65,3 +65,21 @@ for (const card of document.querySelectorAll('.card')) {
     card.style.setProperty('--my', `${event.clientY - box.top}px`);
   });
 }
+
+// Cookie consent (production only; the banner exists only when Google Tag
+// Manager is on the page). The choice is kept in localStorage and passed to
+// Google Consent Mode. Advertising storage is never granted.
+(function () {
+  const banner = document.getElementById('consent-banner');
+  if (!banner) return;
+  const KEY = 'stackrow:consent';
+  const read = () => { try { return localStorage.getItem(KEY); } catch { return null; } };
+  const choose = value => {
+    try { localStorage.setItem(KEY, value); } catch { /* storage blocked: choice lasts for this page */ }
+    if (typeof window.gtag === 'function') window.gtag('consent', 'update', { analytics_storage: value });
+    banner.hidden = true;
+  };
+  if (read() !== 'granted' && read() !== 'denied') banner.hidden = false;
+  banner.addEventListener('click', event => { const button = event.target.closest('[data-consent]'); if (button) choose(button.dataset.consent); });
+  document.getElementById('consent-settings')?.addEventListener('click', () => { banner.hidden = false; banner.querySelector('button')?.focus(); });
+})();
