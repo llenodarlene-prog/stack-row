@@ -153,7 +153,7 @@ test('Google Tag Manager loads once, with consent defaults first, on production 
       assert.match(html, /<head>\s*<meta charset="utf-8">\s*<script>window\.dataLayer/);
       assert.ok(html.indexOf("gtag('consent','default'") < html.indexOf('gtm.js?id='), 'consent default comes before the container');
       assert.match(html, /ad_storage:'denied'/);
-      assert.match(html, /'GTM-MW4ZQ8C3'/);
+      assert.match(html, /'GTM-W64QQ24V'/);
       assert.match(html, /gtag\('config','G-R4ST45D8Q0',\{page_location:location\.origin\+location\.pathname\}\)/);
       assert.equal((html.match(/gtag\/js\?id=G-R4ST45D8Q0/g) || []).length, 1);
       assert.match(html, /id="consent-banner"/);
