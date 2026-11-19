@@ -23,13 +23,19 @@ const indexable = buildEnv === 'production' && site.launch_status === 'ready';
 // A visitor's choice from the cookie banner (saved in localStorage) overrides
 // the default before the container loads.
 const gtmId = (site.analytics?.environments || []).includes(buildEnv) && /^GTM-[A-Z0-9]{4,12}$/.test(site.analytics?.gtm_id || '') ? site.analytics.gtm_id : '';
+// GA4 is configured here (not as a tag inside the container) so the page
+// address it records never includes a query string, which can hold
+// calculator values from share links.
+const ga4Id = gtmId && /^G-[A-Z0-9]{6,12}$/.test(site.analytics?.ga4_id || '') ? site.analytics.ga4_id : '';
 const CONSENT_REGIONS = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH'];
 const gtmHead = gtmId ? `
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
   gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500,region:${JSON.stringify(CONSENT_REGIONS)}});
   gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});
   try{var c=localStorage.getItem('stackrow:consent');if(c==='granted'||c==='denied')gtag('consent','update',{analytics_storage:c});}catch(e){}
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');</script>` : '';
+  ${ga4Id ? `gtag('js',new Date());gtag('config','${ga4Id}',{page_location:location.origin+location.pathname});` : ''}
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');</script>${ga4Id ? `
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${ga4Id}"></script>` : ''}` : '';
 const consentBanner = gtmId ? `
   <div class="consent-banner" id="consent-banner" role="region" aria-label="Cookie choices" hidden><p>Stack Row uses Google Analytics cookies to see which pages are useful. No advertising cookies are used. <a href="/privacy/#cookies-and-similar-technologies">Privacy policy</a></p><div class="consent-actions"><button type="button" class="consent-accept" data-consent="granted">Accept analytics</button><button type="button" class="consent-reject" data-consent="denied">Reject</button></div></div>` : '';
 const dist = path.resolve(process.env.OUT_DIR || 'dist');
@@ -709,8 +715,8 @@ for (const item of visible) {
   const content = rendered.replace(/<a href="#([^"]+)">[^<]*<\/a>\s*/g, (link, id) => rendered.includes(` id="${id}"`) ? link : '');
   const html = `<!doctype html>
 <html lang="${site.locale}">
-<head>${gtmHead}
-  <meta charset="utf-8">
+<head>
+  <meta charset="utf-8">${gtmHead}
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>${escapeHtml(fullTitle)}</title>
   <meta name="description" content="${escapeHtml(item.description)}">

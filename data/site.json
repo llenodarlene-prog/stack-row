@@ -23,6 +23,7 @@
     "gtm_id": "GTM-MW4ZQ8C3",
     "environments": [
       "production"
-    ]
+    ],
+    "ga4_id": "G-R4ST45D8Q0"
   }
 }
