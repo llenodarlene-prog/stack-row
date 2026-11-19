@@ -10,7 +10,7 @@ complete: true
 
 # Privacy Policy
 
-Effective Date: October 3, 2026
+Effective Date: November 19, 2026
 
 This Privacy Policy explains how Stack Row handles personal information in connection with stackrow.org and communications sent to stackrow@gmail.com.
 
@@ -40,19 +40,27 @@ The website is hosted by Hostinger. Like any web host, the hosting provider proc
 
 The website loads its typefaces from Google Fonts. When a page loads, your browser requests those font files from Google, and Google receives technical request information such as your IP address and browser details.
 
-The website does not include analytics, advertising, or affiliate tracking scripts.
+The website uses Google Analytics, loaded through Google Tag Manager, to understand which pages visitors find useful. Google Analytics collects information such as the pages you view, how you arrived at them, approximate location derived from your IP address, and your browser and device type. It does not receive anything you type into Stack Row's calculators and tools. We use these reports in aggregate to decide what to write and improve.
+
+The website does not include advertising or affiliate tracking scripts, and advertising features in Google's tools are switched off.
 
 ## Cookies and Similar Technologies
 
-The website does not set cookies and does not use browser local storage, tracking pixels, or embedded third-party media.
+Google Analytics uses first-party cookies, such as _ga, to distinguish visits. These cookies are set only when analytics storage is allowed.
 
-If that changes, this policy will be updated before the new technology is introduced, and any consent controls the law requires will be put in place first.
+- **In the European Economic Area, the United Kingdom and Switzerland,** analytics cookies are off until you select "Accept analytics" in the cookie banner.
+- **Elsewhere,** analytics cookies are on by default, and you can turn them off by selecting "Reject" in the banner.
+- **Advertising cookies** are never enabled.
+
+While analytics cookies are off, Google may still receive basic, cookieless signals about a page view, as described in Google's documentation on consent mode. You can change your choice at any time with the "Cookie settings" link at the bottom of every page.
+
+Your choice is stored in your browser's local storage under the key stackrow:consent. Some calculators also save the numbers you enter in local storage so they are there next time; you can remove them with each tool's "Forget saved" button. The site does not use tracking pixels or embedded third-party media.
 
 ## Service Providers and Other Disclosures
 
 Our contact address uses Gmail. Email sent to stackrow@gmail.com is processed through Google’s email service. Information about Google’s own practices is available in the [Google Privacy Policy](https://policies.google.com/privacy).
 
-Hostinger hosts the website and Google supplies its fonts, as described above. Each provider handles the technical data it receives under its own terms and privacy policy.
+Hostinger hosts the website, and Google supplies its fonts and its analytics service, as described above. Information about how Google uses data from sites that use its services is available at [How Google uses information from sites that use its services](https://policies.google.com/technologies/partner-sites). Each provider handles the technical data it receives under its own terms and privacy policy.
 
 Information may also need to be disclosed where required by applicable law or necessary to establish, exercise, or defend legal rights. Any such disclosure must have an appropriate basis and be limited to the circumstances concerned.
 
@@ -60,7 +68,7 @@ Information may also need to be disclosed where required by applicable law or ne
 
 Where the law requires a stated ground for processing, we handle correspondence because it is necessary to respond to the person who contacted us and to run the publication. A partnership or business inquiry may also involve steps taken at your request before an agreement.
 
-The technical data processed by our hosting provider is needed to deliver the website securely.
+The technical data processed by our hosting provider is needed to deliver the website securely. Where consent is required, we use analytics only with your consent; elsewhere, we rely on our legitimate interest in understanding how the publication is used, and you can object at any time with the Reject option.
 
 ## How Long Information Is Kept
 
@@ -68,7 +76,7 @@ We keep correspondence for as long as it is needed to handle the matter it conce
 
 Correspondence may be kept longer where it is needed to meet a legal obligation or to resolve a dispute.
 
-Technical request data is held by the hosting provider under its own retention practices.
+Technical request data is held by the hosting provider under its own retention practices. Google Analytics data is kept for the retention period set in our Google Analytics account, which is no longer than 14 months.
 
 ## International Processing
 
