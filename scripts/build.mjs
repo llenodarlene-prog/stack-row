@@ -17,6 +17,27 @@ if (buildEnv === 'production' && process.env.SITE_URL && process.env.SITE_URL.re
   throw new Error('SITE_URL differs from data/site.json');
 }
 const indexable = buildEnv === 'production' && site.launch_status === 'ready';
+// Google Tag Manager runs on production only, never on staging or local
+// builds. Consent Mode v2 starts with analytics denied in the EEA, the UK and
+// Switzerland and granted elsewhere; advertising storage is always denied.
+// A visitor's choice from the cookie banner (saved in localStorage) overrides
+// the default before the container loads.
+const gtmId = (site.analytics?.environments || []).includes(buildEnv) && /^GTM-[A-Z0-9]{4,12}$/.test(site.analytics?.gtm_id || '') ? site.analytics.gtm_id : '';
+// GA4 is configured here (not as a tag inside the container) so the page
+// address it records never includes a query string, which can hold
+// calculator values from share links.
+const ga4Id = gtmId && /^G-[A-Z0-9]{6,12}$/.test(site.analytics?.ga4_id || '') ? site.analytics.ga4_id : '';
+const CONSENT_REGIONS = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH'];
+const gtmHead = gtmId ? `
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500,region:${JSON.stringify(CONSENT_REGIONS)}});
+  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});
+  try{var c=localStorage.getItem('stackrow:consent');if(c==='granted'||c==='denied')gtag('consent','update',{analytics_storage:c});}catch(e){}
+  ${ga4Id ? `gtag('js',new Date());gtag('config','${ga4Id}',{page_location:location.origin+location.pathname});` : ''}
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');</script>${ga4Id ? `
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${ga4Id}"></script>` : ''}` : '';
+const consentBanner = gtmId ? `
+  <div class="consent-banner" id="consent-banner" role="region" aria-label="Cookie choices" hidden><p>Stack Row uses Google Analytics cookies to see which pages are useful. No advertising cookies are used. <a href="/privacy/#cookies-and-similar-technologies">Privacy policy</a></p><div class="consent-actions"><button type="button" class="consent-accept" data-consent="granted">Accept analytics</button><button type="button" class="consent-reject" data-consent="denied">Reject</button></div></div>` : '';
 const dist = path.resolve(process.env.OUT_DIR || 'dist');
 // Posts dated after the build day (UTC) are scheduled. Production leaves them
 // out exactly like drafts; the daily production deploy publishes them on time.
@@ -695,7 +716,7 @@ for (const item of visible) {
   const html = `<!doctype html>
 <html lang="${site.locale}">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8">${gtmHead}
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>${escapeHtml(fullTitle)}</title>
   <meta name="description" content="${escapeHtml(item.description)}">
@@ -730,7 +751,7 @@ for (const item of visible) {
   <a class="skip-link" href="#content">Skip to content</a>
   <header class="site-header"><div class="shell site-header-inner"><a class="brand" href="${navigation.home.url}" aria-label="${escapeHtml(site.name)} home"><img src="/assets/brand/stack-row-logo-header.png" alt="${escapeHtml(site.name)}" width="566" height="173"></a><nav class="nav-topics" aria-label="Topics"><ul>${navItems(navigation.topics, item)}</ul></nav><nav class="nav-utility" aria-label="Site"><ul>${navItems(navigation.utility, item)}</ul></nav></div></header>
   <main id="content">${content}</main>
-  <footer class="site-footer"><div class="shell footer-grid"><div class="footer-brand"><strong>${escapeHtml(site.name)}</strong><p class="footer-tagline">${escapeHtml(site.tagline)}</p><p>${escapeHtml(site.description)}</p>${email}</div>${footerColumns}<p class="copyright">© ${new Date().getUTCFullYear()} ${escapeHtml(site.name)}. All rights reserved.</p></div></footer>
+  <footer class="site-footer"><div class="shell footer-grid"><div class="footer-brand"><strong>${escapeHtml(site.name)}</strong><p class="footer-tagline">${escapeHtml(site.tagline)}</p><p>${escapeHtml(site.description)}</p>${email}</div>${footerColumns}<p class="copyright">© ${new Date().getUTCFullYear()} ${escapeHtml(site.name)}. All rights reserved.</p>${gtmId ? '<p class="footer-consent"><button type="button" class="calc-link" id="consent-settings">Cookie settings</button></p>' : ''}</div></footer>${consentBanner}
 </body>
 </html>`;
   const target = item.slug === '/' ? path.join(dist, 'index.html') : path.join(dist, cleanSlug(item.slug), 'index.html');
