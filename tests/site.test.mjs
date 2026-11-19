@@ -140,3 +140,27 @@ test('brand tokens match the approved brief', async () => {
   assert.equal(site.fonts.body, 'Inter');
   assert.equal(site.fonts.technical, 'IBM Plex Mono');
 });
+
+test('Google Tag Manager loads once, with consent defaults first, on production only', async () => {
+  const prod = await mkdtemp(path.join(tmpdir(), 'stack-row-'));
+  const staging = await mkdtemp(path.join(tmpdir(), 'stack-row-'));
+  try {
+    await run(process.execPath, ['scripts/build.mjs'], { env: { ...process.env, BUILD_ENV: 'production', OUT_DIR: prod, SITE_URL: '' } });
+    await run(process.execPath, ['scripts/build.mjs'], { env: { ...process.env, BUILD_ENV: 'staging', OUT_DIR: staging, SITE_URL: '' } });
+    for (const page of ['index.html', 'privacy/index.html', 'tools/uuid-generator/index.html']) {
+      const html = await readFile(path.join(prod, page), 'utf8');
+      assert.equal((html.match(/googletagmanager\.com\/gtm\.js/g) || []).length, 1, page);
+      assert.match(html, /<head>\s*<script>window\.dataLayer/);
+      assert.ok(html.indexOf("gtag('consent','default'") < html.indexOf('gtm.js?id='), 'consent default comes before the container');
+      assert.match(html, /ad_storage:'denied'/);
+      assert.match(html, /'GTM-MW4ZQ8C3'/);
+      assert.match(html, /id="consent-banner"/);
+      assert.match(html, /id="consent-settings"/);
+      const other = await readFile(path.join(staging, page), 'utf8');
+      assert.doesNotMatch(other, /googletagmanager|consent-banner/);
+    }
+  } finally {
+    await rm(prod, { recursive: true, force: true });
+    await rm(staging, { recursive: true, force: true });
+  }
+});

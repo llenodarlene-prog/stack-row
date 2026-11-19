@@ -18,5 +18,11 @@
     "soft_white": "#F8FAFC",
     "slate": "#374151",
     "white": "#FFFFFF"
+  },
+  "analytics": {
+    "gtm_id": "GTM-MW4ZQ8C3",
+    "environments": [
+      "production"
+    ]
   }
 }
