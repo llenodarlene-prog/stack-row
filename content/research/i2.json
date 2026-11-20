@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "content_id": "I2",
+  "slug": "/cybersecurity/cyberattack-case-study-optimizely/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-20",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-20",
+      "keyword": "cyberattack",
+      "search_volume": null,
+      "seo_difficulty": null,
+      "cpc_usd": null,
+      "source": "Owner-chosen keyword (2026-11-20); Ubersuggest metrics not retrieved in this session"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "News coverage reviewed 2026-11-20: The Record, Krebs on Security, Newsweek, Infosecurity Magazine, Black Kite, FinChannel (citing Reuters and BleepingComputer).",
+  "sources": [
+    {
+      "url": "https://blackkite.com/blog/optimizely-supply-chain-attack",
+      "checked_utc": "2026-11-20",
+      "method": "Read by Claude 2026-11-20"
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html",
+      "checked_utc": "2026-11-20",
+      "method": "Read by Claude 2026-11-20"
+    },
+    {
+      "url": "https://finchannel.com/optimizely-cyberattack-company-fixes-flaw-after-websites-served-malicious-code/141982/tech-2/2026/11/",
+      "checked_utc": "2026-11-20",
+      "method": "Read by Claude 2026-11-20"
+    },
+    {
+      "url": "https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/",
+      "checked_utc": "2026-11-20",
+      "method": "Read by Claude 2026-11-20"
+    },
+    {
+      "url": "https://therecord.media/optimizely-malicious-code-customer-sites",
+      "checked_utc": "2026-11-20",
+      "method": "Read by Claude 2026-11-20"
+    },
+    {
+      "url": "https://www.newsweek.com/cyber-attack-websites-affected-12725863",
+      "checked_utc": "2026-11-20",
+      "method": "Read by Claude 2026-11-20"
+    },
+    {
+      "url": "https://www.yahoo.com/news/us/articles/visa-mastercard-jpmorgan-customer-data-163732859.html",
+      "checked_utc": "2026-11-20",
+      "method": "Read by Claude 2026-11-20"
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [
+    "A1",
+    "A9",
+    "I1"
+  ],
+  "fact_check": {
+    "status": "approved",
+    "by": "Claude QA layer",
+    "date_utc": "2026-11-20"
+  },
+  "qa": {
+    "status": "approved",
+    "by": "Claude QA layer",
+    "date_utc": "2026-11-20"
+  },
+  "corrections": [
+    "Excluded an unverified claim that TPG paused Optimizely and found no Vodafone compromise.",
+    "Signup-flow cause confirmed via Optimizely statement to BleepingComputer (FinChannel) and Black Kite."
+  ],
+  "approval_note": "Owner requested a case-study blog with keyword \"cyberattack\" on 2026-11-20."
+}
