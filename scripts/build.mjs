@@ -140,12 +140,13 @@ const utilityTools = {
   'yaml-formatter': { logic: ['vendor/js-yaml.min', 'utility-tool-formulas'], shell: { heading: 'Formatter', submit: 'Run', submitIcon: 'file-code', reset: 'Reset formatter', copy: 'Copy output', csv: 'Download YAML', share: false, forget: false, print: false, privacy: 'YAML is processed in your browser. Files are read on this device only. Nothing is uploaded, saved, or put in the page address.', empty: 'Paste YAML or open a file, and the result appears here as you type.' } },
   'uptime-calculator': { logic: ['utility-tool-formulas'], shell: {} },
   'cron-generator': { logic: ['utility-tool-formulas'], shell: { heading: 'Generator', submit: 'Show schedule', submitIcon: 'calendar-time', reset: 'Reset generator', copy: 'Copy expression', csv: 'Download TXT', forget: false, print: false, privacy: 'Schedules are worked out in your browser. Nothing is saved, and only the expression and time zone can go in a share link.', empty: 'Enter a cron expression or build one, and its schedule appears here.' } },
+  'cyberattack-tracker': { logic: ['cyber-incidents', 'kev-snapshot'], shell: false, core: false },
   'invoice-generator': { logic: ['business-tool-formulas'], shell: { heading: 'Invoice generator', submit: 'Update invoice', submitIcon: 'file-invoice', reset: 'Start a new invoice', copy: 'Copy summary', csv: 'Download draft (JSON)', share: false, forget: true, print: true, privacy: 'Your invoice stays in this browser. Nothing is uploaded or sent, and a draft is saved only if you tick the box. This tool does not send invoices, take payments, or give tax advice.', empty: 'Fill in the details and your invoice appears here.', resultsTitle: 'Invoice' } }
 };
-for (const [name, { logic = [], shell = {} }] of Object.entries(utilityTools)) {
+for (const [name, { logic = [], shell = {}, core = true }] of Object.entries(utilityTools)) {
   calculatorTools[name] = {
-    scripts: [toolCore, ...await Promise.all(logic.map(file => fingerprint(`src/scripts/${file}.js`, 'scripts', file.replace(/\//g, '-'), 'js'))), await fingerprint(`src/scripts/${name}.js`, 'scripts', name, 'js')],
-    markup: withIcons(toolShell(await readFile(`src/partials/${name}.html`, 'utf8'), shell))
+    scripts: [...(core ? [toolCore] : []), ...await Promise.all(logic.map(file => fingerprint(`src/scripts/${file}.js`, 'scripts', file.replace(/\//g, '-'), 'js'))), await fingerprint(`src/scripts/${name}.js`, 'scripts', name, 'js')],
+    markup: withIcons(shell === false ? await readFile(`src/partials/${name}.html`, 'utf8') : toolShell(await readFile(`src/partials/${name}.html`, 'utf8'), shell))
   };
 }
 const toolFor = item => calculatorTools[item.tool || 'arr-mrr'];

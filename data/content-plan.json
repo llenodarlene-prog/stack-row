@@ -1032,5 +1032,20 @@
       "A10",
       "A1"
     ]
+  },
+  {
+    "id": "I2",
+    "set": "news-2026-11",
+    "type": "blog",
+    "title": "Cyberattack Case Study: How One Vendor Flaw Put Malicious Code on 178 Websites",
+    "primary_keyword": "cyberattack",
+    "slug": "/cybersecurity/cyberattack-case-study-optimizely/",
+    "cluster": "Cybersecurity",
+    "role": "Commercial Support",
+    "targets": [
+      "A1",
+      "A9",
+      "I1"
+    ]
   }
 ]

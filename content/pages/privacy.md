@@ -42,6 +42,8 @@ The website loads its typefaces from Google Fonts. When a page loads, your brows
 
 The website uses Google Analytics, loaded through Google Tag Manager, to understand which pages visitors find useful. Google Analytics collects information such as the pages you view, how you arrived at them, approximate location derived from your IP address, and your browser and device type. It does not receive anything you type into Stack Row's calculators and tools. We use these reports in aggregate to decide what to write and improve.
 
+The Cyberattack Tracker's live panel asks your browser to download CISA's public vulnerability data from GitHub (raw.githubusercontent.com). GitHub receives standard request information, such as your IP address and browser details, under its own privacy policy.
+
 The website does not include advertising or affiliate tracking scripts, and advertising features in Google's tools are switched off.
 
 ## Cookies and Similar Technologies
