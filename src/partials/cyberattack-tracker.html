@@ -1,0 +1,36 @@
+<section class="trk" id="tracker" aria-labelledby="trk-title">
+  <h2 id="trk-title" class="visually-hidden">Cyberattack tracker</h2>
+  <noscript><p class="calc-note">The tracker needs JavaScript. The incident summaries below the tracker cover the same events.</p></noscript>
+  <div class="trk-stats" id="trk-stats" aria-live="polite"></div>
+  <div class="calc-tabs" role="tablist" aria-label="Tracker views">
+    <button type="button" role="tab" id="trk-tab-incidents" aria-controls="trk-panel-incidents" aria-selected="true">{{icon:shield}}Incidents</button>
+    <button type="button" role="tab" id="trk-tab-live" aria-controls="trk-panel-live" aria-selected="false" tabindex="-1">{{icon:alert-triangle}}Live: exploited vulnerabilities</button>
+  </div>
+  <div role="tabpanel" id="trk-panel-incidents" aria-labelledby="trk-tab-incidents">
+    <div class="trk-controls">
+      <div class="tool-chips" role="group" aria-label="Filter by type" id="trk-types"></div>
+      <div class="trk-control-row">
+        <div class="trk-search">{{icon:search}}<label for="trk-q" class="visually-hidden">Search incidents</label><input id="trk-q" type="search" placeholder="Search companies, causes, sectors" autocomplete="off"></div>
+        <label class="trk-select"><span>Status</span><select id="trk-status"><option value="all">All statuses</option><option value="investigating">Investigating</option><option value="contained">Contained</option><option value="resolved">Resolved</option><option value="policy">Policy change</option></select></label>
+        <label class="trk-select"><span>Sort</span><select id="trk-sort"><option value="new">Newest first</option><option value="old">Oldest first</option></select></label>
+      </div>
+      <p class="calc-hint" id="trk-count" aria-live="polite"></p>
+    </div>
+    <ol class="trk-list" id="trk-list"></ol>
+    <p class="calc-note" id="trk-empty" hidden>No incidents match. <button type="button" class="calc-link" id="trk-clear">Clear filters</button></p>
+  </div>
+  <div role="tabpanel" id="trk-panel-live" aria-labelledby="trk-tab-live" hidden>
+    <div class="trk-live-head">
+      <p class="trk-live-status" id="trk-live-status" aria-live="polite"><span class="trk-dot"></span>Loading the latest CISA data…</p>
+      <button type="button" class="calc-secondary" id="trk-refresh">{{icon:refresh}}Refresh now</button>
+    </div>
+    <div class="trk-control-row">
+      <div class="trk-search">{{icon:search}}<label for="trk-kq" class="visually-hidden">Search vulnerabilities</label><input id="trk-kq" type="search" placeholder="Search vendor, product or CVE" autocomplete="off"></div>
+      <label class="trk-check"><input type="checkbox" id="trk-ransom"> Linked to ransomware</label>
+      <label class="trk-select"><span>Show</span><select id="trk-days"><option value="7">Added in the last 7 days</option><option value="30" selected>Last 30 days</option><option value="90">Last 90 days</option></select></label>
+    </div>
+    <p class="calc-hint" id="trk-kcount" aria-live="polite"></p>
+    <ol class="trk-kev" id="trk-kev"></ol>
+    <p class="calc-hint">Source: CISA Known Exploited Vulnerabilities catalog, loaded in your browser from CISA's public GitHub mirror and refreshed every 15 minutes while this page is open.</p>
+  </div>
+</section>

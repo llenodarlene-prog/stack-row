@@ -117,3 +117,35 @@ test('cron: next runs in UTC and in a zone, with OR day semantics', () => {
   const gap = C.nextCronRuns(C.parseCron('30 2 * * *'), { from: Date.UTC(2026, 2, 7, 12, 0), count: 2, zoneParts: zone('America/New_York') });
   assert.deepEqual([...gap].map(t => new Date(t).toISOString()), ['2026-03-09T06:30:00.000Z', '2026-03-10T06:30:00.000Z']);
 });
+
+test('cyberattack tracker: incident data is complete, dated and sourced', async () => {
+  const ctx = {}; vm.createContext(ctx);
+  vm.runInContext(await readFile('src/scripts/cyber-incidents.js', 'utf8'), ctx);
+  vm.runInContext(await readFile('src/scripts/kev-snapshot.js', 'utf8'), ctx);
+  const { incidents, updated } = ctx.StackRowIncidents;
+  assert.ok(!Number.isNaN(Date.parse(updated)));
+  const types = ['supply-chain', 'ransomware', 'outage', 'ai-agent'];
+  const statuses = ['investigating', 'contained', 'resolved', 'policy'];
+  const ai = ['none-found', 'none-reported', 'reported', 'confirmed', 'policy'];
+  assert.equal(new Set(incidents.map(i => i.id)).size, incidents.length);
+  for (const i of incidents) {
+    assert.match(i.id, /^[a-z0-9-]+$/);
+    assert.match(i.date, /^\d{4}-\d{2}-\d{2}$/);
+    assert.ok(types.includes(i.type), i.id); assert.ok(statuses.includes(i.status), i.id); assert.ok(ai.includes(i.ai), i.id);
+    for (const k of ['title', 'summary', 'cause', 'impact']) assert.ok(i[k] && i[k].length > 10, `${i.id} ${k}`);
+    assert.ok(i.orgs.length >= 1 && i.timeline.length >= 1 && i.sources.length >= 1, i.id);
+    for (const [name, url] of i.sources) { assert.ok(name); assert.match(url, /^https:\/\//); }
+    assert.doesNotMatch(JSON.stringify(i), /—/);
+  }
+  const kev = ctx.StackRowKevSnapshot;
+  assert.ok(kev.vulnerabilities.length >= 20);
+  for (const v of kev.vulnerabilities) assert.match(v.cveID, /^CVE-\d{4}-\d+$/);
+});
+
+test('cyberattack tracker page: no innerHTML and only the CISA mirror is fetched', async () => {
+  const page = await readFile('src/scripts/cyberattack-tracker.js', 'utf8');
+  assert.doesNotMatch(page, /innerHTML|insertAdjacentHTML|eval\(/);
+  const fetches = [...page.matchAll(/fetch\(([^,)]+)/g)].map(m => m[1].trim());
+  assert.deepEqual(fetches, ['KEV_URL']);
+  assert.match(page, /const KEV_URL = 'https:\/\/raw\.githubusercontent\.com\/cisagov\/kev-data\/main\/known_exploited_vulnerabilities\.json'/);
+});
