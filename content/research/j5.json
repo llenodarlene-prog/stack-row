@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "content_id": "J5",
+  "slug": "/saas/best-help-desk-software/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-20",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-20",
+      "keyword": "help desk software",
+      "search_volume": 5400,
+      "seo_difficulty": 32,
+      "cpc_usd": 107.68,
+      "source": "Ubersuggest keyword overview, retrieved by Claude 2026-11-20"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner-supplied draft set (StackRow Next 10 Articles, 2026-11-20). Documentation-based; no hands-on testing claimed.",
+  "sources": [
+    {
+      "url": "https://front.com/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.atlassian.com/software/jira/service-management/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.freshworks.com/freshdesk/pricing/",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.freshworks.com/freshservice/pricing/",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.helpscout.com/pricing/",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.hubspot.com/pricing/service",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.intercom.com/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.manageengine.com/products/service-desk/pricing.html",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.zendesk.com/pricing/",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.zoho.com/desk/pricing.html",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [],
+  "fact_check": {
+    "status": "approved",
+    "by": "Claude QA layer",
+    "date_utc": "2026-11-20"
+  },
+  "qa": {
+    "status": "approved",
+    "by": "Claude QA layer",
+    "date_utc": "2026-11-20"
+  },
+  "corrections": [
+    "Zoho Desk corrected from about $9 per agent to $7 per user monthly on annual billing (Express plan, zoho.com/desk/pricing)."
+  ],
+  "approval_note": "Owner gives final approval before publication."
+}
