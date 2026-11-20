@@ -1047,5 +1047,136 @@
       "A9",
       "I1"
     ]
+  },
+  {
+    "id": "J1",
+    "set": "listicles-2026-11c",
+    "type": "blog",
+    "title": "10 Best AI Meeting Assistants for 2026 and What to Watch in 2027",
+    "primary_keyword": "AI meeting assistant",
+    "slug": "/ai/best-ai-meeting-assistants/",
+    "cluster": "Enterprise AI",
+    "role": "Commercial Support",
+    "targets": [
+      "A3",
+      "J3"
+    ]
+  },
+  {
+    "id": "J2",
+    "set": "listicles-2026-11c",
+    "type": "blog",
+    "title": "10 Best Workflow Automation Software Platforms for Business Teams",
+    "primary_keyword": "workflow automation software",
+    "slug": "/business-technology/best-workflow-automation-software/",
+    "cluster": "Business Technology",
+    "role": "Commercial Support",
+    "targets": [
+      "A4",
+      "J5",
+      "J6"
+    ]
+  },
+  {
+    "id": "J3",
+    "set": "listicles-2026-11c",
+    "type": "blog",
+    "title": "10 Best Screen Recording Software Tools for Teams in 2026",
+    "primary_keyword": "screen recording software",
+    "slug": "/business-technology/best-screen-recording-software/",
+    "cluster": "Business Technology",
+    "role": "Commercial Support",
+    "targets": [
+      "A4",
+      "J1",
+      "J4"
+    ]
+  },
+  {
+    "id": "J4",
+    "set": "listicles-2026-11c",
+    "type": "blog",
+    "title": "10 Best Remote Desktop Software Platforms for IT Support in 2026",
+    "primary_keyword": "remote desktop software",
+    "slug": "/cloud-infrastructure/best-remote-desktop-software/",
+    "cluster": "Cloud & Infrastructure",
+    "role": "Commercial Support",
+    "targets": [
+      "A5",
+      "J5",
+      "J10"
+    ]
+  },
+  {
+    "id": "J5",
+    "set": "listicles-2026-11c",
+    "type": "blog",
+    "title": "10 Best Help Desk Software Platforms for Growing IT Teams",
+    "primary_keyword": "help desk software",
+    "slug": "/saas/best-help-desk-software/",
+    "cluster": "SaaS & Enterprise Software",
+    "role": "Commercial Support",
+    "targets": [
+      "A2",
+      "J4",
+      "J2"
+    ]
+  },
+  {
+    "id": "J6",
+    "set": "listicles-2026-11c",
+    "type": "blog",
+    "title": "10 Best Document Management Software Platforms for Secure Workflows",
+    "primary_keyword": "document management software",
+    "slug": "/business-technology/best-document-management-software/",
+    "cluster": "Business Technology",
+    "role": "Commercial Support",
+    "targets": [
+      "A4",
+      "J2"
+    ]
+  },
+  {
+    "id": "J7",
+    "set": "listicles-2026-11c",
+    "type": "blog",
+    "title": "10 Best Inventory Management Software Platforms for Small Businesses",
+    "primary_keyword": "inventory management software small business",
+    "slug": "/business-technology/inventory-management-software-small-business/",
+    "cluster": "Business Technology",
+    "role": "Commercial Support",
+    "targets": [
+      "A4",
+      "H7",
+      "J2"
+    ]
+  },
+  {
+    "id": "J8",
+    "set": "listicles-2026-11c",
+    "type": "blog",
+    "title": "10 Best Data Integration Tools for Modern Data Teams",
+    "primary_keyword": "data integration tools",
+    "slug": "/developer-data/best-data-integration-tools/",
+    "cluster": "Developer & Data",
+    "role": "Commercial Support",
+    "targets": [
+      "F2",
+      "J2"
+    ]
+  },
+  {
+    "id": "J10",
+    "set": "listicles-2026-11c",
+    "type": "blog",
+    "title": "10 Best Password Managers for Companies in 2026",
+    "primary_keyword": "password manager for companies",
+    "slug": "/cybersecurity/password-managers-for-companies/",
+    "cluster": "Cybersecurity",
+    "role": "Commercial Support",
+    "targets": [
+      "A1",
+      "J4"
+    ]
   }
 ]
