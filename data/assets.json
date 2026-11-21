@@ -3401,5 +3401,928 @@
     "height": 450,
     "role": "page image, small",
     "alt": "Operations desk with monitors showing failed service alerts, beside server racks, an airport, a hospital and cell towers"
+  },
+  {
+    "path": "/assets/images/hybrid-meeting-transcript-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Three colleagues talk at a meeting table while a remote teammate joins by laptop and a wall screen shows a live transcript"
+  },
+  {
+    "path": "/assets/images/hybrid-meeting-transcript-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Three colleagues talk at a meeting table while a remote teammate joins by laptop and a wall screen shows a live transcript"
+  },
+  {
+    "path": "/assets/images/workflow-diagram-review-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two colleagues review an automated workflow diagram on a wall screen with a matching flow on a laptop"
+  },
+  {
+    "path": "/assets/images/workflow-diagram-review-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two colleagues review an automated workflow diagram on a wall screen with a matching flow on a laptop"
+  },
+  {
+    "path": "/assets/images/screen-recording-studio-desk-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "A presenter records a video with a desk microphone while a colleague reviews the recording timeline on a monitor"
+  },
+  {
+    "path": "/assets/images/screen-recording-studio-desk-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "A presenter records a video with a desk microphone while a colleague reviews the recording timeline on a monitor"
+  },
+  {
+    "path": "/assets/images/remote-support-desk-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "An IT support technician in a headset points to a remote Windows desktop session while a colleague watches"
+  },
+  {
+    "path": "/assets/images/remote-support-desk-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "An IT support technician in a headset points to a remote Windows desktop session while a colleague watches"
+  },
+  {
+    "path": "/assets/images/help-desk-team-headset-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "A support agent in a headset works a ticket queue while three teammates look on"
+  },
+  {
+    "path": "/assets/images/help-desk-team-headset-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "A support agent in a headset works a ticket queue while three teammates look on"
+  },
+  {
+    "path": "/assets/images/document-access-review-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "A man reviews a team access and permissions dashboard on a laptop at a bright office desk"
+  },
+  {
+    "path": "/assets/images/document-access-review-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "A man reviews a team access and permissions dashboard on a laptop at a bright office desk"
+  },
+  {
+    "path": "/assets/images/inventory-scanner-stockroom-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "A small business owner scans a shelf barcode with a handheld scanner while holding a tablet in a stockroom"
+  },
+  {
+    "path": "/assets/images/inventory-scanner-stockroom-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "A small business owner scans a shelf barcode with a handheld scanner while holding a tablet in a stockroom"
+  },
+  {
+    "path": "/assets/images/data-pipeline-diagram-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "A data lead points to a diagram linking databases and cloud sources to dashboards while a colleague listens"
+  },
+  {
+    "path": "/assets/images/data-pipeline-diagram-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "A data lead points to a diagram linking databases and cloud sources to dashboards while a colleague listens"
+  },
+  {
+    "path": "/assets/images/boardroom-analytics-presentation-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "An executive presents bar, line and donut charts to colleagues in a glass-walled boardroom"
+  },
+  {
+    "path": "/assets/images/boardroom-analytics-presentation-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "An executive presents bar, line and donut charts to colleagues in a glass-walled boardroom"
+  },
+  {
+    "path": "/assets/images/security-key-access-review-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "Two colleagues review an access checklist on a laptop with a hardware security key on the desk"
+  },
+  {
+    "path": "/assets/images/security-key-access-review-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "Two colleagues review an access checklist on a laptop with a hardware security key on the desk"
+  },
+  {
+    "path": "/assets/screenshots/fellow-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Fellow home page headed \"The secure AI meeting assistant\" with a meeting recording player and AI notes tabs",
+    "tool": "Fellow",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/fathom-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Fathom home page headed \"AI notetaking that is out of this world\" with a free sign-up button",
+    "tool": "Fathom",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/fireflies-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Fireflies.ai home page introducing its Fred AI teammate with a Get Started for Free button",
+    "tool": "Fireflies.ai",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/otter-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Otter.ai home page describing its AI notetaker as a conversational knowledge engine",
+    "tool": "Otter.ai",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/granola-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Granola home page headed \"The AI notepad for back-to-back meetings\" beside a meeting notes window",
+    "tool": "Granola",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/tldv-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "tl;dv home page with an AI meeting summary panel listing action items and integrations",
+    "tool": "tl;dv",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/avoma-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Avoma home page promoting AI note-taking, scheduling, coaching and forecasting",
+    "tool": "Avoma",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/meetgeek-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "MeetGeek home page headed \"Your #1 AI Meeting Assistant\" with a video call preview",
+    "tool": "MeetGeek",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/krisp-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Krisp AI Meeting Assistant page with a video call window and an automatic meeting summary card",
+    "tool": "Krisp",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/readai-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Read AI home page headed \"Meetings In, Decisions Out\" with app icons for ChatGPT, Windows and Chrome",
+    "tool": "Read AI",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zapier-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Zapier home page headed \"Welcome to automation in the agentic era\" with sign-up buttons",
+    "tool": "Zapier",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/make-help-center-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Make Help Center page introducing Make apps with categories such as AI, CRM and file management",
+    "tool": "Make",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/n8n-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "n8n home page headed \"Build the agent. Understand its workflow.\" with a workflow node canvas",
+    "tool": "n8n",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/power-automate-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Microsoft Power Automate product page with Try for free and guided tour buttons",
+    "tool": "Microsoft Power Automate",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/workato-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Workato home page headed \"The Platform to Govern and Scale Enterprise AI\"",
+    "tool": "Workato",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/uipath-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "UiPath home page headed \"Your clear path to AI results\" with Try for free and platform buttons",
+    "tool": "UiPath",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/boomi-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Boomi home page headed \"Integration, Powered by AI. AI, Powered by Integration.\" with Gartner report cards",
+    "tool": "Boomi",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/pipefy-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Pipefy home page about AI agents and no-code workflows beside an AI Builder panel",
+    "tool": "Pipefy",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/kissflow-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Kissflow home page headed \"Build enterprise apps for the AI era\" with a demo button",
+    "tool": "Kissflow",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/monday-home-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "monday.com work management page headed \"Manage all your projects with AI\" with a project status report card",
+    "tool": "monday work management",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/loom-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Loom home page headed \"One video is worth a thousand words\" with Get Loom for Free and Chrome extension buttons",
+    "tool": "Loom",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/camtasia-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Camtasia home page about AI-powered screen recording and video editing with a download button",
+    "tool": "Camtasia",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/screenpal-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "ScreenPal home page headed \"Keep your content real. Let AI do the rest.\" with a recording toolbar",
+    "tool": "ScreenPal",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zight-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Zight home page headed \"Show it, don't type it.\" with Sign up free and Watch it work buttons",
+    "tool": "Zight",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/vidyard-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Vidyard home page headed \"Video for every customer moment\" with a video player preview",
+    "tool": "Vidyard",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/descript-home-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Descript home page headed \"AI-editing for every kind of video\" with an Underlord editing assistant panel",
+    "tool": "Descript",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/obs-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "OBS Studio home page with Windows, macOS and Linux download buttons and an app preview",
+    "tool": "OBS Studio",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/cap-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Cap home page headed \"The open source screen recorder for everyone\" with Windows download button",
+    "tool": "Cap",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/snagit-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Snagit page by TechSmith with Download Snagit and Buy Snagit buttons above a laptop preview",
+    "tool": "Snagit",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/clipchamp-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Clipchamp home page describing its online video editor with a Create a video button",
+    "tool": "Clipchamp",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/splashtop-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Splashtop Remote Support page with Free Trial and Buy Now buttons and a plan selector heading",
+    "tool": "Splashtop",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zoho-assist-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Zoho Assist page headed \"Enterprise-grade remote support and unattended remote access software\" with a sign-up form",
+    "tool": "Zoho Assist",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/screenconnect-documentation-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "ConnectWise ScreenConnect documentation home with a search box and documentation collections",
+    "tool": "ConnectWise ScreenConnect",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/teamviewer-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "TeamViewer Remote page headed \"Secure remote access and IT support\" with an offer banner",
+    "tool": "TeamViewer Remote",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/anydesk-help-center-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "AnyDesk Help Center with search and links for getting started, licensing and user guides",
+    "tool": "AnyDesk",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/remotepc-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "RemotePC HelpDesk page headed \"Fast and Simple Remote Computer and Mobile support\"",
+    "tool": "RemotePC HelpDesk",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/beyondtrust-documentation-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "BeyondTrust Remote Support documentation page explaining what Secure Remote Support is",
+    "tool": "BeyondTrust Remote Support",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/goto-resolve-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "LogMeIn Resolve page headed \"Unified Management. Simplified IT.\" with a device management dashboard",
+    "tool": "GoTo Resolve",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/rustdesk-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "RustDesk home page headed \"The Fast Open-Source Remote Access and Support Software\" with a scam warning banner",
+    "tool": "RustDesk",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/chrome-remote-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Chrome Remote Desktop page with options to access a computer remotely or share a screen",
+    "tool": "Chrome Remote Desktop",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/freshdesk-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Freshdesk home page about AI agents in customer service beside a support dashboard",
+    "tool": "Freshdesk",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/jsm-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Jira Service Management page headed \"high-velocity service management\" with a sign-up form",
+    "tool": "Jira Service Management",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zendesk-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Zendesk page headed \"AI-powered customer service software\" with a free trial email field",
+    "tool": "Zendesk",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zoho-desk-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Zoho Desk page headed \"AI help desk software made human-simple\" with a ticket view preview",
+    "tool": "Zoho Desk",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/freshservice-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Freshservice page headed \"Service, operations, and assets unified\" with an AI chat preview",
+    "tool": "Freshservice",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/helpscout-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Help Scout home page headed \"Where support teams turn conversations into word-of-mouth\"",
+    "tool": "Help Scout",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/hubspot-service-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "HubSpot Service Hub page headed \"Customer Service Software\" with a customer success workspace",
+    "tool": "HubSpot Service Hub",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/intercom-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Intercom home page headed \"A complete system for AI and human customer service\"",
+    "tool": "Intercom",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/front-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Front home page headed \"All your teams. All your AI agents.\" with a shared inbox preview",
+    "tool": "Front",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/servicedesk-plus-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "ManageEngine ServiceDesk Plus page headed \"AI-driven unified service management platform for the digital enterprise\"",
+    "tool": "ManageEngine ServiceDesk Plus",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/sharepoint-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Microsoft SharePoint product page describing the knowledge platform for Copilot and agents",
+    "tool": "Microsoft SharePoint",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/box-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Box home page about intelligent content management with Get started and Contact us buttons",
+    "tool": "Box",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/m-files-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "M-Files home page headed \"Put context-first document management to work\"",
+    "tool": "M-Files",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/docuware-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "DocuWare home page headed \"The new era of Document Management and Workflow Automation\"",
+    "tool": "DocuWare",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/laserfiche-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Laserfiche home page headed \"Smarter Content Management Built for Smarter Business\"",
+    "tool": "Laserfiche",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/egnyte-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Egnyte home page headed \"Contextual Knowledge. Adaptive Intelligence.\" with demo and product buttons",
+    "tool": "Egnyte",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/revver-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Revver page headed \"AI document management software and workflow automation\" with a trial button",
+    "tool": "Revver",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/google-workspace-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Google Drive page headed \"Store and share files online\" with a file sharing preview",
+    "tool": "Google Drive and Workspace",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/dropbox-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Dropbox business page with a Find your plan button and a file collaboration preview",
+    "tool": "Dropbox Business",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/opentext-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "OpenText Content Management (Extended ECM) page with a dashboard preview",
+    "tool": "OpenText Content Management",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zoho-inventory-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Zoho Inventory page headed \"Manage inventory and fulfill orders the right way\" with order cards",
+    "tool": "Zoho Inventory",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/inflow-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "inFlow home page headed \"Inventory software to help you make sense of the numbers\" with a dashboard",
+    "tool": "inFlow Inventory",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/cin7-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Cin7 home page headed \"Inventory Management Software for Modern Sellers\" with QuickBooks, Xero and Shopify logos",
+    "tool": "Cin7 Core",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/katana-home-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Katana home page headed \"Inventory that runs itself\" with an AI inventory panel",
+    "tool": "Katana",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/fishbowl-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Fishbowl home page with a production and inventory approval feed",
+    "tool": "Fishbowl",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/unleashed-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Unleashed home page headed \"Inventory management software for clarity, control, and confidence\"",
+    "tool": "Unleashed",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/sortly-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Sortly home page headed \"Easy Inventory Software for Teams on the Move\" with trial and plans buttons",
+    "tool": "Sortly",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/lightspeed-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Lightspeed Retail POS page headed \"Maximize efficiency and team happiness\" with a POS terminal",
+    "tool": "Lightspeed Retail",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/ordoro-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Ordoro home page headed \"Manage all of your eCommerce ops in one spot\" with shipping and inventory apps",
+    "tool": "Ordoro",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/airbyte-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Airbyte home page headed \"Your data. Your agents. In your boundary.\" with a connector code panel",
+    "tool": "Airbyte",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/fivetran-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Fivetran home page with connector logos around a data question about pipeline revenue",
+    "tool": "Fivetran",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/informatica-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Informatica page headed \"Enterprise integration with Informatica iPaaS\"",
+    "tool": "Informatica",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/matillion-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Matillion home page headed \"Cloud data integration and ETL, now autonomous\"",
+    "tool": "Matillion",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/hevo-documentation-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Hevo Data documentation home with cards for its MCP server, Terraform provider and edge pipelines",
+    "tool": "Hevo Data",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/talend-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Qlik Talend Cloud page headed \"Deliver Trusted, AI-ready Data with Qlik Talend Cloud\"",
+    "tool": "Qlik Talend Cloud",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/aws-glue-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "AWS Glue product page with a Get started button and a Why AWS Glue section",
+    "tool": "AWS Glue",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/adf-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Azure Data Factory product page noting the future of data integration lives in Microsoft Fabric",
+    "tool": "Azure Data Factory",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/1password-business-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "1Password business page headed \"Your business security, simplified\" with Talk to an expert and See plans buttons",
+    "tool": "1Password Business",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/bitwarden-business-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Bitwarden business page headed \"Secure every credential your team runs on\" with a vault preview",
+    "tool": "Bitwarden Enterprise",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/keeper-business-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Keeper Business Password Manager page with a vault record list and trial buttons",
+    "tool": "Keeper Enterprise",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/dashlane-business-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Dashlane business page headed \"Effortless password protection\" with contact sales buttons",
+    "tool": "Dashlane Business",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/proton-pass-home-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Proton Pass page headed \"The business password manager for every team\" with a reports dashboard",
+    "tool": "Proton Pass for Business",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/lastpass-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "LastPass business page headed \"Keep your business passwords secure\" with a trial email field",
+    "tool": "LastPass Business",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/zoho-vault-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Zoho Vault business password manager page with a sign-up form",
+    "tool": "Zoho Vault",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/roboform-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "RoboForm for Business page headed \"Work Smart Stay Safe\" with Start Free Trial and See Pricing buttons",
+    "tool": "RoboForm for Business",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/passbolt-product-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Passbolt page headed \"Open source password and secret management. Any business, any size.\" with a vault preview",
+    "tool": "Passbolt",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/square-home-page-2026-11.webp",
+    "width": 1440,
+    "height": 900,
+    "alt": "Square home page headed \"Local legend or global icon. Make it big on your block.\" with Get started and Contact sales buttons",
+    "tool": "Square for Retail",
+    "source": "own-capture",
+    "captured": "2026-11"
   }
 ]
