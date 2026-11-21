@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "content_id": "J1",
+  "slug": "/ai/best-ai-meeting-assistants/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-20",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-20",
+      "keyword": "AI meeting assistant",
+      "search_volume": 4400,
+      "seo_difficulty": 11,
+      "cpc_usd": 16.63,
+      "source": "Ubersuggest keyword overview, retrieved by Claude 2026-11-20"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner-supplied draft set (StackRow Next 10 Articles, 2026-11-20). Documentation-based; no hands-on testing claimed.",
+  "sources": [
+    {
+      "url": "https://fathom.video/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://fellow.ai/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://fireflies.ai/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://krisp.ai/pricing/",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://meetgeek.ai/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://otter.ai/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://tldv.io/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.avoma.com/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.granola.ai/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.read.ai/plans-pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [],
+  "fact_check": {
+    "status": "approved",
+    "by": "Claude QA layer",
+    "date_utc": "2026-11-20"
+  },
+  "qa": {
+    "status": "approved",
+    "by": "Claude QA layer",
+    "date_utc": "2026-11-20"
+  },
+  "corrections": [],
+  "approval_note": "Owner gives final approval before publication."
+}

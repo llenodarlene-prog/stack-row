@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "content_id": "J4",
+  "slug": "/cloud-infrastructure/best-remote-desktop-software/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-20",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-20",
+      "keyword": "remote desktop software",
+      "search_volume": 14800,
+      "seo_difficulty": 27,
+      "cpc_usd": 19.0,
+      "source": "Ubersuggest keyword overview, retrieved by Claude 2026-11-20"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner-supplied draft set (StackRow Next 10 Articles, 2026-11-20). Documentation-based; no hands-on testing claimed.",
+  "sources": [
+    {
+      "url": "https://anydesk.com/en/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://remotedesktop.google.com/",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://rustdesk.com/pricing/",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://screenconnect.connectwise.com/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.beyondtrust.com/products/remote-support",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.goto.com/it-management/resolve/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.remotepc.com/helpdesk-pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.splashtop.com/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.teamviewer.com/en-us/pricing/",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.zoho.com/assist/pricing.html",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [],
+  "fact_check": {
+    "status": "approved",
+    "by": "Claude QA layer",
+    "date_utc": "2026-11-20"
+  },
+  "qa": {
+    "status": "approved",
+    "by": "Claude QA layer",
+    "date_utc": "2026-11-20"
+  },
+  "corrections": [
+    "ConnectWise ScreenConnect \"from about $30\" removed: pricing page blocked automated access, figure not verifiable.",
+    "AnyDesk \"from about $14.90\" removed: pricing page blocked automated access, figure not verifiable."
+  ],
+  "approval_note": "Owner gives final approval before publication."
+}

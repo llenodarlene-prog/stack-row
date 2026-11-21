@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "content_id": "J2",
+  "slug": "/business-technology/best-workflow-automation-software/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-20",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-20",
+      "keyword": "workflow automation software",
+      "search_volume": 2400,
+      "seo_difficulty": 31,
+      "cpc_usd": 80.49,
+      "source": "Ubersuggest keyword overview, retrieved by Claude 2026-11-20"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner-supplied draft set (StackRow Next 10 Articles, 2026-11-20). Documentation-based; no hands-on testing claimed.",
+  "sources": [
+    {
+      "url": "https://boomi.com/products/integration/",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://kissflow.com/pricing/",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://monday.com/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://n8n.io/pricing/",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.make.com/en/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/power-platform/products/power-automate/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.pipefy.com/pricing/",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.uipath.com/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.workato.com/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://zapier.com/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [],
+  "fact_check": {
+    "status": "approved",
+    "by": "Claude QA layer",
+    "date_utc": "2026-11-20"
+  },
+  "qa": {
+    "status": "approved",
+    "by": "Claude QA layer",
+    "date_utc": "2026-11-20"
+  },
+  "corrections": [
+    "n8n cloud price corrected from about EUR 20 to $20 monthly on annual billing (n8n.io/pricing, 2026-11-20)."
+  ],
+  "approval_note": "Owner gives final approval before publication."
+}

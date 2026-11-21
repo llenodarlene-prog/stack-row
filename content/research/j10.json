@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "content_id": "J10",
+  "slug": "/cybersecurity/password-managers-for-companies/",
+  "status": "verified",
+  "required_seo_tool": "Ubersuggest",
+  "research_date_utc": "2026-11-20",
+  "keyword_queries": [
+    {
+      "tool": "Ubersuggest",
+      "location": "United States",
+      "language": "English",
+      "retrieved_utc": "2026-11-20",
+      "keyword": "password manager for companies",
+      "search_volume": 2900,
+      "seo_difficulty": 14,
+      "cpc_usd": 81.95,
+      "source": "Ubersuggest keyword overview, retrieved by Claude 2026-11-20"
+    }
+  ],
+  "ranking_competitors": [],
+  "competitor_notes": "Owner-supplied draft set (StackRow Next 10 Articles, 2026-11-20). Documentation-based; no hands-on testing claimed.",
+  "sources": [
+    {
+      "url": "https://1password.com/business-pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://bitwarden.com/pricing/business/",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://nordpass.com/business/pricing/",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://proton.me/business/pass",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.dashlane.com/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.keepersecurity.com/pricing/business-and-enterprise.html",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.lastpass.com/pricing",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.passbolt.com/pricing/business",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.roboform.com/business",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    },
+    {
+      "url": "https://www.zoho.com/vault/pricing.html",
+      "checked_utc": "2026-11-20",
+      "method": "Vendor pricing or product page loaded by Claude 2026-11-20; prices compared with the draft and corrected where noted."
+    }
+  ],
+  "statistics": [],
+  "claims": [],
+  "internal_link_targets": [],
+  "fact_check": {
+    "status": "pending",
+    "by": "Claude QA layer",
+    "date_utc": "2026-11-20"
+  },
+  "qa": {
+    "status": "pending",
+    "by": "Claude QA layer",
+    "date_utc": "2026-11-20"
+  },
+  "corrections": [
+    "NordPass EUR 1.99 removed: pricing page blocked automated access.",
+    "Proton Pass Essentials corrected from EUR 1.99 to $1.99 per user monthly on annual billing."
+  ],
+  "approval_note": "REVISE: no usable screenshot for NordPass Business (site blocks automated access). Owner screenshot or press image needed."
+}
