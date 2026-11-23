@@ -4324,5 +4324,38 @@
     "tool": "Square for Retail",
     "source": "own-capture",
     "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/mulesoft-product-page-2026-11.webp",
+    "width": 2000,
+    "height": 855,
+    "alt": "MuleSoft page headed \"Control agent costs with Agent Fabric\" with linked agent cards and a token reduction panel",
+    "tool": "MuleSoft Anypoint Platform",
+    "source": "own-capture",
+    "captured": "2026-11"
+  },
+  {
+    "path": "/assets/screenshots/nordpass-vault-product-image-2026-11.webp",
+    "width": 1200,
+    "height": 840,
+    "alt": "NordPass vault showing an All Items list of sample logins and a credit card, with categories and folders in the sidebar",
+    "tool": "NordPass Business",
+    "source": "vendor-press-kit",
+    "captured": "2026-11",
+    "credit": "NordPass"
+  },
+  {
+    "path": "/assets/images/global-attack-response-room-1600.jpg",
+    "width": 1600,
+    "height": 900,
+    "role": "page image",
+    "alt": "A security team studies a wall map of attack paths and sector alerts for banking, health, aviation, energy and retail"
+  },
+  {
+    "path": "/assets/images/global-attack-response-room-800.jpg",
+    "width": 800,
+    "height": 450,
+    "role": "page image, small",
+    "alt": "A security team studies a wall map of attack paths and sector alerts for banking, health, aviation, energy and retail"
   }
 ]
