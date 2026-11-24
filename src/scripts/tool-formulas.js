@@ -484,5 +484,93 @@
     }
   };
 
-  root.StackRowFormulas = { Markup, Base, Raid, Transfer, Bandwidth, Roi, Cpm, Roas, Significance, Valuation, Tokens, Subnet, Margin, Employee, Runway, Billable };
+
+  // Tiered per-million pricing: tiers are [size of tier in units, USD per million].
+  const tiered = (units, tiers) => {
+    let left = Math.max(0, units), cost = 0;
+    for (const [size, rate] of tiers) { const used = Math.min(left, size); cost += used / 1e6 * rate; left -= used; if (left <= 0) break; }
+    return cost;
+  };
+
+  // Amazon API Gateway monthly cost from a dated price table.
+  const ApiGateway = {
+    tiered,
+    estimate(prices, { type, requests, sizeKb = 0, minutes = 0, cacheGb = '', cacheHours = 730, transferGb = 0, freeTier = false }) {
+      let metered = requests, request = 0, connection = 0, cache = 0;
+      if (type === 'http') {
+        metered = requests * Math.max(1, Math.ceil(sizeKb / prices.httpMeterKb));
+        request = tiered(Math.max(0, metered - (freeTier ? prices.freeTier.http : 0)), prices.http);
+      } else if (type === 'websocket') {
+        metered = requests * Math.max(1, Math.ceil(sizeKb / prices.websocketMeterKb));
+        request = tiered(Math.max(0, metered - (freeTier ? prices.freeTier.messages : 0)), prices.websocketMessages);
+        connection = Math.max(0, minutes - (freeTier ? prices.freeTier.minutes : 0)) / 1e6 * prices.websocketMinutes;
+      } else {
+        request = tiered(Math.max(0, requests - (freeTier ? prices.freeTier.rest : 0)), prices.rest);
+        if (cacheGb && prices.cache[cacheGb] !== undefined) cache = prices.cache[cacheGb] * cacheHours;
+      }
+      const transfer = transferGb * prices.transferPerGb;
+      const total = request + connection + cache + transfer;
+      return { metered, request, connection, cache, transfer, total, annual: total * 12, perMillion: requests ? total / (requests / 1e6) : null };
+    }
+  };
+
+  // AI adoption business case: time change can be negative, and rework and
+  // review time reduce the claimed savings.
+  const AiRoi = {
+    value({ users, adoptionPct, hoursPerWeek, weeks = 48, changePct, reworkPct = 0, reviewHoursPerWeek = 0, rate }) {
+      const active = users * adoptionPct / 100;
+      const taskHours = active * hoursPerWeek * weeks;
+      const gross = taskHours * changePct / 100;
+      const rework = gross > 0 ? gross * reworkPct / 100 : 0;
+      const review = reviewHoursPerWeek * weeks;
+      const net = gross - rework - review;
+      return { active, taskHours, gross, rework, review, net, value: net * rate };
+    },
+    business(input) {
+      const { users, licensePerUserMonth = 0, usagePerMonth = 0, implementation = 0, trainingPerUser = 0, rampMonths = 0, rate } = input;
+      const v = AiRoi.value(input);
+      const recurring = (licensePerUserMonth * users + usagePerMonth) * 12;
+      const oneTime = implementation + trainingPerUser * users;
+      const ramp = Math.min(12, Math.max(0, rampMonths));
+      const yearOneValue = v.value * (12 - ramp / 2) / 12;
+      const yearOneCost = recurring + oneTime;
+      const netValue = yearOneValue - yearOneCost;
+      const monthlyNet = (v.value - recurring) / 12;
+      const perPoint = (v.taskHours * (1 - (input.reworkPct || 0) / 100) / 100) * rate;
+      const breakEven = perPoint > 0 ? (recurring + v.review * rate) / perPoint : null;
+      return { ...v, recurring, oneTime, yearOneValue, yearOneCost, netValue, roi: yearOneCost ? netValue / yearOneCost * 100 : null, steadyNet: v.value - recurring, payback: monthlyNet > 0 ? oneTime / monthlyNet + ramp / 2 : null, breakEven };
+    }
+  };
+
+  // Workflow automation savings after exceptions, errors, ramp-up and running costs.
+  const Automation = {
+    annual({ volume, minutes, rate, automatablePct, exceptionPct = 0, exceptionMinutes = 0, errorPct = 0, errorCost = 0, errorReductionPct = 0 }) {
+      const items = volume * 12;
+      const manualHours = items * minutes / 60;
+      const automated = items * automatablePct / 100;
+      const exceptionHours = automated * exceptionPct / 100 * exceptionMinutes / 60;
+      const hoursReturned = automated * minutes / 60 - exceptionHours;
+      const errorSavings = items * errorPct / 100 * errorCost * errorReductionPct / 100;
+      return { items, manualHours, manualCost: manualHours * rate, automated, exceptionHours, hoursReturned, laborValue: hoursReturned * rate, errorSavings, benefit: hoursReturned * rate + errorSavings };
+    },
+    roi(input) {
+      const { software = 0, implementation = 0, maintenance = 0, rampMonths = 0, years = 3 } = input;
+      const a = Automation.annual(input);
+      const running = software + maintenance;
+      const ramp = Math.min(12, Math.max(0, rampMonths));
+      const yearly = [];
+      let cumulative = -implementation;
+      for (let y = 1; y <= years; y++) {
+        const benefit = y === 1 ? a.benefit * (12 - ramp / 2) / 12 : a.benefit;
+        cumulative += benefit - running;
+        yearly.push({ year: y, benefit, cost: running + (y === 1 ? implementation : 0), cumulative });
+      }
+      const totalCost = implementation + running * years;
+      const monthlyNet = (a.benefit - running) / 12;
+      const perItem = a.items ? a.benefit / a.items : 0;
+      return { ...a, running, yearly, net: cumulative, roi: totalCost ? cumulative / totalCost * 100 : null, payback: monthlyNet > 0 ? implementation / monthlyNet + ramp / 2 : null, breakEvenVolume: perItem > 0 ? running / perItem / 12 : null };
+    }
+  };
+
+  root.StackRowFormulas = { ApiGateway, AiRoi, Automation, Markup, Base, Raid, Transfer, Bandwidth, Roi, Cpm, Roas, Significance, Valuation, Tokens, Subnet, Margin, Employee, Runway, Billable };
 })(typeof window !== 'undefined' ? window : globalThis);
