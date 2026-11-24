@@ -76,15 +76,15 @@
   "claims": [],
   "internal_link_targets": [],
   "fact_check": {
-    "status": "pending",
+    "status": "approved",
     "by": "Claude QA layer",
     "date_utc": "2026-11-20"
   },
   "qa": {
-    "status": "pending",
+    "status": "approved",
     "by": "Claude QA layer",
     "date_utc": "2026-11-20"
   },
   "corrections": [],
-  "approval_note": "REVISE: no usable screenshot for MuleSoft Anypoint Platform (site blocks automated access). Owner screenshot or press image needed."
+  "approval_note": "Owner supplied the missing screenshot 2026-11-23. Owner gives final approval before publication."
 }

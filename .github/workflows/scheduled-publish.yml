@@ -26,6 +26,7 @@ jobs:
 
   deploy:
     needs: due
-    if: needs.due.outputs.due == 'true'
+    # A manual run always deploys, so a post missed by a skipped hourly run can be published on demand.
+    if: needs.due.outputs.due == 'true' || github.event_name == 'workflow_dispatch'
     uses: ./.github/workflows/deploy-production.yml
     secrets: inherit
