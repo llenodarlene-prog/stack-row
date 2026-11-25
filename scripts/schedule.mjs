@@ -42,8 +42,27 @@ for (const name of names) {
 
 const goingLive = rows.filter(row => row.state === 'live' && now - row.at < windowMs);
 
+// Safety net: with SITE_URL set, any post that should be live but does not
+// load on the live site (a missed or failed deploy) also triggers a deploy.
+async function missingFromSite() {
+  const site = process.env.SITE_URL;
+  if (!site) return [];
+  const missing = [];
+  for (const row of rows.filter(r => r.state === 'live' && r.slug)) {
+    try {
+      const response = await fetch(new URL(row.slug, site), { method: 'HEAD', redirect: 'follow' });
+      if (response.status === 404) missing.push(row.slug);
+    } catch {
+      // A network error is not evidence that the post is missing.
+    }
+  }
+  return missing;
+}
+
 if (mode === 'due') {
-  const due = goingLive.length > 0;
+  const missing = await missingFromSite();
+  if (missing.length) console.log(`${missing.length} live post(s) missing from the site: ${missing.join(', ')}`);
+  const due = goingLive.length > 0 || missing.length > 0;
   console.log(due
     ? `${goingLive.length} post(s) went live in the last 12 hours: ${goingLive.map(row => row.slug).join(', ')}`
     : 'Nothing went live in the last 12 hours.');

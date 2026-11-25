@@ -23,6 +23,8 @@ jobs:
           node-version-file: .nvmrc
       - id: check
         run: node scripts/schedule.mjs due
+        env:
+          SITE_URL: https://stackrow.org
 
   deploy:
     needs: due
