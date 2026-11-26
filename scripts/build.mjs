@@ -120,8 +120,8 @@ const calculatorTools = {
 };
 // Tools that need extra data files (such as dated price tables) list them here.
 const hubScript = await fingerprint('src/scripts/tools-hub.js', 'scripts', 'tools-hub', 'js');
-const toolExtras = { 'ai-token': [await fingerprint('src/scripts/llm-prices.js', 'scripts', 'llm-prices', 'js')] };
-for (const name of ['markup', 'binary-hex', 'raid', 'download-time', 'roi', 'cpm', 'roas', 'statistical-significance', 'business-valuation', 'ai-token', 'subnet', 'profit-margin', 'employee-cost', 'burn-rate', 'billable-hours']) {
+const toolExtras = { 'ai-token': [await fingerprint('src/scripts/llm-prices.js', 'scripts', 'llm-prices', 'js')], 'api-gateway-cost': [await fingerprint('src/scripts/apigw-prices.js', 'scripts', 'apigw-prices', 'js')] };
+for (const name of ['markup', 'binary-hex', 'raid', 'download-time', 'roi', 'cpm', 'roas', 'statistical-significance', 'business-valuation', 'ai-token', 'subnet', 'profit-margin', 'employee-cost', 'burn-rate', 'billable-hours', 'api-gateway-cost', 'ai-roi', 'workflow-automation-roi']) {
   calculatorTools[name] = {
     scripts: [toolCore, toolFormulas, ...(toolExtras[name] || []), await fingerprint(`src/scripts/${name}-calculator.js`, 'scripts', `${name}-calculator`, 'js')],
     markup: withIcons(toolShell(await readFile(`src/partials/${name}-calculator.html`, 'utf8')))

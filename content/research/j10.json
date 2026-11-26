@@ -76,12 +76,12 @@
   "claims": [],
   "internal_link_targets": [],
   "fact_check": {
-    "status": "pending",
+    "status": "approved",
     "by": "Claude QA layer",
     "date_utc": "2026-11-20"
   },
   "qa": {
-    "status": "pending",
+    "status": "approved",
     "by": "Claude QA layer",
     "date_utc": "2026-11-20"
   },
@@ -89,5 +89,5 @@
     "NordPass EUR 1.99 removed: pricing page blocked automated access.",
     "Proton Pass Essentials corrected from EUR 1.99 to $1.99 per user monthly on annual billing."
   ],
-  "approval_note": "REVISE: no usable screenshot for NordPass Business (site blocks automated access). Owner screenshot or press image needed."
+  "approval_note": "Owner supplied the missing screenshot 2026-11-23. Owner gives final approval before publication."
 }

@@ -1,0 +1,17 @@
+<div class="calc-tabs" role="tablist" aria-label="API type">
+  <button type="button" role="tab" id="tab-rest" aria-controls="panel-rest" aria-selected="true" data-mode="rest">{{icon:api}}REST API</button>
+  <button type="button" role="tab" id="tab-http" aria-controls="panel-http" aria-selected="false" tabindex="-1" data-mode="http">{{icon:world}}HTTP API</button>
+  <button type="button" role="tab" id="tab-websocket" aria-controls="panel-websocket" aria-selected="false" tabindex="-1" data-mode="websocket">{{icon:arrows-exchange}}WebSocket API</button>
+</div>
+<form class="calc-form" novalidate>
+  <div class="calc-grid"><div class="calc-field"><label for="ag-requests">Requests or messages per month</label><input id="ag-requests" name="requests" inputmode="decimal" autocomplete="off"><p class="calc-hint">Enter the full number, such as 5000000.</p></div><div class="calc-field"><label for="ag-transfer">Data transfer out per month (GB)</label><input id="ag-transfer" name="transfer" inputmode="decimal" autocomplete="off"><p class="calc-hint">Responses sent to the internet. Leave blank to skip.</p></div></div>
+  <div role="tabpanel" id="panel-rest" aria-labelledby="tab-rest" class="calc-panel">
+    <div class="calc-grid"><div class="calc-field"><label for="ag-cache">Cache size</label><select id="ag-cache" name="cache"><option value="">No cache</option><option value="0.5">0.5 GB</option><option value="1.6">1.6 GB</option><option value="6.1">6.1 GB</option><option value="13.5">13.5 GB</option><option value="28.4">28.4 GB</option><option value="58.2">58.2 GB</option><option value="118">118 GB</option><option value="237">237 GB</option></select><p class="calc-hint">Optional REST API cache, billed per hour.</p></div><div class="calc-field"><label for="ag-hours">Cache hours per month</label><input id="ag-hours" name="hours" inputmode="decimal" autocomplete="off"><p class="calc-hint">730 hours is a full month.</p></div></div>
+  </div>
+  <div role="tabpanel" id="panel-http" aria-labelledby="tab-http" class="calc-panel" hidden>
+    <div class="calc-grid"><div class="calc-field"><label for="ag-hsize">Average request size (KB)</label><input id="ag-hsize" name="hsize" inputmode="decimal" autocomplete="off"><p class="calc-hint">HTTP API requests are metered in 512 KB steps.</p></div></div>
+  </div>
+  <div role="tabpanel" id="panel-websocket" aria-labelledby="tab-websocket" class="calc-panel" hidden>
+    <div class="calc-grid"><div class="calc-field"><label for="ag-wsize">Average message size (KB)</label><input id="ag-wsize" name="wsize" inputmode="decimal" autocomplete="off"><p class="calc-hint">Messages are metered in 32 KB steps, up to 128 KB.</p></div><div class="calc-field"><label for="ag-minutes">Connection minutes per month</label><input id="ag-minutes" name="minutes" inputmode="decimal" autocomplete="off"><p class="calc-hint">Connected clients × minutes connected.</p></div></div>
+  </div>
+  <div class="calc-grid"><div class="calc-field"><label for="ag-free">Free tier</label><select id="ag-free" name="free"><option value="">Not applied</option><option value="yes">Apply (new accounts, first 12 months)</option></select><p class="calc-hint">Removes 1 million calls or messages and 750,000 connection minutes.</p></div></div>
