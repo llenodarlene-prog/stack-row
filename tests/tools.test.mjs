@@ -4,9 +4,11 @@ import test from 'node:test';
 import vm from 'node:vm';
 
 const context = {};
-vm.runInNewContext((await readFile('src/scripts/tool-formulas.js', 'utf8')) + (await readFile('src/scripts/llm-prices.js', 'utf8')), context);
+vm.runInNewContext((await readFile('src/scripts/tool-formulas.js', 'utf8')) + (await readFile('src/scripts/llm-prices.js', 'utf8')) + (await readFile('src/scripts/apigw-prices.js', 'utf8')), context);
 const { Markup, Base, Raid, Transfer, Roi, Cpm, Roas, Significance, Valuation, Tokens, Subnet, Margin, Employee, Runway, Billable } = context.StackRowFormulas;
 const Prices = context.StackRowLlmPrices;
+const { ApiGateway, AiRoi, Automation } = context.StackRowFormulas;
+const Gw = context.StackRowApiGatewayPrices;
 const close = (actual, expected, digits = 2) => assert.equal(Number(actual.toFixed(digits)), expected);
 
 test('markup: price, margin, discount, tax, and quantity match the worked example', () => {
@@ -231,4 +233,28 @@ test('bandwidth: peak demand, headroom and monthly data', () => {
   assert.equal(Number(r.peakMbps.toFixed(6)), 72); assert.equal(Number(r.required.toFixed(6)), 90);
   const m = Bandwidth.plan({ users: 1, rateMbps: 8, peakPct: 100, averagePct: 100 });
   assert.equal(Math.round(m.monthlyBytes), 2629746000000);
+});
+
+test('api gateway: matches the worked examples on the AWS pricing page', () => {
+  close(ApiGateway.estimate(Gw, { type: 'rest', requests: 5e6 }).request, 17.5);
+  close(ApiGateway.estimate(Gw, { type: 'rest', requests: 15e9 }).request, 36353.1);
+  close(ApiGateway.estimate(Gw, { type: 'http', requests: 432e6 }).request, 418.8);
+  close(ApiGateway.estimate(Gw, { type: 'http', requests: 1080000, sizeKb: 4608 }).request, 9.72);
+  const ws = ApiGateway.estimate(Gw, { type: 'websocket', requests: 18e6, minutes: 21.6e6 });
+  close(ws.request, 18); close(ws.connection, 5.4);
+  close(ApiGateway.estimate(Gw, { type: 'rest', requests: 0, cacheGb: '1.6', cacheHours: 730 }).cache, 27.74);
+  close(ApiGateway.estimate(Gw, { type: 'rest', requests: 1.5e6, freeTier: true }).request, 1.75);
+});
+
+test('ai roi: worked example, negative cases and break-even', () => {
+  const r = AiRoi.business({ users: 50, adoptionPct: 70, hoursPerWeek: 5, changePct: 15, reworkPct: 10, reviewHoursPerWeek: 4, rate: 60, licensePerUserMonth: 30, implementation: 10000, trainingPerUser: 200, rampMonths: 3, weeks: 48 });
+  assert.equal(r.net, 942); assert.equal(r.value, 56520); assert.equal(r.netValue, 11455); close(r.breakEven, 6.51);
+  const slow = AiRoi.business({ users: 10, adoptionPct: 100, hoursPerWeek: 10, changePct: -19, rate: 50, weeks: 48 });
+  assert.ok(slow.net < 0); assert.equal(slow.rework, 0); assert.equal(slow.payback, null);
+});
+
+test('workflow automation roi: worked example and break-even volume', () => {
+  const r = Automation.roi({ volume: 2000, minutes: 6, rate: 45, automatablePct: 80, exceptionPct: 10, exceptionMinutes: 10, errorPct: 3, errorCost: 40, errorReductionPct: 70, software: 12000, implementation: 15000, maintenance: 3000, rampMonths: 3, years: 3 });
+  assert.equal(r.hoursReturned, 1600); assert.equal(r.errorSavings, 20160); assert.equal(r.net, 204960); close(r.payback, 3.83); close(r.breakEvenVolume, 325.52);
+  assert.equal(Automation.roi({ volume: 10, minutes: 1, rate: 20, automatablePct: 100, software: 5000 }).payback, null);
 });
